@@ -34,10 +34,17 @@ Claude's self-report alone.
 
 ## Blockers
 
-- **None** for authoring the red-first tests.
-- **Decision needed (not a blocker, a fork):** approve `npm install` so the tests
-  can actually run red? See `state/current-state.md` → "Next recommended action"
-  and the question posed to the owner this session.
+- **None.** The `npm install` fork is resolved — owner approved (PD-04); Option B is
+  the two-commit install variant.
+
+## Prompt hardening (2026-05-31)
+
+The Option B test was changed from a static `import { computeInitialWaterTask }`
+(which, against an `export {};` module, is an ESM **link-time error** that aborts the
+whole suite at collection) to a **dynamic import in `beforeAll`**, so the file loads
+and each of the 8 tests fails per-test with `is not a function`. Typed via a local
+`WaterTaskLike` interface (no `any`) so it stays lint-clean and needs no change at
+the green step. Commit: `chore: tighten Option B prompt for predictable red failure`.
 
 ## Nice-to-fix / track
 
@@ -48,11 +55,12 @@ Claude's self-report alone.
 
 ## Exact next action
 
-**Option B.** Add `backend/tests/care-engine/compute-initial-water-task.test.ts`
-covering plan tests #7–#14 against the D-10 formula; do not implement the engine.
-Commit `test(care-engine): add Slice 1 watering-engine failing tests`; push.
-Full prompt: `prompts/next-implementation-prompt.md` (written for the no-install
-default; upgradeable to a two-commit install variant on owner approval).
+**Option B (two-commit, install approved — PD-04).** (1) `chore(backend): install
+dependencies and commit lockfile`; (2) `test(care-engine): add Slice 1
+watering-engine failing tests` — add
+`backend/tests/care-engine/compute-initial-water-task.test.ts` (tests #7–#14 vs
+D-10) using a dynamic import (per-test red), do not implement the engine; push.
+Full prompt: `prompts/next-implementation-prompt.md`.
 
 ## Tooling note
 

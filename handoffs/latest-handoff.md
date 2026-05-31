@@ -5,7 +5,8 @@
 ## One-line status
 Option A landed and is planner-verified (`b2836ca`, comment-only). Option B
 (care-engine red-first tests) is **ready as a two-commit prompt** — owner approved
-`npm install` (PD-04). PlantApp still has **no production behavior**.
+`npm install` (PD-04), and the test was hardened to use a **dynamic import** so the
+red is per-test (not a suite load error). PlantApp still has **no production behavior**.
 
 ## What this session did
 - Verified Option A on `origin/master` independently (`git show`/`diff`): one file,
@@ -21,6 +22,10 @@ Option A landed and is planner-verified (`b2836ca`, comment-only). Option B
   `decisions/planner-decisions.md` (PD-03 planner remote, PD-04 install).
 - Committed + pushed the planner repo to its new remote
   (`git@github.com:iFernandez96/PlantAppPlanner.git`).
+- **Hardening pass:** fixed the Option B test to load the engine via a dynamic
+  import (a static named import of the missing export would abort the suite at
+  collection rather than failing per-test). Commit `chore: tighten Option B prompt
+  for predictable red failure`.
 
 ## What the OWNER does next
 Paste the two-commit Option B prompt from `prompts/next-implementation-prompt.md`
@@ -37,8 +42,9 @@ confirm the 8 tests fail red → commit → push (two commits total).
 3. **Record the first-ever test-run result** — did the pre-existing schema tests
    pass? Note it in `state/current-state.md` (this was their first real execution).
 4. Write the **green** prompt: `feat(care-engine): implement computeInitialWaterTask`
-   (sha256 + canonical-JSON of `sourceInputs`, D-10 formula, schema-valid `CareTask`),
-   and have it remove the now-unused `@ts-expect-error` in the test.
+   (sha256 + canonical-JSON of `sourceInputs`, D-10 formula, schema-valid `CareTask`).
+   The test file needs no change for green — its dynamic import resolves to the real
+   function once exported.
 
 ## Open questions for the owner
 - None blocking. (Install decision resolved → PD-04.) Future gate: builds/migrations

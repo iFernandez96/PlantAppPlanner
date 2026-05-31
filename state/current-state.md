@@ -69,8 +69,9 @@ approved `npm install` on 2026-05-31 — PD-04):
    `backend/` (`node_modules/` git-ignored), run `npm test` to establish the
    pre-existing-tests baseline (first ever execution), commit `package-lock.json`.
 2. `test(care-engine): add Slice 1 watering-engine failing tests` — add
-   `backend/tests/care-engine/compute-initial-water-task.test.ts`, run `npm test`
-   to confirm the 8 new tests fail red (`is not a function`), commit.
+   `backend/tests/care-engine/compute-initial-water-task.test.ts` (loads the engine
+   via a **dynamic import** so the suite loads and the 8 tests fail per-test, not at
+   collection), run `npm test` to confirm the 8 fail red (`is not a function`), commit.
 
 Do **not** implement the engine (keep `care-engine/index.ts` placeholder) — that is
 the later green commit. Exact pasteable prompt: `prompts/next-implementation-prompt.md`.

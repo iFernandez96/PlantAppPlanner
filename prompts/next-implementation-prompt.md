@@ -49,7 +49,10 @@ If any of these don't match, STOP and report — this prompt is stale.
 
 ### Global forbidden — do NOT (applies to both commits)
 - Do **not** implement `computeInitialWaterTask`. Leave `backend/care-engine/index.ts`
-  exactly `export {};`. The failing import IS the intended red.
+  exactly `export {};`. The unimplemented (undefined) function IS the intended red.
+- Do **not** change the test's dynamic `import()` to a static `import { … }` — the
+  dynamic import is intentional so the suite loads and fails per-test (see the test
+  file's header comment).
 - Do **not** modify any schema, any existing test, `package.json`, `vitest.config.ts`,
   `tsconfig.json`, or `_helpers.ts`.
 - Do **not** commit `node_modules/` (it is git-ignored — verify it does not appear
@@ -136,14 +139,42 @@ rationale          = "<commonNames[0]>: base interval <baseIntervalDays>d adjust
 // Care-engine red-first tests (per docs/slice-01-implementation-plan.md tests #7–#14,
 // formula D-10 in docs/slice-01-decision-log.md).
 //
-// RED-FIRST: computeInitialWaterTask is intentionally NOT implemented yet.
-// backend/care-engine/index.ts is still `export {};`, so the import below is
-// undefined and these tests fail (computeInitialWaterTask is not a function).
-// The engine implementation is a separate, later commit — do not implement it
-// here to make these pass.
-import { describe, it, expect } from 'vitest';
-// @ts-expect-error — not implemented yet (red-first); the export lands in a later commit.
-import { computeInitialWaterTask } from '../../care-engine/index.js';
+// RED-FIRST: computeInitialWaterTask is intentionally NOT implemented yet
+// (backend/care-engine/index.ts is still `export {};`). The module is loaded with a
+// DYNAMIC import in beforeAll on purpose: a static `import { computeInitialWaterTask }`
+// of a missing named export throws at module-link time and aborts the whole suite
+// before any test runs. Loading the namespace and reading the (absent) export yields
+// `undefined`, so each test fails individually with
+// "computeInitialWaterTask is not a function" — the precise red we want. Do NOT
+// convert this to a static named import, and do not implement the engine here (that
+// is a separate later commit). This same file passes unchanged once the export exists.
+import { describe, it, expect, beforeAll } from 'vitest';
+
+// Local shape we assert against. The real CareTask type lands with the engine; this
+// keeps the red-first test type-clean without importing from an unimplemented module.
+interface WaterTaskLike {
+  id: string;
+  plantInstanceId: string;
+  kind: string;
+  dueAt: string;
+  priority: string;
+  rationale: string;
+  engineVersion: string;
+  inputsHash: string;
+  status: string;
+  sourceInputs: Record<string, unknown>;
+}
+
+// Resolves to `undefined` while the engine is a placeholder, so each test below
+// throws "computeInitialWaterTask is not a function" — not a suite-load error.
+let computeInitialWaterTask: (input: unknown) => WaterTaskLike;
+
+beforeAll(async () => {
+  const mod = await import('../../care-engine/index.js');
+  computeInitialWaterTask = (mod as unknown as {
+    computeInitialWaterTask: (input: unknown) => WaterTaskLike;
+  }).computeInitialWaterTask;
+});
 
 const DAY_MS = 86_400_000;
 
@@ -279,11 +310,13 @@ describe('computeInitialWaterTask — Slice 1 (red-first)', () => {
 cd /home/israel/Documents/Development/PlantApp/backend
 npm test
 ```
-Expected: the **8 new** `computeInitialWaterTask` tests **FAIL** with
-`TypeError: computeInitialWaterTask is not a function` (because the engine is still
-`export {};`). `npm test` exits non-zero — that is the **desired red**. The
-pre-existing schema tests should still pass. Do **not** implement the engine to make
-the 8 pass. Confirm `backend/care-engine/index.ts` is still `export {};`.
+Expected: the test file **loads cleanly** (dynamic import) and the **8 new**
+`computeInitialWaterTask` tests **FAIL individually** with
+`TypeError: computeInitialWaterTask is not a function` (engine still `export {};`) —
+you should see 8 failing test cases, **not** a suite collection/load error. `npm test`
+exits non-zero — that is the **desired red**. The pre-existing schema tests should
+still pass. Do **not** implement the engine to make the 8 pass. Confirm
+`backend/care-engine/index.ts` is still `export {};`.
 
 #### Commit + push
 ```bash
@@ -315,5 +348,5 @@ git -C /home/israel/Documents/Development/PlantApp push origin master
 3. Update `state/*`, `reviews/latest-repo-review.md`, `github-checks/…`.
 4. Write the **green** prompt: `feat(care-engine): implement computeInitialWaterTask`
    (sha256 + canonical-JSON of `sourceInputs`, the D-10 formula, returning a
-   schema-valid `CareTask`) so all 8 tests pass — and remove the `@ts-expect-error`
-   line in the test (it becomes an unused directive once the export exists).
+   schema-valid `CareTask`) so all 8 tests pass. The test file needs **no change**
+   for green — the dynamic import resolves to the real function once it is exported.
