@@ -35,7 +35,10 @@ Verified from `git log --oneline` on 2026-05-31. The full history is 20 commits;
 
 ## Phase 5 — Schema tests (red-first) & contract alignment
 - `56b1c4f` test(schema): add Slice 1 schema-validation failing tests
-- `52c9d77` test(schema): make Slice 1 schema contract assertions consistent ← **HEAD / origin/master**
+- `52c9d77` test(schema): make Slice 1 schema contract assertions consistent
+
+## Phase 6 — Stale-comment cleanup (planner Option A)
+- `b2836ca` test(schema): remove stale GardenSpace minLength comment ← **HEAD / origin/master** — 2026-05-31; comment-only (3 ins/5 del, 1 file), planner-verified
 
 ## Accepted decisions (canonical record in `docs/slice-01-decision-log.md`)
 
@@ -83,3 +86,8 @@ inputsHash         = sha256(canonical-json(sourceInputs))
 - **2026-05-31** — Planner control tower initialized. Verified PlantApp at
   `52c9d77`, clean, no production behavior. Recorded planner decision PD-01
   (choose Option A) in `decisions/planner-decisions.md`.
+- **2026-05-31** — Option A landed (`b2836ca`) and planner-verified comment-only.
+  Owner added a remote for the planner repo
+  (`git@github.com:iFernandez96/PlantAppPlanner.git`) and pushed `master`.
+  Next step set to Option B (care-engine red-first tests #7–#14), pending the
+  `npm install` decision.

@@ -9,7 +9,7 @@ architecture decisions (D-01…D-12, which live in PlantApp's
 
 ## PD-01 — Next step is Option A (stale-comment cleanup), not Option B
 
-**Date:** 2026-05-31 · **Status:** Decided
+**Date:** 2026-05-31 · **Status:** Decided → **Landed `b2836ca`** (2026-05-31, planner-verified comment-only)
 
 **Decision:** Recommend the tiny test-comment cleanup (Option A) as the next
 implementation prompt, deferring the red-first care-engine tests (Option B) to
@@ -49,3 +49,26 @@ runs installs/builds/migrations there.
 control tower and the implementer from racing on the same working tree.
 
 **Evidence:** `CLAUDE.md` (this repo), `.claude/rules/no-plantapp-mutation.md`.
+
+---
+
+## PD-03 — Planner repo has a GitHub remote; planner pushes its own commits
+
+**Date:** 2026-05-31 · **Status:** Standing
+
+**Decision:** The owner created `origin =
+git@github.com:iFernandez96/PlantAppPlanner.git` for THIS planner repo and pushed
+`master`. Going forward, the planner commits its updates and **pushes them to that
+remote** to keep the GitHub copy in sync. (This is the planner repo only — the
+no-mutation boundary on the *app* repo PlantApp is unchanged; see PD-02.)
+
+**Why:** The owner explicitly established and used the remote, signaling the
+planner repo should live on GitHub and stay synced. CLAUDE.md previously said
+"push the planner repo only if/when the owner adds a remote" — that condition is
+now met.
+
+**How to apply:** after each planner commit, `git push origin master` for the
+planner repo. If the owner later says stop, record the reversal here.
+
+**Evidence:** session bash log 2026-05-31 (`git remote add origin …PlantAppPlanner.git`;
+`git push origin master` → `* [new branch] master -> master`).

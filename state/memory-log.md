@@ -21,7 +21,7 @@ session. This prevents auto-memory from going stale and being trusted blindly.
 |---|---|---|
 | `planner-control-tower-role.md` | project | This instance = PlantAppPlanner control tower; plans/reviews/writes prompts; canonical state lives in this repo's files. |
 | `plantapp-no-mutation-boundary.md` | feedback | Never edit/commit/push PlantApp; never run installs/builds/migrations there; read-only git + reads only; mutations need per-change approval. |
-| `plantapp-repo-identity.md` | reference | PlantApp = github.com/iFernandez96/PlantApp, public, default branch `master`, SSH remote; separate from this planner repo. |
+| `plantapp-repo-identity.md` | reference | PlantApp = github.com/iFernandez96/PlantApp, public, default branch `master`, SSH remote; separate from this planner repo. *(Updated 2026-05-31: planner repo now has its own remote `PlantAppPlanner.git`.)* |
 
 ## Deliberately NOT in auto-memory
 - Current HEAD (`52c9d77` as of 2026-05-31) — see `state/current-state.md`.

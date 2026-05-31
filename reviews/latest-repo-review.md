@@ -1,63 +1,62 @@
 # PlantApp — Repo Review
 
-**Date:** 2026-05-31 · **Reviewer:** PlantAppPlanner control tower
-**Repo:** `/home/israel/Documents/Development/PlantApp` @ `52c9d77` (`master`)
-**Verdict:** Clean. One stale comment to fix. No production behavior. Safe to
-proceed with the tiny cleanup (Option A).
+**Date:** 2026-05-31 (post Option A) · **Reviewer:** PlantAppPlanner control tower
+**Repo:** `/home/israel/Documents/Development/PlantApp` @ `b2836ca` (`master`)
+**Verdict:** Option A landed cleanly and is verified. No production behavior. Next
+step is the first care-engine red-first test (Option B), gated on the `npm install`
+decision.
 
-## Files reviewed (with evidence)
+## Option A verification (this review's focus)
 
-| File | Finding |
+| Check | Result |
 |---|---|
-| `shared-schemas/garden-space.schema.json` | `name` has `minLength: 1, maxLength: 80` (line 12). Contract present. ✅ |
-| `shared-schemas/care-task.schema.json` | Full CareTask contract incl. `sourceInputs` (with `wateringBaselineAt`), `engineVersion`, `inputsHash`. Matches D-10. ✅ |
-| `backend/tests/schema/_helpers.ts` | Ajv 2020 `{ allErrors: true, strict: true }` (line 15). ✅ |
-| `backend/tests/schema/garden-space.test.ts` | **Stale comment, lines 3–8** — claims schema "does not yet enforce a minLength" and the empty-name test "fails red." Both false now. ⚠️ |
-| `backend/care-engine/index.ts` | Placeholder `export {};` (line 5). No logic. ✅ |
-| `backend/package.json` | `test` = `vitest run`; vitest is devDependency, not installed. ✅ (expected) |
-| `backend/vitest.config.ts` | `include: ['**/*.test.ts']`, excludes integration; coverage targets `care-engine/**`, `src/**`. ✅ |
-| `supabase/migrations/0001_init_extensions.sql` | Extensions only (`uuid-ossp`, `pgcrypto`); explicitly no tables (lines 3–6). ✅ |
-| `justfile` | Thin pass-through targets; no DB/install side effects baked in. ✅ |
-| `docs/slice-01-implementation-plan.md` | Slice 1 scope + formula + red-first test list (#1–#24) + DOD. NOT-YET-APPROVED banner present. ✅ |
-| `docs/slice-01-decision-log.md` | D-01…D-12 accepted 2026-05-26. ✅ |
-| `docs/domain-model.md` | Entities match schemas; `lastWateredAt` = onboarding baseline only. ✅ |
-| `docs/roadmap.md` | 9 slices; Slice 1 matches the plan. ✅ |
-| `README.md` / `CLAUDE.md` (app) | Both state "foundation + scaffolding only, no production behavior." Consistent with reality. ✅ |
+| Commit on `origin/master`? | ✅ `b2836ca` (fast-forward from `52c9d77`) |
+| Files changed | ✅ exactly 1 — `backend/tests/schema/garden-space.test.ts` |
+| Comment-only? | ✅ hunk confined to header lines; imports/fixture/assertions unchanged |
+| Stale claim removed? | ✅ "does not yet enforce a minLength / fails red" gone |
+| Replacement accurate? | ✅ now states schema enforces `minLength:1`, empty-name test is a passing guard |
+| Scope creep? | ✅ none — no other file touched |
 
-## Local vs GitHub comparison
+Method: `git show b2836ca`, `git diff --name-only 52c9d77 b2836ca`,
+`git show --stat b2836ca`. The planner did **not** rely on the implementation
+Claude's self-report alone.
 
-- Local HEAD `52c9d77` **==** `origin/master` `52c9d77`. In sync.
-- Working tree clean; no uncommitted changes; no untracked/ignored noise.
-- `git fetch origin` succeeded; only remote branch is `origin/master`.
-- See `github-checks/latest-github-check.md` for PRs/issues/checks detail
-  (all zero — no CI configured).
+## Files reviewed for the NEXT step (Option B grounding)
+
+| File | Finding (path:line) |
+|---|---|
+| `backend/care-engine/index.ts` | placeholder `export {};` (line 5) — unimplemented, correct for red-first |
+| `shared-schemas/plant-profile.schema.json` | `wateringProfile.baseIntervalDays` (41, min 0.25); `containerProfile.recommendedMinLiters` (65); `commonNames` (24, minItems 1); `version` (127, int ≥1) |
+| `shared-schemas/plant-instance.schema.json` | `createdAt` (39, date-time), optional `lastWateredAt` (24, date-time), `profileId`/`containerId`/`gardenSpaceId` required (8) |
+| `shared-schemas/container.schema.json` | `volumeLiters` exclusiveMinimum 0 (13); `id` uuid (10) |
+| `shared-schemas/care-task.schema.json` | required incl. `sourceInputs`/`engineVersion`/`inputsHash` (8); `sourceInputs` shape with `wateringBaselineAt` (31–49) |
+| `backend/tests/schema/{plant-profile,plant-instance,container}.test.ts` | existing valid fixtures (e.g. tomato `solanum-lycopersicum` baseIntervalDays 2 / recommendedMinLiters 19; container `volumeLiters` 19) — reuse for engine fixtures |
 
 ## Blockers
 
-**None** for the Option A cleanup. (The inability to run `npm test` is expected —
-deps not installed, install not approved — and does not block a comment-only edit.)
+- **None** for authoring the red-first tests.
+- **Decision needed (not a blocker, a fork):** approve `npm install` so the tests
+  can actually run red? See `state/current-state.md` → "Next recommended action"
+  and the question posed to the owner this session.
 
-## Nice-to-fix (not now; track, don't act without approval)
+## Nice-to-fix / track
 
-- The stale comment is the only code-hygiene item; Option A handles it.
-- After Option A: add red-first care-engine tests (#7–#14) — that is the on-deck
-  Option B prompt, written by the planner once Option A lands.
-- App `CLAUDE.md` "Commands" section still says "placeholders until code lands";
-  fine for now, revisit when the first runnable code lands. (No action.)
+- After Option B tests are red, the green step `feat(care-engine): implement
+  computeInitialWaterTask` is the following commit (separate; not part of Option B).
+- App `CLAUDE.md` "Commands" still says "placeholders until code lands"; revisit
+  when the first runnable backend code lands (no action now).
 
 ## Exact next action
 
-**Option A.** Implementation Claude edits **only**
-`backend/tests/schema/garden-space.test.ts` (comment lines 3–8), correcting the
-stale minLength claim. Commit `test(schema): remove stale GardenSpace minLength
-comment`, push to `origin/master`. Full prompt:
-`prompts/next-implementation-prompt.md`.
+**Option B.** Add `backend/tests/care-engine/compute-initial-water-task.test.ts`
+covering plan tests #7–#14 against the D-10 formula; do not implement the engine.
+Commit `test(care-engine): add Slice 1 watering-engine failing tests`; push.
+Full prompt: `prompts/next-implementation-prompt.md` (written for the no-install
+default; upgradeable to a two-commit install variant on owner approval).
 
-## Tooling note (bundled skills/agents used)
+## Tooling note
 
-- This review used **direct read-only inspection** (Read + `git` + `grep` via
-  Bash) and the **`gh` CLI** for GitHub state. No bundled Claude Code review
-  skill (e.g. `/code-review`, `/security-review`) was invoked — they target a
-  working diff/branch in the *current* repo, whereas this is a read-only audit of
-  a *separate* repo. Planner-side reasoning is encoded in
-  `.claude/skills/` and `.claude/agents/` for repeatability.
+Direct read-only inspection (Read + `git`) again; no bundled `/code-review` or
+`/security-review` skill invoked (they target a working diff in the *current* repo,
+not a read-only audit of a separate repo). Planner subagents/skills under
+`.claude/` encode the repeatable checklists.

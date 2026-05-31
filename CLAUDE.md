@@ -50,7 +50,11 @@ Real app on GitHub: `github.com/iFernandez96/PlantApp` — **public**, default b
   `.claude/{agents,skills,rules}/`, `memory/`, `reviews/`, `prompts/`,
   `handoffs/`, `github-checks/`, `decisions/`, `state/`, `scratch/`.
 - Commit the planner repo (owner has **standing approval** for planner commits).
-- Push the planner repo **only** if/when the owner adds a remote and asks.
+- Push the planner repo to its remote (`origin =
+  git@github.com:iFernandez96/PlantAppPlanner.git`, added 2026-05-31) after each
+  planner commit, to keep GitHub in sync (see `decisions/planner-decisions.md`
+  PD-03). This applies to the **planner repo only** — the no-mutation boundary on
+  the *app* repo PlantApp is unchanged.
 
 ## Operating procedure (run every working session)
 

@@ -1,48 +1,54 @@
 # Latest Handoff
 
-**From:** Planner init session · **Date:** 2026-05-31
+**From:** Option-A-verification session · **Date:** 2026-05-31
 
 ## One-line status
-PlantApp is at `52c9d77` on `master` (local == `origin/master`), clean, **no
-production behavior**; next step is a tiny comment cleanup (Option A) whose exact
-prompt is ready in `prompts/next-implementation-prompt.md`.
+Option A landed and is planner-verified — PlantApp `origin/master` == `b2836ca`
+(comment-only), clean, **still no production behavior**. Next is Option B
+(care-engine red-first tests), whose exact shape depends on an open `npm install`
+decision.
 
 ## What this session did
-- Initialized the planner control-tower repo (this repo) as its own git repo on
-  `master`.
-- Inspected PlantApp read-only (git + GitHub via `gh`).
-- Verified all nine fact-checks (see `reviews/latest-repo-review.md` and
-  `state/current-state.md`).
-- Created the full planner skeleton: CLAUDE.md, README, state/, reviews/,
-  github-checks/, prompts/, handoffs/, decisions/, 7 subagents, 4 skills,
-  2 rules, memory index + Claude Code auto-memory entries.
-- Chose **Option A** (recorded as PD-01 in `decisions/planner-decisions.md`).
+- Independently verified Option A on `origin/master` (`git show b2836ca`,
+  `diff --name-only 52c9d77 b2836ca`): exactly one file, comment-only, fixture +
+  assertions intact. Did **not** trust the implementation Claude's report alone.
+- Grounded the Option B test spec against the real schemas + existing fixtures
+  (confirmed `wateringProfile.baseIntervalDays`, `containerProfile.recommendedMinLiters`,
+  `container.volumeLiters`, `plant.createdAt`/`lastWateredAt`, CareTask `sourceInputs`).
+- Updated `state/current-state.md`, `github-checks/latest-github-check.md`,
+  `reviews/latest-repo-review.md`, `state/known-history.md`,
+  `decisions/planner-decisions.md`.
+- Wrote the Option B prompt (no-install default variant) to
+  `prompts/next-implementation-prompt.md`.
+- Recorded that the owner added a remote for THIS planner repo and pushed it
+  (`git@github.com:iFernandez96/PlantAppPlanner.git`) → PD-03; planner now pushes
+  its own commits there.
 
 ## What the OWNER does next
-Paste the prompt from `prompts/next-implementation-prompt.md` into the
-**implementation** Claude Code instance (the one pointed at PlantApp). It will
-make a comment-only edit, commit `test(schema): remove stale GardenSpace
-minLength comment`, and push to `origin/master`.
+1. **Answer the open question:** approve `npm install` in `backend/` for Option B,
+   or keep the no-install structural-red default?
+2. Paste the Option B prompt from `prompts/next-implementation-prompt.md` into the
+   implementation Claude. (If install is approved, the planner will first upgrade
+   the prompt to the two-commit variant — say the word.)
 
 ## What the NEXT planner session does
-1. Re-read `state/current-state.md` + this handoff.
-2. `git -C /home/israel/Documents/Development/PlantApp fetch origin` and compare
-   HEAD vs `origin/master`. Confirm whether Option A landed.
-3. **If Option A landed:** verify the diff was comment-only, update
-   `state/*`, `reviews/latest-repo-review.md`, `github-checks/latest-github-check.md`
-   to the new HEAD, then write the **Option B** prompt (care-engine red-first
-   tests #7–#14). Note: Option B will require deciding whether to approve
-   `npm install` so the new tests can actually run red rather than just fail to
-   load.
-4. **If Option A did NOT land:** re-issue / adjust the Option A prompt.
+1. Re-read `state/current-state.md` + this handoff; `git -C PlantApp fetch origin`
+   and compare HEAD vs `origin/master` (expect `b2836ca` until Option B lands).
+2. If Option B landed: verify the new test file is red-first (imports the
+   unimplemented `computeInitialWaterTask`; engine still placeholder), update
+   state/review/github-check, then write the **green** prompt
+   `feat(care-engine): implement computeInitialWaterTask`.
+3. If not landed: re-issue/adjust Option B.
 
-## Open questions for the owner (not blocking Option A)
-- Approve `npm install` in PlantApp before/at Option B so care-engine tests can
-  execute (currently every `npm test` fails with `vitest: not found`)?
-- Add a remote for THIS planner repo so it can be pushed/backed up? (Not done;
-  no push without an owner-provided remote.)
+## Open questions for the owner
+- **`npm install` for Option B?** (blocks whether tests truly run red). Default =
+  no install (structural red only).
+- If installing: commit `package-lock.json`? (Recommended yes, as its own
+  `chore(backend): …` commit before the test commit.)
 
-## Tripwires / things not to assume
-- Do not assume `52c9d77` is still HEAD — always re-fetch and re-check.
-- No CI exists on GitHub; "green" there means nothing runs, not that tests pass.
-- PlantApp commits go straight to `master` (no PRs); follow that pattern.
+## Tripwires / do-not-assume
+- Re-verify SHAs every session; don't assume `b2836ca` is still HEAD.
+- No CI on GitHub — "green" there means nothing runs.
+- Keep `care-engine/index.ts` as a placeholder during Option B — implementing it
+  is a *separate* later commit (red-first discipline).
+- PlantApp commits go straight to `master` (no PRs).

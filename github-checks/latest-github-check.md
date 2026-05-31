@@ -1,48 +1,47 @@
 # PlantApp — GitHub Check
 
-**Date:** 2026-05-31 · **Repo:** `iFernandez96/PlantApp`
-**Method:** `git fetch` + `git rev-parse` + `gh` CLI (authenticated as
-`iFernandez96`, ssh, scopes incl. `repo`).
+**Date:** 2026-05-31 (after Option A) · **Repo:** `iFernandez96/PlantApp`
+**Method:** `git fetch` + `git rev-parse` + `git show` (and `gh` from the init check).
 
 ## Summary
 
 | Question | Answer |
 |---|---|
-| Latest commit on `origin/master` | `52c9d77` — `test(schema): make Slice 1 schema contract assertions consistent` |
-| Does local HEAD match `origin/master`? | ✅ YES (`52c9d776…` both sides) |
+| Latest commit on `origin/master` | `b2836ca` — `test(schema): remove stale GardenSpace minLength comment` |
+| Does local HEAD match `origin/master`? | ✅ YES (`b2836ca…` both sides) |
+| Previous HEAD | `52c9d77` (Option A fast-forwarded `52c9d77..b2836ca`) |
 | Uncommitted local changes? | ❌ None (clean tree) |
-| GitHub status checks on `52c9d77`? | ❌ None — combined status `state: pending`, `total_count: 0` |
-| GitHub Actions workflows? | ❌ None (`actions/workflows` total_count = 0) |
-| Check runs on `52c9d77`? | ❌ None (total_count = 0) |
-| Open/closed PRs? | ❌ None (`gh pr list --state all` empty) |
-| Open/closed issues? | ❌ None (`gh issue list --state all` empty) |
-| Default branch? | `master` |
-| Remote branches? | only `origin/master` |
-| Visibility | **public** |
-| Is latest commit `52c9d77` or newer? | It **is** `52c9d77` (not newer; matches the prior session's last known commit) |
+| Files changed by `b2836ca` | exactly 1 — `backend/tests/schema/garden-space.test.ts` |
+| Diff nature | comment-only (3 ins / 5 del); fixture + assertions untouched |
+| Author | Israel Fernandez |
+| GitHub status checks / workflows / check-runs | None (no CI — unchanged) |
+| Open/closed PRs | None |
+| Open/closed issues | None |
+| Default branch | `master` |
+
+## Verification commands run (2026-05-31)
+
+```
+$ git -C PlantApp rev-parse HEAD            => b2836ca7ff4d65020f1d385d38940cf8652db459
+$ git -C PlantApp rev-parse origin/master   => b2836ca7ff4d65020f1d385d38940cf8652db459
+$ git -C PlantApp diff --name-only 52c9d77 b2836ca
+  => backend/tests/schema/garden-space.test.ts
+$ git -C PlantApp show --stat b2836ca
+  => 1 file changed, 3 insertions(+), 5 deletions(-)
+```
 
 ## Interpretation
 
-- **No CI exists.** There is no GitHub Actions workflow and no commit-status
-  provider, so the failing local `npm test` (`vitest: not found`) is **not**
-  surfaced or gated anywhere on GitHub. Green-on-GitHub here means "nothing runs,"
-  not "tests pass."
-- Local and remote are identical; the implementation Claude can fast-forward
-  push after the next commit with no divergence risk.
-- No PRs/issues — the project commits directly to `master` (consistent with the
-  20-commit linear history). The next commit follows that pattern.
+- Option A is **on `origin/master`** and the planner has **independently verified**
+  it is comment-only (did not merely trust the implementation Claude's report).
+- Still **no CI**, no PRs, no issues — commits continue straight to `master`. The
+  next commit (Option B) will fast-forward cleanly from `b2836ca`.
+- `npm test` remains un-runnable on GitHub or locally (no deps, no CI). A failing
+  local test is still gated nowhere; the planner remains the verification layer.
 
-## Raw evidence
+## Planner repo (this repo) remote — NEW
 
-```
-$ git -C PlantApp rev-parse HEAD            => 52c9d776d0202426c91af67d094a5330cc73f123
-$ git -C PlantApp rev-parse origin/master   => 52c9d776d0202426c91af67d094a5330cc73f123
-$ gh repo view iFernandez96/PlantApp --json defaultBranchRef,isPrivate,visibility
-  => {"defaultBranchRef":{"name":"master"},"isPrivate":false,"visibility":"PUBLIC"}
-$ gh api repos/iFernandez96/PlantApp/commits/52c9d77/status --jq '{state,total:.total_count}'
-  => {"state":"pending","total":0}
-$ gh api repos/iFernandez96/PlantApp/commits/52c9d77/check-runs --jq '.total_count'  => 0
-$ gh api repos/iFernandez96/PlantApp/actions/workflows --jq '.total_count'           => 0
-$ gh pr list    --state all  => (empty)
-$ gh issue list --state all  => (empty)
-```
+The owner added a remote and pushed the planner repo on 2026-05-31:
+`origin = git@github.com:iFernandez96/PlantAppPlanner.git`, branch `master`
+pushed. The planner repo is now backed on GitHub; planner follow-up commits should
+be pushed there too (see `decisions/planner-decisions.md` PD-03).

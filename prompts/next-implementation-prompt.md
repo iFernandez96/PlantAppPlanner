@@ -1,17 +1,27 @@
 # Next Implementation Prompt
 
-**Chosen:** Option A — remove the stale `GardenSpace.name` minLength comment.
-**Why this and not Option B:** the stale comment in
-`backend/tests/schema/garden-space.test.ts` (lines 3–8) **still exists** as of
-`52c9d77`, while the schema already enforces `minLength: 1`. Clean it before
-writing new care-engine tests. (Option B — red-first care-engine tests — is
-on-deck; the planner will issue that prompt once this lands on `origin/master`.)
+**Chosen:** Option B — red-first care-engine unit tests for `computeInitialWaterTask`
+(Slice 1 plan tests #7–#14; formula D-10). Option A (`b2836ca`) is landed +
+planner-verified.
 
-**Verified preconditions (2026-05-31):** PlantApp on `master`, HEAD `52c9d77` ==
-`origin/master`, working tree clean. The schema enforces `minLength: 1`
-(`shared-schemas/garden-space.schema.json:12`) and the Ajv helper uses
-`strict: true` (`backend/tests/schema/_helpers.ts:15`), so the empty-name test is
-a *passing regression guard*, not a pending red contract — the comment is wrong.
+**Red-first discipline:** these tests are added **before** the engine exists.
+`backend/care-engine/index.ts` stays the placeholder `export {};` — the tests
+import a not-yet-implemented `computeInitialWaterTask`, so they fail red. The
+engine implementation is a **separate later commit** (`feat(care-engine): …`), not
+this one.
+
+**Verified baseline (2026-05-31):** PlantApp on `master`, HEAD `b2836ca` ==
+`origin/master`, clean. Field names grounded against the real schemas:
+`profile.wateringProfile.baseIntervalDays`, `profile.containerProfile.recommendedMinLiters`,
+`container.volumeLiters`, `plant.createdAt`/`lastWateredAt`, CareTask `sourceInputs`
+(incl. `wateringBaselineAt`).
+
+> ⚠️ **OPEN DECISION — read first.** This pasteable prompt is the **no-install**
+> variant: it adds the failing test file but does **not** run it (`npm test` would
+> say `vitest: not found` because `node_modules` is absent and `npm install` is not
+> approved). The "red" is therefore *structural* — `computeInitialWaterTask` is
+> `undefined` at runtime. If you want a **true executed red** (recommended), see
+> **"Install variant"** at the bottom; the planner will reissue a two-commit prompt.
 
 ---
 
@@ -20,119 +30,273 @@ a *passing regression guard*, not a pending red contract — the comment is wron
 You are working in the **PlantApp** repo: `/home/israel/Documents/Development/PlantApp`
 (branch `master`, GitHub `iFernandez96/PlantApp`).
 
-This is a **single-purpose, comment-only cleanup**. A stale comment in a schema
-test claims `garden-space.schema.json` does not enforce `minLength` on `name`.
-That is no longer true (the schema enforces `"minLength": 1`). Fix the comment.
+Add **red-first** unit tests for the Slice 1 deterministic watering engine
+function `computeInitialWaterTask`. The function does **not** exist yet — these
+tests define its contract and must fail. Do **not** implement the function in this
+commit.
 
 ### Scope (exactly one logical change)
-- Correct the stale comment block in **one** file. Nothing else.
+- Add **one new test file**: `backend/tests/care-engine/compute-initial-water-task.test.ts`.
+- Nothing else.
 
 ### Forbidden — do NOT
-- Do not modify `shared-schemas/garden-space.schema.json` (it is already correct).
-- Do not modify `backend/tests/schema/_helpers.ts`.
-- Do not change any test **logic**: leave the `validGardenSpace` fixture and all
-  three `it(...)` assertions byte-for-byte identical.
-- Do not reformat, re-indent, or reorder anything in the file.
-- Do not create, rename, or delete any file.
-- Do not touch any other file anywhere in the repo.
-- Do not run `npm install`, `npm test`, `vitest`, `gradle`, `supabase`, builds,
-  migrations, or any dependency/DB command. None are needed for a comment edit.
+- Do **not** implement `computeInitialWaterTask`. Leave `backend/care-engine/index.ts`
+  exactly as it is (`export {};`). The failing import IS the intended red.
+- Do **not** modify any schema, any existing test, `_helpers.ts`, `package.json`,
+  `vitest.config.ts`, or any other file.
+- Do **not** run `npm install` / `npm test` / `vitest` / builds / migrations.
+  (No deps are installed; running is out of scope for this commit — see "Expected
+  failure mode" below.)
+- Do **not** add new dependencies.
 
-### Exact file to touch
-- `backend/tests/schema/garden-space.test.ts` — comment lines only (the header
-  block at the top of the file).
-
-### The edit
-First confirm you are at the expected baseline:
+### Baseline precondition (STOP if it doesn't match)
 ```bash
 cd /home/israel/Documents/Development/PlantApp
 git fetch origin
-git rev-parse --abbrev-ref HEAD          # expect: master
-git rev-parse HEAD                        # expect: 52c9d776d0202426c91af67d094a5330cc73f123
-git rev-parse origin/master               # expect: same as HEAD
-git status --short                        # expect: empty (clean)
+git rev-parse --abbrev-ref HEAD     # expect: master
+git rev-parse HEAD                   # expect: b2836ca7ff4d65020f1d385d38940cf8652db459
+git rev-parse origin/master          # expect: same
+git status --short                   # expect: empty
+cat backend/care-engine/index.ts     # expect: comment + `export {};` (placeholder)
 ```
-If HEAD is **not** `52c9d77` or the tree is **not** clean, STOP and report — the
-baseline has changed and this prompt may be stale.
+If HEAD is not `b2836ca`, the tree is dirty, or `care-engine/index.ts` is no longer
+a placeholder, STOP and report — this prompt is stale.
 
-Replace this exact block at the top of
-`backend/tests/schema/garden-space.test.ts`:
+### The contract these tests pin
+`computeInitialWaterTask` is a **pure function**. The caller supplies the task `id`
+and the clock, so output is fully deterministic (no internal randomness/`Date.now`):
 
 ```ts
-// Test #4 (per docs/slice-01-implementation-plan.md):
-// garden-space.schema.json rejects empty name and missing kind.
-//
-// Note: at the time these tests were written, garden-space.schema.json does
-// not yet enforce a minLength on `name`. The empty-name test therefore acts
-// as a contract specification: when it fails red, the next step is to add
-// `"minLength": 1` (and likely `"pattern"` or `"format"` constraints) to the
-// schema rather than to weaken the test.
+interface ComputeInitialWaterTaskInput {
+  id: string;            // CareTask.id (uuid), caller-supplied
+  clockUtc: string;      // ISO-8601 date-time — the engine's "now"
+  plant: {
+    id: string;          // PlantInstance.id (uuid)
+    profileId: string;
+    containerId: string;
+    gardenSpaceId: string;
+    createdAt: string;        // ISO-8601 date-time
+    lastWateredAt?: string;   // optional ISO-8601 date-time (onboarding baseline)
+  };
+  profile: {
+    id: string;
+    version: number;          // integer >= 1 → sourceInputs.profileVersion
+    commonNames: string[];    // commonNames[0] used in the rationale
+    wateringProfile: { baseIntervalDays: number };
+    containerProfile: { recommendedMinLiters: number };
+  };
+  container: { id: string; volumeLiters: number };
+  gardenSpace: { id: string };
+}
+// export function computeInitialWaterTask(input: ComputeInitialWaterTaskInput): CareTask
 ```
 
-with this exact block:
+D-10 formula the tests encode (interval × factor is in **days**):
+```
+wateringBaselineAt = plant.lastWateredAt ?? plant.createdAt
+containerFactor    = clamp(container.volumeLiters / profile.containerProfile.recommendedMinLiters, 0.5, 1.5)
+dueAt              = wateringBaselineAt + (profile.wateringProfile.baseIntervalDays × containerFactor) days
+priority           = "normal"     engineVersion = "0.1.0"     status = "pending"
+sourceInputs       = { plantInstanceId, profileId, profileVersion, containerId,
+                       gardenSpaceId, clockUtc, wateringBaselineAt,
+                       weatherWindowRef: null, feedbackWindowRef: null }
+inputsHash         = sha256(canonical-json(sourceInputs))
+rationale          = "<commonNames[0]>: base interval <baseIntervalDays>d adjusted by container factor <containerFactor>; baseline <wateringBaselineAt>"
+```
+
+### Create exactly this file
+`backend/tests/care-engine/compute-initial-water-task.test.ts` with the following
+content (you may keep it verbatim; it is the deliverable):
 
 ```ts
-// Test #4 (per docs/slice-01-implementation-plan.md):
-// garden-space.schema.json rejects empty name and missing kind.
+// Care-engine red-first tests (per docs/slice-01-implementation-plan.md tests #7–#14,
+// formula D-10 in docs/slice-01-decision-log.md).
 //
-// garden-space.schema.json enforces `"minLength": 1` on `name`
-// (shared-schemas/garden-space.schema.json), so the empty-name case below is a
-// passing regression guard, not a pending red contract.
+// RED-FIRST: computeInitialWaterTask is intentionally NOT implemented yet.
+// backend/care-engine/index.ts is still `export {};`, so the import below is
+// undefined and these tests fail. The engine implementation is a separate,
+// later commit — do not implement it here to make these pass.
+import { describe, it, expect } from 'vitest';
+// @ts-expect-error — not implemented yet (red-first); export lands in a later commit.
+import { computeInitialWaterTask } from '../../care-engine/index.js';
+
+const DAY_MS = 86_400_000;
+
+const tomatoProfile = {
+  id: 'solanum-lycopersicum',
+  version: 1,
+  commonNames: ['Tomato'],
+  wateringProfile: { baseIntervalDays: 2 },
+  containerProfile: { recommendedMinLiters: 19 },
+};
+const passionProfile = {
+  id: 'passiflora-edulis',
+  version: 1,
+  commonNames: ['Passion fruit'],
+  wateringProfile: { baseIntervalDays: 3 },
+  containerProfile: { recommendedMinLiters: 95 },
+};
+
+const container19 = { id: '00000000-0000-4000-8000-000000000002', volumeLiters: 19 };   // tomato ratio 1.0 → factor 1.0
+const containerBig = { id: '00000000-0000-4000-8000-000000000002', volumeLiters: 100 };  // tomato ratio 5.26 → clamp 1.5
+const gardenSpace = { id: '00000000-0000-4000-8000-000000000003' };
+
+const basePlant = {
+  id: '00000000-0000-4000-8000-000000000001',
+  profileId: 'solanum-lycopersicum',
+  containerId: container19.id,
+  gardenSpaceId: gardenSpace.id,
+  createdAt: '2026-05-26T07:00:00.000Z',
+};
+
+const baseline = '2026-05-26T07:00:00.000Z';
+
+function tomatoInput(overrides = {}) {
+  return {
+    id: 'task-1',
+    clockUtc: baseline,
+    plant: { ...basePlant, lastWateredAt: baseline },
+    profile: tomatoProfile,
+    container: container19,
+    gardenSpace,
+    ...overrides,
+  };
+}
+
+describe('computeInitialWaterTask — Slice 1 (red-first)', () => {
+  it('#7 returns one water CareTask', () => {
+    const task = computeInitialWaterTask(tomatoInput());
+    expect(task.kind).toBe('water');
+    expect(task.id).toBe('task-1');
+    expect(task.plantInstanceId).toBe(basePlant.id);
+    expect(task.status).toBe('pending');
+  });
+
+  it('#8 carries engineVersion, inputsHash, sourceInputs, rationale, dueAt, priority', () => {
+    const task = computeInitialWaterTask(tomatoInput());
+    expect(task.engineVersion).toBe('0.1.0');
+    expect(task.priority).toBe('normal');
+    expect(typeof task.inputsHash).toBe('string');
+    expect(task.inputsHash.length).toBeGreaterThanOrEqual(8);
+    expect(task.rationale).toContain('Tomato');
+    expect(task.rationale).toContain(baseline);
+    expect(task.sourceInputs).toMatchObject({
+      plantInstanceId: basePlant.id,
+      profileId: 'solanum-lycopersicum',
+      profileVersion: 1,
+      containerId: container19.id,
+      gardenSpaceId: gardenSpace.id,
+      clockUtc: baseline,
+      wateringBaselineAt: baseline,
+      weatherWindowRef: null,
+      feedbackWindowRef: null,
+    });
+    expect(typeof task.dueAt).toBe('string');
+  });
+
+  it('#9 is deterministic: equal inputs → byte-equal output and identical inputsHash', () => {
+    const a = computeInitialWaterTask(tomatoInput());
+    const b = computeInitialWaterTask(JSON.parse(JSON.stringify(tomatoInput())));
+    expect(b).toEqual(a);
+    expect(JSON.stringify(b)).toBe(JSON.stringify(a));
+    expect(b.inputsHash).toBe(a.inputsHash);
+  });
+
+  it('#10 clamps container factor to [0.5, 1.5]', () => {
+    // below 0.5: passion fruit (recMin 95) in a 19 L container → 0.2 → clamp 0.5
+    const low = computeInitialWaterTask({
+      id: 't', clockUtc: baseline,
+      plant: { ...basePlant, profileId: passionProfile.id, lastWateredAt: baseline },
+      profile: passionProfile, container: container19, gardenSpace,
+    });
+    expect(new Date(low.dueAt).getTime() - new Date(baseline).getTime()).toBe(3 * 0.5 * DAY_MS);
+
+    // above 1.5: tomato (recMin 19) in a 100 L container → 5.26 → clamp 1.5
+    const high = computeInitialWaterTask(tomatoInput({ container: containerBig }));
+    expect(new Date(high.dueAt).getTime() - new Date(baseline).getTime()).toBe(2 * 1.5 * DAY_MS);
+  });
+
+  it('#11 later clockUtc (same baseline) → different inputsHash but SAME dueAt', () => {
+    const early = computeInitialWaterTask(tomatoInput({ clockUtc: '2026-05-26T07:00:00.000Z' }));
+    const later = computeInitialWaterTask(tomatoInput({ clockUtc: '2026-05-27T09:30:00.000Z' }));
+    expect(later.dueAt).toBe(early.dueAt);                 // anchored on wateringBaselineAt, not the clock
+    expect(later.inputsHash).not.toBe(early.inputsHash);   // clockUtc is part of sourceInputs
+  });
+
+  it('#12 baseline supplied: wateringBaselineAt === lastWateredAt; dueAt = lastWateredAt + interval×factor', () => {
+    const lw = '2026-05-20T12:00:00.000Z';
+    const task = computeInitialWaterTask(tomatoInput({ plant: { ...basePlant, lastWateredAt: lw } }));
+    expect(task.sourceInputs.wateringBaselineAt).toBe(lw);
+    expect(new Date(task.dueAt).getTime() - new Date(lw).getTime()).toBe(2 * 1.0 * DAY_MS);
+  });
+
+  it('#13 baseline fallback: no lastWateredAt → wateringBaselineAt === createdAt', () => {
+    const plantNoLW = { ...basePlant }; // createdAt = baseline; no lastWateredAt
+    const task = computeInitialWaterTask({
+      id: 't', clockUtc: '2026-05-30T00:00:00.000Z',
+      plant: plantNoLW, profile: tomatoProfile, container: container19, gardenSpace,
+    });
+    expect(task.sourceInputs.wateringBaselineAt).toBe(plantNoLW.createdAt);
+    expect(new Date(task.dueAt).getTime() - new Date(plantNoLW.createdAt).getTime()).toBe(2 * 1.0 * DAY_MS);
+  });
+
+  it('#14 different lastWateredAt → different inputsHash AND different dueAt', () => {
+    const t1 = computeInitialWaterTask(tomatoInput({ plant: { ...basePlant, lastWateredAt: '2026-05-20T12:00:00.000Z' } }));
+    const t2 = computeInitialWaterTask(tomatoInput({ plant: { ...basePlant, lastWateredAt: '2026-05-22T12:00:00.000Z' } }));
+    expect(t2.inputsHash).not.toBe(t1.inputsHash);
+    expect(t2.dueAt).not.toBe(t1.dueAt);
+  });
+});
 ```
 
-(Equally acceptable alternative: delete the stale `//` separator + `Note:`
-paragraph entirely, keeping only the first two `// Test #4 …` lines. The only
-hard requirement is that no comment in the file claims the schema lacks a
-`minLength` or that the empty-name test "fails red.")
-
-### Verify (no test run — comment-only change)
-```bash
-git -C /home/israel/Documents/Development/PlantApp status --short
-# expect exactly: " M backend/tests/schema/garden-space.test.ts"
-git -C /home/israel/Documents/Development/PlantApp diff
-# expect: only comment (`//`) lines changed; the import lines, the
-# `validGardenSpace` fixture, and all three `it(...)` blocks UNCHANGED.
-```
-Expected failure mode to ignore: `npm test` would still print `vitest: not found`
-because dependencies are not installed and installing them is **out of scope**.
-A comment-only change cannot affect compilation or test results, so no run is
-required or expected.
+### Expected failure mode (this is success for a red-first commit)
+- `npm test` is **not run** and would print `vitest: not found` (deps not installed;
+  installing is out of scope). Do not try to make it runnable.
+- The test exists, imports the unimplemented `computeInitialWaterTask`, and would
+  fail (the import is `undefined` → calling it throws). The `@ts-expect-error` marks
+  the intentionally-missing export so a typecheck wouldn't flag it as an unexpected
+  error. This is the intended red state.
 
 ### Commit (exact title)
 ```bash
-git -C /home/israel/Documents/Development/PlantApp add backend/tests/schema/garden-space.test.ts
-git -C /home/israel/Documents/Development/PlantApp commit -m "test(schema): remove stale GardenSpace minLength comment"
+git -C /home/israel/Documents/Development/PlantApp add backend/tests/care-engine/compute-initial-water-task.test.ts
+git -C /home/israel/Documents/Development/PlantApp commit -m "test(care-engine): add Slice 1 watering-engine failing tests"
 ```
 
-### Push (required — impl repo policy: push after every logical change)
+### Push (required)
 ```bash
 git -C /home/israel/Documents/Development/PlantApp push origin master
 ```
-This should be a clean fast-forward (local was exactly `origin/master`).
 
 ### Final report back to the owner
-1. The full `git diff` of the change (prove it is comment-only).
-2. Explicit confirmation that the `validGardenSpace` fixture and all three
-   `it(...)` assertions are unchanged.
-3. `git show --stat HEAD` output (expect **1 file changed**, only this file).
-4. The new commit hash + title.
-5. Push confirmation: the new `origin/master` SHA after push.
-6. Confirmation that no other file was created, modified, or deleted, and that no
-   install/build/migration/test command was run.
+1. The new file path + full contents committed.
+2. `git show --stat HEAD` (expect **1 file changed**, only the new test file).
+3. Confirmation that `backend/care-engine/index.ts` is unchanged (still `export {};`)
+   and no other file was touched.
+4. New commit hash + title; new `origin/master` SHA after push.
+5. Confirmation that no install/build/test/migration command was run.
 
 ## ⬆️ COPY EVERYTHING ABOVE THIS LINE ⬆️
 
 ---
 
-## Planner follow-up after this lands
+## Install variant (if the owner approves `npm install`)
 
-When the implementation Claude reports success, the planner will:
-1. Re-fetch PlantApp, confirm the new commit is on `origin/master`, and confirm
-   the diff was comment-only.
-2. Update `state/current-state.md`, `state/known-history.md`, and
-   `github-checks/latest-github-check.md` with the new HEAD.
-3. Write the **Option B** prompt: red-first care-engine unit tests for
-   `computeInitialWaterTask` (Slice 1 plan tests #7–#14, formula D-10), which must
-   fail red first (no implementation yet, and deps still not installed → the
-   tests will not even run until `npm install` is separately approved). The
-   planner will spell out that approval question explicitly in that prompt.
+If the owner approves installing backend deps so the tests truly execute red, the
+planner will reissue this as **two commits**:
+1. `chore(backend): install dependencies and commit lockfile` — run
+   `npm install` in `backend/` (creates `node_modules`, already git-ignored; commit
+   `package-lock.json`). After this, `npm test` runs.
+2. `test(care-engine): add Slice 1 watering-engine failing tests` — add the file
+   above, run `cd backend && npm test` to **confirm it fails red** (8 failing tests,
+   `computeInitialWaterTask is not a function`), then commit.
+   Remove the `@ts-expect-error` only if it causes an "unused directive" error under
+   the runner; otherwise leave it.
+
+## Planner follow-up after Option B lands
+1. Re-fetch PlantApp; confirm the new test file is on `origin/master` and the engine
+   is still a placeholder (red-first intact).
+2. Update `state/*`, `reviews/latest-repo-review.md`, `github-checks/…`.
+3. Write the **green** prompt: `feat(care-engine): implement computeInitialWaterTask`
+   (sha256 + canonical-JSON of `sourceInputs`, the D-10 formula, returning a
+   schema-valid `CareTask`) so these 8 tests pass.
