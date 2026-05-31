@@ -1,0 +1,10 @@
+# OS / editor cruft
+.DS_Store
+*.swp
+*~
+.idea/
+.vscode/
+
+# Planner repo is intentionally small and fully tracked.
+# scratch/ is tracked (via .gitkeep) so handoffs survive across sessions;
+# delete individual scratch files when stale rather than ignoring the dir.
