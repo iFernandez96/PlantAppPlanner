@@ -50,9 +50,10 @@ pre-business-logic.** Slice 1 business logic has not begun. Next is the first
   `care-task`, `round-trip` + `_helpers.ts` (Ajv `strict: true`).
 - **No care-engine unit tests yet** (`computeInitialWaterTask` only referenced as
   plan test #7).
-- **`npm test` still cannot run** — `vitest` devDependency, `node_modules` absent,
-  `npm install` not approved. Expected: `vitest: not found`. Environmental, not a
-  regression. **This gates how "red-first" works for the next step** (see below).
+- **`npm test` has not run yet** — `vitest` devDependency, `node_modules` absent.
+  `npm install` is now **approved** (PD-04) and runs in Option B commit 1; until
+  then `npm test` reports `vitest: not found`. That first run also executes the
+  pre-existing schema tests for the first time (never previously run).
 
 ## Production behavior state
 
@@ -62,22 +63,21 @@ weather / photos / notifications / auth / camera / location runtime code.
 ## Next recommended action
 
 **Option B — red-first care-engine tests** for `computeInitialWaterTask`
-(Slice 1 plan tests #7–#14; formula D-10).
-Commit: `test(care-engine): add Slice 1 watering-engine failing tests`.
-New file: `backend/tests/care-engine/compute-initial-water-task.test.ts`.
-Do **not** implement the function (keep `care-engine/index.ts` placeholder) — the
-implementation is a later, separate commit (green step).
+(Slice 1 plan tests #7–#14; formula D-10), as a **two-commit** sequence (owner
+approved `npm install` on 2026-05-31 — PD-04):
+1. `chore(backend): install dependencies and commit lockfile` — `npm install` in
+   `backend/` (`node_modules/` git-ignored), run `npm test` to establish the
+   pre-existing-tests baseline (first ever execution), commit `package-lock.json`.
+2. `test(care-engine): add Slice 1 watering-engine failing tests` — add
+   `backend/tests/care-engine/compute-initial-water-task.test.ts`, run `npm test`
+   to confirm the 8 new tests fail red (`is not a function`), commit.
 
-**OPEN DECISION blocking the exact shape of Option B:** whether to approve
-`npm install` in `backend/` so the tests can actually execute and fail red for the
-right reason.
-- If **approved:** Option B becomes two commits — (1) install + commit
-  `package-lock.json`, (2) add tests + run `npm test` to confirm red.
-- If **not approved (current default):** Option B is one commit — add the test
-  file only; "red" is structural (it imports an unimplemented export); `npm test`
-  still reports `vitest: not found`.
-The pasteable prompt in `prompts/next-implementation-prompt.md` is written for the
-**no-install default**; it will be upgraded if install is approved.
+Do **not** implement the engine (keep `care-engine/index.ts` placeholder) — that is
+the later green commit. Exact pasteable prompt: `prompts/next-implementation-prompt.md`.
+
+**Watch-for:** this is the **first time vitest runs** in PlantApp, so the
+pre-existing schema tests execute for the first time. If any fail, that is a new
+finding to triage (separate from the intended care-engine red).
 
 ## Evidence (paths : line — fact)
 

@@ -72,3 +72,24 @@ planner repo. If the owner later says stop, record the reversal here.
 
 **Evidence:** session bash log 2026-05-31 (`git remote add origin …PlantAppPlanner.git`;
 `git push origin master` → `* [new branch] master -> master`).
+
+---
+
+## PD-04 — npm install approved for Option B (care-engine tests run for real)
+
+**Date:** 2026-05-31 · **Status:** Decided
+
+**Decision:** The owner approved running `npm install` in `backend/` so the
+red-first care-engine tests execute. Option B is therefore a two-commit sequence:
+(1) `chore(backend): install dependencies and commit lockfile`, (2)
+`test(care-engine): add Slice 1 watering-engine failing tests` (run to confirm red).
+`package-lock.json` is committed; `node_modules/` stays git-ignored.
+
+**Why:** Executed red-first beats structural red — it proves the 8 tests fail for
+the right reason before the green implementation, and the next (green) step needs
+deps installed anyway. Owner chose "Install + commit lockfile" when asked
+(`AskUserQuestion`, 2026-05-31).
+
+**Scope:** This approval is for a dependency install (`npm install`) in `backend/`
+only. It does NOT extend to builds, migrations, or DB commands — those still need
+separate approval. Per-change approval discipline (PD-02) otherwise stands.
