@@ -122,3 +122,30 @@ commits may use a narrower verification statement, but must explicitly say why.
 verification subsection), the `implementation-prompt-writer` skill, and the
 `prompt-writer` / `slice-planner` agents all require/justify a standalone
 verification section; the planner rejects or revises prompts that lack one.
+
+---
+
+## PD-06 — Atomic file exchange protocol for planner/implementation handoffs
+
+**Date:** 2026-06-01 · **Status:** Standing
+
+**Decision:** Planner and implementation Claude communicate via immutable `exchange/`
+message directories marked by `READY.json`, not live shared files.
+
+**Why:** Avoid partial reads, race conditions, and ambiguous ownership. Only `READY`
+messages are readable; `.writing/` is never read. Only the planner asks the owner for
+decisions.
+
+**Rules:**
+- Planner writes `planner-outbox/` (prompts); reads `implementation-inbox/` (reports).
+- Implementation reads `planner-outbox/` (READY only); writes `implementation-inbox/`.
+- Implementation does not edit planner `state/`/`reviews/`/`decisions/`/`prompts/`/outbox.
+- Blockers are written as `BLOCKED.md` reports; the implementation then stops.
+- The planner consumes blockers and is the only instance that asks the owner.
+- Published `<handoff-id>/` directories are immutable; supersede with a new id.
+
+**Mechanics:** atomic build-in-`.writing/` → write `READY.json` last → rename into
+place → `.tmp`+`mv` pointer update. Scripts: `scripts/exchange-*.sh`. Spec:
+`exchange/README.md`. The current Option B prompt is published as
+`exchange/planner-outbox/0001-option-b/`; `prompts/next-implementation-prompt.md`
+remains the human-readable mirror.

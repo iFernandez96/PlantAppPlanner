@@ -110,6 +110,25 @@ specific, comprehensive.
   verification section. See `.claude/rules/prompt-contract.md` and
   `decisions/planner-decisions.md` PD-05.
 
+## File exchange protocol (planner ↔ implementation)
+
+The planner and the implementation Claude communicate **only** through the
+`exchange/` directory using immutable, `READY.json`-marked message folders — never
+live shared files (PD-06; full spec in `exchange/README.md`).
+
+- Planner **publishes prompts** to `exchange/planner-outbox/<handoff-id>/` via
+  `scripts/exchange-create-planner-prompt.sh <id> <prompt.md>` (atomic: builds in
+  `.writing/`, writes `READY.json` last, renames into place, updates
+  `pointers/latest-ready-prompt`). `prompts/next-implementation-prompt.md` stays the
+  human-readable mirror of the latest prompt.
+- Planner **consumes reports** from `exchange/implementation-inbox/<id>/` via
+  `scripts/exchange-read-latest-report.sh`.
+- Implementation reads only `READY` prompts, never `.writing/`, and writes reports
+  only into `implementation-inbox/`. It must not edit planner `state/`, `reviews/`,
+  `decisions/`, `prompts/`, or `planner-outbox/`.
+- **Only the planner asks the owner for decisions.** If implementation is blocked it
+  writes a `BLOCKED.md` report and stops; the planner consumes it and asks.
+
 ## Durable knowledge (do not trust chat alone)
 
 Canonical state lives in this repo's files: `state/`, `reviews/`,

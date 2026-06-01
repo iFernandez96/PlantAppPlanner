@@ -47,3 +47,10 @@ Ground every path and line number you cite by actually reading the file.
   and the implementer to report its output.
 - Doc-only/prompt-only commits may state "not applicable — documentation/prompt-only;
   verify by diff and grep."
+
+## Exchange handoff (PD-06)
+- After the planner finalizes a prompt, it is **published** to the exchange outbox
+  via `scripts/exchange-create-planner-prompt.sh` (atomic, `READY.json`-marked).
+- You (prompt-writer) produce prompt **text** only; you never write the outbox.
+- **Only the planner asks the owner for decisions.** A blocked implementation Claude
+  returns a `BLOCKED.md` report — never a question to the owner.

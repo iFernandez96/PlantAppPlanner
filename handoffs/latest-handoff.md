@@ -67,3 +67,14 @@ confirm the 8 tests fail red → commit → push (two commits total).
 - The next implementation prompt should **still be Option B** — it now carries a
   Standalone verification section, so it satisfies the gate. Only revise it if that
   section were missing.
+
+## File exchange protocol added (2026-06-01) — PD-06
+- Planner ↔ implementation handoffs now go through `exchange/` (immutable
+  `READY.json` message dirs; `scripts/exchange-*.sh`; spec `exchange/README.md`).
+- Current Option B is published at `exchange/planner-outbox/0001-option-b/`.
+- **Owner action:** either paste `prompts/next-implementation-prompt.md` as before,
+  or point the implementation Claude at the exchange (it runs
+  `scripts/exchange-read-latest-prompt.sh`).
+- Implementation returns results via
+  `scripts/exchange-create-implementation-report.sh <id> <src-dir>` (add `--blocked`
+  with a `BLOCKED.md` if it needs an owner decision).

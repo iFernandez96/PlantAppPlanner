@@ -28,8 +28,16 @@ are the final safety gate.
 4. Any destructive git (`reset --hard`, `clean -fd`, force-push, history
    rewrite, branch deletion)? → BLOCK.
 5. Are forbidden-changes, exact files, baseline SHA precondition, expected
-   failure mode, commit title, push step, and final-report all present?
+   failure mode, **standalone verification (PD-05)**, commit title, push step, and
+   final-report all present?
 6. Does it touch files outside the stated scope? → BLOCK.
+7. **Exchange (PD-06):** does it respect the channel? Implementation must read only
+   `READY` prompts (never `.writing/`) and write only to `implementation-inbox/` —
+   it must NOT edit planner `state/`/`reviews/`/`decisions/`/`prompts/`/`planner-outbox/`.
+   → BLOCK on violation.
+8. **Owner-decision routing (PD-06):** only the planner asks the owner. If the prompt
+   tells the implementation Claude to ask the owner instead of writing a `BLOCKED.md`
+   report → BLOCK.
 
 ## Output format
 ```
@@ -39,6 +47,8 @@ Unapproved install/build/migration: no/<violation>
 Destructive git: no/<violation>
 Required sections all present: yes/<missing list>
 Out-of-scope file touches: none/<list>
+Exchange-boundary respected (PD-06): yes/<violation>
+Owner-decision routing (planner-only): ok/<violation>
 VERDICT: PASS | BLOCK (<reasons>)
 ```
 When in doubt, BLOCK and explain. A false block is cheap; a boundary breach is not.

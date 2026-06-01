@@ -21,6 +21,9 @@ At the end of every planner session, after state/review/prompt files are updated
    `npm install`? add a planner remote?).
 6. Tripwires / do-not-assume list (e.g. "don't assume HEAD is still <sha>";
    "no CI exists, green ≠ tests passed").
+7. **Exchange (PD-06):** if the implementation Claude has published a report, read it
+   with `scripts/exchange-read-latest-report.sh`; summarize done/BLOCKED. If BLOCKED,
+   record the decision the planner must put to the owner (only the planner asks).
 
 ## Output format → write to `handoffs/latest-handoff.md`
 Use the headings above. Keep it skimmable; link to `state/current-state.md`,

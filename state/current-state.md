@@ -101,3 +101,15 @@ finding to triage (separate from the intended care-engine red).
   `computeInitialWaterTask is not a function`.
 - **Full Slice 1** standalone verification (e.g. `just verify-slice-1`) does **not**
   exist yet; introduce it once enough backend/API/Android code exists.
+
+## File exchange protocol (PD-06)
+
+- Planner ↔ implementation now communicate via the immutable `exchange/` message
+  protocol (atomic `READY.json` dirs; scripts in `scripts/exchange-*.sh`; spec in
+  `exchange/README.md`).
+- The current Option B prompt is **published** at
+  `exchange/planner-outbox/0001-option-b/` (pointer `pointers/latest-ready-prompt`).
+  `prompts/next-implementation-prompt.md` remains the human-readable mirror.
+- Implementation reads via `scripts/exchange-read-latest-prompt.sh`, writes a report
+  via `scripts/exchange-create-implementation-report.sh`, and on a decision writes a
+  `BLOCKED.md` report (only the planner asks the owner).

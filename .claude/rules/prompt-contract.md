@@ -40,4 +40,8 @@ by diff and grep."
 - Ground every cited path/line/SHA by reading the real repo first.
 - A feature is **not done** until its standalone verification produces objective
   pass/fail evidence (PD-05). Claude self-report is insufficient.
+- After writing `prompts/next-implementation-prompt.md`, publish the prompt to the
+  exchange outbox with `scripts/exchange-create-planner-prompt.sh <id>
+  prompts/next-implementation-prompt.md` (PD-06). Published `<id>/` dirs are
+  immutable — supersede with a new id, never edit in place.
 - Run the `no-mutation-guardian` checklist before finalizing.

@@ -41,6 +41,9 @@ and the baseline SHA.
 - A clearly delimited **"COPY BELOW / COPY ABOVE"** block: the self-contained,
   paste-ready prompt.
 - A "Planner follow-up after this lands" section.
+- Then **publish** to the exchange outbox (PD-06):
+  `scripts/exchange-create-planner-prompt.sh <handoff-id> prompts/next-implementation-prompt.md`.
+  `prompts/next-implementation-prompt.md` stays the human-readable mirror.
 
 ## Guardrails
 - Ground every path + line number by actually reading the file first.
