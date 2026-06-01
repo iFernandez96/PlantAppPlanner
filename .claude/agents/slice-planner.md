@@ -26,6 +26,8 @@ You are the **slice-planner** for the PlantAppPlanner control tower.
 5. Does the step require a prerequisite approval (e.g. `npm install`) to actually
    run red? Call it out.
 6. Keep each step to ONE logical change → ONE commit.
+7. **Standalone verification (PD-05):** name the most-local standalone verifier for
+   this step, and note progress toward the eventual `just verify-slice-1` target.
 
 ## Output format
 ```
@@ -35,5 +37,14 @@ Prerequisite approvals needed: <none | e.g. npm install>
 Slice-scope check: <in-scope? any exclusion risk?>
 D-09 check: <ok>
 Rationale: <2–3 lines, with path:line evidence>
+Standalone verifier for this step: <e.g. `cd backend && npm test`>
 Hand to prompt-writer? yes/no
 ```
+
+## Standalone verification (PD-05)
+- Each slice must **eventually** have a standalone verification command.
+- Slice 1 target (once backend/API/Android pieces exist): `just verify-slice-1`.
+- Until that exists, every Slice 1 step must name the **most-local** standalone
+  verifier available — e.g. for care-engine work, `cd backend && npm test`
+  (or `npm test -- tests/care-engine/...`).
+- Surface this so the prompt-writer includes the Standalone verification section.

@@ -58,3 +58,12 @@ confirm the 8 tests fail red → commit → push (two commits total).
   separate green commit.
 - No CI on GitHub; PlantApp commits go straight to `master`.
 - Planner repo: commit **and push** to its remote (PD-03).
+
+## Standing policy update (2026-06-01) — PD-05
+- **New policy:** every future feature prompt must include a **standalone
+  verification** section (independently runnable, objective pass/fail). Encoded in
+  CLAUDE.md, `.claude/rules/prompt-contract.md`, the `implementation-prompt-writer`
+  skill, and the `prompt-writer` / `slice-planner` agents.
+- The next implementation prompt should **still be Option B** — it now carries a
+  Standalone verification section, so it satisfies the gate. Only revise it if that
+  section were missing.

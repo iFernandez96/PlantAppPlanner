@@ -25,12 +25,25 @@ You are the **prompt-writer** for the PlantAppPlanner control tower.
 6. **Expected failure mode** — what "still failing" looks like and must be
    ignored (e.g. `vitest: not found` because install is out of scope). Separate
    *expected* from *regression*.
-7. **Commit title** — Conventional Commits.
-8. **Push requirement** — explicit.
-9. **Final-report requirements** — diff, scope confirmation, new commit hash,
-   push confirmation (new `origin/master`).
+7. **Standalone verification** — an independently runnable command with objective
+   pass/fail (exact command, what it proves, expected pass/fail, red/green/regression,
+   what output to report). Doc/prompt-only commits state the "not applicable" form.
+8. **Commit title** — Conventional Commits.
+9. **Push requirement** — explicit.
+10. **Final-report requirements** — diff, scope confirmation, new commit hash,
+    push confirmation (new `origin/master`).
 
 ## Output format
 A single fenced "COPY BELOW / COPY ABOVE" block containing the ready-to-paste
 prompt, preceded by a 2–3 line rationale (which option, why, verified baseline).
 Ground every path and line number you cite by actually reading the file.
+
+## Standalone-verification gate (PD-05)
+- **Reject** any prompt that adds or completes a feature without a Standalone
+  verification section.
+- **Red-first** feature: the section must state the intended red failure — the exact
+  command and the specific failure it must produce.
+- **Green/implementation** feature: the section must require the command to **pass**
+  and the implementer to report its output.
+- Doc-only/prompt-only commits may state "not applicable — documentation/prompt-only;
+  verify by diff and grep."

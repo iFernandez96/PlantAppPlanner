@@ -25,10 +25,16 @@ and the baseline SHA.
 6. **Expected failure mode** — what "still failing" looks like and must be
    ignored (e.g. `npm test` → `vitest: not found`, because deps aren't installed
    and installing is out of scope). Separate *expected* from *regression*.
-7. **Commit title** — Conventional Commits, exact string.
-8. **Push requirement** — explicit (`git push origin master`), note fast-forward.
-9. **Final-report requirements** — diff, scope confirmation, `git show --stat`,
-   new commit hash, push confirmation (new `origin/master` SHA).
+7. **Standalone verification** — an independently runnable command that produces
+   objective pass/fail evidence: the exact command, what it proves, expected
+   pass/fail, whether it is red/green/regression verification, and what output the
+   implementer must report. Doc-only/prompt-only commits state "not applicable —
+   documentation/prompt-only; verify by diff and grep." (See
+   `.claude/rules/prompt-contract.md` and `decisions/planner-decisions.md` PD-05.)
+8. **Commit title** — Conventional Commits, exact string.
+9. **Push requirement** — explicit (`git push origin master`), note fast-forward.
+10. **Final-report requirements** — diff, scope confirmation, `git show --stat`,
+    new commit hash, push confirmation (new `origin/master` SHA).
 
 ## Output format → write to `prompts/next-implementation-prompt.md`
 - 2–3 line rationale (which option, why, verified baseline SHA).

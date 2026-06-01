@@ -30,6 +30,11 @@ prompt decision.
    photos/notifications/auth).
 4. Identify the smallest next red-first step; honor Slice 1 exclusions + D-09.
 5. List blockers vs nice-to-fix. Note expected test failure mode (deps absent).
+6. **Standalone verification (PD-05):** does this slice have a standalone
+   verification target (e.g. `just verify-slice-1`)? If not yet, is the next prompt
+   moving toward it, and does it at least name the most-local standalone verifier
+   available (e.g. `cd backend && npm test`)? A slice is **not** marked done until
+   its standalone verification passes (or has a documented owner-approved exception).
 
 ## Output format → write to `reviews/latest-repo-review.md`
 - Date, repo, HEAD, one-line verdict.

@@ -89,3 +89,15 @@ finding to triage (separate from the intended care-engine red).
 - `shared-schemas/plant-profile.schema.json:65` — `containerProfile.recommendedMinLiters`
 - `shared-schemas/container.schema.json:13` — `volumeLiters` exclusiveMinimum 0
 - `shared-schemas/care-task.schema.json:8,31-49` — CareTask required fields + `sourceInputs`
+
+## Standalone verification gate (PD-05)
+
+- The standalone verification gate is now part of the planner workflow (CLAUDE.md,
+  `.claude/rules/prompt-contract.md`, the `implementation-prompt-writer` skill, and
+  the `prompt-writer` / `slice-planner` agents).
+- **Current Option B** is red-first care-engine testing, so its standalone
+  verification is the backend test run: `cd backend && npm test` (after `npm install`
+  in commit 1) — schema tests pass; the 8 new care-engine tests fail with
+  `computeInitialWaterTask is not a function`.
+- **Full Slice 1** standalone verification (e.g. `just verify-slice-1`) does **not**
+  exist yet; introduce it once enough backend/API/Android code exists.

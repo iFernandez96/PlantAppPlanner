@@ -325,6 +325,19 @@ git -C /home/israel/Documents/Development/PlantApp commit -m "test(care-engine):
 git -C /home/israel/Documents/Development/PlantApp push origin master
 ```
 
+### Standalone verification (red-first)
+This step's independently runnable verification is the backend test run:
+- **Commit 1:** `cd /home/israel/Documents/Development/PlantApp/backend && npm test`
+  → the existing schema tests **pass** (first real run, after `npm install`).
+- **Commit 2:** `cd /home/israel/Documents/Development/PlantApp/backend && npm test`
+  → schema tests still pass **and** the 8 new care-engine tests **fail individually**
+  with `computeInitialWaterTask is not a function`.
+
+This is **red-first** verification (objective pass/fail evidence, per PD-05). The
+later green commit (`feat(care-engine): implement computeInitialWaterTask`) must turn
+the **same command** green **without changing the test file** unless absolutely
+necessary.
+
 ### Final report back to the owner
 1. **Commit 1:** the `npm test` baseline summary (did all pre-existing schema tests
    pass?); `git show --stat` for the lockfile commit (expect only

@@ -92,6 +92,24 @@ the impl repo · consult official docs before framework/API-specific code ·
 comprehensive GitHub checks before recommending the next prompt · conservative,
 specific, comprehensive.
 
+## Standalone verification gate
+
+- Every future feature prompt must include a **standalone verification path**.
+- The verification path must be independently runnable from the repo, using an
+  **exact command**.
+- The verification must produce **objective pass/fail evidence**. Claude self-report
+  is not enough; manual inspection alone is not enough except for explicitly
+  labeled pre-code planning/doc-only commits.
+- **Red-first** commits must state the expected red failure and how the later green
+  commit will turn it green.
+- **Green** implementation commits must run the standalone verification and report
+  its output.
+- **Slice transitions** require the relevant standalone verification to pass, or a
+  documented owner-approved exception.
+- The planner must **reject or revise** any implementation prompt that lacks a
+  verification section. See `.claude/rules/prompt-contract.md` and
+  `decisions/planner-decisions.md` PD-05.
+
 ## Durable knowledge (do not trust chat alone)
 
 Canonical state lives in this repo's files: `state/`, `reviews/`,

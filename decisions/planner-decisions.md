@@ -93,3 +93,32 @@ deps installed anyway. Owner chose "Install + commit lockfile" when asked
 **Scope:** This approval is for a dependency install (`npm install`) in `backend/`
 only. It does NOT extend to builds, migrations, or DB commands — those still need
 separate approval. Per-change approval discipline (PD-02) otherwise stands.
+
+---
+
+## PD-05 — Standalone verification required for feature completion
+
+**Date:** 2026-06-01 · **Status:** Standing
+
+**Decision:** Every future feature must include independently runnable verification
+before it can be called done.
+
+**Why:** Claude self-report and manual review are not enough. PlantApp needs
+objective proof that behavior works end-to-end or slice-end-to-end.
+
+**Scope:** Applies to feature work, green implementation commits, slice completion,
+and future AI features. Documentation-only, prompt-only, and red-first test-only
+commits may use a narrower verification statement, but must explicitly say why.
+
+**Examples:**
+- Backend care-engine: `npm test -- tests/care-engine/...`
+- Backend API: integration test against local Postgres/Supabase.
+- Android UI: Compose UI or instrumented test.
+- Database migration: migration apply/reset plus schema/RLS verification command.
+- AI: eval runner with fixed fixtures and schema validation + a pass/fail threshold.
+- Full slice: `just verify-slice-N`.
+
+**Enforcement:** `.claude/rules/prompt-contract.md` (section 7 + the Standalone
+verification subsection), the `implementation-prompt-writer` skill, and the
+`prompt-writer` / `slice-planner` agents all require/justify a standalone
+verification section; the planner rejects or revises prompts that lack one.
