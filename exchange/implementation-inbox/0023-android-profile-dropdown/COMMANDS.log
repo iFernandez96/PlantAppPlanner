@@ -1,0 +1,28 @@
+# Handoff 0023-android-profile-dropdown — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline + unblock
+$ git fetch origin && git rev-parse HEAD      -> 3fba7184c52e87861dc222d4c42ecd11b9d36003 == origin/master
+$ git status --short                           -> (empty)
+$ ls /home/israel/Android/Sdk/platforms        -> android-34/35/36/36.1 (SDK OK)
+
+## Implement
+# InventoryTestTags.kt: FIELD_PROFILE_ID -> FIELD_PROFILE_SELECTOR
+# AddPlantScreen.kt: + profiles: List<PlantProfile> param; ExposedDropdownMenuBox anchor (FIELD_PROFILE_SELECTOR) + menu items by label; submit uses selectedProfile.id
+# InventoryViewModels.kt: AddPlantViewModel init loads repository.getPlantProfiles() -> profiles StateFlow
+# MainActivity.kt: Routes.ADD collects vm.profiles, passes AddPlantScreen(profiles = ...)
+# InventoryScreensTest.kt: profiles fixture; #22/#24 use dropdown (open + click "Tomato"); new "dropdown lists catalog profiles" test
+
+## Gate
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest :app:assembleDebug --no-daemon
+  BUILD SUCCESSFUL in 1m 28s
+  InventoryScreensTest tests=5 failures=0   (was 4; #22/#24 updated + new dropdown test)
+  PlantDetailAdvisoriesTest tests=2 failures=0
+  :app:assembleDebug SUCCESSFUL
+
+## Commit + push
+$ git add android/feature-inventory/ android/app/
+$ git commit -m "feat(android-inventory): profile dropdown selector for add-plant"
+  [master 20f4e35] 5 files changed, 86 insertions(+), 10 deletions(-)
+$ git push origin master        -> 3fba718..20f4e35
+$ git rev-parse origin/master   -> 20f4e354486f79d93e21bdbacbec24ff9d4ae7c3
+$ git show --stat HEAD | grep -c local.properties   -> 0

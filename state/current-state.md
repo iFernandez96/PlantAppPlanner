@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b-net)✅ (3b-data)✅; (3b-ui-a profile dropdown) IN FLIGHT (`0023`)** |
+| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b-net/data)✅ (3b-ui-a)✅; (3b-ui-b garden-space selector) IN FLIGHT (`0024`)** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `3fba7184c52e87861dc222d4c42ecd11b9d36003` (`3fba718`) — in sync, clean |
+| **Local HEAD / origin/master** | `20f4e354486f79d93e21bdbacbec24ff9d4ae7c3` (`20f4e35`) — in sync, clean |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
@@ -41,9 +41,12 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
       3 repo read methods, `:data` mapper/impl + `FakePlantAppApi` fix + tests; `:data` 7/7,
       `:domain` 2/2 (fixed `0021`'s latent `:data` compile-red). Verified vs real git (only
       `android/domain|data/**`). **3b-ui split a/b: 3b-ui-a IN FLIGHT (`0023`)** — replace add-plant
-      **Profile id field** with a Material3 catalog **dropdown** (`getPlantProfiles()`) +
-      `AddPlantViewModel` load + 1-line `:app` route wiring + Robolectric tests → 3b-ui-b:
-      garden-space/container **select-or-create** selectors.
+      **Profile id field** with a Material3 catalog **dropdown** (`getPlantProfiles()`) — ✅ DONE
+      (`0023`, `20f4e35`): VM load + 1-line `:app` route wiring + Robolectric tests (InventoryScreensTest
+      5/5, `:app:assembleDebug` OK); verified vs real git (`FIELD_PROFILE_ID` removed; only
+      `feature-inventory|app/**`). **3b-ui-b IN FLIGHT (`0024`)** — Garden-space **select-or-create**
+      (dropdown from `getGardenSpaces()` + inline create via `createGardenSpace(name,kind)`; create
+      form is name+kind only — no location). → 3b-ui-c: container select-or-create.
       (Gate note: `:domain` is a JVM module → `:domain:test`, not `:domain:testDebugUnitTest`.)
     - 3c Supabase magic-link sign-in → DataStore token. 3d advisory→accept→CareTask flow.
   - **(2) Automated emulator e2e smoke** (instrumented). **Human device-acceptance (real plants on

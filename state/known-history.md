@@ -261,3 +261,10 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   `0023-android-profile-dropdown` (3b-ui split a/b; in flight): replace add-plant Profile-id
   text field with a Material3 catalog dropdown (`getPlantProfiles()`) + `AddPlantViewModel` load
   + 1-line `:app` route wiring + Robolectric tests. Vision-check ALIGNED.
+- **2026-06-02** — `0023` ✅ landed (`20f4e35`): add-plant Profile-id text field replaced by a
+  Material3 catalog dropdown (`ExposedDropdownMenuBox`, `getPlantProfiles()`); `AddPlantViewModel`
+  loads the catalog; `:app` route passes `profiles`. `InventoryScreensTest` 5/5 (updated #22/#24 +
+  new dropdown test), `:app:assembleDebug` OK. 5 files, only `feature-inventory|app/**`. Verified
+  vs real git (`FIELD_PROFILE_ID` removed). Published `0024-android-gardenspace-selector` (3b-ui-b;
+  in flight): garden-space **select-or-create** (dropdown + inline create via
+  `createGardenSpace(name,kind)`; create form name+kind only — no location). Vision-check ALIGNED.

@@ -1,0 +1,9 @@
+{
+  "id": "0024-android-gardenspace-selector",
+  "kind": "prompt",
+  "status": "ready",
+  "producer": "planner",
+  "createdUtc": "2026-06-02T07:34:56Z",
+  "sourceFile": "next-implementation-prompt.md",
+  "files": ["PROMPT.md"]
+}
