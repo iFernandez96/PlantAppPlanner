@@ -317,3 +317,12 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   recompute advisories (RLS 404), match applicable (400 if absent/unsupported), engine → persist
   one care_tasks row → return CareTask; tests assert GET-creates-nothing invariant. Vision ALIGNED
   (reviewer verified columns/RLS vs real repo; closes the `0016` no-CareTask DB-assert follow-up).
+- **2026-06-02** — `0030` ✅ landed (`53d093e`): `POST /plants/:id/advisories/accept {kind}` →
+  recompute advisories (RLS 404), match applicable (400 if absent/unsupported), engine → persist
+  one care_tasks row → 201 `toCareTask`. 2 files (app.ts + new integration test). `test:int` 31→35
+  incl. GET-creates-nothing assertion; `npm test` 72. Verified vs real git (GET-advisories handler
+  334–411 has no insert; only insert is inside the accept handler). Published
+  `0031-android-accept-netdata` (3d-android net+data; in flight): `:network` `acceptAdvisory` +
+  `AcceptAdvisoryRequest` + `:domain`/`:data` repo method + `FakePlantAppApi` update + tests
+  (net+data combined to avoid the interface-break). Vision ALIGNED (D-09: client holds no care
+  logic; task server-computed/opaque). After 3d-android-ui, backlog (3) complete.

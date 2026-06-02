@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b ALL)✅ (3c ALL)✅ (3d-engine)✅; (3d-api) IN FLIGHT (`0030`)** |
+| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b ALL)✅ (3c ALL)✅ (3d-engine/api)✅; (3d-android net+data) IN FLIGHT (`0031`)** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `e4ffe4b5430870877c41327f73679b7813fe7032` (`e4ffe4b`) — in sync, clean |
+| **Local HEAD / origin/master** | `53d093e0ee570dcaf1e44a926dfb343935f6c7a8` (`53d093e`) — in sync, clean |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
@@ -71,10 +71,14 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
       pollination throws; priority from severity; dueAt=clockUtc; deterministic inputsHash;
       schema-valid); `npm test` 67→72; verified pure (no Date.now/random) & not endpoint-wired.
       Mapping recorded in `reviews/vision-checks.md` 0029 (the decision 3d-api/Android inherit).
-      **3d-api IN FLIGHT (`0030`)** — `POST /plants/:id/advisories/accept` {kind}: recompute
-      advisories (RLS 404), match applicable advisory (400 if absent/unsupported), call the engine,
-      **persist** a care_tasks row, return the CareTask; integration tests incl. GET-creates-nothing
-      invariant. → 3d-android (accept action).
+      **3d-api ✅ DONE (`0030`, `53d093e`)** — `POST /plants/:id/advisories/accept {kind}`:
+      recompute advisories (RLS 404), match applicable (400 if absent/unsupported), engine →
+      persist one care_tasks row → return CareTask; `test:int` 31→35 incl. GET-creates-nothing
+      assertion; verified vs real git (GET handler has no insert). **3d-android net+data IN FLIGHT
+      (`0031`)** — `:network` `acceptAdvisory` + `AcceptAdvisoryRequest` DTO + `:domain`/`:data`
+      repo method + `FakePlantAppApi` update + tests (net+data combined to avoid the interface-break
+      across handoffs). → 3d-android-ui (detail-screen Accept action). **This is the last 3d step;
+      after it, backlog (3) UX follow-ups COMPLETE.**
       (Gate note: `:domain` is a JVM module → `:domain:test`, not `:domain:testDebugUnitTest`.)
   - **(2) Automated emulator e2e smoke** (instrumented). **Human device-acceptance (real plants on
     a real phone) stays with the owner — I can't do that part.**

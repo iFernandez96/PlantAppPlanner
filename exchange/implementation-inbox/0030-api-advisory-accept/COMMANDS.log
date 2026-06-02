@@ -1,0 +1,35 @@
+# Handoff 0030-api-advisory-accept — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD   -> e4ffe4b5430870877c41327f73679b7813fe7032 == origin/master
+$ git status --short                        -> (empty)
+
+## Implement (red-first)
+# test: backend/tests/integration/advisory-accept.integration.test.ts (2 users; helpers; compileSchema('care-task'); 4 cases)
+# endpoint: backend/src/app.ts POST /plants/:id/advisories/accept
+#   - loads as GET advisories + plant.garden_space_id + profile.version; RLS 404 if not owned
+#   - computeAdvisories; match by body.kind; not-applicable -> 400
+#   - computeTaskFromAdvisory in try/catch; throw -> 400 {error, field:'kind'}
+#   - insert care_tasks (id, plant_instance_id, user_id, kind, due_at, priority, rationale,
+#     rationale_metadata, engine_version, inputs_hash, source_inputs, status) -> 201 toCareTask
+#   - import computeTaskFromAdvisory from ../care-engine/task-from-advisory.js
+
+## First test run: 1 failure
+#   "not currently applicable -> 400" used tomato (solanum-lycopersicum) -> returned 201
+#   because tomato requiresSupport=true (support advisory applicable). FIX: use strawberry
+#   (fragaria-x-ananassa: no support, self-fruitful) in an in-range 6L container -> no advisories.
+
+## Gate
+$ cd backend && set -a; eval "$(npm_config_cache=/tmp/plantapp-npx-cache npx supabase status -o env)"; set +a
+$ npm run test:int   -> Test Files 8 passed (8) ; Tests 35 passed (35)   # 31 -> 35 (+4)
+$ npm test           -> Tests 72 passed (72)
+$ npm run validate-schemas  -> all schemas valid
+$ npm run typecheck  -> clean
+$ npm run lint       -> clean
+
+## Commit + push
+$ git add backend/src/app.ts backend/tests/integration/advisory-accept.integration.test.ts
+$ git commit -m "feat(api): POST /plants/:id/advisories/accept creates a CareTask from an accepted advisory"
+  [master 53d093e] 2 files changed, 288 insertions(+)
+$ git push origin master       -> e4ffe4b..53d093e
+$ git rev-parse origin/master  -> 53d093e0ee570dcaf1e44a926dfb343935f6c7a8

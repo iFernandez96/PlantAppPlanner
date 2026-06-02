@@ -16,11 +16,13 @@ auth Json encodeDefaults=true); AuthDtoTest 3/3. 3c (sign-in) COMPLETE: 3c-net `
 + `:app` token-gating; `:feature-inventory` 14/14. **3d advisory→accept→CareTask: engine→api→android.**
 3d-engine `0029` (`e4ffe4b`) ✅ — pure `computeTaskFromAdvisory` (container-size→repot,
 support→support, pollination throws); `npm test` 67→72; verified pure & not endpoint-wired.
-**3d-api IN FLIGHT (`0030-api-advisory-accept`)** — `POST /plants/:id/advisories/accept {kind}`:
-recompute advisories (RLS 404), match applicable (400 if absent/unsupported), engine → persist one
-care_tasks row → return CareTask; integration tests assert **GET still creates nothing**. Vision
-ALIGNED (reviewer verified columns/RLS vs real repo; closes the `0016` no-CareTask DB-assert
-follow-up). → 3d-android (accept action). Watcher armed for `0030`. PlantApp HEAD `e4ffe4b`. **Structural debt:** sign-in in `:feature-inventory` → `:feature-auth`
+3d-api `0030` (`53d093e`) ✅ — `POST /plants/:id/advisories/accept {kind}` → engine → persist one
+care_tasks row; `test:int` 31→35 incl. GET-creates-nothing; verified GET handler has no insert.
+**3d-android net+data IN FLIGHT (`0031-android-accept-netdata`)** — `:network` `acceptAdvisory` +
+`AcceptAdvisoryRequest` + `:domain`/`:data` repo method + `FakePlantAppApi` update + tests (net+data
+combined to avoid the `0021→0022` interface-break). Vision ALIGNED (D-09: client holds no care
+logic; task server-computed/opaque). → 3d-android-ui (detail-screen Accept action) = **last 3d
+step; then backlog (3) UX COMPLETE.** Watcher armed for `0031`. PlantApp HEAD `53d093e`. **Structural debt:** sign-in in `:feature-inventory` → `:feature-auth`
 later. **Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate note:** `:domain` →
 `:domain:test`.
 
