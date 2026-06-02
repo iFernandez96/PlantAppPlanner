@@ -38,7 +38,11 @@ Verified from `git log --oneline` on 2026-05-31. The full history is 20 commits;
 - `52c9d77` test(schema): make Slice 1 schema contract assertions consistent
 
 ## Phase 6 — Stale-comment cleanup (planner Option A)
-- `b2836ca` test(schema): remove stale GardenSpace minLength comment ← **HEAD / origin/master** — 2026-05-31; comment-only (3 ins/5 del, 1 file), planner-verified
+- `b2836ca` test(schema): remove stale GardenSpace minLength comment — 2026-05-31; comment-only (3 ins/5 del, 1 file), planner-verified
+
+## Phase 7 — Slice 1 care-engine (Option B, red-first)
+- `ce141da` chore(backend): install dependencies and commit lockfile — 2026-06-02; first-ever `npm test` = 39 schema tests green
+- `1d4e888` test(care-engine): add Slice 1 watering-engine failing tests ← **HEAD / origin/master** — 2026-06-02; 8 care-engine tests red (`is not a function`), 39 green; engine still placeholder
 
 ## Accepted decisions (canonical record in `docs/slice-01-decision-log.md`)
 
@@ -91,3 +95,8 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   (`git@github.com:iFernandez96/PlantAppPlanner.git`) and pushed `master`.
   Next step set to Option B (care-engine red-first tests #7–#14), pending the
   `npm install` decision.
+- **2026-06-02** — Autonomous in-session ping-pong adopted (planner ↔ impl Claude via
+  exchange watchers; impl runs `--dangerously-skip-permissions`). Option B red-first
+  landed: `ce141da` (deps+lockfile; 39 schema tests green on first run) + `1d4e888`
+  (8 care-engine tests red). Planner verified and published green prompt
+  `0002-care-engine-green`.

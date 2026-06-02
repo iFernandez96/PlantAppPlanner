@@ -1,0 +1,9 @@
+{
+  "id": "0002-care-engine-green",
+  "kind": "prompt",
+  "status": "ready",
+  "producer": "planner",
+  "createdUtc": "2026-06-02T00:30:10Z",
+  "sourceFile": "next-implementation-prompt.md",
+  "files": ["PROMPT.md"]
+}

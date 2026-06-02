@@ -1,0 +1,72 @@
+# Handoff 0001-option-b — commands run (in order), app repo /home/israel/Documents/Development/PlantApp
+
+## Environment re-verify (blocker resolved)
+$ ls -la /home/israel/.npm
+lrwxrwxrwx 1 israel israel 36 May 17 23:42 /home/israel/.npm -> /media/israel/Drive/cache-mirror/npm
+$ file /home/israel/.npm
+/home/israel/.npm: symbolic link to /media/israel/Drive/cache-mirror/npm
+$ test -d /home/israel/.npm && echo CACHE_DIR_OK
+CACHE_DIR_OK
+
+## Baseline precondition
+$ git fetch origin
+$ git rev-parse --abbrev-ref HEAD        -> master
+$ git rev-parse HEAD                      -> b2836ca7ff4d65020f1d385d38940cf8652db459
+$ git rev-parse origin/master            -> b2836ca7ff4d65020f1d385d38940cf8652db459
+$ git status --porcelain                 -> (empty)
+$ cat backend/care-engine/index.ts       -> comment + `export {};`
+
+## COMMIT 1 — install + lockfile
+$ cd backend && npm install
+  npm warn deprecated inflight@1.0.6: ...
+  npm warn deprecated glob@7.2.3: ...
+  added 176 packages, and audited 177 packages in 10s
+  55 packages are looking for funding
+  7 vulnerabilities (4 moderate, 2 high, 1 critical)   # advisory only; no audit fix run
+
+$ npm test    # first-ever vitest run = baseline
+  RUN  v2.1.9
+  ✓ tests/schema/plant-instance.test.ts (4 tests)
+  ✓ tests/schema/garden-space.test.ts (3 tests)
+  ✓ tests/schema/care-task.test.ts (18 tests)
+  ✓ tests/schema/container.test.ts (4 tests)
+  ✓ tests/schema/plant-profile.test.ts (5 tests)
+  ✓ tests/schema/round-trip.test.ts (5 tests)
+  Test Files  6 passed (6)
+       Tests  39 passed (39)
+
+$ git status --short
+  ?? backend/package-lock.json
+$ git diff --quiet backend/package.json && echo UNCHANGED   -> package.json UNCHANGED
+$ git check-ignore backend/node_modules                     -> backend/node_modules (ignored)
+
+$ git add backend/package-lock.json
+$ git commit -m "chore(backend): install dependencies and commit lockfile"
+  [master ce141da] ... 1 file changed, 3213 insertions(+)
+$ git push origin master
+  b2836ca..ce141da  master -> master
+$ git show --stat HEAD
+  backend/package-lock.json | 3213 +++++ ; 1 file changed, 3213 insertions(+)
+
+## COMMIT 2 — red-first care-engine tests
+# created backend/tests/care-engine/compute-initial-water-task.test.ts (exact prompt content)
+
+$ npm test    # confirm RED
+  FAIL tests/care-engine/compute-initial-water-task.test.ts (8 tests)
+    #7..#14 each: TypeError: computeInitialWaterTask is not a function
+  Test Files  1 failed | 6 passed (7)
+       Tests  8 failed | 39 passed (47)
+  (npm test exit non-zero = desired red; suite LOADED cleanly, per-test failures)
+
+$ tail -1 backend/care-engine/index.ts                       -> export {};
+$ git diff --quiet backend/care-engine/index.ts && echo UNCHANGED  -> index.ts UNCHANGED
+$ git status --short                                         -> ?? backend/tests/care-engine/
+
+$ git add backend/tests/care-engine/compute-initial-water-task.test.ts
+$ git commit -m "test(care-engine): add Slice 1 watering-engine failing tests"
+  [master 1d4e888] ... 1 file changed, 167 insertions(+)
+$ git push origin master
+  ce141da..1d4e888  master -> master
+$ git show --stat HEAD
+  backend/tests/care-engine/compute-initial-water-task.test.ts | 167 +++ ; 1 file changed, 167 insertions(+)
+$ git rev-parse origin/master                                -> 1d4e888769f4f982e0368ed41e723416b1b91dea

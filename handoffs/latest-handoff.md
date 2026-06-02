@@ -88,3 +88,7 @@ confirm the 8 tests fail red → commit → push (two commits total).
 - First handoff in flight: `0001-option-b` (two-commit Option B; the npm-cache
   blocker was resolved by mounting the external Drive). Planner posts a short update
   to the owner after each round and only stops to ask on a real blocker.
+- **Round 1 done (2026-06-02):** impl Claude completed `0001-option-b` (commits
+  `ce141da` + `1d4e888`, pushed; 8 care-engine tests red, 39 schema green). Planner
+  verified against real git and published the green handoff `0002-care-engine-green`
+  (implement `computeInitialWaterTask`). Watcher re-armed for the `0002` report.
