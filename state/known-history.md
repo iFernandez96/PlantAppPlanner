@@ -403,3 +403,15 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   repointing the base URL won't unblock without HTTPS or a debug cleartext `network-security-config`.
   3 prereqs to unblock (impl-Claude base-URL+NSC change · run LAN backend · rebuild+reinstall).
   No crashes/regressions. Asked owner whether to proceed with the unblock path.
+- **2026-06-02** — Owner: **"wire it & re-test."** Enablement handoffs: `0038` backend server
+  bootstrap (`e95c40e`), `0039` device-debug build (`a3cb50e`: base URLs→BuildConfig `-P`,
+  **API corrected `:54321`→Fastify `:3000`**, debug cleartext NSC), `0040` (`786c12d`: declare
+  `android.permission.INTERNET` — the real on-device bug). Planner (owner-approved) ran the LAN
+  stack: Supabase :54321 + Fastify :3000 (`HOST=0.0.0.0`, task `bhdrygzdg`), `db reset` (5 profiles;
+  the anon `[]` was RLS), Kong restart (post-reset 502). Owner opened ufw. **2nd device agent run =
+  🎉 FULL-STACK PASS:** OTP sign-in (Mailpit code) → verify → add-plant via selectors → CareTask +
+  container-size advisory → **Accept** (repot task) → **ReminderSync scheduled a `plant-reminder`
+  ReminderWorker → notification POSTED "A 'repot' task is due"** on `plant_care_reminders`. All HTTP
+  200/201, no crashes. Reports: `reviews/device-test-report-2026-06-02-fullstack.md` (blocked-by-bug)
+  + `…-fullstack-pass.md` (pass + planner addendum correcting steps 9–11). Tracked UX note: reminders
+  schedule on app-open/list-load. **Teardown (stop Fastify, re-close ufw) pending owner.**

@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **Real full-stack device run found a REAL BUG: app manifest is missing `android.permission.INTERNET` → all networking `EPERM`. Backend/LAN proven healthy from the phone. Fix handoff `0040` IN FLIGHT; then reinstall + re-run.** |
+| **Snapshot** | 2026-06-02 — **🎉 FULL-STACK ON-DEVICE PASS (real S24 Ultra).** OTP sign-in→add-plant(selectors)→CareTask+advisory→accept→**reminder notification fired** ("A 'repot' task is due"), all HTTP 200/201, no crashes. Found+fixed the INTERNET-permission bug (`0040`). Backend still UP / ufw open — **awaiting owner: tear down vs keep for hands-on.** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
 | **Local HEAD / origin/master** | `369f2f06dcc6bc8019cf051b40228e01a0746b89` (`369f2f0`) — in sync, clean |
@@ -145,13 +145,24 @@ Ran the queued 13-test suite (`reviews/device-test-suite.md`) via a QA agent →
      - **Teardown after:** re-close ufw ports; stop Fastify (`bhdrygzdg`).
      - **ufw opened by owner ✅; Kong restarted to clear a post-`db reset` stale-upstream 502.**
        Phone→Supabase `/auth/v1/health` 200, phone→Fastify `/plants` 401 — reachability proven.
-     - **Real full-stack agent run (`reviews/device-test-report-2026-06-02-fullstack.md`): BLOCKED at
-       Step 2 by a REAL APP BUG — the app manifest is MISSING `android.permission.INTERNET`**, so the
-       OS denies all sockets (`java.net.SocketException: socket failed: EPERM`) on the first call
-       (`POST /auth/v1/otp`). Every unit/integration/Robolectric test missed it (none open a real
-       socket) — only the on-device run caught it. Steps 1+12 PASS (launch/gating/sign-in UI/warm
-       relaunch, no crash); steps 3–11 blocked downstream. **Fix → handoff `0040` (add INTERNET to
-       `app/src/main/AndroidManifest.xml`, rebuild), reinstall, re-run the agent (Steps 2–12).**
+     - **1st full-stack agent run** (`reviews/device-test-report-2026-06-02-fullstack.md`) found a
+       **REAL BUG: missing `android.permission.INTERNET`** → all sockets `EPERM` on `POST /auth/v1/otp`.
+       Missed by every unit/integration/Robolectric test (none open a real socket). **Fixed by `0040`**
+       (`786c12d`, one-line manifest add; verified; APK rebuilt+reinstalled).
+     - **2nd full-stack agent run after the fix** (`reviews/device-test-report-2026-06-02-fullstack-pass.md`):
+       **🎉 PASS end-to-end.** Real OTP sign-in (otp 200 → Mailpit code → verify 200 → token) →
+       `GET /plants` 200 → add-plant via **catalog dropdown + select-or-create** (plant-profiles 200,
+       containers/garden-spaces/plants 201) → water **CareTask** + HIGH container-size **advisory**
+       render → **Accept** (`advisories/accept` 201 → repot task). No crashes.
+     - **Reminder path verified by the planner** (the agent's steps 9–11 had only failed because it
+       never returned to the LIST; `ReminderSync` runs on app-open/list-load): cold-start→list →
+       two `plant-reminder` `ReminderWorker`s (repot **SUCCEEDED** immediately, water **ENQUEUED** for
+       Jun 3) → **notification POSTED** on channel `plant_care_reminders`: **"Plant care reminder / A
+       'repot' task is due"** (shade screenshot `device-evidence/H-reminder-shade.png`). **All 12
+       steps PASS** (report addendum records the correction).
+     - **UX note (tracked, not a bug):** reminders (re)schedule on app-open/list-load, not right after
+       add/accept — candidate follow-up: also sync after those actions.
+     - **Teardown still pending** (Fastify `bhdrygzdg` up; ufw open) — awaiting owner (keep vs stop).
 - **Transport decision (2026-06-02):** owner chose **cleartext-on-LAN for the local device test**
   (debug-only NSC). **Production stays HTTPS** — release builds keep Android's no-cleartext default;
   hosted Supabase is HTTPS; a deployed Fastify would be behind TLS. **Tracked requirement: prod = HTTPS.**

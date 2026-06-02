@@ -1,0 +1,28 @@
+# Handoff 0040-android-internet-permission — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD   -> a3cb50e4d82020d9716c151180c628f92d61e6b8 == origin/master
+$ git status --short                        -> (empty)
+$ grep -c android.permission.INTERNET android/app/src/main/AndroidManifest.xml  -> 0 (absent)
+
+## Implement (one line)
+# android/app/src/main/AndroidManifest.xml: +<uses-permission android:name="android.permission.INTERNET" />
+#   (before <application>, above POST_NOTIFICATIONS)
+
+## Gate
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :app:assembleDebug \
+    -Pplantapp.apiBaseUrl=http://10.0.0.179:3000/ -Pplantapp.authBaseUrl=http://10.0.0.179:54321/ --no-daemon
+  -> BUILD SUCCESSFUL in 6s
+$ aapt2 dump permissions app/build/outputs/apk/debug/app-debug.apk | grep INTERNET
+  -> uses-permission: name='android.permission.INTERNET'   (now present)
+$ ls -la app/build/outputs/apk/debug/app-debug.apk
+  -> 12299519 bytes, mtime 2026-06-02 10:11:06 -0700
+
+## Commit + push
+$ git add android/app/src/main/AndroidManifest.xml
+$ git commit -m "fix(android): declare INTERNET permission (app networking failed with EPERM on-device)"
+  [master 786c12d] 1 file changed, 3 insertions(+)
+$ git push origin master       -> a3cb50e..786c12d
+$ git rev-parse origin/master  -> 786c12defcd930bf14fc363447f36e426ea8913b
+$ git show --stat HEAD | grep -c .apk            -> 0
+$ git show --stat HEAD | grep -c local.properties -> 0
