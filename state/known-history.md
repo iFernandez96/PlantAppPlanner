@@ -222,3 +222,6 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   + API + Android); all 5 `@slice-2` scenarios exercised. Loop **paused**; retro
   `reviews/slice-2-retro.md`. 17 handoffs across Slices 1–2, all green, no regressions. Owner
   to direct next (validate-schemas fix / device run / UX follow-ups / Slice 3).
+- **2026-06-02** — Owner said **"do all"**: validate-schemas fix → UX follow-ups → e2e/device
+  smoke → Slice 3. (1) published `0018-validate-schemas-fix` (in flight). Slice 3 will stop
+  for Firebase/FCM creds; the on-device human acceptance stays with the owner.

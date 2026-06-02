@@ -199,3 +199,11 @@ confirm the 8 tests fail red → commit → push (two commits total).
   Slice 3 (deterministic watering reminders + notifications).
 - **Next planner session:** re-fetch (expect `c4e4396`), read `reviews/slice-2-retro.md` +
   `reviews/slice-1-retro.md`, act on the owner's choice; resume the ping-pong on a new approved handoff.
+
+## "Do all" backlog (2026-06-02) — loop RUNNING
+Owner said **"do all"**. Order: **(1) validate-schemas fix [`0018` in flight] → (3) UX
+follow-ups (3a `GET /plant-profiles|/garden-spaces|/containers` list endpoints → 3b Android
+form selectors → 3c Supabase sign-in → 3d advisory→accept→CareTask flow) → (2) automated
+emulator e2e smoke (human device-acceptance stays with the owner) → (4) Slice 3 (WorkManager
+local first; STOP for Firebase/FCM creds + `google-services.json`).** Vision-check each
+product-surface step; pause only on a real decision (notably FCM credentials).

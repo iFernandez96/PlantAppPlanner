@@ -26,11 +26,15 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
   `computeAdvisories` engine · `GET /plants/:id/advisories` (RLS, no task) · Android detail
   display. Backend unit **67/67** + integration **25/25**; Android module + UI tests green;
   `:app:assembleDebug` OK.
-- **Loop PAUSED — owner decision (no prompt pending, no watcher armed).** Backlog:
-  - **`validate-schemas` tooling fix** (pre-existing broken gate; cheap; makes it green).
-  - **On-device acceptance run** (Slice 1+2) on a device/emulator (API reachable).
-  - **UX follow-ups** (real selectors; sign-in; advisory "accept → task" flow).
-  - **Slice 3** — deterministic watering reminders + notifications (FCM/WorkManager).
+- **Owner chose "do all" (2026-06-02) — loop RUNNING through the backlog.** Order:
+  - **(1) `validate-schemas` fix — IN FLIGHT (`0018`).**
+  - **(3) UX follow-ups:** 3a backend list endpoints (`GET /plant-profiles|/garden-spaces|/containers`)
+    → 3b Android form selectors → 3c Supabase sign-in screen → 3d advisory→accept→CareTask flow.
+  - **(2) Automated emulator e2e smoke** (instrumented). **Human device-acceptance (real plants on
+    a real phone) stays with the owner — I can't do that part.**
+  - **(4) Slice 3** (watering reminders): WorkManager local path first, then **STOP to ask the owner
+    for Firebase/FCM setup** (Firebase project + `google-services.json`).
+  - Vision-check each product-surface step. No watcher gap — armed for `0018`.
 - **Tracked (pre-existing, NOT blocking):** `npm run validate-schemas` red for all 8 schemas
   (ajv-cli lacks `ajv-formats`; `diagnosis-result` strictTypes). Real gate is `npm test` (green).
   Tiny hygiene handoff candidate (`-c ajv-formats` + one `type:"array"`).
