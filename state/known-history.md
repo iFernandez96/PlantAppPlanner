@@ -384,3 +384,11 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   `POST_NOTIFICATIONS` request (Android 13+) via Compose `RequestPermission` launcher in the LIST
   route + pure `NotificationPermission.shouldRequest` helper + test. Vision ALIGNED. **After it →
   STOP and ask owner for Firebase/FCM setup (project + google-services.json).**
+- **2026-06-02** — `0037` ✅ landed (`369f2f0`): runtime `POST_NOTIFICATIONS` request — pure
+  `NotificationPermission.shouldRequest(sdkInt, granted)` helper + Compose `RequestPermission`
+  launcher in MainActivity's LIST route. `:feature-inventory` 18→22; assemble OK. 3 files
+  (`:feature-inventory`+`:app`); no FCM. Verified vs real git. **✅ LOCAL Slice 3 reminder path
+  COMPLETE** (computeReminders → WorkManager scheduling → app-open sync → runtime permission).
+  **⏸ Loop PAUSED at the FCM STOP gate — asked the owner** (proceed with FCM [needs Firebase project
+  + google-services.json + backend FCM sender + token registration] vs defer / mark Slice 3 done at
+  local). **"Do all" backlog (1)(2)(3)(4) all delivered except the owner-gated FCM remainder.**

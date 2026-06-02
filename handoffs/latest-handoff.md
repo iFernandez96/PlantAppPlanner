@@ -26,13 +26,16 @@ care_tasks row; `test:int` 31→35 incl. GET-creates-nothing; verified GET handl
 `ReminderScheduler`+`ReminderWorker`+WorkManager dep+`POST_NOTIFICATIONS`+channel; `:data` 11→14;
 local-only (no FCM). app-open scheduling `0036` (`e8aaeec`) ✅ —
 `ReminderSync` + `ReminderScheduling` seam + `Clock` + `PlantListViewModel` trigger; `:data` 14→15.
-**runtime `POST_NOTIFICATIONS` IN FLIGHT (`0037-post-notifications-permission`)** — Compose
-`RequestPermission` launcher in the LIST route + pure `NotificationPermission.shouldRequest` helper +
-test. Vision ALIGNED. **Sequence:** `computeReminders`✅ → WM-local✅ → app-open sched✅ → runtime
-perm (`0037`) → **STOP for owner Firebase/FCM** (project + `google-services.json`). **`0037` is the
-last LOCAL Slice 3 step — when it lands, the loop PAUSES at the FCM gate to ask the owner.** Watcher
-armed for `0037`. PlantApp HEAD `e8aaeec`. **Tripwire:** Drive mounted before any `gradlew`/npm/npx.
-**Gate note:** `:domain` → `:domain:test`. **Tripwire:** Drive mounted before any
+runtime `POST_NOTIFICATIONS` `0037` (`369f2f0`) ✅ — Compose `RequestPermission` launcher + pure
+`shouldRequest` helper; `:feature-inventory` 18→22. **✅ LOCAL Slice 3 reminder path COMPLETE**
+(`computeReminders` → WorkManager scheduling → app-open sync → runtime permission). **⏸ LOOP PAUSED
+at the FCM STOP gate — owner question posted** (proceed with FCM server-push [needs Firebase project
++ `google-services.json` + a backend FCM sender + per-user token registration] vs defer / call
+Slice 3 done at the local path). **No prompt published / no watcher armed until the owner decides.**
+"Do all" backlog (1)(2)(3)(4) all delivered except the owner-gated FCM remainder. PlantApp HEAD
+`369f2f0`. **Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate note:** `:domain` →
+`:domain:test`. **Owner manual check available:** run on a 33+ device, grant the permission, confirm
+a reminder fires for a due task. **Tripwire:** Drive mounted before any
 `gradlew`/npm/npx. **Gate note:** `:domain` → `:domain:test`. **Structural debt:** sign-in in `:feature-inventory` → `:feature-auth`
 later. **Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate note:** `:domain` →
 `:domain:test`.

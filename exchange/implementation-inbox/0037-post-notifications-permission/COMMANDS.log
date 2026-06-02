@@ -1,0 +1,33 @@
+# Handoff 0037-post-notifications-permission — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD   -> e8aaeec50c0f1cb1114b3dc1b8186654d7fae091 == origin/master
+$ git status --short                        -> (empty)
+$ ls ~/Android/Sdk/platforms                -> android-34/35/36/36.1 (SDK OK)
+
+## Implement (red-first)
+# feature NotificationPermission.kt: object { shouldRequest(sdkInt, granted) = sdkInt>=33 && !granted }
+# app MainActivity.kt: LIST composable -> LocalContext + rememberLauncherForActivityResult(RequestPermission){};
+#   LaunchedEffect(Unit){ granted=ContextCompat.checkSelfPermission(POST_NOTIFICATIONS)==GRANTED;
+#   if(shouldRequest(Build.VERSION.SDK_INT, granted)) launcher.launch(POST_NOTIFICATIONS) }
+# test feature NotificationPermissionTest.kt: 4 cases (32 F, 33!grant T, 33 grant F, 34!grant T)
+
+## First run: compile error
+#   NotificationPermissionTest used kotlin.test.* ; :feature-inventory has no kotlin-test-junit dep (JUnit4 only).
+#   FIX: import org.junit.Test + org.junit.Assert.assertEquals (matches module's other tests).
+
+## Gate
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest :app:assembleDebug --no-daemon
+  BUILD SUCCESSFUL in 19s
+  NotificationPermissionTest 4/4 ; feature-inventory total 18->22 ; :app:assembleDebug SUCCESSFUL
+
+## No FCM check
+$ grep -rin 'firebase|google-services|com.google.gms' android/feature-inventory android/app  -> none
+
+## Commit + push
+$ git add android/feature-inventory/ android/app/
+$ git commit -m "feat(android): request POST_NOTIFICATIONS at runtime for local reminders (Slice 3)"
+  [master 369f2f0] 3 files changed, 59 insertions(+)
+$ git push origin master       -> e8aaeec..369f2f0
+$ git rev-parse origin/master  -> 369f2f06dcc6bc8019cf051b40228e01a0746b89
+$ git show --stat HEAD | grep -c local.properties  -> 0

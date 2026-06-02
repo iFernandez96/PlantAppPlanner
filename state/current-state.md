@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all": backlog(1/2/3)✅; Slice 3 local: opener✅ WM-local✅ app-open-sched✅; runtime POST_NOTIFICATIONS IN FLIGHT (`0037`) — FCM stop after** |
+| **Snapshot** | 2026-06-02 — **"do all" backlog DONE except owner-gated FCM. Slice 3 LOCAL path COMPLETE (`0037`). Loop PAUSED at the FCM gate — awaiting owner.** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `e8aaeec50c0f1cb1114b3dc1b8186654d7fae091` (`e8aaeec`) — in sync, clean |
+| **Local HEAD / origin/master** | `369f2f06dcc6bc8019cf051b40228e01a0746b89` (`369f2f0`) — in sync, clean |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
@@ -94,11 +94,14 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
       `0035`✅ (`6f6f58b`: `ReminderScheduler`+`ReminderWorker`+WorkManager dep+`POST_NOTIFICATIONS`+
       channel; `:data` 11→14; verified — local-only, no FCM). app-open scheduling
       `0036`✅ (`e8aaeec`: `ReminderSync` + `ReminderScheduling` seam + `Clock` + `PlantListViewModel`
-      fire-and-forget trigger; `:data` 14→15). **runtime `POST_NOTIFICATIONS` IN FLIGHT (`0037`):**
-      Compose permission request (Android 13+) after sign-in + a pure `shouldRequest(sdkInt, granted)`
-      helper (unit-tested) + assembleDebug. **→ then STOP for owner Firebase/FCM setup** (project +
-      `google-services.json`) — the Slice 3 FCM gate. Slice 3 relaxes the Slices-1/2 "no notifications"
-      posture (D-11/D-12; ratified D-13) — owner-approved.
+      fire-and-forget trigger; `:data` 14→15). runtime `POST_NOTIFICATIONS` `0037`✅
+      (`369f2f0`): Compose `RequestPermission` launcher + pure `shouldRequest` helper; `:feature-inventory`
+      18→22; verified (no FCM). **✅ LOCAL Slice 3 reminder path COMPLETE** (computeReminders →
+      WorkManager scheduling → app-open sync → runtime permission). **⏸ PAUSED at the FCM STOP gate:**
+      server-triggered push needs an owner-provided **Firebase project + `google-services.json`** +
+      go-ahead, plus a backend FCM sender + per-user token registration (a meaningful chunk). Owner
+      can also manually verify on a 33+ device (grant permission → confirm a reminder fires). Slice 3
+      relaxed the Slices-1/2 "no notifications" posture (D-11/D-12; ratified D-13) — owner-approved.
       (Gate note: `:domain` is a JVM module → `:domain:test`, not `:domain:testDebugUnitTest`.)
   - **(2) Automated emulator e2e smoke** (instrumented). **Human device-acceptance (real plants on
     a real phone) stays with the owner — I can't do that part.**
