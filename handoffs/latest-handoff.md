@@ -78,3 +78,13 @@ confirm the 8 tests fail red → commit → push (two commits total).
 - Implementation returns results via
   `scripts/exchange-create-implementation-report.sh <id> <src-dir>` (add `--blocked`
   with a `BLOCKED.md` if it needs an owner decision).
+
+## Autonomous in-session ping-pong (2026-06-01)
+- Planner (this session) and the implementation Claude run as two **live** sessions,
+  each with a `run_in_background` watcher that wakes it when the other publishes to
+  the exchange. **Not** a detached daemon; both windows must stay open.
+- Impl side launches with `--dangerously-skip-permissions`; bootstrap prompt:
+  `prompts/impl-claude-autonomy-bootstrap.md`. Planner stays on normal permissions.
+- First handoff in flight: `0001-option-b` (two-commit Option B; the npm-cache
+  blocker was resolved by mounting the external Drive). Planner posts a short update
+  to the owner after each round and only stops to ask on a real blocker.
