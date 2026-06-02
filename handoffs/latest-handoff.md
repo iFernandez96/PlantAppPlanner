@@ -10,14 +10,14 @@ real git. (3b) Android selectors decomposed network→data→ui. 3b-network `002
 `0022` (`3fba718`) ✅ — `:domain` `PlantProfile` + repo list methods, `:data` 7/7 / `:domain` 2/2
 (fixed `0021`'s latent `:data` compile-red). 3b-ui-a profile dropdown `0023` (`20f4e35`) ✅; garden-space `0024` (`5ce6f29`) ✅; container
 `0025` (`8d51874`) ✅ — InventoryScreensTest 9/9, assemble OK. **3b (Android add-plant selectors)
-COMPLETE — form fully selector-driven, no raw-id fields.** **3c sign-in: owner chose EMAIL OTP CODE.** Decomposed net→data→ui. **3c-net IN FLIGHT
-(`0026-android-auth-network`)** — `:network` `SupabaseAuthApi` (GoTrue `/auth/v1/otp`+`/verify`) +
-DTOs (`@SerialName` snake_case) + factory (public anon `apikey` header, caller-supplied auth URL;
-BASIC logging so no email/OTP/token in logs) + round-trip tests; vision ALIGNED. → 3c-data
-(`AuthRepository` + config anon-key/auth-URL + token write via existing `SettingsStore.setToken`)
-→ 3c-ui (sign-in screen + VM + `:app` gating). Watcher armed for the `0026` report. PlantApp HEAD
-`8d51874`. **Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate note:** `:domain` is a
-JVM module → `:domain:test`.
+COMPLETE — form fully selector-driven, no raw-id fields.** **3c sign-in: owner chose EMAIL OTP CODE.** net→data→ui. 3c-net `0026` (`a2f5e75`) ✅ — `:network`
+GoTrue client (`SupabaseAuthApi` otp+verify + DTOs + factory, public apikey header, BASIC logging,
+auth Json encodeDefaults=true); AuthDtoTest 3/3. **3c-data IN FLIGHT (`0027-android-auth-data`)** —
+`:domain` `AuthRepository` + `:data` impl persisting token via `SettingsStore.setToken`
+(`TokenWriter` seam) + DI/config (auth URL + **public** local anon key from `npx supabase status`,
+overridable) + fake tests; vision ALIGNED-WITH-NOTES (secrets-safe). → 3c-ui (sign-in screen + VM +
+`:app` gating). Watcher armed for the `0027` report. PlantApp HEAD `a2f5e75`. **Tripwire:** Drive
+mounted before any `gradlew`/npm/npx. **Gate note:** `:domain` is a JVM module → `:domain:test`.
 
 ## What this session did
 - Verified Option A on `origin/master` independently (`git show`/`diff`): one file,

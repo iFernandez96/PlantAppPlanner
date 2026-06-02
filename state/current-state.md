@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b ALL)✅; 3c=email-OTP (owner); (3c-net) IN FLIGHT (`0026`)** |
+| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b ALL)✅ (3c-net)✅; (3c-data) IN FLIGHT (`0027`)** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `8d5187490e9171cf32a62c42a1ff2530bdd2dd0b` (`8d51874`) — in sync, clean |
+| **Local HEAD / origin/master** | `a2f5e75ec8d4307155933d7cc04b7045ef97a6b4` (`a2f5e75`) — in sync, clean |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
@@ -55,11 +55,13 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
     - **3c sign-in — owner chose EMAIL OTP CODE (2026-06-02):** email → GoTrue `/auth/v1/otp`
       (6-digit code) → enter code → `/auth/v1/verify` → token → existing `SettingsStore.setToken`
       plumbing. Dependency-free (Retrofit/OkHttp/kotlinx), no deep-link/manifest. Decomposed
-      net→data→ui: **3c-net IN FLIGHT (`0026`)** — `:network` `SupabaseAuthApi` (otp+verify) +
-      DTOs + factory (apikey header, auth base URL) + round-trip tests → 3c-data (`AuthRepository`
-      + config anon-key/auth-URL + token write) → 3c-ui (sign-in screen + VM + `:app` gating).
-      Local-dev anon key is the public well-known local-stack JWT (safe to commit); real project
-      URL/key configurable. 3d advisory→accept→CareTask after.
+      net→data→ui: **3c-net ✅ DONE (`0026`, `a2f5e75`)** — `:network` `SupabaseAuthApi` (otp+verify)
+      + DTOs (`@SerialName`) + factory (public apikey header, BASIC logging; auth `Json`
+      encodeDefaults=true so `create_user`/`type` are sent); `AuthDtoTest` 3/3, `:network` green.
+      Verified vs real git (only `android/network/**`, no key/URL hard-coded). **3c-data IN FLIGHT
+      (`0027`)** — `:domain` `AuthRepository` + `:data` impl (verify → `SettingsStore.setToken` via
+      `TokenWriter` seam) + DI/config (auth URL + **public** local anon key, overridable) + fake
+      tests. → 3c-ui (sign-in screen + VM + `:app` gating). 3d advisory→accept→CareTask after.
       (Gate note: `:domain` is a JVM module → `:domain:test`, not `:domain:testDebugUnitTest`.)
     - 3c Supabase magic-link sign-in → DataStore token. 3d advisory→accept→CareTask flow.
   - **(2) Automated emulator e2e smoke** (instrumented). **Human device-acceptance (real plants on

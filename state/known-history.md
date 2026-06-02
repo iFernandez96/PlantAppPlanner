@@ -284,3 +284,11 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   3c sign-in; paused to ask the owner the auth approach (token plumbing already exists:
   `SettingsStore.setToken`→`AuthTokenProvider`→OkHttp; missing = a sign-in UI that obtains a token;
   needs the Supabase anon key + auth URL on device).
+- **2026-06-02** — Owner chose **email-OTP-code** sign-in. `0026` ✅ landed (`a2f5e75`): `:network`
+  Supabase GoTrue auth client — `AuthDtos` (`@SerialName` snake_case), `SupabaseAuthApi`
+  (otp+verify), `SupabaseAuthApiFactory` (public anon `apikey` header, BASIC logging no PII, auth
+  `Json` encodeDefaults=true). `AuthDtoTest` 3/3. 4 new files, only `android/network/**`; no
+  key/URL hard-coded. Verified vs real git. Published `0027-android-auth-data` (3c-data; in
+  flight): `:domain` `AuthRepository` + `:data` impl persisting token via `SettingsStore.setToken`
+  (`TokenWriter` seam) + DI/config (auth URL + public local anon key from `npx supabase status`).
+  Vision-check ALIGNED-WITH-NOTES (secrets-safe: public anon key only; service_role never touched).

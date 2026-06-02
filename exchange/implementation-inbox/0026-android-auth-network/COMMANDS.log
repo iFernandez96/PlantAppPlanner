@@ -1,0 +1,25 @@
+# Handoff 0026-android-auth-network — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline + unblock
+$ git fetch origin && git rev-parse HEAD      -> 8d5187490e9171cf32a62c42a1ff2530bdd2dd0b == origin/master
+$ git status --short                           -> (empty)
+$ ls /home/israel/Android/Sdk/platforms        -> android-34/35/36/36.1 (SDK OK)
+
+## Implement (:network only)
+# AuthDtos.kt: OtpRequest(@SerialName create_user), VerifyOtpRequest, SessionResponse(@SerialName access_token/token_type/expires_in/refresh_token)
+# SupabaseAuthApi.kt: POST auth/v1/otp -> Response<Unit>; POST auth/v1/verify -> SessionResponse
+# SupabaseAuthApiFactory.kt: create(authBaseUrl, anonKey); apikey header interceptor; BASIC logging (no bodies/PII); Json encodeDefaults=true
+# AuthDtoTest.kt: snake_case create_user assertion + round-trips; SessionResponse decodes GoTrue body ignoring unknown 'user'
+
+## Gate
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :network:testDebugUnitTest --no-daemon
+  BUILD SUCCESSFUL in 9s
+  AuthDtoTest tests=3 failures=0 ; all prior :network tests green
+
+## Commit + push
+$ git add android/network/
+$ git commit -m "feat(android-network): Supabase GoTrue email-OTP auth client"
+  [master a2f5e75] 4 files changed, 134 insertions(+)
+$ git push origin master        -> 8d51874..a2f5e75
+$ git rev-parse origin/master   -> a2f5e75ec8d4307155933d7cc04b7045ef97a6b4
+$ git show --stat HEAD | grep -c local.properties   -> 0

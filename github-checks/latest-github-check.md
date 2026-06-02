@@ -4,22 +4,21 @@
 
 | Question | Answer |
 |---|---|
-| Latest `origin/master` | `8d51874` — feat(android-inventory): container select-or-create for add-plant |
-| Local == origin/master? | ✅ yes (`8d51874` both sides) |
-| `0025` commits | `8d51874` (single commit; 5 files `feature-inventory`+`app`, +171/−19) |
+| Latest `origin/master` | `a2f5e75` — feat(android-network): Supabase GoTrue email-OTP auth client |
+| Local == origin/master? | ✅ yes (`a2f5e75` both sides) |
+| `0026` commits | `a2f5e75` (single commit; 4 new files `android/network/**`, +134) |
 | Uncommitted changes? | none (clean; git-ignored `android/local.properties` may exist locally) |
 | CI / workflows / checks / PRs / issues | **none** — no CI, no open PRs, no open issues |
 | Default branch | `master` |
 
-`0025` verified vs real git: `git diff 5ce6f29 8d51874` = only `android/feature-inventory/**` +
-`android/app/**` (5 files); all three raw-id fields removed (profile/garden-space/container);
-container selector + `createContainer` present; `:network`/`:data`/`:domain`/backend untouched;
-`local.properties` not committed. `InventoryScreensTest` 9/9 (updated #22/#24 + 2 new container
-tests), `:app:assembleDebug` SUCCESSFUL.
+`0026` verified vs real git: `git diff 8d51874 a2f5e75` = only `android/network/**` (AuthDtos,
+SupabaseAuthApi, SupabaseAuthApiFactory + AuthDtoTest); no anon key/URL hard-coded (only an example
+URL in a doc comment); `local.properties` not committed. `AuthDtoTest` 3/3, all prior `:network`
+tests green.
 
-**"Do all" loop status.** (1)✅ (3a)✅ (3b-network)✅ (3b-data)✅ (3b-ui a/b/c)✅ — **3b COMPLETE;
-form fully selector-driven.** **3c sign-in: owner chose EMAIL OTP CODE.** **3c-net
-`0026-android-auth-network` published & IN FLIGHT:** `:network` `SupabaseAuthApi` (GoTrue
-otp+verify) + DTOs + factory (public anon apikey header; BASIC logging — no email/OTP/token in
-logs). Gate: `:network:testDebugUnitTest`. Vision ALIGNED. Watcher armed for `0026`. (3c-data +
-3c-ui follow.)
+**"Do all" loop RUNNING.** (1)✅ (3a)✅ (3b)✅ (3c-net)✅. **3c-data `0027-android-auth-data`
+published & IN FLIGHT:** `:domain` `AuthRepository` + `:data` impl persisting token via
+`SettingsStore.setToken` (`TokenWriter` seam) + DI/config (auth URL + **public** local anon key
+from `npx supabase status`, overridable). Gate: `:domain:test` + `:data:testDebugUnitTest`. Vision
+ALIGNED-WITH-NOTES (secrets-safe — public anon key only; service_role never touched). Watcher armed
+for `0027`. (3c-ui follows.)
