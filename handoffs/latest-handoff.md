@@ -1,12 +1,14 @@
 # Latest Handoff
 
-**From:** Option-A-verification + Option-B-prep session · **Date:** 2026-05-31
+**From:** "do all" backlog session · **Date:** 2026-06-02 · _(history below is older; see the
+"Do all" section near the bottom + `state/current-state.md` for the live picture)_
 
-## One-line status
-Option A landed and is planner-verified (`b2836ca`, comment-only). Option B
-(care-engine red-first tests) is **ready as a two-commit prompt** — owner approved
-`npm install` (PD-04), and the test was hardened to use a **dynamic import** so the
-red is per-test (not a suite load error). PlantApp still has **no production behavior**.
+## One-line status (2026-06-02)
+"Do all" loop RUNNING. (1) `validate-schemas` fix ✅ landed (`0018`, `392ba86`) — green, 67/67,
+verified vs real git. (3a) `0019-list-endpoints` published & IN FLIGHT (read-only
+`GET /plant-profiles` catalog + `GET /garden-spaces`/`/containers` RLS + `toPlantProfile`
+mapper + integration tests; vision ALIGNED). Watcher armed for the `0019` report. PlantApp
+HEAD `392ba86`, clean.
 
 ## What this session did
 - Verified Option A on `origin/master` independently (`git show`/`diff`): one file,

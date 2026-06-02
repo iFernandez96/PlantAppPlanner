@@ -225,3 +225,8 @@ inputsHash         = sha256(canonical-json(sourceInputs))
 - **2026-06-02** — Owner said **"do all"**: validate-schemas fix → UX follow-ups → e2e/device
   smoke → Slice 3. (1) published `0018-validate-schemas-fix` (in flight). Slice 3 will stop
   for Firebase/FCM creds; the on-device human acceptance stays with the owner.
+- **2026-06-02** — `0018` ✅ landed (`392ba86`): `validate-schemas` green (ajv-formats +
+  diagnosis-result `type:"array"`); 2 files, +2/−2; `npm test` 67/67. Verified vs real git.
+  Item (3a) published `0019-list-endpoints` (in flight): read-only `GET /plant-profiles`
+  (catalog) + `GET /garden-spaces`/`/containers` (RLS) + `toPlantProfile` mapper + integration
+  tests, feeding the add-plant selectors. Vision-check ALIGNED.

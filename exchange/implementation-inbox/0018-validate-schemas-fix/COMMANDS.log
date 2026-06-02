@@ -1,0 +1,24 @@
+# Handoff 0018-validate-schemas-fix — commands (in order), app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD     -> c4e4396bde2470706abe04a29b53ed307e430028
+$ git status --short                          -> (empty)
+$ cd backend && npm run validate-schemas ; echo $?
+  -> exit 1 ; 8 schemas "is invalid" (unknown format uuid/uri/date-time; diagnosis-result strictTypes)
+
+## Fix
+# backend/package.json: validate-schemas script += "-c ajv-formats"
+# shared-schemas/diagnosis-result.schema.json: recommendations under allOf/then -> add "type":"array"
+$ cd backend && npm run validate-schemas
+  schema ../shared-schemas/*.schema.json is valid   (all 8)
+  exit 0
+$ npm test          -> 67 passed (67)
+$ npm run typecheck -> clean
+$ npm run lint      -> LINT OK
+
+## Commit
+$ git add backend/package.json shared-schemas/diagnosis-result.schema.json
+$ git commit -m "chore(backend): make validate-schemas pass (ajv-formats + diagnosis-result type)"
+  [master 392ba86] 2 files changed, 2 insertions(+), 2 deletions(-)
+$ git push origin master   -> c4e4396..392ba86
+$ git rev-parse origin/master   -> 392ba8640aea98f4091e8a61c4180495c4bbf0f9

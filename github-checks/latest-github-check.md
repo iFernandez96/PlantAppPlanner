@@ -4,21 +4,22 @@
 
 | Question | Answer |
 |---|---|
-| Latest `origin/master` | `c4e4396` — feat(android-advisories): surface plant advisories on the detail screen (Slice 2) |
-| Local == origin/master? | ✅ yes (`c4e4396` both sides) |
-| S2.3 commits | `63440be` (red advisory DTO/repo/UI tests) → `c4e4396` (green Android advisory display) |
+| Latest `origin/master` | `392ba86` — chore(backend): make validate-schemas pass (ajv-formats + diagnosis-result type) |
+| Local == origin/master? | ✅ yes (`392ba86` both sides) |
+| `0018` commits | `392ba86` (single commit; 2 files +2/−2) |
 | Uncommitted changes? | none (clean) |
-| CI / workflows / checks / PRs / issues | **none (no CI)** |
+| CI / workflows / checks / PRs / issues | **none** — no CI, no open PRs, no open issues |
 | Default branch | `master` |
 
-S2.3 verified: `git diff 8d3e813 c4e4396` = only `:network`/`:domain`/`:data`/
-`:feature-inventory`; `backend/**`/`shared-schemas/**`/`supabase/**` untouched; no forbidden
-deps; no on-device advisory-compute / task-creation. Android module tests + UI green;
-`:app:assembleDebug` OK.
+`0018` verified vs real git: `git diff c4e4396 392ba86` = only `backend/package.json` +
+`shared-schemas/diagnosis-result.schema.json`; engines/API/migrations/Android untouched; no
+new deps; `--strict`/`--all-errors` not relaxed. `npm run validate-schemas` now green (all 8
+schemas compile); `npm test` 67/67; typecheck + lint clean.
 
-**Slice 2 (advisories) complete end-to-end** — backend unit 67/67 + integration 25/25 (all 5
-`@slice-2` scenarios), Android display tested. Retro: `reviews/slice-2-retro.md`. Loop paused
-for owner decision.
+**"Do all" loop RUNNING.** (1) `validate-schemas` ✅ done. (3a) `0019-list-endpoints` published
+& IN FLIGHT: read-only `GET /plant-profiles` (catalog) + `GET /garden-spaces`/`/containers`
+(RLS) + `toPlantProfile` mapper + integration tests. Vision-check ALIGNED. Watcher armed for
+the `0019` report.
 
-**KNOWN (pre-existing, tracked):** `npm run validate-schemas` red (ajv-cli lacks
-`ajv-formats`) — redundant/broken gate; real gate `npm test` green. Tiny hygiene handoff candidate.
+**No outstanding KNOWN gate issues** — the pre-existing `validate-schemas` red was the `0018`
+fix and is now resolved.
