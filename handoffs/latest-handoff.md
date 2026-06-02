@@ -108,6 +108,9 @@ confirm the 8 tests fail red → commit → push (two commits total).
   `e92bc0f`. Supabase local up; `garden_spaces` + RLS (migration 0002); 3 integration
   tests green; unit 50/50; planner-verified. Harness recorded (memory
   `plantapp-local-db-harness`; note the `npm_config_cache=/tmp/plantapp-npx-cache` quirk).
-- **Round 5 (A2) in flight:** published `0005-db-core-tables` (remaining tables +
-  RLS + seeded `plant_profiles`, red→green) and armed the watcher. A3 next: Fastify +
-  ADR + `POST /plants` + integration #15–#20. Owner pre-approved through A.
+- **Round 5 (A2) done (2026-06-02):** `0005-db-core-tables` → `e2c3795` (red) + `670ebaf`
+  (green): 4 tables + RLS + seeded `plant_profiles`; 12 integration tests green; unit
+  50/50; planner-verified.
+- **Round 6 (A3a) in flight:** published `0006-api-add-plant` (Fastify + ADRs +
+  add-plant→CareTask flow + #15–#18) and armed the watcher. A3b next: #19 RLS isolation +
+  #20 DELETE cascade. Owner pre-approved through A; framework = Fastify (planner's call).

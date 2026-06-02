@@ -4,11 +4,11 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 (A1 DB landed; A2 core-tables in flight) |
+| **Snapshot** | 2026-06-02 (A2 core tables landed; A3a Fastify API in flight) |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `e92bc0f7bebaf02a15acea13b7f7ecd90ff47c1a` (`e92bc0f`) — in sync, clean |
-| **Slice 1 chain** | `b2836ca`→`ce141da`→`1d4e888`→`25f1dbb`→`7a4e19b`→`b32e7a4`→`661a135`→`8d1905a`→`e92bc0f` |
+| **Local HEAD / origin/master** | `670ebaf9c68d5325de0058dcdc7ccf1eefce35b6` (`670ebaf`) — in sync, clean |
+| **Slice 1 chain** | …`b32e7a4`→`661a135`→`8d1905a`→`e92bc0f`→`e2c3795`→`670ebaf` (50 unit + 12 integration green) |
 
 ## Where we are
 **Backend Slice 1: unit layer complete (50 tests) + DB foundation started.**
@@ -19,12 +19,16 @@
 ## Milestone A (owner-approved) — decomposition + status
 - **A1 (done, verified):** `0004-db-garden-spaces` → `661a135` (pg dep + `supabase init`),
   `8d1905a` (red integration test), `e92bc0f` (green: `garden_spaces` + RLS migration 0002).
-- **A2 (IN FLIGHT):** `0005-db-core-tables` — `plant_profiles` (seeded read-only),
-  `containers`, `plant_instances`, `care_tasks` + RLS, red→green integration test.
-- **A3 (next):** Fastify (+ ADR), `POST /plants` → care-engine + `GET`/`DELETE` +
-  integration tests #15–#20 (incl. RLS isolation + cascade delete).
+- **A2 (done, verified):** `0005-db-core-tables` → `e2c3795` (red) + `670ebaf` (green):
+  4 tables + RLS + seeded `plant_profiles`; 12 integration tests green.
+- **A3a (IN FLIGHT):** `0006-api-add-plant` — Fastify + ADRs (framework + JWT-forwarding
+  auth) + `POST /garden-spaces|/containers|/plants` (→ care-engine → persist CareTask) +
+  `GET /plants/:id/tasks` + integration tests #15–#18 (happy path + validation 400s).
+- **A3b (next):** #19 RLS isolation (2 users) + #20 `DELETE /plants/:id` cascade.
 
-Exchange: `0001`✓ `0002`✓ `0003`✓ `0004`✓ · `0005-db-core-tables` (in flight).
+Exchange: `0001`–`0005` ✓ · `0006-api-add-plant` (in flight).
+DDL note for the API: snake_case; `care_tasks.source_inputs` jsonb; `user_id`
+denormalized; engine camelCase→snake_case mapping in `POST /plants`.
 
 ## Local DB harness (for next steps)
 `npx supabase` needs `npm_config_cache=/tmp/plantapp-npx-cache` (Drive symlink quirk).

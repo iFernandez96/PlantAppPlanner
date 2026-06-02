@@ -50,7 +50,11 @@ Verified from `git log --oneline` on 2026-05-31. The full history is 20 commits;
 ## Phase 8 — Slice 1 backend DB foundation (milestone A1)
 - `661a135` chore(backend): add pg client and init Supabase local dev — 2026-06-02
 - `8d1905a` test(db): add Slice 1 garden_spaces integration test — 2026-06-02; red
-- `e92bc0f` feat(db): add garden_spaces table with RLS (migration 0002) ← **HEAD / origin/master** — 2026-06-02; 3 integration tests green, unit 50/50
+- `e92bc0f` feat(db): add garden_spaces table with RLS (migration 0002) — 2026-06-02; 3 integration tests green
+
+## Phase 9 — Slice 1 core tables (milestone A2)
+- `e2c3795` test(db): add Slice 1 core-tables integration test — 2026-06-02; red
+- `670ebaf` feat(db): add Slice 1 core tables with RLS + seed profiles ← **HEAD / origin/master** — 2026-06-02; 4 tables + RLS + 5 seeded profiles; 12 integration tests green, unit 50/50
 
 ## Accepted decisions (canonical record in `docs/slice-01-decision-log.md`)
 
@@ -121,3 +125,6 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   (`661a135`/`8d1905a`/`e92bc0f`): Supabase local + `garden_spaces` + RLS; 3 integration
   tests green; planner-verified. A2 (`0005-db-core-tables`: remaining tables + RLS +
   seed) published and in flight.
+- **2026-06-02** — A2 landed (`e2c3795` red + `670ebaf` green): 4 tables + RLS + seeded
+  `plant_profiles`; 12 integration tests green. A3a (`0006-api-add-plant`: Fastify +
+  ADRs + add-plant→CareTask + #15–#18) published and in flight.

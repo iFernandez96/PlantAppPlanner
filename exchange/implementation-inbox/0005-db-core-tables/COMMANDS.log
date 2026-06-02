@@ -1,0 +1,50 @@
+# Handoff 0005-db-core-tables — commands (in order), app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline + stack
+$ git fetch origin && git rev-parse HEAD     -> e92bc0f7bebaf02a15acea13b7f7ecd90ff47c1a
+$ git status --short                          -> (empty)
+$ npm_config_cache=/tmp/plantapp-npx-cache npx --yes supabase status  -> running
+# read shared-schemas/{container,plant-instance,care-task}.schema.json + care-engine/seed-profiles.ts to ground DDL/enums/seed
+
+## COMMIT 1 (red) — core-tables integration test
+# wrote backend/tests/integration/core-tables.integration.test.ts (verbatim from prompt)
+
+$ npm_config_cache=/tmp/plantapp-npx-cache npx --yes supabase db reset    # applies 0001+0002 only
+  Applying 0001_init_extensions.sql / 0002_slice1_garden_spaces.sql
+$ cd backend && npm run test:int
+  ✓ tests/integration/garden-spaces-schema.integration.test.ts (3 tests)
+  FAIL tests/integration/core-tables.integration.test.ts
+    × 4× table exists, 4× RLS enabled, 1× plant_profiles seeded
+      (seed check: error relation "public.plant_profiles" does not exist)
+  Test Files  1 failed | 1 passed (2)
+       Tests  9 failed | 3 passed (12)        # desired red
+
+$ git add backend/tests/integration/core-tables.integration.test.ts
+$ git commit -m "test(db): add Slice 1 core-tables integration test"
+  [master e2c3795] 1 file changed, 45 insertions(+)
+$ git push origin master                       -> e92bc0f..e2c3795
+
+## COMMIT 2 (green) — migration 0003
+# wrote supabase/migrations/0003_slice1_core_tables.sql
+#   plant_profiles (text PK, jsonb sub-objects, RLS select-authenticated, 5 seeded rows),
+#   containers / plant_instances / care_tasks (uuid PK, FKs, enum checks, 4 owner RLS policies each)
+
+$ npm_config_cache=/tmp/plantapp-npx-cache npx --yes supabase db reset    # applies 0001+0002+0003
+  Applying 0001 / 0002 / 0003_slice1_core_tables.sql ... Finished (no errors)
+$ cd backend && npm run test:int
+  ✓ garden-spaces-schema.integration.test.ts (3 tests)
+  ✓ core-tables.integration.test.ts (9 tests)
+  Test Files  2 passed (2)
+       Tests  12 passed (12)                   # green
+$ npm test
+  Test Files  8 passed (8)
+       Tests  50 passed (50)                   # unit unaffected
+
+$ git diff --quiet HEAD -- backend/care-engine/ && echo UNCHANGED   -> care-engine UNCHANGED
+$ git diff --quiet HEAD -- shared-schemas/ && echo UNCHANGED        -> shared-schemas UNCHANGED
+$ git diff --quiet HEAD -- supabase/migrations/0001* 0002* && echo UNCHANGED -> prior-migrations UNCHANGED
+$ git add supabase/migrations/0003_slice1_core_tables.sql
+$ git commit -m "feat(db): add Slice 1 core tables with RLS + seed profiles"
+  [master 670ebaf] 1 file changed, 205 insertions(+)
+$ git push origin master                       -> e2c3795..670ebaf
+$ git rev-parse origin/master                  -> 670ebaf9c68d5325de0058dcdc7ccf1eefce35b6
