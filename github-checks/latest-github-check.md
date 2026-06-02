@@ -4,21 +4,22 @@
 
 | Question | Answer |
 |---|---|
-| Latest `origin/master` | `a2f5e75` — feat(android-network): Supabase GoTrue email-OTP auth client |
-| Local == origin/master? | ✅ yes (`a2f5e75` both sides) |
-| `0026` commits | `a2f5e75` (single commit; 4 new files `android/network/**`, +134) |
+| Latest `origin/master` | `28f69ea` — feat(android-data): AuthRepository (email-OTP request/verify) persisting the token |
+| Local == origin/master? | ✅ yes (`28f69ea` both sides) |
+| `0027` commits | `28f69ea` (single commit; 5 files `android/domain|data/**`, +133/−2) |
 | Uncommitted changes? | none (clean; git-ignored `android/local.properties` may exist locally) |
 | CI / workflows / checks / PRs / issues | **none** — no CI, no open PRs, no open issues |
 | Default branch | `master` |
 
-`0026` verified vs real git: `git diff 8d51874 a2f5e75` = only `android/network/**` (AuthDtos,
-SupabaseAuthApi, SupabaseAuthApiFactory + AuthDtoTest); no anon key/URL hard-coded (only an example
-URL in a doc comment); `local.properties` not committed. `AuthDtoTest` 3/3, all prior `:network`
-tests green.
+`0027` verified vs real git: `git diff a2f5e75 28f69ea` = only `android/domain/**` +
+`android/data/**` (AuthRepository, AuthRepositoryImpl, SettingsStore+TokenWriter, DataModule,
+AuthRepositoryImplTest); `:network`/backend untouched; `local.properties` not committed. **Secrets:
+the committed `DEFAULT_ANON_KEY` JWT decodes `role=anon`/`iss=supabase-demo` — the public local-dev
+key, NOT service_role.** `:data` 8→10, `:domain` 2 — all green.
 
-**"Do all" loop RUNNING.** (1)✅ (3a)✅ (3b)✅ (3c-net)✅. **3c-data `0027-android-auth-data`
-published & IN FLIGHT:** `:domain` `AuthRepository` + `:data` impl persisting token via
-`SettingsStore.setToken` (`TokenWriter` seam) + DI/config (auth URL + **public** local anon key
-from `npx supabase status`, overridable). Gate: `:domain:test` + `:data:testDebugUnitTest`. Vision
-ALIGNED-WITH-NOTES (secrets-safe — public anon key only; service_role never touched). Watcher armed
-for `0027`. (3c-ui follows.)
+**"Do all" loop RUNNING.** (1)✅ (3a)✅ (3b)✅ (3c-net)✅ (3c-data)✅. **3c-ui
+`0028-android-signin-ui` published & IN FLIGHT:** stateless `SignInScreen` (email→send code→verify)
++ `SignInViewModel` over `AuthRepository` + `:app` token-gating + Robolectric tests. Gate:
+`:feature-inventory:testDebugUnitTest` + `:app:assembleDebug`. Vision ALIGNED-WITH-NOTES (sign-in
+in `:feature-inventory` = tracked structural debt). Watcher armed for `0028`. **After it lands, 3c
+complete; then 3d advisory→accept→CareTask.**

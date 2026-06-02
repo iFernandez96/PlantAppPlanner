@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b ALL)✅ (3c-net)✅; (3c-data) IN FLIGHT (`0027`)** |
+| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b ALL)✅ (3c-net/data)✅; (3c-ui sign-in) IN FLIGHT (`0028`)** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `a2f5e75ec8d4307155933d7cc04b7045ef97a6b4` (`a2f5e75`) — in sync, clean |
+| **Local HEAD / origin/master** | `28f69ea34cc38089a8c3906cc5a9ce9b55cdf47b` (`28f69ea`) — in sync, clean |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
@@ -58,12 +58,14 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
       net→data→ui: **3c-net ✅ DONE (`0026`, `a2f5e75`)** — `:network` `SupabaseAuthApi` (otp+verify)
       + DTOs (`@SerialName`) + factory (public apikey header, BASIC logging; auth `Json`
       encodeDefaults=true so `create_user`/`type` are sent); `AuthDtoTest` 3/3, `:network` green.
-      Verified vs real git (only `android/network/**`, no key/URL hard-coded). **3c-data IN FLIGHT
-      (`0027`)** — `:domain` `AuthRepository` + `:data` impl (verify → `SettingsStore.setToken` via
-      `TokenWriter` seam) + DI/config (auth URL + **public** local anon key, overridable) + fake
-      tests. → 3c-ui (sign-in screen + VM + `:app` gating). 3d advisory→accept→CareTask after.
+      Verified vs real git (only `android/network/**`, no key/URL hard-coded). **3c-data ✅ DONE
+      (`0027`, `28f69ea`)** — `:domain` `AuthRepository` + `:data` impl (verify → `SettingsStore.setToken`
+      via `TokenWriter` seam) + DI/config (auth URL + **public** local anon key, overridable); `:data`
+      10/10. Verified vs real git (committed key decodes role=anon, not service_role). **3c-ui IN
+      FLIGHT (`0028`)** — stateless `SignInScreen` (email→send code→verify) + `SignInViewModel` over
+      `AuthRepository` + `:app` gating (`tokenBlocking()`→start destination) + Robolectric tests.
+      After it lands, **3c complete.** 3d advisory→accept→CareTask after.
       (Gate note: `:domain` is a JVM module → `:domain:test`, not `:domain:testDebugUnitTest`.)
-    - 3c Supabase magic-link sign-in → DataStore token. 3d advisory→accept→CareTask flow.
   - **(2) Automated emulator e2e smoke** (instrumented). **Human device-acceptance (real plants on
     a real phone) stays with the owner — I can't do that part.**
   - **(4) Slice 3** (watering reminders): WorkManager local path first, then **STOP to ask the owner
@@ -74,6 +76,11 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
   Tiny hygiene handoff candidate (`-c ajv-formats` + one `type:"array"`).
 - **Still recommended (Slice 1, not blocking):** on-device acceptance run of the 5 real
   plants (needs the API reachable). See `reviews/slice-1-retro.md`.
+
+## Structural debt (tracked; not blockers)
+- **Sign-in lives in `:feature-inventory`** (3c-ui, MVP pragmatism — no new Gradle module). Vision's
+  module table implies a dedicated `:feature-auth`/`:feature-settings`. Migrate before later phases
+  when `:feature-inventory` gets too broad. (Flagged by `0028` vision-check.)
 
 ## Deferrals (tracked; not blockers)
 Add-plant form = id text fields (no selectors yet); optional `nickname`/`placement` not in

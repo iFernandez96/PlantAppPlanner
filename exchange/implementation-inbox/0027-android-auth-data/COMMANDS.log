@@ -1,0 +1,30 @@
+# Handoff 0027-android-auth-data — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline + unblock
+$ git fetch origin && git rev-parse HEAD   -> a2f5e75ec8d4307155933d7cc04b7045ef97a6b4 == origin/master
+$ git status --short                        -> (empty)
+$ ls ~/Android/Sdk/platforms                -> android-34/35/36/36.1 (SDK OK)
+
+## Read the public local-dev anon key from the running stack
+$ cd backend && npm_config_cache=/tmp/plantapp-npx-cache npx --yes supabase status -o env | grep ANON_KEY
+  ANON_KEY="eyJhbGci...supabase-demo...anon...exp 1983812996..."   # well-known public local JWT
+
+## Implement (red-first)
+# test: data/src/test/.../AuthRepositoryImplTest.kt (FakeSupabaseAuthApi + FakeTokenWriter, runTest)
+# domain/src/main/.../repository/AuthRepository.kt (new port)
+# data/src/main/.../settings/SettingsStore.kt -> add interface TokenWriter; SettingsStore : TokenWriter; override setToken
+# data/src/main/.../repository/AuthRepositoryImpl.kt (new; request delegates, verify persists token)
+# data/src/main/.../di/DataModule.kt -> DEFAULT_AUTH_BASE_URL + DEFAULT_ANON_KEY + provideSupabaseAuthApi + @Binds AuthRepository/TokenWriter
+
+## Gate
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :domain:test :data:testDebugUnitTest --no-daemon
+  BUILD SUCCESSFUL in 12s
+  AuthRepositoryImplTest tests=2 failures=0 ; data total 10 (8->10) ; domain 2 (unchanged) ; all green
+
+## Commit + push
+$ git add android/domain/ android/data/
+$ git commit -m "feat(android-data): AuthRepository (email-OTP request/verify) persisting the token"
+  [master 28f69ea] 5 files changed, 133 insertions(+), 2 deletions(-)
+$ git push origin master       -> a2f5e75..28f69ea
+$ git rev-parse origin/master  -> 28f69ea34cc38089a8c3906cc5a9ce9b55cdf47b
+$ git show --stat HEAD | grep -c local.properties  -> 0

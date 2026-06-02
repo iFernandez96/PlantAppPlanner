@@ -292,3 +292,11 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   flight): `:domain` `AuthRepository` + `:data` impl persisting token via `SettingsStore.setToken`
   (`TokenWriter` seam) + DI/config (auth URL + public local anon key from `npx supabase status`).
   Vision-check ALIGNED-WITH-NOTES (secrets-safe: public anon key only; service_role never touched).
+- **2026-06-02** — `0027` ✅ landed (`28f69ea`): `:domain` `AuthRepository` + `:data`
+  `AuthRepositoryImpl` (verify → `SettingsStore.setToken` via `TokenWriter` seam) + DI/config
+  (`DEFAULT_AUTH_BASE_URL` 10.0.2.2:54321 + `DEFAULT_ANON_KEY` = public local-dev anon JWT). `:data`
+  8→10, `:domain` 2. 5 files, only `domain|data/**`. Verified vs real git — **committed JWT decodes
+  `role=anon`/`iss=supabase-demo` (NOT service_role)**, local.properties not committed. Published
+  `0028-android-signin-ui` (3c-ui; in flight): stateless `SignInScreen` + `SignInViewModel` over
+  `AuthRepository` + `:app` token-gating + Robolectric tests. Vision ALIGNED-WITH-NOTES (sign-in in
+  `:feature-inventory` = tracked structural debt; migrate to `:feature-auth` later).
