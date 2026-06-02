@@ -1,0 +1,37 @@
+# Handoff 0012-android-domain-data — commands (in order), app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD     -> f6c8155ac6618e493d46c82d53ea9c8021d83161
+$ git status --short                          -> (empty)
+# consulted Hilt + DataStore + kotlinx.coroutines docs
+
+## COMMIT 1 (red) — repository mapping tests
+# edited android/domain/build.gradle.kts + android/data/build.gradle.kts (test deps; data: +retrofit, useJUnit; removed unused Room)
+# wrote :data test FakePlantAppApi.kt + InventoryRepositoryImplTest.kt ; :domain InventoryModelsTest.kt
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :domain:test :data:testDebugUnitTest --no-daemon
+  e: Cannot infer type ... (domain models / InventoryRepositoryImpl absent)
+  BUILD FAILED                       # desired red
+$ git add android/domain/build.gradle.kts android/data/build.gradle.kts android/domain/src/test/ android/data/src/test/
+$ git commit -m "test(android-data): add Slice 1 repository mapping tests"
+  [master 0f8c596] 5 files changed, 231 insertions(+)
+$ git push origin master   -> f6c8155..0f8c596
+
+## COMMIT 2 (green) — domain models + repository
+# wrote :domain model/InventoryModels.kt + repository/InventoryRepository.kt
+# wrote :data mapper/DtoMappers.kt + repository/InventoryRepositoryImpl.kt + settings/SettingsStore.kt + di/DataModule.kt
+# git rm :domain & :data src/main/kotlin/.gitkeep
+$ ./gradlew :domain:test :data:testDebugUnitTest --no-daemon
+  e: Unresolved reference 'InventoryRepositoryImpl'   (missing test import)
+# added import dev.plantapp.data.repository.InventoryRepositoryImpl to the test
+$ ./gradlew :domain:test :data:testDebugUnitTest --no-daemon
+  BUILD SUCCESSFUL
+  :domain InventoryModelsTest tests="2" failures="0" ; :data InventoryRepositoryImplTest tests="5" failures="0"
+$ ./gradlew :app:assembleDebug --no-daemon
+  BUILD SUCCESSFUL in 1m 29s
+
+$ git diff --quiet HEAD -- backend/ shared-schemas/ supabase/ android/network/src/ android/feature-inventory/   -> UNCHANGED
+$ git add android/domain/src/main/ android/data/src/main/ android/data/src/test/.../InventoryRepositoryImplTest.kt
+$ git commit -m "feat(android-domain-data): add inventory domain models + repository over :network"
+  [master a99cb75] 9 files changed, 297 insertions(+)
+$ git push origin master   -> 0f8c596..a99cb75
+$ git rev-parse origin/master   -> a99cb755ecdbb76463e394b914a395a2916dcdbf

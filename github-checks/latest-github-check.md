@@ -4,16 +4,16 @@
 
 | Question | Answer |
 |---|---|
-| Latest `origin/master` | `f6c8155` — feat(android-network): add Slice 1 Retrofit DTOs + API client |
-| Local == origin/master? | ✅ yes (`f6c8155` both sides) |
-| a2 commits | `e69f6a0` (red DTO/schema tests) → `f6c8155` (green DTOs + Retrofit API) |
+| Latest `origin/master` | `a99cb75` — feat(android-domain-data): add inventory domain models + repository over :network |
+| Local == origin/master? | ✅ yes (`a99cb75` both sides) |
+| a3a commits | `0f8c596` (red repo mapping tests) → `a99cb75` (green `:domain`/`:data`) |
 | Uncommitted changes? | none (clean) |
 | CI / workflows / checks / PRs / issues | none |
 | Default branch | `master` |
 
-a2 verified: `git diff 678a488 f6c8155` = only `:network` sources + `libs.versions.toml`;
-`backend/**`, `shared-schemas/**`, `supabase/**` untouched; no forbidden deps (grep:
-camerax/firebase/work/openai/ktor → none). `:network:testDebugUnitTest` 10/10 (incl.
-networknt validation of DTOs vs `shared-schemas/*`); `:app:assembleDebug` OK. Backend
-suites unchanged (unit 50/50, integration 21/21). No CI; local suites are the gate.
-Next: a3a (`0012-android-domain-data`) in flight.
+a3a verified: `git diff f6c8155 a99cb75` = only `:domain`/`:data` (models, repo, mappers,
+DataStore, Hilt module, tests); `backend/**`, `shared-schemas/**`, `supabase/**`,
+`:network` source untouched; no forbidden deps; Room deps removed (deferred). `:domain`
+2/2, `:data` 5/5; `:app:assembleDebug` OK. Backend suites unchanged (unit 50/50,
+integration 21/21). No CI; local suites are the gate. Next: a3b
+(`0013-android-inventory-ui`) in flight — Compose screens + UI tests #21–#24 (closes Slice 1).

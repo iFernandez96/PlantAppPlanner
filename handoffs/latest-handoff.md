@@ -139,11 +139,15 @@ confirm the 8 tests fail red → commit → push (two commits total).
 - **Round 11 (a2) done (2026-06-02):** `0011-android-network` → `e69f6a0`/`f6c8155`:
   `:network` DTOs + Retrofit + JVM tests 10/10 (networknt schema-valid); `:app:assembleDebug`
   OK; no forbidden deps; verified.
-- **Round 12 (a3a) in flight:** published `0012-android-domain-data` — `:domain` models +
-  `:data` repository over `:network` + DataStore + Hilt; JVM mapping tests; Room deferred.
-  Vision-check ALIGNED (agent; Room-defer = reasonable slice boundary). Watcher armed.
-  **a3b next (closes Slice 1):** `:feature-inventory` Compose screens + UI tests #21–#24
-  (Robolectric).
+- **Round 12 (a3a) done (2026-06-02):** `0012-android-domain-data` → `0f8c596`/`a99cb75`:
+  `:domain` models + `:data` repo over `:network` + DataStore + Hilt; `:domain` 2/2,
+  `:data` 5/5; `:app:assembleDebug` OK; Room removed/deferred; verified.
+- **Round 13 (a3b) in flight — CLOSES Slice 1:** published `0013-android-inventory-ui` —
+  Compose add/list/detail screens + Hilt VMs + nav + UI tests #21–#24 (Robolectric).
+  Vision-check ALIGNED (minor: plan's optional `nickname`/`placement` form fields not named
+  — verify on landing; tiny follow-up only if dropped & wanted). Watcher armed.
+- **After a3b:** Slice 1 DOD #1–#24 complete → STOP, write the one-page Slice 1 retro, and
+  ask the owner the next direction (do NOT auto-start Slice 2).
 - **Tracked issue:** `npm run lint` fails (pre-existing ESLint↔tsconfig project mismatch;
   `tests/**` not in the TS project). Not gated; needs a small config handoff if wanted.
 - **New gate:** every published prompt is vision-checked vs `../PlantApp/ChatHistory.md`

@@ -73,8 +73,10 @@ Verified from `git log --oneline` on 2026-05-31. The full history is 20 commits;
 - `0dca7f1` test(api): validate API responses against shared schemas (#contract) — 2026-06-02; red
 - `678a488` feat(api): conform responses to camelCase shared-schema contract — 2026-06-02; `src/mappers.ts`; responses Ajv-valid vs shared-schemas; integration 21/21
 - `e69f6a0` test(android-network): add Slice 1 DTO + schema-validation tests — 2026-06-02; red
-- `f6c8155` feat(android-network): add Slice 1 Retrofit DTOs + API client ← **HEAD / origin/master** — 2026-06-02; `:network` tests 10/10 (networknt schema-valid), `:app:assembleDebug` OK
-- *(in flight)* `0012-android-domain-data` (a3a) — `:domain` models + `:data` repository over `:network`
+- `f6c8155` feat(android-network): add Slice 1 Retrofit DTOs + API client — 2026-06-02; `:network` tests 10/10 (networknt schema-valid), `:app:assembleDebug` OK
+- `0f8c596` test(android-data): add Slice 1 repository mapping tests — 2026-06-02; red
+- `a99cb75` feat(android-domain-data): add inventory domain models + repository over :network ← **HEAD / origin/master** — 2026-06-02; `:domain` 2/2, `:data` 5/5, assembleDebug OK; Room deferred
+- *(in flight)* `0013-android-inventory-ui` (a3b) — Compose add/list/detail + UI tests #21–#24 (closes Slice 1)
 
 ## Accepted decisions (canonical record in `docs/slice-01-decision-log.md`)
 
@@ -177,3 +179,7 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   10/10 (networknt schema-valid). a3a (`0012-android-domain-data`: `:domain`+`:data` over
   `:network`, Room deferred) published, vision ALIGNED, in flight; a3b = Compose screens +
   UI tests #21–#24 (closes Slice 1).
+- **2026-06-02** — a3a landed (`0f8c596`/`a99cb75`): `:domain`/`:data` repo over `:network`,
+  `:domain` 2/2 + `:data` 5/5, assembleDebug OK, Room deferred. a3b (`0013-android-inventory-ui`:
+  Compose add/list/detail + UI #21–#24) published, vision ALIGNED, in flight — closes Slice 1
+  (#1–#24); then a one-page retro + owner decision on Slice 2.

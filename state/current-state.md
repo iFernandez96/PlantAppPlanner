@@ -7,7 +7,7 @@
 | **Snapshot** | 2026-06-02 — **Slice 1 backend DOD complete (#1–#20)**; loop paused for owner decision |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `f6c8155ac6618e493d46c82d53ea9c8021d83161` (`f6c8155`) — in sync, clean |
+| **Local HEAD / origin/master** | `a99cb755ecdbb76463e394b914a395a2916dcdbf` (`a99cb75`) — in sync, clean |
 
 ## 🎉 Slice 1 backend is DOD-complete (#1–#20), all green
 - Schema validation #1–#6 · deterministic care-engine #7–#14 · seed catalog · DB schema +
@@ -26,11 +26,13 @@
   shared-schemas; Ajv integration tests lock it (21/21). Contract gap closed.
 - **a2 done (`f6c8155`):** `:network` DTOs + Retrofit + JVM schema-validation tests (10/10);
   D-02/D-06; no forbidden deps; `:app:assembleDebug` OK.
-- **a3a (IN FLIGHT):** `0012-android-domain-data` — `:domain` models + repository port,
-  `:data` repo over `:network` (DTO↔domain) + DataStore (base URL/token) + Hilt; JVM mapping
-  tests; Room deferred (vision ALIGNED — plan-consistent slice boundary).
-- **a3b (next, closes Slice 1):** `:feature-inventory` Compose screens (add/list/detail) +
-  ViewModels/Hilt/nav + UI tests #21–#24 (Robolectric).
+- **a3a done (`a99cb75`):** `:domain` models + `:data` repo over `:network` + DataStore +
+  Hilt; `:domain` 2/2, `:data` 5/5; Room deferred; `:app:assembleDebug` OK.
+- **a3b (IN FLIGHT — closes Slice 1):** `0013-android-inventory-ui` — Compose add/list/detail
+  screens + Hilt ViewModels + nav + UI tests #21–#24 (Robolectric). Vision ALIGNED (minor:
+  plan's optional `nickname`/`placement` form fields — verify on landing).
+- **After a3b:** Slice 1 DOD #1–#24 complete → stop, write the one-page Slice 1 retro, ask
+  the owner re: next direction (do NOT auto-start Slice 2).
 - **a2 (after decision):** `:network` Retrofit DTOs + Compose screens (`:feature-inventory`:
   add/list/detail) + UI tests #21–#24 (Robolectric). Vision-checked for real.
 
