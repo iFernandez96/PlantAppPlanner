@@ -1,56 +1,47 @@
 # PlantApp — Current State
 
-> Single source of truth for "where are we right now." Refresh from real git +
-> GitHub at the start of every planner session; re-verify SHAs.
+> Single source of truth. Refresh from real git + GitHub each session; re-verify SHAs.
 
 | Field | Value |
 |---|---|
-| **Snapshot timestamp** | 2026-06-02 (care-engine red→green complete; loop paused for a scope decision) |
-| **PlantApp repo path** | `/home/israel/Documents/Development/PlantApp` |
+| **Snapshot** | 2026-06-02 (seed catalog landed; loop paused before milestone A on env + framework decisions) |
+| **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD** | `25f1dbb0ae1a45549714c0411c04145532d142de` (`25f1dbb`) |
-| **origin/master** | `25f1dbb` |
-| **Local == remote?** | ✅ YES · working tree clean |
-| **Prev HEADs** | `b2836ca` → `ce141da` (deps) → `1d4e888` (red tests) → `25f1dbb` (green) |
+| **Local HEAD / origin/master** | `b32e7a46a5b8390f9d5ed1616e41dee7f701729c` (`b32e7a4`) — in sync, clean |
+| **Commit chain (Slice 1)** | `b2836ca` → `ce141da` → `1d4e888` → `25f1dbb` → `7a4e19b` → `b32e7a4` |
 
-## Last confirmed commit (planner-verified)
-
+## Last confirmed commits (planner-verified)
 ```
-25f1dbb feat(care-engine): implement computeInitialWaterTask
+b32e7a4 feat(care-engine): add Slice 1 seed PlantProfile catalog
+7a4e19b test(care-engine): add Slice 1 seed-catalog failing tests
 ```
-1-file change (`backend/care-engine/index.ts`, +110/-5). Function exported (verified
-`git show HEAD:…index.ts`); the test file is **unchanged** since `1d4e888` (verified
-`git diff --name-only`). Report: `npm test` = **47/47 pass** (8 care-engine now green,
-39 schema green). D-10 engine (#7–#14) done.
+Verified: only 2 new files since `25f1dbb` (`care-engine/seed-profiles.ts`,
+`tests/care-engine/seed-catalog.test.ts`); engine/schemas/existing tests/package.json
+untouched. `7a4e19b` red → `b32e7a4` green. `npm test` = **50/50**.
 
 ## Current phase
+**Backend Slice 1 unit/contract layer COMPLETE & green (50 tests):** schema validation
+(#1–#6), deterministic care-engine (#7–#14), seed catalog + schema-valid-CareTask. No
+DB tables, no HTTP server, no Android source yet.
 
-**Slice 1 deterministic care-engine: COMPLETE (red→green).** The backend can compute
-the initial water `CareTask` deterministically with full traceability. Loop **paused**
-awaiting an owner decision on the next milestone.
+## Next step — milestone A, PAUSED (owner decision; env not ready)
+Owner pre-approved A (API integration tests #15–#20 against a local Postgres/Supabase).
+Read-only env check (2026-06-02) shows A can't start yet:
+- **Supabase CLI: NOT installed** (Docker IS up). `supabase/` has only the extensions
+  migration; no `config.toml` (not initialized). `psql`: not installed.
+- **No web framework / server** in `backend/` (no `src/`, no express/fastify/hono/pg/
+  supabase-js deps). The framework is an **un-pinned** decision (D-01 only pins Node+TS).
+Two real decisions before A can run (asked the owner):
+1. **DB approach / tool install** — (i) install Supabase CLI (matches D-03; pulls
+   Docker images), (ii) lighter Dockerized plain Postgres + `pg` client (deviates from
+   D-03), (iii) defer A.
+2. **Web framework** for the endpoints (planner can decide + ADR; recommend on ask).
+Planner proposes decomposing A into **A1** (migrations: create tables + RLS + a
+DB-apply test) then **A2** (framework + server + endpoints + integration tests #15–#20).
 
-## Next step — owner chose "B, then A"
-
-- **B (in flight):** seed `PlantProfile` catalog (the 5 real plants) + a red-first
-  test that `computeInitialWaterTask` emits a **schema-valid** `CareTask` for each.
-  Approval-free. Published as exchange handoff **`0003-seed-catalog`** (two commits:
-  red placeholder+test, then green catalog). Impl Claude processing autonomously.
-- **A (next, owner pre-approved):** repository/API integration tests #15–#20 against a
-  local Postgres/Supabase test DB. Planner will design + publish it after B lands, and
-  only stop to ask if the local DB environment isn't available.
-
-Exchange handoffs: `0001-option-b` (done), `0002-care-engine-green` (done),
-`0003-seed-catalog` (in flight).
-
-## Test state
-Backend deps installed; `npm test` = 7 files / **47 tests all green**. care-engine +
-all schema tests pass.
-
-## Production behavior state
-care-engine now produces a deterministic water `CareTask` (pure function). Still no DB
-tables, no HTTP server, no Kotlin, no AI/weather/photos/notifications/auth.
+Exchange handoffs: `0001-option-b` ✓, `0002-care-engine-green` ✓, `0003-seed-catalog` ✓.
+No prompt pending, no watcher armed — resumes when the owner answers the A decisions.
 
 ## Autonomous loop
 Planner + impl Claude ping-pong via `exchange/` with in-session `run_in_background`
-watchers (impl runs `--dangerously-skip-permissions`). Currently **paused** at the
-decision above — no watcher armed, no prompt pending. Resumes when the owner picks A/B/C/D.
+watchers (impl runs `--dangerously-skip-permissions`). Paused at the A decision above.

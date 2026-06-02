@@ -43,7 +43,9 @@ Verified from `git log --oneline` on 2026-05-31. The full history is 20 commits;
 ## Phase 7 — Slice 1 care-engine (Option B, red-first)
 - `ce141da` chore(backend): install dependencies and commit lockfile — 2026-06-02; first-ever `npm test` = 39 schema tests green
 - `1d4e888` test(care-engine): add Slice 1 watering-engine failing tests — 2026-06-02; 8 care-engine tests red (`is not a function`), 39 green; engine still placeholder
-- `25f1dbb` feat(care-engine): implement computeInitialWaterTask ← **HEAD / origin/master** — 2026-06-02; engine green, `npm test` 47/47; test file unchanged; D-10 #7–#14 done
+- `25f1dbb` feat(care-engine): implement computeInitialWaterTask — 2026-06-02; engine green, `npm test` 47/47; test file unchanged; D-10 #7–#14 done
+- `7a4e19b` test(care-engine): add Slice 1 seed-catalog failing tests — 2026-06-02; red (empty catalog)
+- `b32e7a4` feat(care-engine): add Slice 1 seed PlantProfile catalog ← **HEAD / origin/master** — 2026-06-02; 5 profiles, `npm test` 50/50; each emits a schema-valid CareTask
 
 ## Accepted decisions (canonical record in `docs/slice-01-decision-log.md`)
 
@@ -105,3 +107,8 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   `npm test` 47/47 (planner-verified: function exported, test file unchanged).
   Care-engine #7–#14 complete. Planner **paused the loop** to ask the owner the next
   milestone (Postgres-gated API tests vs. an approval-free seed-catalog step vs. Android).
+- **2026-06-02** — Owner chose "B, then A". B done: `7a4e19b` (red) + `b32e7a4`
+  (green seed catalog), `npm test` 50/50, planner-verified. Toward A, planner found the
+  local DB env not ready (Supabase CLI not installed; no web framework chosen) and
+  **paused to ask the owner** the A approach (Supabase CLI vs. Dockerized Postgres) +
+  framework, proposing A1 migrations/RLS then A2 server/endpoints.

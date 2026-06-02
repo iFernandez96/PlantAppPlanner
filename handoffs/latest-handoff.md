@@ -101,3 +101,10 @@ confirm the 8 tests fail red → commit → push (two commits total).
   (red→green seed catalog + schema-valid-CareTask test) and re-armed the watcher.
   **A is pre-approved** (local Postgres for API tests #15–#20) — planner proceeds to it
   after B without re-asking, stopping only if the DB environment isn't available.
+- **Round 3 done (2026-06-02):** B landed (`7a4e19b` red + `b32e7a4` green; `npm test`
+  50/50; planner-verified, only 2 new files). Toward A the planner found the **DB env
+  not ready** (Supabase CLI not installed — Docker is up; no web framework chosen) and
+  **paused to ask the owner**: (1) DB approach — Supabase CLI (D-03) vs. Dockerized
+  plain Postgres + `pg` vs. defer; (2) web framework (planner can pick + ADR). Plan:
+  decompose A into A1 (migrations: tables + RLS + apply test) then A2 (server +
+  endpoints + integration #15–#20). No prompt pending / no watcher armed until answered.

@@ -1,0 +1,8 @@
+{
+  "id": "0003-seed-catalog",
+  "kind": "report",
+  "status": "done",
+  "producer": "implementation",
+  "createdUtc": "2026-06-02T00:42:00Z",
+  "checksums": "SHA256SUMS"
+}

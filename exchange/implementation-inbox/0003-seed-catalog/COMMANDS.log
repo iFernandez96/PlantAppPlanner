@@ -1,0 +1,59 @@
+# Handoff 0003-seed-catalog — commands (in order), app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline precondition
+$ git fetch origin
+$ git rev-parse HEAD            -> 25f1dbb0ae1a45549714c0411c04145532d142de
+$ git rev-parse origin/master  -> 25f1dbb0ae1a45549714c0411c04145532d142de
+$ git status --porcelain       -> (empty)
+$ test -d backend/node_modules && echo deps-present  -> deps-present
+
+## COMMIT 1 (red)
+# wrote backend/care-engine/seed-profiles.ts   (interface + empty seedProfiles array)
+# wrote backend/tests/care-engine/seed-catalog.test.ts  (verbatim from prompt)
+
+$ cd backend && npm test
+  × Slice 1 seed catalog > contains the 5 Slice 1 seed profiles
+    → AssertionError: expected [] to have a length of 5 but got +0
+  Test Files  1 failed | 7 passed (8)
+       Tests  1 failed | 49 passed (50)
+  (exit non-zero = desired red)
+
+$ git add backend/care-engine/seed-profiles.ts backend/tests/care-engine/seed-catalog.test.ts
+$ git commit -m "test(care-engine): add Slice 1 seed-catalog failing tests"
+  [master 7a4e19b] 2 files changed, 101 insertions(+)
+$ git push origin master
+  25f1dbb..7a4e19b  master -> master
+$ git show --stat HEAD
+  backend/care-engine/seed-profiles.ts            | 21 +++
+  backend/tests/care-engine/seed-catalog.test.ts  | 80 +++++++
+  2 files changed, 101 insertions(+)
+
+## COMMIT 2 (green)
+# filled seedProfiles array with the 5 profiles (interface unchanged)
+
+$ cd backend && npm test
+  ✓ tests/care-engine/compute-initial-water-task.test.ts (8 tests)
+  ✓ tests/schema/container.test.ts (4 tests)
+  ✓ tests/schema/garden-space.test.ts (3 tests)
+  ✓ tests/schema/care-task.test.ts (18 tests)
+  ✓ tests/schema/plant-instance.test.ts (4 tests)
+  ✓ tests/schema/plant-profile.test.ts (5 tests)
+  ✓ tests/care-engine/seed-catalog.test.ts (3 tests)
+  ✓ tests/schema/round-trip.test.ts (5 tests)
+  Test Files  8 passed (8)
+       Tests  50 passed (50)
+  (exit 0 = green)
+
+$ git diff --quiet backend/care-engine/index.ts && echo engine UNCHANGED          -> engine UNCHANGED
+$ git diff --quiet backend/tests/care-engine/seed-catalog.test.ts && echo UNCHANGED -> seed-test UNCHANGED
+$ git status --short  ->  M backend/care-engine/seed-profiles.ts
+
+$ git add backend/care-engine/seed-profiles.ts
+$ git commit -m "feat(care-engine): add Slice 1 seed PlantProfile catalog"
+  [master b32e7a4] 1 file changed, 75 insertions(+), 1 deletion(-)
+$ git push origin master
+  7a4e19b..b32e7a4  master -> master
+$ git show --stat HEAD
+  backend/care-engine/seed-profiles.ts | 76 +++++ ; 1 file changed, 75 insertions(+), 1 deletion(-)
+$ git rev-parse origin/master
+  b32e7a46a5b8390f9d5ed1616e41dee7f701729c
