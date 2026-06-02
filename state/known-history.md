@@ -67,7 +67,12 @@ Verified from `git log --oneline` on 2026-05-31. The full history is 20 commits;
 
 ## Phase 12 — Backend lint hygiene + Android toolchain (post-DOD)
 - `603869e` chore(backend): fix ESLint TypeScript project config so lint passes — 2026-06-02; lint 16→0 via `tsconfig.eslint.json`; build tsconfig untouched; unit 50/50
-- `d0ec682` chore(android): generate Gradle wrapper ← **HEAD / origin/master** — 2026-06-02; a1: wrapper committed, `:app:assembleDebug` BUILD SUCCESSFUL (compileSdk 35, android-35 installed)
+- `d0ec682` chore(android): generate Gradle wrapper — 2026-06-02; a1: wrapper committed, `:app:assembleDebug` BUILD SUCCESSFUL (compileSdk 35, android-35 installed)
+
+## Phase 13 — API contract conformance + Android network (a2-pre, a2)
+- `0dca7f1` test(api): validate API responses against shared schemas (#contract) — 2026-06-02; red
+- `678a488` feat(api): conform responses to camelCase shared-schema contract ← **HEAD / origin/master** — 2026-06-02; `src/mappers.ts`; responses Ajv-valid vs shared-schemas; integration 21/21
+- *(in flight)* `0011-android-network` (a2) — `:network` DTOs + Retrofit + networknt schema-validation tests
 
 ## Accepted decisions (canonical record in `docs/slice-01-decision-log.md`)
 
@@ -162,3 +167,7 @@ inputsHash         = sha256(canonical-json(sourceInputs))
 - **2026-06-02** — Owner chose A. Published `0010-api-contract-conformance` (snake→camel
   response mappers + Ajv response-validation tests vs `shared-schemas/*`), in flight; a2
   (Android UI) resumes once the API is schema-conformant.
+- **2026-06-02** — A landed (`0dca7f1`/`678a488`): all API responses conform to camelCase
+  shared-schemas, Ajv-locked (21/21). a2 (`0011-android-network`: `:network` DTOs + Retrofit
+  + networknt schema tests) published, vision-checked ALIGNED, in flight; a3 = Compose
+  screens + UI tests #21–#24.

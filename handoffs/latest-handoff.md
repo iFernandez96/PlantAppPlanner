@@ -133,11 +133,13 @@ confirm the 8 tests fail red → commit → push (two commits total).
   responses to camelCase shared-schemas (+ Ajv response-validation tests); (B) snake_case
   wire contract; (C) proceed + map in Android (not rec). The vision-alignment gate surfaced
   this. No prompt pending / no watcher armed until the owner picks.
-- **Owner chose A (2026-06-02).** Round 10 in flight: published `0010-api-contract-conformance`
-  — snake→camel response mappers (all endpoints) + Ajv tests validating responses against
-  `shared-schemas/*`; red→green. Vision-check ALIGNED (planner-assessed; conforms to the
-  documented contract). Watcher armed. **a2 next** (Android `:network` DTOs + Compose screens
-  + UI tests #21–#24) once the API is schema-conformant.
+- **Owner chose A (2026-06-02).** Round 10 (A) done: `0dca7f1`/`678a488` — `src/mappers.ts`
+  conforms all responses to camelCase shared-schemas; Ajv integration tests lock it
+  (21/21, unit 50/50, lint+typecheck clean); verified, protected paths untouched.
+- **Round 11 (a2) in flight:** published `0011-android-network` — Android `:network` DTOs
+  (`@Serializable`, camelCase) + Retrofit client + JVM tests validating DTOs vs
+  `shared-schemas/*` via networknt (D-02/D-06). Vision-check ALIGNED (agent). Watcher armed.
+  **a3 next:** `:domain`/`:data` + Compose screens (`:feature-inventory`) + UI tests #21–#24.
 - **Tracked issue:** `npm run lint` fails (pre-existing ESLint↔tsconfig project mismatch;
   `tests/**` not in the TS project). Not gated; needs a small config handoff if wanted.
 - **New gate:** every published prompt is vision-checked vs `../PlantApp/ChatHistory.md`

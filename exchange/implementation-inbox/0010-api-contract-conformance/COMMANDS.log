@@ -1,0 +1,38 @@
+# Handoff 0010-api-contract-conformance — commands (in order), app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline + harness
+$ git fetch origin && git rev-parse HEAD     -> d0ec682b1d3e086ea8d7d35d61a404a74dd45f21
+$ git status --short                          -> (empty)
+$ npm_config_cache=/tmp/plantapp-npx-cache npx --yes supabase status   -> running
+
+## COMMIT 1 (red) — conformance test
+# wrote backend/tests/integration/contract-conformance.integration.test.ts (Ajv validate every response vs shared-schemas)
+$ set -a; eval "$(... supabase status -o env)"; set +a
+$ export SUPABASE_URL=$API_URL SUPABASE_ANON_KEY=$ANON_KEY SUPABASE_SERVICE_ROLE_KEY=$SERVICE_ROLE_KEY
+$ cd backend && npm run test:int
+  FAIL contract-conformance.integration.test.ts (snake_case responses fail camelCase schemas)
+  Test Files  1 failed | 4 passed (5)
+       Tests  1 failed | 20 passed (21)        # desired red
+$ git add backend/tests/integration/contract-conformance.integration.test.ts
+$ git commit -m "test(api): validate API responses against shared schemas (#contract)"
+  [master 0dca7f1] 1 file changed, 133 insertions(+)
+$ git push origin master   -> d0ec682..0dca7f1
+
+## COMMIT 2 (green) — mappers
+# wrote backend/src/mappers.ts (toGardenSpace/toContainer/toPlantInstance/toCareTask; omit nulls; numeric->Number)
+# edited backend/src/app.ts: apply mappers in all response paths (import + 6 send sites)
+$ cd backend && npm run typecheck    -> clean
+$ npm run lint                        -> clean (exit 0)
+$ npm run test:int
+  ✓ garden-spaces-schema (3) ✓ core-tables (9) ✓ plants-api (5) ✓ plants-rls-delete (3) ✓ contract-conformance (1)
+  Test Files  5 passed (5)
+       Tests  21 passed (21)           # green
+$ npm test
+       Tests  50 passed (50)           # unit unaffected
+
+$ git diff --quiet HEAD -- backend/care-engine/ shared-schemas/ supabase/migrations/ backend/src/auth.ts backend/tests/   -> all UNCHANGED
+$ git add backend/src/mappers.ts backend/src/app.ts
+$ git commit -m "feat(api): conform responses to camelCase shared-schema contract"
+  [master 678a488] 2 files changed, 104 insertions(+), 6 deletions(-)
+$ git push origin master   -> 0dca7f1..678a488
+$ git rev-parse origin/master   -> 678a488baa899703fc75407201f75cc9a8623062

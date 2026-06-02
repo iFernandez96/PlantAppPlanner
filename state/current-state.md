@@ -7,7 +7,7 @@
 | **Snapshot** | 2026-06-02 — **Slice 1 backend DOD complete (#1–#20)**; loop paused for owner decision |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `d0ec682b1d3e086ea8d7d35d61a404a74dd45f21` (`d0ec682`) — in sync, clean |
+| **Local HEAD / origin/master** | `678a488baa899703fc75407201f75cc9a8623062` (`678a488`) — in sync, clean |
 
 ## 🎉 Slice 1 backend is DOD-complete (#1–#20), all green
 - Schema validation #1–#6 · deterministic care-engine #7–#14 · seed catalog · DB schema +
@@ -22,10 +22,13 @@
 - **a1** ✓ (`d0ec682`) Gradle wrapper committed + `:app:assembleDebug` BUILD SUCCESSFUL
   (compileSdk 35; `platforms;android-35` installed). Toolchain proven. Build with
   `GRADLE_USER_HOME=/tmp/plantapp-gradle-home` (`~/.gradle` is on the slow external Drive).
-- **Decision: A — conform to the camelCase shared-schemas (IN FLIGHT).** Published
-  `0010-api-contract-conformance`: snake→camel response mappers for GardenSpace/Container/
-  PlantInstance/CareTask on all endpoints + Ajv integration tests validating responses
-  against `shared-schemas/*`. Red→green; closes the contract gap before a2. Watcher armed.
+- **A done (`678a488`):** `src/mappers.ts` conforms all responses to camelCase
+  shared-schemas; Ajv integration tests lock it (21/21). Contract gap closed.
+- **a2 (IN FLIGHT):** `0011-android-network` — Android `:network` DTOs (`@Serializable`,
+  camelCase) + Retrofit client + JVM tests validating DTOs vs `shared-schemas/*` (networknt;
+  D-02/D-06). Vision-check ALIGNED.
+- **a3 (next):** `:domain`/`:data` + Compose screens (`:feature-inventory`: add/list/detail)
+  + Hilt + nav + UI tests #21–#24 (Robolectric).
 - **a2 (after decision):** `:network` Retrofit DTOs + Compose screens (`:feature-inventory`:
   add/list/detail) + UI tests #21–#24 (Robolectric). Vision-checked for real.
 
