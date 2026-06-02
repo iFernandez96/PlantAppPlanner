@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **🎉 FULL-STACK ON-DEVICE PASS (real S24 Ultra).** OTP sign-in→add-plant(selectors)→CareTask+advisory→accept→**reminder notification fired** ("A 'repot' task is due"), all HTTP 200/201, no crashes. Found+fixed the INTERNET-permission bug (`0040`). Backend still UP / ufw open — **awaiting owner: tear down vs keep for hands-on.** |
+| **Snapshot** | 2026-06-02 — **Full-stack on-device PASS earlier today (incl. reminder fired). Test backend torn down. NOW: beginner-first UX overhaul (owner top priority) — add-plant 3-step wizard; H1 model IN FLIGHT (`0041`). FCM deferred.** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
 | **Local HEAD / origin/master** | `369f2f06dcc6bc8019cf051b40228e01a0746b89` (`369f2f0`) — in sync, clean |
@@ -172,8 +172,14 @@ non-gardener."** This now outranks FCM. The add-plant flow exposes jargon/raw fi
 answer (container **liters/material/drainage**, free-text **growth stage**, **ISO last-watered**,
 scientific-ish species dropdown, garden-space **"kind"**). Plan = redesign to plain-language,
 picture-led, smart-defaulted, guided flow; the deterministic engine derives technical values from
-simple choices. See memory `[[beginner-first-ux]]`. **Next planner action: produce a UX redesign
-proposal + decompose into handoffs after the owner confirms direction.** (FCM remains deferred/owner-gated.)
+simple choices. See memory `[[beginner-first-ux]]`. **Direction CONFIRMED by owner + build STARTED.** Owner choices: 3-step wizard · icon+plain-name
+tiles · add-plant first (then copy sweep) · pot sizes labeled **"how pots are sold"** (4-inch/6-inch/
+1-gal/5-gal bucket/window box/raised bed, mapped to litres internally; novice never sees litres).
+Spec: `reviews/beginner-ux-addplant-spec.md`. Decomposition: **H1 `0041` pure model — IN FLIGHT**
+(pot-size→litres, location presets, `categoryIcon`, hidden defaults; vision ALIGNED + guardian PASS)
+→ **H2 `0042` the `AddPlantWizard` composable** (3 steps + confirm, replaces the jargon `AddPlantScreen`)
+→ then the **copy sweep** (sign-in/list/detail + friendly advisory wording). (FCM remains deferred/owner-gated.)
+Icon note: category-keyed emoji → passion fruit shows 🍅 (per-species icons a later refinement).
 - **Transport decision (2026-06-02):** owner chose **cleartext-on-LAN for the local device test**
   (debug-only NSC). **Production stays HTTPS** — release builds keep Android's no-cleartext default;
   hosted Supabase is HTTPS; a deployed Fastify would be behind TLS. **Tracked requirement: prod = HTTPS.**
