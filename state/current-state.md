@@ -19,13 +19,16 @@
   `:network` 10/10, `:domain` 2/2, `:data` 5/5, `:feature-inventory` 4/4; `:app:assembleDebug` OK.
 - **Retro:** `reviews/slice-1-retro.md`. Exchange handoffs `0001`–`0013` all ✓.
 
-## Loop PAUSED — owner decision (no prompt pending, no watcher armed)
-Slice 1's remaining items are the owner's:
-- **Device acceptance** (the plan's human exit criterion): add the 5 real plants on a
-  device and see one water task each — needs the API reachable (local Supabase + base URL,
-  or a deploy).
-- Next direction: (1) device-acceptance run · (2) UX follow-ups (real selectors + optional
-  `nickname`/`placement`; sign-in screen) · (3) Slice 2 advisories · (4) CI. See the retro.
+## Slice 2 (advisories) — IN PROGRESS (owner chose option 3)
+Deterministic, profile-driven advisories surfaced in the UI, **never auto-creating
+CareTasks** (BDD: `features/container-health.feature` `@slice-2`).
+- **S2.0 (IN FLIGHT):** `0014-slice2-foundation` — `docs/slice-02-implementation-plan.md`
+  + `advisory.schema.json` contract + red→green schema test. Vision ALIGNED. Watcher armed.
+- **Next:** S2.1 `computeAdvisories` engine (red-first; container-size/support/pollination
+  + invariant; enrich seed `idealMin/MaxLiters`) → S2.2 `GET /plants/:id/advisories` API +
+  integration tests → S2.3 Android display + UI test.
+- **Still recommended (Slice 1, not blocking):** on-device acceptance run of the 5 real
+  plants (needs the API reachable). See `reviews/slice-1-retro.md`.
 
 ## Deferrals (tracked; not blockers)
 Add-plant form = id text fields (no selectors yet); optional `nickname`/`placement` not in

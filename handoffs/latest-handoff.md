@@ -158,6 +158,12 @@ confirm the 8 tests fail red → commit → push (two commits total).
   (4) CI to enforce the suites on GitHub. No prompt pending / no watcher armed until chosen.
 - **Next planner session:** re-fetch (expect `a568a4d`), read the retro, then act on the
   owner's choice. Resume the ping-pong only when there's a new approved handoff.
+- **Owner chose option 3 — Slice 2 (advisories), 2026-06-02.** S2.0 in flight: published
+  `0014-slice2-foundation` (slice-02 plan doc + `advisory.schema.json` + red→green schema
+  test), vision-checked ALIGNED, watcher armed. Decomposition: S2.0 schema → S2.1
+  `computeAdvisories` engine (red-first) → S2.2 `GET /plants/:id/advisories` API → S2.3
+  Android display. BDD = `features/container-health.feature` `@slice-2`. Slice 1 device-
+  acceptance run still recommended (not blocking).
 - **Tracked issue:** `npm run lint` fails (pre-existing ESLint↔tsconfig project mismatch;
   `tests/**` not in the TS project). Not gated; needs a small config handoff if wanted.
 - **New gate:** every published prompt is vision-checked vs `../PlantApp/ChatHistory.md`

@@ -190,3 +190,7 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   (Robolectric 4/4), `:app:assembleDebug` OK. **Slice 1 DOD #1–#24 engineering-complete.**
   Loop **paused**; one-page retro written (`reviews/slice-1-retro.md`); owner to decide next
   (device-acceptance run / UX follow-ups / Slice 2 / CI). 13 handoffs, all green, no regressions.
+- **2026-06-02** — Owner chose **Slice 2 (advisories)**. S2.0 published
+  (`0014-slice2-foundation`: slice-02 plan + `advisory.schema.json` + red→green schema
+  test), vision ALIGNED, in flight. Decomposition: S2.0 schema → S2.1 engine → S2.2 API →
+  S2.3 Android. BDD: `features/container-health.feature` `@slice-2` (5 scenarios).
