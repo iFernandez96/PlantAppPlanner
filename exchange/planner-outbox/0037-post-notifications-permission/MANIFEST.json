@@ -1,0 +1,9 @@
+{
+  "id": "0037-post-notifications-permission",
+  "kind": "prompt",
+  "status": "ready",
+  "producer": "planner",
+  "createdUtc": "2026-06-02T16:03:52Z",
+  "sourceFile": "next-implementation-prompt.md",
+  "files": ["PROMPT.md"]
+}

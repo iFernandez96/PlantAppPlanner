@@ -1,0 +1,31 @@
+# Handoff 0036-reminder-sync-appopen — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD   -> 6f6f58b55ca85a27a99974c682831ce301cf9ee8 == origin/master
+$ git status --short                        -> (empty)
+$ grep 'project(":data")' feature-inventory/build.gradle.kts  -> present (feature depends on :data)
+
+## Implement (red-first)
+# ReminderScheduler.kt: +interface ReminderScheduling { schedule(specs, now) }; class : ReminderScheduling (override)
+# reminder/ReminderSync.kt (new): @Inject(repository, scheduler: ReminderScheduling, clock: Clock);
+#   syncNow() = schedule(computeReminders(getPlants().flatMap{getPlantTasks(id)}, Instant.now(clock)), now)
+# di/DataModule.kt: +@Provides provideClock()=Clock.systemUTC(); +@Binds bindReminderScheduling(ReminderScheduler)
+# feature InventoryViewModels.kt: PlantListViewModel +reminderSync; success-path fire-and-forget runCatching{syncNow()}
+# test data/ReminderSyncTest.kt: FakeRepo(1 plant; pending+done) + FakeReminderScheduling + Clock.fixed; asserts only pending scheduled
+# NavSmokeFakes.kt: +NoopReminderScheduling + reminderSync(repo) helper ; NavSmokeTest: PlantListViewModel(repo, reminderSync(repo))
+
+## Gate
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :data:testDebugUnitTest :feature-inventory:testDebugUnitTest :app:assembleDebug --no-daemon
+  BUILD SUCCESSFUL in 38s
+  ReminderSyncTest 1/1 ; data total 14->15 ; feature-inventory 18 (NavSmokeTest still 2/2) ; :app:assembleDebug SUCCESSFUL
+
+## No FCM check
+$ grep -rin 'firebase|google-services|com.google.gms' android/data android/feature-inventory  -> none
+
+## Commit + push
+$ git add android/data/ android/feature-inventory/
+$ git commit -m "feat(android): schedule local reminders on app open (ReminderSync, Slice 3)"
+  [master e8aaeec] 7 files changed, 139 insertions(+), 4 deletions(-)
+$ git push origin master       -> 6f6f58b..e8aaeec
+$ git rev-parse origin/master  -> e8aaeec50c0f1cb1114b3dc1b8186654d7fae091
+$ git show --stat HEAD | grep -c local.properties  -> 0

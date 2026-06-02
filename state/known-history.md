@@ -375,3 +375,12 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   tasks across plants → `computeReminders` → schedule) + `ReminderScheduling` seam + `Clock` +
   `PlantListViewModel` fire-and-forget trigger + test. Vision ALIGNED. Local-only. **Next = runtime
   `POST_NOTIFICATIONS` UI → STOP for owner Firebase/FCM.**
+- **2026-06-02** — `0036` ✅ landed (`e8aaeec`): `ReminderSync` (pending tasks across plants →
+  `computeReminders` → `ReminderScheduler.schedule`) + `ReminderScheduling` seam + `Clock` +
+  `PlantListViewModel` fire-and-forget app-open trigger; `ReminderSyncTest` (fixed clock, only
+  pending scheduled). `:data` 14→15; `:feature-inventory` 18 (NavSmoke updated for the new VM ctor
+  param). 7 files (`:data`+`:feature-inventory`). Verified vs real git (no FCM). Published
+  `0037-post-notifications-permission` (Slice 3 step 4, last LOCAL; in flight): runtime
+  `POST_NOTIFICATIONS` request (Android 13+) via Compose `RequestPermission` launcher in the LIST
+  route + pure `NotificationPermission.shouldRequest` helper + test. Vision ALIGNED. **After it →
+  STOP and ask owner for Firebase/FCM setup (project + google-services.json).**

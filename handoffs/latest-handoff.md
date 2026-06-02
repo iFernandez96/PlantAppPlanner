@@ -24,13 +24,15 @@ care_tasks row; `test:int` 31→35 incl. GET-creates-nothing; verified GET handl
 **🎉 Backlog (1)+(2)+(3) COMPLETE.** **Slice 3 underway.** Opener `0034` (`79944a5`) ✅ — plan doc (D-13 + STOP gates) + pure
 `computeReminders` in `:domain` (`:domain` 2→9). WorkManager local `0035` (`6f6f58b`) ✅ —
 `ReminderScheduler`+`ReminderWorker`+WorkManager dep+`POST_NOTIFICATIONS`+channel; `:data` 11→14;
-local-only (no FCM). **app-open scheduling IN FLIGHT (`0036-reminder-sync-appopen`)** —
-`ReminderSync` (pending tasks across plants → `computeReminders` → schedule) + `ReminderScheduling`
-seam + `Clock` + `PlantListViewModel` fire-and-forget trigger + test. Vision ALIGNED. **Sequence:**
-`computeReminders`✅ → WM-local✅ → app-open scheduling (`0036`) → runtime `POST_NOTIFICATIONS`
-request UI → **STOP for owner Firebase/FCM** (project + `google-services.json`). Watcher armed for
-`0036`. PlantApp HEAD `6f6f58b`. **Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate
-note:** `:domain` → `:domain:test`. **Tripwire:** Drive mounted before any
+local-only (no FCM). app-open scheduling `0036` (`e8aaeec`) ✅ —
+`ReminderSync` + `ReminderScheduling` seam + `Clock` + `PlantListViewModel` trigger; `:data` 14→15.
+**runtime `POST_NOTIFICATIONS` IN FLIGHT (`0037-post-notifications-permission`)** — Compose
+`RequestPermission` launcher in the LIST route + pure `NotificationPermission.shouldRequest` helper +
+test. Vision ALIGNED. **Sequence:** `computeReminders`✅ → WM-local✅ → app-open sched✅ → runtime
+perm (`0037`) → **STOP for owner Firebase/FCM** (project + `google-services.json`). **`0037` is the
+last LOCAL Slice 3 step — when it lands, the loop PAUSES at the FCM gate to ask the owner.** Watcher
+armed for `0037`. PlantApp HEAD `e8aaeec`. **Tripwire:** Drive mounted before any `gradlew`/npm/npx.
+**Gate note:** `:domain` → `:domain:test`. **Tripwire:** Drive mounted before any
 `gradlew`/npm/npx. **Gate note:** `:domain` → `:domain:test`. **Structural debt:** sign-in in `:feature-inventory` → `:feature-auth`
 later. **Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate note:** `:domain` →
 `:domain:test`.
