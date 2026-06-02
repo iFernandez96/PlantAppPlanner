@@ -47,7 +47,17 @@ sudo). Queued `reviews/device-test-suite.md`; QA agent ran T0–T12 → `reviews
 **To unblock on-device full-stack (3 prereqs, all impl-Claude/owner — planner can't):** (1) impl-Claude:
 debug base URL → `10.0.0.179` **+** allow cleartext to it (debug `network-security-config` or HTTPS)
 — repointing alone is insufficient; (2) run Supabase+Fastify on the LAN; (3) rebuild+reinstall, re-run
-the agent. **Asked owner whether to proceed.** Loop still paused (FCM gate + this). **Tripwire:** Drive mounted before any
+the agent. **Asked owner whether to proceed.** Loop still paused (FCM gate + this).
+
+## On-device full-stack enablement — owner chose "wire it & re-test" (2026-06-02)
+Discovered the Fastify backend has **no HTTP entry point** (only `app.inject()` in tests). Sequence:
+**(1) backend server bootstrap — IN FLIGHT (`0038-backend-server-bootstrap`)** (`src/server.ts`
+`listen 0.0.0.0:PORT` + `start` script; liveness gate: build → boot dummy-env → `GET /plants` 401;
+vision N/A infra, guardian PASS). **(2) Android device-debug build** (split base URLs: auth→Supabase
+`10.0.0.179:54321`, API→Fastify `10.0.0.179:3000`, debug-overridable; + debug cleartext
+`network-security-config`; rebuild). **(3) run LAN stack** (planner owner-approved to run Supabase +
+Fastify on the LAN; **owner opens ufw 54321+3000, sudo**) + reinstall + re-run the device agent suite.
+Watcher armed for `0038`. PlantApp HEAD `369f2f0`. **Tripwire:** Drive mounted before any
 `gradlew`/npm/npx. **Gate note:** `:domain` → `:domain:test`. **Structural debt:** sign-in in `:feature-inventory` → `:feature-auth`
 later. **Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate note:** `:domain` →
 `:domain:test`.

@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all" backlog DONE except owner-gated FCM. Slice 3 LOCAL path ✅. On-device smoke run (real S24 Ultra / Android 16): install/launch/gating/sign-in-UI/WorkManager ✅; full-stack BLOCKED on 3 wiring prereqs. Awaiting owner.** |
+| **Snapshot** | 2026-06-02 — **Owner chose "wire it & re-test". On-device full-stack enablement: backend server bootstrap IN FLIGHT (`0038`), then Android device-debug build, then run LAN stack + re-run agent. (Slice 3 LOCAL ✅; FCM still gated.)** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
 | **Local HEAD / origin/master** | `369f2f06dcc6bc8019cf051b40228e01a0746b89` (`369f2f0`) — in sync, clean |
@@ -123,12 +123,16 @@ Ran the queued 13-test suite (`reviews/device-test-suite.md`) via a QA agent →
 - **BLOCKED (full-stack):** T4–T11 behind the first network call. "Send code" → `POST
   http://10.0.2.2:54321/auth/v1/otp` fails with **`UnknownServiceException: CLEARTEXT communication
   to 10.0.2.2 not permitted by network security policy`** (shown in-app too).
-- **3 prerequisites to unblock on-device full-stack** (all owner-gated / impl-Claude — planner can't):
-  1. **Source (impl Claude):** debug base URL(s) → LAN `10.0.0.179` **AND** allow cleartext to that
-     host (debug `network-security-config`, or HTTPS). Repointing the URL alone is NOT enough — the
-     cleartext-NSC block fires before the socket. Base URLs are baked at build time.
-  2. **Run** local Supabase + Fastify bound to the LAN (planner barred from `supabase`/builds).
-  3. **Rebuild + reinstall** the APK (impl Claude), then re-run the agent suite.
+- **Unblock path — owner chose "wire it & re-test" (2026-06-02); IN PROGRESS:**
+  1. **Backend server bootstrap — IN FLIGHT (`0038`):** the Fastify app had **no HTTP entry point**
+     (only `app.inject()` in tests) — add `src/server.ts` (`listen 0.0.0.0:PORT`) + `start` script.
+  2. **Android device-debug build (next handoff):** split base URLs — auth → Supabase
+     `10.0.0.179:54321`, PlantApp API → Fastify `10.0.0.179:3000` — via a debug-overridable
+     mechanism (not a committed host IP) + **debug `network-security-config` permitting cleartext**
+     to the LAN host (the device blocker was cleartext-NSC, not connectivity); rebuild.
+  3. **Run LAN stack + re-test:** planner (owner-approved this session) runs Supabase + the Fastify
+     server bound to the LAN; **owner opens `ufw` 54321 + 3000 to the LAN (sudo)**; reinstall APK;
+     re-run the device agent suite (`reviews/device-test-suite.md`).
 - APK tested was the pre-built debug (mtime 09:05, targetSdk 35), trails HEAD `369f2f0` — fine for
   the smoke; rebuild for the real full-stack pass.
 
