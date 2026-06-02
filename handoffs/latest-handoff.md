@@ -62,9 +62,15 @@ build IN FLIGHT (`0039-android-device-debug-build`)** — base URLs → BuildCon
 API corrected `:54321`→`:3000` Fastify, auth stays Supabase `:54321`) + debug-only cleartext NSC;
 impl's `-P` assembleDebug = the device APK. Vision ALIGNED (repo-verified split) + guardian PASS.
 **Transport decision:** owner chose **cleartext-on-LAN for the local test**; **release stays
-HTTPS-only; prod-HTTPS is a tracked requirement.** Watcher armed for `0039`. **(3) next:** planner
-runs LAN Supabase+Fastify (`HOST=0.0.0.0`), owner opens `ufw` 54321+3000 (sudo, re-close after),
-reinstall APK, re-run device suite. **Tripwire:** Drive mounted before any
+HTTPS-only; prod-HTTPS is a tracked requirement.** Watcher armed for `0039`. **(3) LAN stack run + first full-stack attempt DONE:** Supabase+Fastify up on the LAN, 5 profiles
+seeded, owner opened ufw, Kong restarted (post-reset 502). Real device agent run
+(`reviews/device-test-report-2026-06-02-fullstack.md`) **found a REAL BUG: app manifest missing
+`android.permission.INTERNET`** → all sockets `EPERM` on the first call; backend/LAN proven healthy
+from the phone. Steps 1+12 PASS, 3–11 blocked downstream. **Fix `0040-android-internet-permission`
+IN FLIGHT** (one-line: add INTERNET to `app/src/main/AndroidManifest.xml` + rebuild device APK;
+vision N/A bugfix, guardian PASS). Watcher armed for `0040`. **Then:** reinstall + re-run device
+agent Steps 2–12; teardown (re-close ufw, stop Fastify `bhdrygzdg`). Backend still UP. PlantApp HEAD
+`a3cb50e`. **Tripwire:** Drive mounted before any
 `gradlew`/npm/npx. **Gate note:** `:domain` → `:domain:test`. **Structural debt:** sign-in in `:feature-inventory` → `:feature-auth`
 later. **Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate note:** `:domain` →
 `:domain:test`.

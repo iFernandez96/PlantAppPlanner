@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"wire it & re-test": (1)✅ server bootstrap (2)✅ device-debug build (`0039`, `a3cb50e`). (3) LAN stack UP (Supabase :54321 + Fastify :3000, 5 profiles seeded, LAN-baked APK installed) — BLOCKED on owner `ufw` open, then re-run device agent. (Slice 3 LOCAL ✅; FCM gated.)** |
+| **Snapshot** | 2026-06-02 — **Real full-stack device run found a REAL BUG: app manifest is missing `android.permission.INTERNET` → all networking `EPERM`. Backend/LAN proven healthy from the phone. Fix handoff `0040` IN FLIGHT; then reinstall + re-run.** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
 | **Local HEAD / origin/master** | `369f2f06dcc6bc8019cf051b40228e01a0746b89` (`369f2f0`) — in sync, clean |
@@ -143,6 +143,15 @@ Ran the queued 13-test suite (`reviews/device-test-suite.md`) via a QA agent →
      - Then re-run the device agent suite. **OTP note:** local Supabase emails the code to **Mailpit**
        (`127.0.0.1:54324`); the agent reads the code from Mailpit's API to complete sign-in.
      - **Teardown after:** re-close ufw ports; stop Fastify (`bhdrygzdg`).
+     - **ufw opened by owner ✅; Kong restarted to clear a post-`db reset` stale-upstream 502.**
+       Phone→Supabase `/auth/v1/health` 200, phone→Fastify `/plants` 401 — reachability proven.
+     - **Real full-stack agent run (`reviews/device-test-report-2026-06-02-fullstack.md`): BLOCKED at
+       Step 2 by a REAL APP BUG — the app manifest is MISSING `android.permission.INTERNET`**, so the
+       OS denies all sockets (`java.net.SocketException: socket failed: EPERM`) on the first call
+       (`POST /auth/v1/otp`). Every unit/integration/Robolectric test missed it (none open a real
+       socket) — only the on-device run caught it. Steps 1+12 PASS (launch/gating/sign-in UI/warm
+       relaunch, no crash); steps 3–11 blocked downstream. **Fix → handoff `0040` (add INTERNET to
+       `app/src/main/AndroidManifest.xml`, rebuild), reinstall, re-run the agent (Steps 2–12).**
 - **Transport decision (2026-06-02):** owner chose **cleartext-on-LAN for the local device test**
   (debug-only NSC). **Production stays HTTPS** — release builds keep Android's no-cleartext default;
   hosted Supabase is HTTPS; a deployed Fastify would be behind TLS. **Tracked requirement: prod = HTTPS.**
