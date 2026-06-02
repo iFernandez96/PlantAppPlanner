@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all": (1)✅ (3) UX✅; (2) Robolectric NavHost smoke IN FLIGHT (`0033`); then (4) Slice 3** |
+| **Snapshot** | 2026-06-02 — **"do all": (1)✅ (2)✅ (3)✅ — only (4) Slice 3 left; Slice 3 opener IN FLIGHT (`0034`)** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `d1bda811a2a27978a5b4a5b7354c5c49d13620d7` (`d1bda81`) — in sync, clean |
+| **Local HEAD / origin/master** | `da020e3abdc3bd4ada2d2ec5c4ec39a8f1a53e58` (`da020e3`) — in sync, clean |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
@@ -88,8 +88,14 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
       (no Hilt-test infra) — gated journey sign-in→list→detail→accept (+ add via selectors).
       Deterministic, JVM, no emulator/backend. Human "real plants on my device" acceptance stays
       with the owner. (Adds `navigation-compose` as a `:feature-inventory` testImpl.)
-    - **(4) Slice 3** — watering reminders; WorkManager local path first, then **STOP for owner
-      Firebase/FCM setup**.
+    - **(2) e2e ✅ DONE (`0033`, `da020e3`)** — test-only Robolectric NavHost smoke (`:feature-inventory`
+      18 tests); verified test-only (no `src/main`). **Backlog (1)+(2)+(3) COMPLETE.**
+    - **(4) Slice 3 — watering reminders. STARTED (`0034` opener IN FLIGHT):** plan doc + deterministic
+      pure `computeReminders` (pending CareTasks + `dueAt` → reminder specs) red-first. Sequence:
+      deterministic policy → WorkManager **local** notification path (new deps + `POST_NOTIFICATIONS`,
+      Android 13+) → schedule-on-app-open wiring → **STOP for owner Firebase/FCM setup** (project +
+      `google-services.json`) before any push. Slice 3 flips the Slices-1/2 "no notifications" posture
+      (D-11/D-12) — expected/owner-approved for this slice.
       (Gate note: `:domain` is a JVM module → `:domain:test`, not `:domain:testDebugUnitTest`.)
   - **(2) Automated emulator e2e smoke** (instrumented). **Human device-acceptance (real plants on
     a real phone) stays with the owner — I can't do that part.**

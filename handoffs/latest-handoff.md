@@ -20,13 +20,15 @@ support→support, pollination throws); `npm test` 67→72; verified pure & not 
 care_tasks row; `test:int` 31→35 incl. GET-creates-nothing; verified GET handler has no insert.
 3d complete: net+data `0031` (`bfdd946`) ✅, UI `0032` (`d1bda81`) ✅ — per-advisory Accept button →
 `acceptAdvisory` → reload; `:feature-inventory` 14→16. **🎉 Backlog (3) UX follow-ups COMPLETE**
-(selector-driven add-plant · email-OTP sign-in + gating · advisory→accept→CareTask e2e). **(2) e2e: owner chose the Robolectric NavHost
-smoke. IN FLIGHT (`0033-navhost-smoke`)** — test-only `:feature-inventory` Robolectric test: mirrored
-`NavController`/`NavHost` over real screens + VMs built from fake repos (no Hilt-test/emulator/
-backend), gated journey sign-in→list→detail→accept (+ add); adds `navigation-compose` testImpl +
-guard comment (mirrors `MainActivity`). Vision ALIGNED-WITH-NOTES (test-only; D-09 safe). After it,
-only **(4) Slice 3** remains (WorkManager local first; STOP for owner Firebase/FCM setup). Watcher
-armed for `0033`. PlantApp HEAD `d1bda81`. **Tripwire:** Drive mounted before any
+(selector-driven add-plant · email-OTP sign-in + gating · advisory→accept→CareTask e2e). (2) e2e ✅ `0033` (`da020e3`), test-only Robolectric NavHost smoke (`:feature-inventory` 16→18).
+**🎉 Backlog (1)+(2)+(3) COMPLETE.** **Slice 3 STARTED — opener IN FLIGHT (`0034-slice3-opener`)**:
+`docs/slice-03-reminders-plan.md` + pure deterministic `computeReminders` in `:domain` (red-first;
+no Android/dep/permission yet). Vision ALIGNED-WITH-NOTES (D-09 honored: delivery timing on-device,
+care computation backend; ratified D-13-style in the doc; FCM STOP gate preserved). **Sequence:**
+`computeReminders` → WorkManager local notification path (new deps + `POST_NOTIFICATIONS`, planner
+will ground/flag) → app-open scheduling → **STOP for owner Firebase/FCM**. Watcher armed for `0034`.
+PlantApp HEAD `da020e3`. **Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate note:**
+`:domain` → `:domain:test`. **Tripwire:** Drive mounted before any
 `gradlew`/npm/npx. **Gate note:** `:domain` → `:domain:test`. **Structural debt:** sign-in in `:feature-inventory` → `:feature-auth`
 later. **Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate note:** `:domain` →
 `:domain:test`.

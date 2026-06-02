@@ -1,0 +1,35 @@
+# Handoff 0033-navhost-smoke — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD   -> d1bda811a2a27978a5b4a5b7354c5c49d13620d7 == origin/master
+$ git status --short                        -> (empty)
+$ ls ~/Android/Sdk/platforms                -> android-34/35/36/36.1 (SDK OK)
+$ grep navigation android/gradle/libs.versions.toml  -> compose-navigation alias present (navigation-compose 2.8.5)
+
+## Implement (test-only, red-first)
+# feature-inventory/build.gradle.kts: +testImplementation(libs.compose.navigation)
+# test NavSmokeFakes.kt: FakeInventoryRepository (canned profile/space/container/plant/task/advisory;
+#   acceptAdvisory records lastAccept -> repot task) + FakeAuthRepository (requested/verified flags)
+# test NavSmokeTest.kt: SmokeNavHost mirrors MainActivity 4-route graph; Dispatchers.setMain(...);
+#   tests: sign-in -> plant list ; sign-in -> list -> detail -> accept container-size
+
+## First run: 2 failures (NavSmokeTest)
+#   StandardTestDispatcher -> navigated screen's VM init/loadFor scheduled AFTER advanceUntilIdle;
+#   list/detail stuck in Loading -> PLANT_LIST/"Pasi" not displayed.
+#   FIX: Dispatchers.setMain(UnconfinedTestDispatcher()) -> eager inline; non-suspending fakes settle
+#   state synchronously; idle() = composeRule.waitForIdle(). Deterministic, no production change.
+# Also added @OptIn(ExperimentalCoroutinesApi) to silence UnconfinedTestDispatcher opt-in warnings.
+
+## Gate
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest --no-daemon
+  BUILD SUCCESSFUL in 19s ; no warnings
+  NavSmokeTest 2/2 ; feature-inventory total 16->18 (InventoryScreensTest 9, PlantDetailAdvisoriesTest 4, SignInScreenTest 3, NavSmokeTest 2)
+
+## Commit + push
+$ git add android/feature-inventory/
+$ git commit -m "test(android): Robolectric NavHost smoke for the gated sign-in -> list -> detail -> accept journey"
+  [master da020e3] 3 files changed, 267 insertions(+)
+$ git push origin master       -> d1bda81..da020e3
+$ git rev-parse origin/master  -> da020e3abdc3bd4ada2d2ec5c4ec39a8f1a53e58
+$ git show --stat HEAD | grep -c src/main          -> 0
+$ git show --stat HEAD | grep -c local.properties  -> 0

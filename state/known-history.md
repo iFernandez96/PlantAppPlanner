@@ -349,3 +349,12 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   sign-in→list→detail→accept (+ add); adds `navigation-compose` testImpl + a guard comment that
   the test mirrors `MainActivity`'s graph. Vision ALIGNED-WITH-NOTES (test-only; D-09 safe).
   After it, only **(4) Slice 3** remains.
+- **2026-06-02** — `0033` ✅ landed (`da020e3`), **test-only**: Robolectric `NavSmokeTest` +
+  `NavSmokeFakes` in `:feature-inventory` — mirrored NavHost over real screens+VMs with fake repos;
+  gated sign-in→list→detail→accept. `:feature-inventory` 16→18; only feature-inventory test sources
+  + 1 testImpl dep; no `src/main`. Verified vs real git. **🎉 Backlog (1)+(2)+(3) COMPLETE.**
+  **Slice 3 STARTED** — published `0034-slice3-opener` (in flight): `docs/slice-03-reminders-plan.md`
+  + pure deterministic `computeReminders` in `:domain` (red-first). Vision ALIGNED-WITH-NOTES
+  (D-09 honored — delivery timing on-device, care computation backend; ratified as D-13-style in
+  the doc; FCM STOP gate preserved; no permission/dep yet). Next: WorkManager local notification
+  path (new deps + `POST_NOTIFICATIONS`) → app-open scheduling → STOP for owner Firebase/FCM.
