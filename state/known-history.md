@@ -71,8 +71,10 @@ Verified from `git log --oneline` on 2026-05-31. The full history is 20 commits;
 
 ## Phase 13 — API contract conformance + Android network (a2-pre, a2)
 - `0dca7f1` test(api): validate API responses against shared schemas (#contract) — 2026-06-02; red
-- `678a488` feat(api): conform responses to camelCase shared-schema contract ← **HEAD / origin/master** — 2026-06-02; `src/mappers.ts`; responses Ajv-valid vs shared-schemas; integration 21/21
-- *(in flight)* `0011-android-network` (a2) — `:network` DTOs + Retrofit + networknt schema-validation tests
+- `678a488` feat(api): conform responses to camelCase shared-schema contract — 2026-06-02; `src/mappers.ts`; responses Ajv-valid vs shared-schemas; integration 21/21
+- `e69f6a0` test(android-network): add Slice 1 DTO + schema-validation tests — 2026-06-02; red
+- `f6c8155` feat(android-network): add Slice 1 Retrofit DTOs + API client ← **HEAD / origin/master** — 2026-06-02; `:network` tests 10/10 (networknt schema-valid), `:app:assembleDebug` OK
+- *(in flight)* `0012-android-domain-data` (a3a) — `:domain` models + `:data` repository over `:network`
 
 ## Accepted decisions (canonical record in `docs/slice-01-decision-log.md`)
 
@@ -171,3 +173,7 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   shared-schemas, Ajv-locked (21/21). a2 (`0011-android-network`: `:network` DTOs + Retrofit
   + networknt schema tests) published, vision-checked ALIGNED, in flight; a3 = Compose
   screens + UI tests #21–#24.
+- **2026-06-02** — a2 landed (`e69f6a0`/`f6c8155`): `:network` DTOs + Retrofit, JVM tests
+  10/10 (networknt schema-valid). a3a (`0012-android-domain-data`: `:domain`+`:data` over
+  `:network`, Room deferred) published, vision ALIGNED, in flight; a3b = Compose screens +
+  UI tests #21–#24 (closes Slice 1).

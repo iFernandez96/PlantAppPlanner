@@ -1,0 +1,38 @@
+# Handoff 0011-android-network — commands (in order), app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD     -> 678a488baa899703fc75407201f75cc9a8623062
+$ git status --short                          -> (empty)
+# consulted Retrofit / OkHttp / kotlinx.serialization converter / networknt json-schema-validator docs
+
+## COMMIT 1 (red) — DTO + schema-validation tests
+# edited android/gradle/libs.versions.toml: + junit, kotlin-test-junit, kotlinx-coroutines-test, networknt-json-schema-validator 1.5.4, jackson-databind 2.18.2
+# edited android/network/build.gradle.kts: testOptions useJUnit + testImplementation(...)
+# wrote android/network/src/test/kotlin/dev/plantapp/network/{TestSupport,DtoFixtures,DtoSerializationTest,SchemaValidationTest}.kt
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :network:testDebugUnitTest --no-daemon
+  e: Unresolved reference 'AddPlantResponse' / 'AddPlantRequest' ... (DTOs missing)
+  BUILD FAILED  (compile-red; test deps resolved OK)
+$ git add android/gradle/libs.versions.toml android/network/build.gradle.kts android/network/src/test/
+$ git commit -m "test(android-network): add Slice 1 DTO + schema-validation tests"
+  [master e69f6a0] 6 files changed, 225 insertions(+)
+$ git push origin master   -> 678a488..e69f6a0
+
+## COMMIT 2 (green) — DTOs + Retrofit API + client
+# wrote android/network/src/main/kotlin/dev/plantapp/network/{Dtos,PlantAppApi,PlantAppApiFactory}.kt
+# fixed converter import -> retrofit2.converter.kotlinx.serialization.asConverterFactory (Square)
+# git rm android/network/src/main/kotlin/.gitkeep
+$ ./gradlew :network:testDebugUnitTest --no-daemon
+  e: SchemaValidationTest.kt:37 Unclosed comment   (KDoc "shared-schemas/*.schema.json" -> /* opened nested comment)
+# reworded SchemaValidationTest KDoc to "schema under shared-schemas"
+$ ./gradlew :network:testDebugUnitTest --no-daemon
+  BUILD SUCCESSFUL
+  DtoSerializationTest tests="6" failures="0" ; SchemaValidationTest tests="4" failures="0"
+$ ./gradlew :app:assembleDebug --no-daemon
+  BUILD SUCCESSFUL in 1m 51s
+
+$ git diff --quiet HEAD -- backend/ shared-schemas/ supabase/   -> UNCHANGED
+$ git add android/network/src/main/ android/network/src/test/kotlin/dev/plantapp/network/SchemaValidationTest.kt
+$ git commit -m "feat(android-network): add Slice 1 Retrofit DTOs + API client"
+  [master f6c8155] 5 files changed, 221 insertions(+), 1 deletion(-)
+$ git push origin master   -> e69f6a0..f6c8155
+$ git rev-parse origin/master   -> f6c8155ac6618e493d46c82d53ea9c8021d83161

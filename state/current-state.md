@@ -7,7 +7,7 @@
 | **Snapshot** | 2026-06-02 — **Slice 1 backend DOD complete (#1–#20)**; loop paused for owner decision |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `678a488baa899703fc75407201f75cc9a8623062` (`678a488`) — in sync, clean |
+| **Local HEAD / origin/master** | `f6c8155ac6618e493d46c82d53ea9c8021d83161` (`f6c8155`) — in sync, clean |
 
 ## 🎉 Slice 1 backend is DOD-complete (#1–#20), all green
 - Schema validation #1–#6 · deterministic care-engine #7–#14 · seed catalog · DB schema +
@@ -24,11 +24,13 @@
   `GRADLE_USER_HOME=/tmp/plantapp-gradle-home` (`~/.gradle` is on the slow external Drive).
 - **A done (`678a488`):** `src/mappers.ts` conforms all responses to camelCase
   shared-schemas; Ajv integration tests lock it (21/21). Contract gap closed.
-- **a2 (IN FLIGHT):** `0011-android-network` — Android `:network` DTOs (`@Serializable`,
-  camelCase) + Retrofit client + JVM tests validating DTOs vs `shared-schemas/*` (networknt;
-  D-02/D-06). Vision-check ALIGNED.
-- **a3 (next):** `:domain`/`:data` + Compose screens (`:feature-inventory`: add/list/detail)
-  + Hilt + nav + UI tests #21–#24 (Robolectric).
+- **a2 done (`f6c8155`):** `:network` DTOs + Retrofit + JVM schema-validation tests (10/10);
+  D-02/D-06; no forbidden deps; `:app:assembleDebug` OK.
+- **a3a (IN FLIGHT):** `0012-android-domain-data` — `:domain` models + repository port,
+  `:data` repo over `:network` (DTO↔domain) + DataStore (base URL/token) + Hilt; JVM mapping
+  tests; Room deferred (vision ALIGNED — plan-consistent slice boundary).
+- **a3b (next, closes Slice 1):** `:feature-inventory` Compose screens (add/list/detail) +
+  ViewModels/Hilt/nav + UI tests #21–#24 (Robolectric).
 - **a2 (after decision):** `:network` Retrofit DTOs + Compose screens (`:feature-inventory`:
   add/list/detail) + UI tests #21–#24 (Robolectric). Vision-checked for real.
 

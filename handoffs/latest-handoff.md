@@ -136,10 +136,14 @@ confirm the 8 tests fail red → commit → push (two commits total).
 - **Owner chose A (2026-06-02).** Round 10 (A) done: `0dca7f1`/`678a488` — `src/mappers.ts`
   conforms all responses to camelCase shared-schemas; Ajv integration tests lock it
   (21/21, unit 50/50, lint+typecheck clean); verified, protected paths untouched.
-- **Round 11 (a2) in flight:** published `0011-android-network` — Android `:network` DTOs
-  (`@Serializable`, camelCase) + Retrofit client + JVM tests validating DTOs vs
-  `shared-schemas/*` via networknt (D-02/D-06). Vision-check ALIGNED (agent). Watcher armed.
-  **a3 next:** `:domain`/`:data` + Compose screens (`:feature-inventory`) + UI tests #21–#24.
+- **Round 11 (a2) done (2026-06-02):** `0011-android-network` → `e69f6a0`/`f6c8155`:
+  `:network` DTOs + Retrofit + JVM tests 10/10 (networknt schema-valid); `:app:assembleDebug`
+  OK; no forbidden deps; verified.
+- **Round 12 (a3a) in flight:** published `0012-android-domain-data` — `:domain` models +
+  `:data` repository over `:network` + DataStore + Hilt; JVM mapping tests; Room deferred.
+  Vision-check ALIGNED (agent; Room-defer = reasonable slice boundary). Watcher armed.
+  **a3b next (closes Slice 1):** `:feature-inventory` Compose screens + UI tests #21–#24
+  (Robolectric).
 - **Tracked issue:** `npm run lint` fails (pre-existing ESLint↔tsconfig project mismatch;
   `tests/**` not in the TS project). Not gated; needs a small config handoff if wanted.
 - **New gate:** every published prompt is vision-checked vs `../PlantApp/ChatHistory.md`
