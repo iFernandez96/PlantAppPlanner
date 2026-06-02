@@ -6,13 +6,14 @@
 ## One-line status (2026-06-02)
 "Do all" loop RUNNING. (1) `validate-schemas` ✅ (`0018`, `392ba86`). (3a) list endpoints ✅
 (`0019`, `c7b8c54`) — 3 read-only endpoints + `toPlantProfile`, integration 31/31, verified vs
-real git. (3b) Android selectors decomposed network→data→ui. 3b-network landed via `0021` (`ce59e5e`) after
-`0020` was blocked on the unmounted-Drive SDK (owner re-mounted). **3b-data IN FLIGHT
-(`0022-android-data-lists`)** — `:domain` `PlantProfile` + 3 repo read methods, `:data`
-mapper/impl + `FakePlantAppApi` update + mapping test; vision ALIGNED. **NB:** `0021` added 3
-`PlantAppApi` methods without updating the `:data` test double, so `:data:testDebugUnitTest`
-compile is red on `ce59e5e` — `0022` fixes it red→green. Watcher armed for the `0022` report.
-PlantApp HEAD `ce59e5e`. **Tripwire:** Drive must be mounted before any `gradlew`/npm/npx step.
+real git. (3b) Android selectors decomposed network→data→ui. 3b-network `0021` (`ce59e5e`) ✅; 3b-data
+`0022` (`3fba718`) ✅ — `:domain` `PlantProfile` + repo list methods, `:data` 7/7 / `:domain` 2/2
+(fixed `0021`'s latent `:data` compile-red). **3b-ui split a/b; 3b-ui-a IN FLIGHT
+(`0023-android-profile-dropdown`)** — replace add-plant Profile-id text field with a Material3
+catalog dropdown (`getPlantProfiles()`) + `AddPlantViewModel` load + 1-line `:app` route wiring +
+Robolectric tests; vision ALIGNED. Watcher armed for the `0023` report. PlantApp HEAD `3fba718`.
+**Tripwire:** Drive must be mounted before any `gradlew`/npm/npx step. **Gate note:** `:domain`
+is a JVM module → `:domain:test` (not `:domain:testDebugUnitTest`).
 
 ## What this session did
 - Verified Option A on `origin/master` independently (`git show`/`diff`): one file,

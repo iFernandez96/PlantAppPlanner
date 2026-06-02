@@ -253,3 +253,11 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   `:network`). Published `0022-android-data-lists` (in flight) which fixes it red→green:
   `:domain` `PlantProfile` + 3 repo read methods, `:data` mapper/impl + `FakePlantAppApi` update
   + mapping test. Vision-check ALIGNED.
+- **2026-06-02** — `0022` ✅ landed (`3fba718`): `:domain` `PlantProfile` + 3 repo read methods,
+  `:data` mapper/impl + `FakePlantAppApi` overrides + 2 new mapping tests; `:data`
+  InventoryRepositoryImplTest 7/7, `:domain` 2/2 (resolved `0021`'s latent `:data` compile-red).
+  6 files, only `android/domain|data/**`. Verified vs real git. **Task-name note:** `:domain`
+  is kotlin-jvm → `:domain:test` (not `:domain:testDebugUnitTest`). Published
+  `0023-android-profile-dropdown` (3b-ui split a/b; in flight): replace add-plant Profile-id
+  text field with a Material3 catalog dropdown (`getPlantProfiles()`) + `AddPlantViewModel` load
+  + 1-line `:app` route wiring + Robolectric tests. Vision-check ALIGNED.

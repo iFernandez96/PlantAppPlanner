@@ -1,0 +1,8 @@
+{
+  "id": "0022-android-data-lists",
+  "kind": "report",
+  "status": "done",
+  "producer": "implementation",
+  "createdUtc": "2026-06-02T07:23:12Z",
+  "files": ["REPORT.md","COMMANDS.log","VERIFICATION.md"]
+}

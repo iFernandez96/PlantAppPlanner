@@ -1,0 +1,9 @@
+{
+  "id": "0023-android-profile-dropdown",
+  "kind": "prompt",
+  "status": "ready",
+  "producer": "planner",
+  "createdUtc": "2026-06-02T07:26:17Z",
+  "sourceFile": "next-implementation-prompt.md",
+  "files": ["PROMPT.md"]
+}

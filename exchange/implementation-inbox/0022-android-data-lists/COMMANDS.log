@@ -1,0 +1,30 @@
+# Handoff 0022-android-data-lists — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline + unblock
+$ git fetch origin && git rev-parse HEAD      -> ce59e5e416faa64f1da07505372e0aa043960e6a == origin/master
+$ git status --short                           -> (empty)
+$ ls /home/israel/Android/Sdk/platforms        -> android-34/35/36/36.1 (SDK OK, Drive mounted)
+
+## Implement (domain + data)
+# :domain model/InventoryModels.kt: + PlantProfile(id, scientificName, commonNames, category)
+# :domain repository/InventoryRepository.kt: + getPlantProfiles()/getGardenSpaces()/getContainers()
+# :data mapper/DtoMappers.kt: + PlantProfileDto.toDomain()
+# :data repository/InventoryRepositoryImpl.kt: implement the 3 methods over api
+# :data test FakePlantAppApi.kt: + plantProfile DTO + 3 overrides (resolves compile-red)
+# :data test InventoryRepositoryImplTest.kt: + getPlantProfilesMapsToDomain, getGardenSpacesAndContainersMapToDomain
+
+## Gate (note: :domain is kotlin-jvm -> :domain:test, not testDebugUnitTest)
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :domain:testDebugUnitTest :data:testDebugUnitTest --no-daemon
+  FAILURE: task 'testDebugUnitTest' not found in project ':domain'   # wrong task name (prompt)
+$ ./gradlew :domain:test :data:testDebugUnitTest --no-daemon
+  BUILD SUCCESSFUL in 31s
+  :domain InventoryModelsTest tests=2 failures=0
+  :data InventoryRepositoryImplTest tests=7 failures=0 ; InventoryAdvisoriesTest tests=1 failures=0
+
+## Commit + push
+$ git add android/domain/ android/data/
+$ git commit -m "feat(android-data): PlantProfile domain model + repository list methods"
+  [master 3fba718] 6 files changed, 80 insertions(+)
+$ git push origin master        -> ce59e5e..3fba718
+$ git rev-parse origin/master   -> 3fba7184c52e87861dc222d4c42ecd11b9d36003
+$ git show --stat HEAD | grep -c local.properties   -> 0

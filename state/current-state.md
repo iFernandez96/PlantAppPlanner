@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all" loop RUNNING; (1)✅ (3a)✅ (3b-network)✅; (3b-data) IN FLIGHT (`0022`)** |
+| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b-net)✅ (3b-data)✅; (3b-ui-a profile dropdown) IN FLIGHT (`0023`)** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `ce59e5e416faa64f1da07505372e0aa043960e6a` (`ce59e5e`) — in sync, clean |
+| **Local HEAD / origin/master** | `3fba7184c52e87861dc222d4c42ecd11b9d36003` (`3fba718`) — in sync, clean |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
@@ -37,11 +37,14 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
       **3b-network ✅ DONE (`0021`, `ce59e5e`)** — `:network` `PlantProfileDto` + `getPlantProfiles/
       getGardenSpaces/getContainers` + schema test; `:network` 5/5. (`0020` was blocked on the
       unmounted-Drive SDK; owner re-mounted; `0021` re-ran it green. Verified vs real git: only
-      `android/network/**`.) **3b-data IN FLIGHT (`0022`)** — `:domain` lean `PlantProfile` model +
-      3 read methods + `:data` mapper/impl + `FakePlantAppApi` update + mapping test. (NB: `0021`
-      added 3 `PlantAppApi` methods without updating the test double → `:data` test compile was
-      red on `ce59e5e`; `0022` fixes it red→green.) → 3b-ui (`:feature-inventory` selectors
-      replacing id text fields + Compose UI tests).
+      `android/network/**`.) **3b-data ✅ DONE (`0022`, `3fba718`)** — `:domain` `PlantProfile` +
+      3 repo read methods, `:data` mapper/impl + `FakePlantAppApi` fix + tests; `:data` 7/7,
+      `:domain` 2/2 (fixed `0021`'s latent `:data` compile-red). Verified vs real git (only
+      `android/domain|data/**`). **3b-ui split a/b: 3b-ui-a IN FLIGHT (`0023`)** — replace add-plant
+      **Profile id field** with a Material3 catalog **dropdown** (`getPlantProfiles()`) +
+      `AddPlantViewModel` load + 1-line `:app` route wiring + Robolectric tests → 3b-ui-b:
+      garden-space/container **select-or-create** selectors.
+      (Gate note: `:domain` is a JVM module → `:domain:test`, not `:domain:testDebugUnitTest`.)
     - 3c Supabase magic-link sign-in → DataStore token. 3d advisory→accept→CareTask flow.
   - **(2) Automated emulator e2e smoke** (instrumented). **Human device-acceptance (real plants on
     a real phone) stays with the owner — I can't do that part.**
