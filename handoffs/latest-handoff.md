@@ -121,11 +121,13 @@ confirm the 8 tests fail red → commit → push (two commits total).
   list/get/delete + #19 RLS isolation + #20 cascade; **Slice 1 backend DOD #1–#20
   complete** (test:int 20/20, unit 50/50); planner-verified (app.ts additive, protected
   paths untouched).
-- **Owner chose "b, then a" (2026-06-02).** Round 8: published `0008-lint-config` (fix
-  ESLint↔tsconfig so `npm run lint` passes; config-only; vision-check N/A tooling) and
-  armed the watcher. **a (Android UI #21–#24) pre-approved next** — start with
-  Gradle-wrapper generation + skeleton build (Java 21 / `ANDROID_HOME` / adb present),
-  then Compose + UI tests; proceed after b, stop only on a real env blocker.
+- **Owner chose "b, then a" (2026-06-02).** Round 8 (b) done: `603869e` — lint passes
+  (16→0) via `tsconfig.eslint.json`; build tsconfig untouched; unit 50/50; verified.
+- **Round 9 (a1) in flight:** published `0009-android-wrapper-build` — generate the Gradle
+  wrapper + assemble the 6-module skeleton (system gradle missing; SDK/cmdline-tools/
+  emulator/licenses present; Java 21). Vision-check N/A (toolchain). Watcher armed. Most
+  blocker-prone step (first Android build). **a2 next:** `:network` DTOs + Compose screens
+  (`:feature-inventory`) + UI tests #21–#24 (Robolectric preferred) — vision-check a2 for real.
 - **Tracked issue:** `npm run lint` fails (pre-existing ESLint↔tsconfig project mismatch;
   `tests/**` not in the TS project). Not gated; needs a small config handoff if wanted.
 - **New gate:** every published prompt is vision-checked vs `../PlantApp/ChatHistory.md`

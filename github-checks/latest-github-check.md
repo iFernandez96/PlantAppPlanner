@@ -4,18 +4,14 @@
 
 | Question | Answer |
 |---|---|
-| Latest `origin/master` | `8f588af` — feat(api): add plant list/get/delete endpoints (RLS + cascade) |
-| Local == origin/master? | ✅ yes (`8f588af` both sides) |
-| A3b commits | `cfb3751` (red #19/#20 tests) → `8f588af` (green list/get/delete; app.ts +37/−0) |
+| Latest `origin/master` | `603869e` — chore(backend): fix ESLint TypeScript project config so lint passes |
+| Local == origin/master? | ✅ yes (`603869e` both sides) |
+| Last commit | `603869e` (b: lint-config) ← `8f588af` (A3b) ← … |
 | Uncommitted changes? | none (clean) |
 | CI / workflows / checks / PRs / issues | none |
 | Default branch | `master` |
 
-Verified via `git diff --name-only 1cd2eac 8f588af -- <protected paths>` (empty):
-care-engine, shared-schemas, migrations, existing tests, `src/auth.ts`, `src/config.ts`
-untouched; only `src/app.ts` (+37) and the new rls-delete integration test changed.
-**Slice 1 backend DOD #1–#20 complete:** `npm test` 50/50, `npm run test:int` 20/20,
-typecheck clean. No CI; local test suites are the gate; planner verified structurally.
-
-**Tracked issue:** `npm run lint` still fails (pre-existing ESLint↔tsconfig project
-mismatch). Not gated; candidate for a small cleanup handoff (decision option b).
+Verified `git diff --name-status 8f588af 603869e` = 2 config files (`backend/eslint.config.js`,
+new `backend/tsconfig.eslint.json`); production logic untouched. `npm run lint` now passes
+(16 parse errors → 0); typecheck clean; unit 50/50; integration 20/20 (unchanged). No CI;
+local suites + lint are the gates. Next: a1 (`0009-android-wrapper-build`) in flight.

@@ -1,0 +1,32 @@
+# Handoff 0008-lint-config — commands (in order), app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD     -> 8f588af90c69b569db1abdeceb5d97020b56b6f6
+$ git status --short                          -> (empty)
+$ cd backend && npm run lint                  -> ✖ 16 problems (16 errors)  [files not in TS project]
+
+## Attempt 1 — projectService (insufficient)
+# edited eslint.config.js: parserOptions.projectService = true, tsconfigRootDir
+$ npm run lint
+  → still 16 errors: "<file> was not found by the project service" (build tsconfig excludes *.test.ts)
+
+## Fix — tsconfig.eslint.json
+# wrote backend/tsconfig.eslint.json (extends ./tsconfig.json; noEmit+allowJs;
+#   include care-engine/src/scripts/tests/*.config.ts/eslint.config.js; exclude node_modules,dist)
+# edited eslint.config.js: parserOptions.project = ['./tsconfig.eslint.json'] + tsconfigRootDir
+$ npm run lint                 -> (no output) exit 0
+$ npm run lint >/dev/null && echo LINT OK   -> LINT OK (exit 0)
+$ npm run typecheck            -> clean (tsc --noEmit)
+$ npm test                     -> Test Files 8 passed (8); Tests 50 passed (50)
+
+## Scope check + commit
+$ git diff --quiet HEAD -- backend/src/ backend/care-engine/ shared-schemas/ supabase/migrations/  -> UNCHANGED
+$ git diff --quiet HEAD -- backend/tsconfig.json   -> build tsconfig UNCHANGED
+$ git status --short
+   M backend/eslint.config.js
+  ?? backend/tsconfig.eslint.json
+$ git add -A
+$ git commit -m "chore(backend): fix ESLint TypeScript project config so lint passes"
+  [master 603869e] 2 files changed, 22 insertions(+), 1 deletion(-)
+$ git push origin master       -> 8f588af..603869e
+$ git rev-parse origin/master  -> 603869e6cf111957083042ce2b2dd4ce6ec2e1cf

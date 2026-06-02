@@ -63,7 +63,11 @@ Verified from `git log --oneline` on 2026-05-31. The full history is 20 commits;
 
 ## Phase 11 — Slice 1 backend DOD complete (milestone A3b)
 - `cfb3751` test(api): add Slice 1 RLS-isolation + delete-cascade tests (#19, #20) — 2026-06-02; red
-- `8f588af` feat(api): add plant list/get/delete endpoints (RLS + cascade) ← **HEAD / origin/master** — 2026-06-02; **#1–#20 green** (test:int 20/20, unit 50/50)
+- `8f588af` feat(api): add plant list/get/delete endpoints (RLS + cascade) — 2026-06-02; **#1–#20 green** (test:int 20/20, unit 50/50)
+
+## Phase 12 — Backend lint hygiene + Android toolchain (post-DOD)
+- `603869e` chore(backend): fix ESLint TypeScript project config so lint passes ← **HEAD / origin/master** — 2026-06-02; lint 16→0 via `tsconfig.eslint.json`; build tsconfig untouched; unit 50/50
+- *(in flight)* `0009-android-wrapper-build` (a1) — generate Gradle wrapper + assemble the 6-module skeleton
 
 ## Accepted decisions (canonical record in `docs/slice-01-decision-log.md`)
 
@@ -146,3 +150,7 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   isolation + #20 delete cascade. **Slice 1 backend DOD #1–#20 complete** (`npm run
   test:int` 20/20, unit 50/50, typecheck clean). Loop **paused** for owner decision:
   Android UI #21–#24 / lint-config cleanup / close Slice 1 at backend boundary.
+- **2026-06-02** — Owner chose "b, then a". b done (`603869e`): `npm run lint` passes
+  (16→0, `tsconfig.eslint.json`). a1 (`0009-android-wrapper-build`: Gradle wrapper +
+  skeleton assemble) published, in flight; a2 = `:network` DTOs + Compose screens + UI
+  tests #21–#24 next.

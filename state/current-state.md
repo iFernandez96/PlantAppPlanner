@@ -7,7 +7,7 @@
 | **Snapshot** | 2026-06-02 — **Slice 1 backend DOD complete (#1–#20)**; loop paused for owner decision |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `8f588af90c69b569db1abdeceb5d97020b56b6f6` (`8f588af`) — in sync, clean |
+| **Local HEAD / origin/master** | `603869e6cf111957083042ce2b2dd4ce6ec2e1cf` (`603869e`) — in sync, clean |
 
 ## 🎉 Slice 1 backend is DOD-complete (#1–#20), all green
 - Schema validation #1–#6 · deterministic care-engine #7–#14 · seed catalog · DB schema +
@@ -18,12 +18,14 @@
 - Exchange handoffs `0001`–`0007` all ✓ (each since `0006` vision-checked ALIGNED).
 
 ## Next: owner chose "b, then a"
-- **b (IN FLIGHT):** `0008-lint-config` — fix the ESLint↔tsconfig project mismatch so
-  `npm run lint` passes (config-only; vision-check N/A tooling). Watcher armed.
-- **a (NEXT, pre-approved):** Android UI #21–#24 — step a1 = generate the Gradle wrapper
-  (not committed) + build the 6-module skeleton (Java 21 / `ANDROID_HOME` / adb present),
-  then Compose screens + UI tests (emulator or Robolectric). Proceed after b; stop only on
-  a real env blocker.
+- **b (done, verified):** `603869e` — `npm run lint` passes (16→0) via
+  `tsconfig.eslint.json`; build tsconfig untouched; unit 50/50; no production logic changed.
+- **a1 (IN FLIGHT):** `0009-android-wrapper-build` — generate the Gradle wrapper + assemble
+  the 6-module skeleton. System `gradle` missing (a1 bootstraps it); SDK/cmdline-tools/
+  emulator/licenses present; Java 21. Vision-check N/A (toolchain). Most blocker-prone step
+  (first Android build — long downloads, possible SDK-component installs/licenses).
+- **a2 (next):** `:network` Retrofit DTOs + Compose screens (`:feature-inventory`: add/list/
+  detail) + UI tests #21–#24 (Robolectric preferred). Vision-checked for real (product surface).
 
 Original options (for reference):
 - **(a) Android UI slice #21–#24** — completes Slice 1's "owner adds plants on a device"
