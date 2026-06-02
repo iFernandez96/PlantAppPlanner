@@ -162,7 +162,18 @@ Ran the queued 13-test suite (`reviews/device-test-suite.md`) via a QA agent →
        steps PASS** (report addendum records the correction).
      - **UX note (tracked, not a bug):** reminders (re)schedule on app-open/list-load, not right after
        add/accept — candidate follow-up: also sync after those actions.
-     - **Teardown still pending** (Fastify `bhdrygzdg` up; ufw open) — awaiting owner (keep vs stop).
+     - **Teardown:** owner chose tear-down. **Fastify stopped** (`:3000` free); Supabase left running
+       (pre-existing); **owner to re-close ufw** (`sudo ufw delete allow … 54321/3000`). Slice 3 retro
+       written (`reviews/slice-3-retro.md`).
+
+## 🔴 TOP PRIORITY (new, 2026-06-02): beginner-first UX overhaul
+Owner: **"The beginner UX is absolutely atrocious; the MVP must be usable by an elderly/novice
+non-gardener."** This now outranks FCM. The add-plant flow exposes jargon/raw fields a novice can't
+answer (container **liters/material/drainage**, free-text **growth stage**, **ISO last-watered**,
+scientific-ish species dropdown, garden-space **"kind"**). Plan = redesign to plain-language,
+picture-led, smart-defaulted, guided flow; the deterministic engine derives technical values from
+simple choices. See memory `[[beginner-first-ux]]`. **Next planner action: produce a UX redesign
+proposal + decompose into handoffs after the owner confirms direction.** (FCM remains deferred/owner-gated.)
 - **Transport decision (2026-06-02):** owner chose **cleartext-on-LAN for the local device test**
   (debug-only NSC). **Production stays HTTPS** — release builds keep Android's no-cleartext default;
   hosted Supabase is HTTPS; a deployed Fastify would be behind TLS. **Tracked requirement: prod = HTTPS.**
