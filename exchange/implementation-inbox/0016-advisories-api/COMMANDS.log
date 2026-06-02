@@ -1,0 +1,41 @@
+# Handoff 0016-advisories-api — commands (in order), app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline + harness
+$ git fetch origin && git rev-parse HEAD     -> 4f3d76a6d8c85b6f847e01b690590c0e54a98861
+$ git status --short                          -> (empty)
+$ npm_config_cache=/tmp/plantapp-npx-cache npx --yes supabase status   -> running
+
+## COMMIT 1 (red) — advisories integration tests
+# wrote backend/tests/integration/advisories-api.integration.test.ts (2 users; @slice-2 scenarios; validate vs advisory.schema.json)
+$ set -a; eval "$(... supabase status -o env)"; set +a ; export SUPABASE_URL/ANON_KEY/SERVICE_ROLE_KEY
+$ cd backend && npm run test:int
+  FAIL advisories-api.integration.test.ts (route missing -> 200 expectations fail)
+  Test Files  1 failed | 5 passed (6)
+       Tests  3 failed | 22 passed (25)        # desired red
+$ git add backend/tests/integration/advisories-api.integration.test.ts
+$ git commit -m "test(api): add Slice 2 advisories-endpoint integration tests (red)"
+  [master 623c91f] 1 file changed, 145 insertions(+)
+$ git push origin master   -> 4f3d76a..623c91f
+
+## COMMIT 2 (green) — endpoint + migration 0004 + seed + plan
+# edited backend/src/app.ts: GET /plants/:id/advisories (RLS; load plant/profile/container + caller instance count; computeAdvisories; 200; no CareTask)
+# wrote supabase/migrations/0004_slice1_profile_ideal_range.sql (jsonb merge idealMin/MaxLiters into seeded plant_profiles)
+# edited backend/care-engine/seed-profiles.ts (containerProfile + idealMin/MaxLiters per seed)
+# edited docs/slice-02-implementation-plan.md (seed-gap: S2.1 -> S2.2)
+$ npm_config_cache=/tmp/plantapp-npx-cache npx --yes supabase db reset
+  Applying 0001..0004 ; Finished (no errors)
+$ cd backend && npm run typecheck   -> clean
+$ npm run lint                       -> LINT OK
+$ npm run test:int
+  ✓ advisories-api.integration.test.ts (4 tests)
+  Test Files  6 passed (6)
+       Tests  25 passed (25)          # green
+$ npm test
+       Tests  67 passed (67)          # unit unaffected
+
+$ git diff --quiet HEAD -- backend/care-engine/advisories.ts backend/care-engine/index.ts shared-schemas/ supabase/migrations/0001* 0002* 0003*   -> UNCHANGED
+$ git add backend/src/app.ts backend/care-engine/seed-profiles.ts supabase/migrations/0004_slice1_profile_ideal_range.sql docs/slice-02-implementation-plan.md
+$ git commit -m "feat(api): add GET /plants/:id/advisories + seed ideal container range (Slice 2)"
+  [master 8d3e813] 4 files changed, 119 insertions(+), 11 deletions(-)
+$ git push origin master   -> 623c91f..8d3e813
+$ git rev-parse origin/master   -> 8d3e813cc35f37f6b2cbf592dfbfb47bd072b096

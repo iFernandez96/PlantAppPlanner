@@ -1,0 +1,8 @@
+{
+  "id": "0016-advisories-api",
+  "kind": "report",
+  "status": "done",
+  "producer": "implementation",
+  "createdUtc": "2026-06-02T03:27:24Z",
+  "files": ["REPORT.md","COMMANDS.log","VERIFICATION.md"]
+}

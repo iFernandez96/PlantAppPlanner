@@ -176,6 +176,11 @@ confirm the 8 tests fail red → commit → push (two commits total).
   `0016-advisories-api` (`GET /plants/:id/advisories` + migration 0004 ideal-range + seed
   enrichment + plan-doc fix + integration tests mapping the 5 `@slice-2` scenarios), vision
   ALIGNED. Watcher armed. **S2.3 next:** Android advisory display + UI test (closes Slice 2).
+- **S2.2 done (2026-06-02):** `623c91f`/`8d3e813` — `GET /plants/:id/advisories` + migration
+  0004 ideal-range + seed; integration 25/25, unit 67/67; all 5 `@slice-2` scenarios green;
+  verified. **S2.3 in flight (closes Slice 2):** published `0017-android-advisories` (Android
+  `:network` DTO + `:data` repo + `:feature-inventory` detail advisory display + UI test;
+  informational-only, no advisory→task), vision ALIGNED. Watcher armed.
 - **Tracked issue:** `npm run lint` fails (pre-existing ESLint↔tsconfig project mismatch;
   `tests/**` not in the TS project). Not gated; needs a small config handoff if wanted.
 - **New gate:** every published prompt is vision-checked vs `../PlantApp/ChatHistory.md`
