@@ -1,0 +1,9 @@
+{
+  "id": "0029-care-engine-task-from-advisory",
+  "kind": "prompt",
+  "status": "ready",
+  "producer": "planner",
+  "createdUtc": "2026-06-02T15:04:04Z",
+  "sourceFile": "next-implementation-prompt.md",
+  "files": ["PROMPT.md"]
+}

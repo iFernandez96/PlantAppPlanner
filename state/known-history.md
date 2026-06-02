@@ -300,3 +300,11 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   `0028-android-signin-ui` (3c-ui; in flight): stateless `SignInScreen` + `SignInViewModel` over
   `AuthRepository` + `:app` token-gating + Robolectric tests. Vision ALIGNED-WITH-NOTES (sign-in in
   `:feature-inventory` = tracked structural debt; migrate to `:feature-auth` later).
+- **2026-06-02** — `0028` ✅ landed (`e76ff8d`): email-OTP `SignInScreen` + `SignInViewModel` over
+  `AuthRepository` + `:app` token-gating (`tokenBlocking()`→start dest; verify→nav to list).
+  `:feature-inventory` 11→14, `:app:assembleDebug` OK. 6 files, only `feature-inventory|app/**`.
+  Verified vs real git. **3c (sign-in) COMPLETE.** Next = 3d advisory→accept→CareTask (grounded:
+  care-task schema already allows `repot`/`support` kinds; plan = pure `computeTaskFromAdvisory`
+  engine fn [container-size→repot, support→support; pollination unsupported] → accept endpoint
+  [explicit user action; GET still creates nothing] → Android accept action; decomposed
+  engine→api→android).

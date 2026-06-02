@@ -12,14 +12,17 @@ real git. (3b) Android selectors decomposed network→data→ui. 3b-network `002
 `0025` (`8d51874`) ✅ — InventoryScreensTest 9/9, assemble OK. **3b (Android add-plant selectors)
 COMPLETE — form fully selector-driven, no raw-id fields.** **3c sign-in: owner chose EMAIL OTP CODE.** net→data→ui. 3c-net `0026` (`a2f5e75`) ✅ — `:network`
 GoTrue client (`SupabaseAuthApi` otp+verify + DTOs + factory, public apikey header, BASIC logging,
-auth Json encodeDefaults=true); AuthDtoTest 3/3. 3c-data `0027` (`28f69ea`) ✅ — `AuthRepository` + impl persisting token via `SettingsStore`
-(`TokenWriter` seam) + DI/config; `:data` 10/10; committed key verified role=anon (not
-service_role). **3c-ui IN FLIGHT (`0028-android-signin-ui`)** — stateless `SignInScreen`
-(email→send code→verify) + `SignInViewModel` over `AuthRepository` + `:app` token-gating +
-Robolectric tests; vision ALIGNED-WITH-NOTES. After it lands, **3c complete**; then 3d
-advisory→accept→CareTask. Watcher armed for the `0028` report. PlantApp HEAD `28f69ea`.
-**Structural debt:** sign-in is in `:feature-inventory` — migrate to `:feature-auth` later.
-**Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate note:** `:domain` → `:domain:test`.
+auth Json encodeDefaults=true); AuthDtoTest 3/3. 3c (sign-in) COMPLETE: 3c-net `0026`, 3c-data `0027`, 3c-ui `0028` (`e76ff8d`) — email-OTP screen
++ `:app` token-gating; `:feature-inventory` 14/14. **3d advisory→accept→CareTask: decomposed
+engine→api→android. 3d-engine IN FLIGHT (`0029-care-engine-task-from-advisory`)** — pure
+deterministic `computeTaskFromAdvisory` (container-size→repot, support→support, pollination
+unsupported; priority from severity; dueAt=clockUtc; schema-valid; persists nothing). Invariants
+intact (no-auto-create: not endpoint-wired; deterministic core, no AI). Mapping vision-faithful,
+recorded in `reviews/vision-checks.md` (0029) as the decision 3d-api/Android inherit. → 3d-api
+(`POST /plants/:id/advisories/accept`) → 3d-android (accept action). Watcher armed for `0029`.
+PlantApp HEAD `e76ff8d`. **Structural debt:** sign-in in `:feature-inventory` → `:feature-auth`
+later. **Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate note:** `:domain` →
+`:domain:test`.
 
 ## What this session did
 - Verified Option A on `origin/master` independently (`git show`/`diff`): one file,

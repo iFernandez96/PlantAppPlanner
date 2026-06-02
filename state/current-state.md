@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b ALL)✅ (3c-net/data)✅; (3c-ui sign-in) IN FLIGHT (`0028`)** |
+| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b ALL)✅ (3c ALL)✅; (3d-engine) IN FLIGHT (`0029`)** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `28f69ea34cc38089a8c3906cc5a9ce9b55cdf47b` (`28f69ea`) — in sync, clean |
+| **Local HEAD / origin/master** | `e76ff8d9ce916bda6a7754cc400a2e7211000678` (`e76ff8d`) — in sync, clean |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
@@ -63,8 +63,16 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
       via `TokenWriter` seam) + DI/config (auth URL + **public** local anon key, overridable); `:data`
       10/10. Verified vs real git (committed key decodes role=anon, not service_role). **3c-ui IN
       FLIGHT (`0028`)** — stateless `SignInScreen` (email→send code→verify) + `SignInViewModel` over
-      `AuthRepository` + `:app` gating (`tokenBlocking()`→start destination) + Robolectric tests.
-      After it lands, **3c complete.** 3d advisory→accept→CareTask after.
+      `AuthRepository` + `:app` gating (`tokenBlocking()`→start destination) + Robolectric tests —
+      ✅ DONE (`0028`, `e76ff8d`): `:feature-inventory` 11→14, assemble OK; verified vs real git
+      (gating + SignInScreen present, no secret). **3c (sign-in) COMPLETE.**
+    - **3d advisory → accept → CareTask** — decomposed engine→api→android. **3d-engine IN FLIGHT
+      (`0029`)** — pure `computeTaskFromAdvisory` (container-size→repot, support→support, pollination
+      unsupported/throws; priority from severity; dueAt=clockUtc; deterministic inputsHash; output
+      schema-valid). Persists nothing / not endpoint-wired → no-auto-create invariant intact.
+      Mapping is vision-faithful (recorded in `reviews/vision-checks.md` 0029 = the design decision
+      3d-api/Android inherit). → 3d-api (`POST /plants/:id/advisories/accept` → engine → persist;
+      GET still creates nothing) → 3d-android (accept action).
       (Gate note: `:domain` is a JVM module → `:domain:test`, not `:domain:testDebugUnitTest`.)
   - **(2) Automated emulator e2e smoke** (instrumented). **Human device-acceptance (real plants on
     a real phone) stays with the owner — I can't do that part.**

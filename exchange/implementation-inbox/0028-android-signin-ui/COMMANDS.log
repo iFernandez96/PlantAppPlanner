@@ -1,0 +1,27 @@
+# Handoff 0028-android-signin-ui — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline + unblock
+$ git fetch origin && git rev-parse HEAD   -> 28f69ea34cc38089a8c3906cc5a9ce9b55cdf47b == origin/master
+$ git status --short                        -> (empty)
+$ ls ~/Android/Sdk/platforms                -> android-34/35/36/36.1 (SDK OK)
+
+## Implement (red-first)
+# test: feature-inventory/src/test/.../SignInScreenTest.kt (Robolectric, sdk=34, w411dp-h2000dp; 3 spies)
+# InventoryTestTags.kt: +FIELD_SIGNIN_EMAIL/SIGNIN_SEND_CODE_BUTTON/FIELD_SIGNIN_CODE/SIGNIN_VERIFY_BUTTON/SIGNIN_ERROR
+# SignInScreen.kt (new): stateless (codeSent, error, onRequestCode, onVerify, modifier)
+# InventoryUiState.kt: +data class SignInUiState(codeSent=false, error=null)
+# InventoryViewModels.kt: +@HiltViewModel SignInViewModel(auth: AuthRepository) requestCode/verify
+# app MainActivity.kt: @Inject SettingsStore; startDestination by tokenBlocking(); Routes.SIGN_IN + composable
+
+## Gate
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest :app:assembleDebug --no-daemon
+  BUILD SUCCESSFUL in 26s
+  SignInScreenTest tests=3 failures=0 ; feature-inventory total 14 (11->14) ; :app:assembleDebug SUCCESSFUL
+
+## Commit + push
+$ git add android/feature-inventory/ android/app/
+$ git commit -m "feat(android-inventory): email-OTP sign-in screen + app gating"
+  [master e76ff8d] 6 files changed, 223 insertions(+), 3 deletions(-)
+$ git push origin master       -> 28f69ea..e76ff8d
+$ git rev-parse origin/master  -> e76ff8d9ce916bda6a7754cc400a2e7211000678
+$ git show --stat HEAD | grep -c local.properties  -> 0
