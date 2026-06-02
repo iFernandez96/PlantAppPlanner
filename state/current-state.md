@@ -24,7 +24,21 @@ untouched. `7a4e19b` red → `b32e7a4` green. `npm test` = **50/50**.
 (#1–#6), deterministic care-engine (#7–#14), seed catalog + schema-valid-CareTask. No
 DB tables, no HTTP server, no Android source yet.
 
-## Next step — milestone A, PAUSED (owner decision; env not ready)
+## Next step — milestone A IN FLIGHT (owner chose Supabase CLI)
+
+Owner chose **(i) Supabase CLI** (D-03). Framework for A2 = Fastify (planner's call +
+ADR). A decomposed into **A1** (in flight) → **A2**.
+- **A1 (in flight):** published exchange handoff **`0004-db-garden-spaces`** — stand up
+  Supabase local dev + `garden_spaces` table + RLS, proven by a red→green integration
+  test (`npm run test:int`). Three commits (deps+init, red test, green migration).
+  Deliberately minimal to de-risk the first CLI install / Docker image pull.
+- **A2 (next):** Fastify + ADR, remaining tables (`plant_profiles` seeded read-only,
+  `containers`, `plant_instances`, `care_tasks`) + RLS + `POST /plants` → care-engine +
+  integration tests #15–#20.
+
+Exchange: `0001`✓ `0002`✓ `0003`✓ `0004-db-garden-spaces` (in flight).
+
+## (superseded) earlier pause note
 Owner pre-approved A (API integration tests #15–#20 against a local Postgres/Supabase).
 Read-only env check (2026-06-02) shows A can't start yet:
 - **Supabase CLI: NOT installed** (Docker IS up). `supabase/` has only the extensions
