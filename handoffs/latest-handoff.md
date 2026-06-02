@@ -3,6 +3,47 @@
 **From:** "do all" backlog session · **Date:** 2026-06-02 · _(history below is older; see the
 "Do all" section near the bottom + `state/current-state.md` for the live picture)_
 
+## ▶ RESUME HERE — post-compaction plan (owner: "compact, then run phase 2"; 2026-06-02)
+Owner asked to compact the conversation, then do these two in order. Everything needed is in files
+(this handoff + `state/current-state.md` + `scratch/catalog/pilot-list.md` + memory
+`plant-catalog-and-ai-epic`). **Re-verify live state before acting** (don't trust stale bg-task ids).
+
+**ACTION 1 — Backdrop device review (theme `0045`, `ae60aea`):**
+- Device: `adb -s 10.0.0.166:41027` (Samsung SM-S928U1, Android 16). Backend was left UP for review:
+  Fastify on `0.0.0.0:3000` (a `run_in_background` `node dist/src/server.js`), Supabase `:54321`,
+  owner's `ufw` open for `10.0.0.0/24` → 54321+3000. **Re-verify**: `curl 10.0.0.179:3000/plants`→401,
+  `…:54321/auth/v1/health`→200; if Fastify died, restart: `cd PlantApp/backend && source
+  /tmp/plantapp-fastify-env.sh && node dist/src/server.js` (run_in_background). If Kong 502s after
+  any reset, `docker restart supabase_kong_PlantApp`.
+- Rebuild the LAN APK + reinstall (planner-built per owner-approved device review; build NOT a normal
+  planner action — owner-directed):
+  `cd PlantApp/android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :app:assembleDebug
+  -Pplantapp.apiBaseUrl=http://10.0.0.179:3000/ -Pplantapp.authBaseUrl=http://10.0.0.179:54321/`
+  then `adb -s 10.0.0.166:41027 install -r .../app/build/outputs/apk/debug/app-debug.apk`.
+- Spawn a device agent (like the prior themed-capture): fresh `pm clear`, sign in (OTP via **Mailpit**
+  `http://127.0.0.1:54324` `/api/v1/messages`), walk sign-in→list→wizard→detail + toggle dark
+  (`adb shell cmd uimode night yes/no`), screenshot to `reviews/device-evidence/`, SendUserFile the
+  key shots. Confirm the backdrop/glass + fixed tiles + serif titles look right.
+
+**ACTION 2 — Phase 2 of the catalog epic (cited care data for the 75):**
+- Source list: `scratch/catalog/pilot-list.md` (75 plants w/ common, scientific, category, profileId).
+- Fan out (Workflow or batched Agent fan-out — owner opted into pilot fan-out) ONE research agent per
+  plant: pull **cited authoritative** care data (university extension / RHS / almanac) into the
+  `plant-profile.schema.json` shape (`../PlantApp/shared-schemas/plant-profile.schema.json`):
+  scientificName, commonNames, category, growthHabit, requiresSupport, selfFruitful,
+  pollinationPartnersRequired, wateringProfile{baseIntervalDays,dryingTolerance,...},
+  feedingProfile{baseIntervalDays,...}, containerProfile{recommendedMinLiters,idealMin/Max},
+  lightProfile{targetSunHours,...}, temperatureProfile{...}, seasonality, commonIssues,
+  verticalSuitability, **`source` (citations)**, version=1, + a confidence note. Write each to
+  `scratch/catalog/profiles/<profileId>.json`.
+- **Schema-validate** every profile against `plant-profile.schema.json` (ajv) before anything ships.
+- Report a sample + total cost; **do NOT install into PlantApp** — that's a later impl-Claude handoff
+  (seed migration). The 4 already-seeded ids (solanum-lycopersicum, fragaria-x-ananassa,
+  passiflora-edulis, physalis-philadelphica) = enrich, don't duplicate.
+- Phase 3 (icons) + Phase 4 (backend RAG on owner's OpenAI key) come after. **FCM still owner-gated.**
+- **Tripwires:** Drive must be mounted for any `gradlew`/npm/npx; planner must not edit/commit
+  PlantApp (installs go via impl handoffs); `:domain` test task = `:domain:test`.
+
 ## One-line status (2026-06-02)
 "Do all" loop RUNNING. (1) `validate-schemas` ✅ (`0018`, `392ba86`). (3a) list endpoints ✅
 (`0019`, `c7b8c54`) — 3 read-only endpoints + `toPlantProfile`, integration 31/31, verified vs
