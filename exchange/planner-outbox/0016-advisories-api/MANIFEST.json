@@ -1,0 +1,9 @@
+{
+  "id": "0016-advisories-api",
+  "kind": "prompt",
+  "status": "ready",
+  "producer": "planner",
+  "createdUtc": "2026-06-02T03:20:44Z",
+  "sourceFile": "next-implementation-prompt.md",
+  "files": ["PROMPT.md"]
+}

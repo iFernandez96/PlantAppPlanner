@@ -171,6 +171,11 @@ confirm the 8 tests fail red → commit → push (two commits total).
   schemas (pre-existing: ajv-cli missing `ajv-formats` + diagnosis-result strictTypes) — tiny
   hygiene handoff candidate; not blocking. **S2.2 to-do:** fix the stale slice-02 plan line
   (seed enrichment is S2.2, not S2.1).
+- **S2.1 done (2026-06-02):** `1077764`/`4f3d76a` — deterministic `computeAdvisories`
+  (3 rules + invariant), `npm test` 67/67, verified. **S2.2 in flight:** published
+  `0016-advisories-api` (`GET /plants/:id/advisories` + migration 0004 ideal-range + seed
+  enrichment + plan-doc fix + integration tests mapping the 5 `@slice-2` scenarios), vision
+  ALIGNED. Watcher armed. **S2.3 next:** Android advisory display + UI test (closes Slice 2).
 - **Tracked issue:** `npm run lint` fails (pre-existing ESLint↔tsconfig project mismatch;
   `tests/**` not in the TS project). Not gated; needs a small config handoff if wanted.
 - **New gate:** every published prompt is vision-checked vs `../PlantApp/ChatHistory.md`

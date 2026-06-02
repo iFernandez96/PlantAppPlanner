@@ -83,8 +83,10 @@ Verified from `git log --oneline` on 2026-05-31. The full history is 20 commits;
 
 ## Phase 15 — Slice 2 advisories (in progress)
 - `5e77801` docs(slice-02): add Slice 2 plan + advisory schema-validation test (red) — 2026-06-02
-- `06f581d` feat(schema): add Advisory shared schema (Slice 2 contract) ← **HEAD / origin/master** — 2026-06-02; `npm test` 61/61
-- *(in flight)* `0015-advisory-engine` (S2.1) — deterministic `computeAdvisories` (red→green)
+- `06f581d` feat(schema): add Advisory shared schema (Slice 2 contract) — 2026-06-02; `npm test` 61/61
+- `1077764` test(care-engine): add Slice 2 advisory-engine failing tests — 2026-06-02; red
+- `4f3d76a` feat(care-engine): add deterministic advisory engine (Slice 2) ← **HEAD / origin/master** — 2026-06-02; `npm test` 67/67
+- *(in flight)* `0016-advisories-api` (S2.2) — `GET /plants/:id/advisories` + migration 0004 + integration tests
 
 ## Accepted decisions (canonical record in `docs/slice-01-decision-log.md`)
 
@@ -204,3 +206,7 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   `computeAdvisories`, 3 rules + invariant) published, vision ALIGNED, in flight. Surfaced a
   pre-existing broken gate: `npm run validate-schemas` red (ajv-cli lacks `ajv-formats`) —
   tracked, not blocking.
+- **2026-06-02** — S2.1 landed (`1077764`/`4f3d76a`): deterministic `computeAdvisories`, npm
+  test 67/67. S2.2 (`0016-advisories-api`: `GET /plants/:id/advisories` + migration 0004
+  ideal-range + integration tests for the 5 `@slice-2` scenarios) published, vision ALIGNED,
+  in flight; S2.3 = Android advisory display (closes Slice 2).

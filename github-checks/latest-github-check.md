@@ -4,22 +4,21 @@
 
 | Question | Answer |
 |---|---|
-| Latest `origin/master` | `06f581d` — feat(schema): add Advisory shared schema (Slice 2 contract) |
-| Local == origin/master? | ✅ yes (`06f581d` both sides) |
-| S2.0 commits | `5e77801` (docs/plan + red advisory schema test) → `06f581d` (green `advisory.schema.json`) |
+| Latest `origin/master` | `4f3d76a` — feat(care-engine): add deterministic advisory engine (Slice 2) |
+| Local == origin/master? | ✅ yes (`4f3d76a` both sides) |
+| S2.1 commits | `1077764` (red advisory-engine tests) → `4f3d76a` (green `computeAdvisories`) |
 | Uncommitted changes? | none (clean) |
 | CI / workflows / checks / PRs / issues | none |
 | Default branch | `master` |
 
-S2.0 verified: `git diff a568a4d 06f581d` = 3 files added (slice-02 plan doc,
-`advisory.test.ts`, `advisory.schema.json`); care-engine/API/migrations/other schemas
-untouched. `npm test` **61/61**.
+S2.1 verified: `git diff 06f581d 4f3d76a` = 2 files (`care-engine/advisories.ts` +
+`tests/care-engine/compute-advisories.test.ts`); `index.ts`/schemas/migrations/API/seed
+untouched. Engine returns `Advisory[]` (no CareTask shape — invariant). `npm test` **67/67**,
+typecheck + lint clean.
 
-**KNOWN ISSUE (pre-existing, tracked):** `npm run validate-schemas` is red for **all 8**
-schemas — the `ajv-cli` invocation omits `ajv-formats` (so `uuid`/`uri`/`date-time` are
-"unknown format" under `--strict`) + a `strictTypes` nit in `diagnosis-result`. It's a
-redundant/broken gate (the real gate, `npm test`, validates schemas with ajv-formats and is
-green). Fix = a tiny hygiene handoff (`-c ajv-formats` in `package.json` + `type:"array"` in
-`diagnosis-result`). Not blocking Slice 2.
+**KNOWN (pre-existing, tracked):** `npm run validate-schemas` red for all 8 schemas
+(ajv-cli lacks `ajv-formats` + diagnosis-result strictTypes) — redundant/broken gate; real
+gate `npm test` green. Tiny hygiene handoff candidate. Not blocking.
 
-Next: S2.1 (`0015-advisory-engine`) in flight.
+Next: S2.2 (`0016-advisories-api`) in flight — `GET /plants/:id/advisories` + migration 0004
+ideal-range + integration tests.
