@@ -4,18 +4,22 @@
 
 | Question | Answer |
 |---|---|
-| Latest `origin/master` | `a568a4d` — feat(android-inventory): add add-plant/list/detail screens + nav (Slice 1 UI) |
-| Local == origin/master? | ✅ yes (`a568a4d` both sides) |
-| a3b commits | `da0eee0` (red Compose UI tests #21–#24) → `a568a4d` (green screens + nav) |
+| Latest `origin/master` | `06f581d` — feat(schema): add Advisory shared schema (Slice 2 contract) |
+| Local == origin/master? | ✅ yes (`06f581d` both sides) |
+| S2.0 commits | `5e77801` (docs/plan + red advisory schema test) → `06f581d` (green `advisory.schema.json`) |
 | Uncommitted changes? | none (clean) |
-| CI / workflows / checks / PRs / issues | **none (no CI)** — local suites are the only gate |
+| CI / workflows / checks / PRs / issues | none |
 | Default branch | `master` |
 
-a3b verified: `git diff a99cb75 a568a4d` = only `:feature-inventory` / `:app` /
-`:design-system` (+ test-only catalog deps); backend/`shared-schemas`/`supabase`/`:network`/
-`:domain`/`:data` untouched; no forbidden deps (Room entries in the catalog are pre-existing
-and unused). `:feature-inventory:testDebugUnitTest` 4/4 (Robolectric); `:app:assembleDebug` OK.
+S2.0 verified: `git diff a568a4d 06f581d` = 3 files added (slice-02 plan doc,
+`advisory.test.ts`, `advisory.schema.json`); care-engine/API/migrations/other schemas
+untouched. `npm test` **61/61**.
 
-**Slice 1 DOD #1–#24 engineering-complete.** Full chain green: backend unit 50/50 +
-integration 21/21; Android `:network` 10/10, `:domain` 2/2, `:data` 5/5, UI 4/4. No CI yet
-(candidate follow-up). Loop paused for owner decision (device acceptance + next direction).
+**KNOWN ISSUE (pre-existing, tracked):** `npm run validate-schemas` is red for **all 8**
+schemas — the `ajv-cli` invocation omits `ajv-formats` (so `uuid`/`uri`/`date-time` are
+"unknown format" under `--strict`) + a `strictTypes` nit in `diagnosis-result`. It's a
+redundant/broken gate (the real gate, `npm test`, validates schemas with ajv-formats and is
+green). Fix = a tiny hygiene handoff (`-c ajv-formats` in `package.json` + `type:"array"` in
+`diagnosis-result`). Not blocking Slice 2.
+
+Next: S2.1 (`0015-advisory-engine`) in flight.

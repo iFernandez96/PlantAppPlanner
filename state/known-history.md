@@ -79,7 +79,12 @@ Verified from `git log --oneline` on 2026-05-31. The full history is 20 commits;
 
 ## Phase 14 — Slice 1 Android UI (a3b) — DOD #1–#24 complete
 - `da0eee0` test(android-inventory): add Slice 1 Compose UI tests (#21–#24) — 2026-06-02; red
-- `a568a4d` feat(android-inventory): add add-plant/list/detail screens + nav (Slice 1 UI) ← **HEAD / origin/master** — 2026-06-02; UI 4/4 (Robolectric), `:app:assembleDebug` OK. **Slice 1 DOD #1–#24 complete** (retro: `reviews/slice-1-retro.md`).
+- `a568a4d` feat(android-inventory): add add-plant/list/detail screens + nav (Slice 1 UI) — 2026-06-02; UI 4/4 (Robolectric), `:app:assembleDebug` OK. **Slice 1 DOD #1–#24 complete** (retro: `reviews/slice-1-retro.md`).
+
+## Phase 15 — Slice 2 advisories (in progress)
+- `5e77801` docs(slice-02): add Slice 2 plan + advisory schema-validation test (red) — 2026-06-02
+- `06f581d` feat(schema): add Advisory shared schema (Slice 2 contract) ← **HEAD / origin/master** — 2026-06-02; `npm test` 61/61
+- *(in flight)* `0015-advisory-engine` (S2.1) — deterministic `computeAdvisories` (red→green)
 
 ## Accepted decisions (canonical record in `docs/slice-01-decision-log.md`)
 
@@ -194,3 +199,8 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   (`0014-slice2-foundation`: slice-02 plan + `advisory.schema.json` + red→green schema
   test), vision ALIGNED, in flight. Decomposition: S2.0 schema → S2.1 engine → S2.2 API →
   S2.3 Android. BDD: `features/container-health.feature` `@slice-2` (5 scenarios).
+- **2026-06-02** — S2.0 landed (`5e77801`/`06f581d`): slice-02 plan + `advisory.schema.json`
+  + schema test, `npm test` 61/61. S2.1 (`0015-advisory-engine`: deterministic
+  `computeAdvisories`, 3 rules + invariant) published, vision ALIGNED, in flight. Surfaced a
+  pre-existing broken gate: `npm run validate-schemas` red (ajv-cli lacks `ajv-formats`) —
+  tracked, not blocking.

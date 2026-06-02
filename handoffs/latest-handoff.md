@@ -164,6 +164,13 @@ confirm the 8 tests fail red → commit → push (two commits total).
   `computeAdvisories` engine (red-first) → S2.2 `GET /plants/:id/advisories` API → S2.3
   Android display. BDD = `features/container-health.feature` `@slice-2`. Slice 1 device-
   acceptance run still recommended (not blocking).
+- **S2.0 done (2026-06-02):** `5e77801`/`06f581d` — slice-02 plan + `advisory.schema.json` +
+  schema test; `npm test` 61/61; verified. **S2.1 in flight:** published `0015-advisory-engine`
+  (deterministic `computeAdvisories`, red→green; 3 rules + invariant; schema-validated),
+  vision ALIGNED. Watcher armed. **Tracked issue:** `npm run validate-schemas` red for all 8
+  schemas (pre-existing: ajv-cli missing `ajv-formats` + diagnosis-result strictTypes) — tiny
+  hygiene handoff candidate; not blocking. **S2.2 to-do:** fix the stale slice-02 plan line
+  (seed enrichment is S2.2, not S2.1).
 - **Tracked issue:** `npm run lint` fails (pre-existing ESLint↔tsconfig project mismatch;
   `tests/**` not in the TS project). Not gated; needs a small config handoff if wanted.
 - **New gate:** every published prompt is vision-checked vs `../PlantApp/ChatHistory.md`

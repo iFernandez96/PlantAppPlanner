@@ -1,0 +1,35 @@
+# Handoff 0014-slice2-foundation — commands (in order), app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD     -> a568a4d4ac746e3d3e9942263af32d5bf75356b2
+$ git status --short                          -> (empty)
+$ grep -nE "@slice-2|Scenario:" features/container-health.feature   -> 5 @slice-2 scenarios confirmed
+
+## COMMIT 1 (red) — plan + advisory schema test
+# wrote docs/slice-02-implementation-plan.md
+# wrote backend/tests/schema/advisory.test.ts (compileSchema('advisory'); accept 3 kinds; reject bad kind/severity/missing fields)
+$ cd backend && npm test
+  FAIL tests/schema/advisory.test.ts  (ENOENT advisory.schema.json)
+  Test Files  1 failed | 8 passed (9)
+       Tests  50 passed | 11 skipped (61)      # desired red
+$ git add docs/slice-02-implementation-plan.md backend/tests/schema/advisory.test.ts
+$ git commit -m "docs(slice-02): add Slice 2 plan + advisory schema-validation test (red)"
+  [master 5e77801] 2 files changed, 178 insertions(+)
+$ git push origin master   -> a568a4d..5e77801
+
+## COMMIT 2 (green) — advisory schema
+# wrote shared-schemas/advisory.schema.json (2020-12, additionalProperties:false; per prompt)
+$ cd backend && npm test
+  Test Files  9 passed (9)
+       Tests  61 passed (61)        # green (advisory incl.)
+$ npm run validate-schemas ; echo exit=$?
+  exit=1   # PRE-EXISTING: all 8 schemas flagged (ajv-cli lacks ajv-formats under --strict;
+           # uuid/uri/date-time "unknown format ignored"; diagnosis-result strictTypes).
+           # advisory flagged for same uuid reason; not caused by this change.
+
+$ git diff --quiet HEAD -- backend/care-engine/ supabase/ backend/src/   -> UNCHANGED
+$ git add shared-schemas/advisory.schema.json
+$ git commit -m "feat(schema): add Advisory shared schema (Slice 2 contract)"
+  [master 06f581d] 1 file changed, 19 insertions(+)
+$ git push origin master   -> 5e77801..06f581d
+$ git rev-parse origin/master   -> 06f581d029e191992214a1cd3ee0da0514c345e9

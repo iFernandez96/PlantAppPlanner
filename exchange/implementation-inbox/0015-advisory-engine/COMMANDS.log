@@ -1,0 +1,31 @@
+# Handoff 0015-advisory-engine — commands (in order), app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD     -> 06f581d029e191992214a1cd3ee0da0514c345e9
+$ git status --short                          -> (empty)
+
+## COMMIT 1 (red) — advisory-engine tests
+# wrote backend/tests/care-engine/compute-advisories.test.ts (dynamic import ../../care-engine/advisories.js; compileSchema('advisory'))
+$ cd backend && npm test
+  FAIL tests/care-engine/compute-advisories.test.ts (advisories.js missing -> beforeAll throws)
+  Test Files  1 failed | 9 passed (10)
+       Tests  61 passed | 6 skipped (67)        # desired red
+$ git add backend/tests/care-engine/compute-advisories.test.ts
+$ git commit -m "test(care-engine): add Slice 2 advisory-engine failing tests"
+  [master 1077764] 1 file changed, 149 insertions(+)
+$ git push origin master   -> 06f581d..1077764
+
+## COMMIT 2 (green) — advisory engine
+# wrote backend/care-engine/advisories.ts (computeAdvisories: container-size/support/pollination; pure; never a CareTask)
+$ cd backend && npm test
+  Test Files  10 passed (10)
+       Tests  67 passed (67)        # green; every advisory validated vs advisory.schema.json
+$ npm run typecheck   -> clean
+$ npm run lint        -> LINT OK
+
+$ git diff --quiet HEAD -- backend/care-engine/index.ts shared-schemas/ supabase/ backend/src/   -> UNCHANGED
+$ git add backend/care-engine/advisories.ts
+$ git commit -m "feat(care-engine): add deterministic advisory engine (Slice 2)"
+  [master 4f3d76a] 1 file changed, 94 insertions(+)
+$ git push origin master   -> 1077764..4f3d76a
+$ git rev-parse origin/master   -> 4f3d76a6d8c85b6f847e01b690590c0e54a98861

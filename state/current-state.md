@@ -7,7 +7,7 @@
 | **Snapshot** | 2026-06-02 — **Slice 1 DOD #1–#24 engineering-complete; loop paused for owner** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `a568a4d4ac746e3d3e9942263af32d5bf75356b2` (`a568a4d`) — in sync, clean |
+| **Local HEAD / origin/master** | `06f581d029e191992214a1cd3ee0da0514c345e9` (`06f581d`) — in sync, clean |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
@@ -22,11 +22,16 @@
 ## Slice 2 (advisories) — IN PROGRESS (owner chose option 3)
 Deterministic, profile-driven advisories surfaced in the UI, **never auto-creating
 CareTasks** (BDD: `features/container-health.feature` `@slice-2`).
-- **S2.0 (IN FLIGHT):** `0014-slice2-foundation` — `docs/slice-02-implementation-plan.md`
-  + `advisory.schema.json` contract + red→green schema test. Vision ALIGNED. Watcher armed.
-- **Next:** S2.1 `computeAdvisories` engine (red-first; container-size/support/pollination
-  + invariant; enrich seed `idealMin/MaxLiters`) → S2.2 `GET /plants/:id/advisories` API +
-  integration tests → S2.3 Android display + UI test.
+- **S2.0 done (`06f581d`):** slice-02 plan + `advisory.schema.json` + schema test; `npm test` 61/61.
+- **S2.1 (IN FLIGHT):** `0015-advisory-engine` — deterministic `computeAdvisories` (container-size
+  high / support / pollination + the no-auto-task invariant), red→green, output schema-validated.
+  Vision ALIGNED. Watcher armed.
+- **Next:** S2.2 `GET /plants/:id/advisories` API + integration tests + enrich seed/DB
+  `idealMin/MaxLiters` (migration 0004) + fix the stale slice-02 plan "seed gap → S2.1" line →
+  S2.3 Android display + UI test.
+- **Tracked (pre-existing, NOT blocking):** `npm run validate-schemas` red for all 8 schemas
+  (ajv-cli lacks `ajv-formats`; `diagnosis-result` strictTypes). Real gate is `npm test` (green).
+  Tiny hygiene handoff candidate (`-c ajv-formats` + one `type:"array"`).
 - **Still recommended (Slice 1, not blocking):** on-device acceptance run of the 5 real
   plants (needs the API reachable). See `reviews/slice-1-retro.md`.
 
