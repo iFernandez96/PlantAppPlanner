@@ -175,11 +175,16 @@ picture-led, smart-defaulted, guided flow; the deterministic engine derives tech
 simple choices. See memory `[[beginner-first-ux]]`. **Direction CONFIRMED by owner + build STARTED.** Owner choices: 3-step wizard · icon+plain-name
 tiles · add-plant first (then copy sweep) · pot sizes labeled **"how pots are sold"** (4-inch/6-inch/
 1-gal/5-gal bucket/window box/raised bed, mapped to litres internally; novice never sees litres).
-Spec: `reviews/beginner-ux-addplant-spec.md`. Decomposition: **H1 `0041` pure model — IN FLIGHT**
-(pot-size→litres, location presets, `categoryIcon`, hidden defaults; vision ALIGNED + guardian PASS)
-→ **H2 `0042` the `AddPlantWizard` composable** (3 steps + confirm, replaces the jargon `AddPlantScreen`)
-→ then the **copy sweep** (sign-in/list/detail + friendly advisory wording). (FCM remains deferred/owner-gated.)
-Icon note: category-keyed emoji → passion fruit shows 🍅 (per-species icons a later refinement).
+Spec: `reviews/beginner-ux-addplant-spec.md`. Decomposition: **H1 `0041` ✅ DONE** (`12f0dbb`: pot-size→litres + location presets + hidden
+defaults; verified, only `:feature-inventory`) → **H2 `0042` the `AddPlantWizard` composable — PUBLISHED/IN
+FLIGHT** (3 steps + confirm, **custom per-species vector icons, no emoji**, replaces the jargon
+`AddPlantScreen`; vision ALIGNED-WITH-NOTES + guardian PASS; reviewer hardening folded in:
+reuse-not-duplicate on Back/re-tap, select-by-identity since VM create is async, Add disabled until
+ids resolve) → then a **device review** (rebuild LAN APK, owner eyeballs the wizard) → **copy sweep**. (FCM deferred/owner-gated.)
+**Icons (owner decision): NO EMOJI — custom per-species vector drawables.** `0041` shipped an emoji
+`categoryIcon`; **`0042` removes it** and bundles original, distinct, recognizable vector drawables
+per species (+ pot/location icons), mapped `profileId→drawable`. (No open vector set covers these
+species without being emoji art → author originals; owner approves look on-device.)
 - **Transport decision (2026-06-02):** owner chose **cleartext-on-LAN for the local device test**
   (debug-only NSC). **Production stays HTTPS** — release builds keep Android's no-cleartext default;
   hosted Supabase is HTTPS; a deployed Fastify would be behind TLS. **Tracked requirement: prod = HTTPS.**

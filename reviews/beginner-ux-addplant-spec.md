@@ -11,10 +11,13 @@ tiles · add-plant first (then a copy sweep) · pot sizes labeled "how pots are 
 ### Step 1 — "What are you growing?"
 - Grid of big tiles, one per catalog species from `getPlantProfiles()`: **icon (by category) +
   common name** (`commonNames.first()`). Search box if the list grows.
-- **Category → icon** (data-driven via `profile.category`, NOT hardcoded per species):
-  `fruit`→🍅 `berry`→🍓 `herb`→🌿 `vegetable`→🥬 `vine`→🍇 `root`→🥕 `succulent`→🌵
-  `ornamental`→🌸 `other`/fallback→🌱. (Emoji = no assets/deps, accessible. Owner OK'd assets if
-  needed later.)
+- **Icons = custom per-species vector drawables (NO emoji — owner decision 2026-06-02).** Each of
+  the 5 species gets a distinct, recognizable, **original** simple vector drawable (line/flat style)
+  bundled in `:feature-inventory` res/drawable + a generic plant fallback; pots + locations get
+  matching simple vector icons. (No openly-licensed set covers tomato/strawberry/passion-fruit/
+  tomatillo without being emoji art, so author original vectors — no license risk.) Map
+  `profileId → drawable` (presentation map, fallback for unknown). **The emoji `categoryIcon` from
+  `0041` is removed.** Owner gives final visual approval on-device; icon refinement is an easy follow-up.
 - Picks `profileId`.
 
 ### Step 2 — "Where will it live?"

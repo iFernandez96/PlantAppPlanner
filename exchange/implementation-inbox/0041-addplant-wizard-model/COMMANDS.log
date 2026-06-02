@@ -1,0 +1,24 @@
+# Handoff 0041-addplant-wizard-model — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD   -> 786c12defcd930bf14fc363447f36e426ea8913b == origin/master
+$ git status --short                        -> (empty)
+$ ls ~/Android/Sdk/platforms                -> android-34/35/36/36.1 (SDK OK)
+
+## Implement (red-first)
+# test: feature-inventory/src/test/.../AddPlantWizardModelTest.kt (JUnit4; 3 cases: pot sizes, presets, icons)
+# model: feature-inventory/src/main/.../addplant/WizardModel.kt (pure; PotSizeOption/LocationPreset;
+#   POT_SIZES x6, LOCATION_PRESETS x4, categoryIcon(), DEFAULT_MATERIAL/DRAINAGE/GROWTH_STAGE)
+
+## Gate
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest --no-daemon
+  BUILD SUCCESSFUL in 27s
+  AddPlantWizardModelTest 3/3 ; feature-inventory total 22->25 ; all prior green
+
+## Commit + push
+$ git add android/feature-inventory/
+$ git commit -m "feat(android-inventory): pure add-plant wizard model (pot sizes, location presets, category icons)"
+  [master 12f0dbb] 2 files changed, 103 insertions(+)
+$ git push origin master       -> 786c12d..12f0dbb
+$ git rev-parse origin/master  -> 12f0dbb4aabc0a774f507a17ed91394f0a48de98
+$ git show --stat HEAD | grep -c local.properties  -> 0
