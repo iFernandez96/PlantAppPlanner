@@ -13,14 +13,14 @@ real git. (3b) Android selectors decomposed network→data→ui. 3b-network `002
 COMPLETE — form fully selector-driven, no raw-id fields.** **3c sign-in: owner chose EMAIL OTP CODE.** net→data→ui. 3c-net `0026` (`a2f5e75`) ✅ — `:network`
 GoTrue client (`SupabaseAuthApi` otp+verify + DTOs + factory, public apikey header, BASIC logging,
 auth Json encodeDefaults=true); AuthDtoTest 3/3. 3c (sign-in) COMPLETE: 3c-net `0026`, 3c-data `0027`, 3c-ui `0028` (`e76ff8d`) — email-OTP screen
-+ `:app` token-gating; `:feature-inventory` 14/14. **3d advisory→accept→CareTask: decomposed
-engine→api→android. 3d-engine IN FLIGHT (`0029-care-engine-task-from-advisory`)** — pure
-deterministic `computeTaskFromAdvisory` (container-size→repot, support→support, pollination
-unsupported; priority from severity; dueAt=clockUtc; schema-valid; persists nothing). Invariants
-intact (no-auto-create: not endpoint-wired; deterministic core, no AI). Mapping vision-faithful,
-recorded in `reviews/vision-checks.md` (0029) as the decision 3d-api/Android inherit. → 3d-api
-(`POST /plants/:id/advisories/accept`) → 3d-android (accept action). Watcher armed for `0029`.
-PlantApp HEAD `e76ff8d`. **Structural debt:** sign-in in `:feature-inventory` → `:feature-auth`
++ `:app` token-gating; `:feature-inventory` 14/14. **3d advisory→accept→CareTask: engine→api→android.**
+3d-engine `0029` (`e4ffe4b`) ✅ — pure `computeTaskFromAdvisory` (container-size→repot,
+support→support, pollination throws); `npm test` 67→72; verified pure & not endpoint-wired.
+**3d-api IN FLIGHT (`0030-api-advisory-accept`)** — `POST /plants/:id/advisories/accept {kind}`:
+recompute advisories (RLS 404), match applicable (400 if absent/unsupported), engine → persist one
+care_tasks row → return CareTask; integration tests assert **GET still creates nothing**. Vision
+ALIGNED (reviewer verified columns/RLS vs real repo; closes the `0016` no-CareTask DB-assert
+follow-up). → 3d-android (accept action). Watcher armed for `0030`. PlantApp HEAD `e4ffe4b`. **Structural debt:** sign-in in `:feature-inventory` → `:feature-auth`
 later. **Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate note:** `:domain` →
 `:domain:test`.
 

@@ -1,0 +1,8 @@
+{
+  "id": "0029-care-engine-task-from-advisory",
+  "kind": "report",
+  "status": "done",
+  "producer": "implementation",
+  "createdUtc": "2026-06-02T15:06:34Z",
+  "checksums": "SHA256SUMS"
+}

@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b ALL)✅ (3c ALL)✅; (3d-engine) IN FLIGHT (`0029`)** |
+| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b ALL)✅ (3c ALL)✅ (3d-engine)✅; (3d-api) IN FLIGHT (`0030`)** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `e76ff8d9ce916bda6a7754cc400a2e7211000678` (`e76ff8d`) — in sync, clean |
+| **Local HEAD / origin/master** | `e4ffe4b5430870877c41327f73679b7813fe7032` (`e4ffe4b`) — in sync, clean |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
@@ -66,13 +66,15 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
       `AuthRepository` + `:app` gating (`tokenBlocking()`→start destination) + Robolectric tests —
       ✅ DONE (`0028`, `e76ff8d`): `:feature-inventory` 11→14, assemble OK; verified vs real git
       (gating + SignInScreen present, no secret). **3c (sign-in) COMPLETE.**
-    - **3d advisory → accept → CareTask** — decomposed engine→api→android. **3d-engine IN FLIGHT
-      (`0029`)** — pure `computeTaskFromAdvisory` (container-size→repot, support→support, pollination
-      unsupported/throws; priority from severity; dueAt=clockUtc; deterministic inputsHash; output
-      schema-valid). Persists nothing / not endpoint-wired → no-auto-create invariant intact.
-      Mapping is vision-faithful (recorded in `reviews/vision-checks.md` 0029 = the design decision
-      3d-api/Android inherit). → 3d-api (`POST /plants/:id/advisories/accept` → engine → persist;
-      GET still creates nothing) → 3d-android (accept action).
+    - **3d advisory → accept → CareTask** — decomposed engine→api→android. **3d-engine ✅ DONE
+      (`0029`, `e4ffe4b`)** — pure `computeTaskFromAdvisory` (container-size→repot, support→support,
+      pollination throws; priority from severity; dueAt=clockUtc; deterministic inputsHash;
+      schema-valid); `npm test` 67→72; verified pure (no Date.now/random) & not endpoint-wired.
+      Mapping recorded in `reviews/vision-checks.md` 0029 (the decision 3d-api/Android inherit).
+      **3d-api IN FLIGHT (`0030`)** — `POST /plants/:id/advisories/accept` {kind}: recompute
+      advisories (RLS 404), match applicable advisory (400 if absent/unsupported), call the engine,
+      **persist** a care_tasks row, return the CareTask; integration tests incl. GET-creates-nothing
+      invariant. → 3d-android (accept action).
       (Gate note: `:domain` is a JVM module → `:domain:test`, not `:domain:testDebugUnitTest`.)
   - **(2) Automated emulator e2e smoke** (instrumented). **Human device-acceptance (real plants on
     a real phone) stays with the owner — I can't do that part.**

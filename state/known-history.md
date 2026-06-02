@@ -308,3 +308,12 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   engine fn [container-size→repot, support→support; pollination unsupported] → accept endpoint
   [explicit user action; GET still creates nothing] → Android accept action; decomposed
   engine→api→android).
+- **2026-06-02** — `0029` ✅ landed (`e4ffe4b`): pure deterministic `computeTaskFromAdvisory`
+  (care-engine; container-size→repot, support→support, pollination/other throws; priority from
+  severity; dueAt=clockUtc; `inputsHash`=sha256(canonicalJson({kind,sourceInputs})); output
+  schema-valid). 2 new files; `index.ts`/`advisories.ts` untouched; `npm test` 67→72. Verified vs
+  real git (pure — Date.now/random only in a comment; not endpoint-wired). Published
+  `0030-api-advisory-accept` (3d-api; in flight): `POST /plants/:id/advisories/accept {kind}` →
+  recompute advisories (RLS 404), match applicable (400 if absent/unsupported), engine → persist
+  one care_tasks row → return CareTask; tests assert GET-creates-nothing invariant. Vision ALIGNED
+  (reviewer verified columns/RLS vs real repo; closes the `0016` no-CareTask DB-assert follow-up).

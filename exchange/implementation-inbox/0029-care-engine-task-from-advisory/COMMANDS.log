@@ -1,0 +1,27 @@
+# Handoff 0029-care-engine-task-from-advisory — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD   -> e76ff8d9ce916bda6a7754cc400a2e7211000678 == origin/master
+$ git status --short                        -> (empty)
+
+## Implement (red-first)
+# test: backend/tests/care-engine/task-from-advisory.test.ts (dynamic import in beforeAll;
+#       compileSchema('care-task') from ../schema/_helpers.js; 5 cases incl. throws + determinism)
+# fn:   backend/care-engine/task-from-advisory.ts (pure; kind map container-size->repot/support->support;
+#       pollination throws; priority low/normal/high; dueAt=clockUtc; rationale=title: message;
+#       rationaleMetadata={acceptedAdvisoryKind}; inputsHash=sha256(canonicalJson({kind, sourceInputs}));
+#       local canonicalJson copy; index.ts untouched)
+
+## Gate
+$ cd backend && npm test
+  Test Files  11 passed (11) ; Tests  72 passed (72)   # was 67 -> 72 (+5)
+$ npm run validate-schemas   -> all schemas valid (no schema change)
+$ npm run typecheck          -> clean (after priority ?? 'normal' fallback for noUncheckedIndexedAccess)
+$ npm run lint               -> clean
+
+## Commit + push
+$ git add backend/care-engine/task-from-advisory.ts backend/tests/care-engine/task-from-advisory.test.ts
+$ git commit -m "feat(care-engine): deterministic computeTaskFromAdvisory (accepted advisory -> CareTask)"
+  [master e4ffe4b] 2 files changed, 239 insertions(+)
+$ git push origin master       -> e76ff8d..e4ffe4b
+$ git rev-parse origin/master  -> e4ffe4b5430870877c41327f73679b7813fe7032
