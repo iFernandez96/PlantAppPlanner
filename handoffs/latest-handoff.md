@@ -20,12 +20,13 @@ support→support, pollination throws); `npm test` 67→72; verified pure & not 
 care_tasks row; `test:int` 31→35 incl. GET-creates-nothing; verified GET handler has no insert.
 3d complete: net+data `0031` (`bfdd946`) ✅, UI `0032` (`d1bda81`) ✅ — per-advisory Accept button →
 `acceptAdvisory` → reload; `:feature-inventory` 14→16. **🎉 Backlog (3) UX follow-ups COMPLETE**
-(selector-driven add-plant · email-OTP sign-in + gating · advisory→accept→CareTask e2e). **PAUSED
-for owner decision on (2) automated e2e smoke approach** (real `connectedAndroidTest` on the
-existing `Babage_Pixel` AVD vs a JVM/Robolectric NavHost smoke vs defer to the owner's manual
-device run — no instrumented scaffolding exists yet; emulator+images+AVD are available). No prompt
-published / no watcher armed until the owner chooses. Then **(4) Slice 3** (WorkManager local first;
-STOP for owner Firebase/FCM setup). PlantApp HEAD `d1bda81`. **Tripwire:** Drive mounted before any
+(selector-driven add-plant · email-OTP sign-in + gating · advisory→accept→CareTask e2e). **(2) e2e: owner chose the Robolectric NavHost
+smoke. IN FLIGHT (`0033-navhost-smoke`)** — test-only `:feature-inventory` Robolectric test: mirrored
+`NavController`/`NavHost` over real screens + VMs built from fake repos (no Hilt-test/emulator/
+backend), gated journey sign-in→list→detail→accept (+ add); adds `navigation-compose` testImpl +
+guard comment (mirrors `MainActivity`). Vision ALIGNED-WITH-NOTES (test-only; D-09 safe). After it,
+only **(4) Slice 3** remains (WorkManager local first; STOP for owner Firebase/FCM setup). Watcher
+armed for `0033`. PlantApp HEAD `d1bda81`. **Tripwire:** Drive mounted before any
 `gradlew`/npm/npx. **Gate note:** `:domain` → `:domain:test`. **Structural debt:** sign-in in `:feature-inventory` → `:feature-auth`
 later. **Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate note:** `:domain` →
 `:domain:test`.

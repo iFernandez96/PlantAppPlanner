@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all": (1)✅ (3) UX✅ ALL — next = (2) e2e smoke (PAUSED for owner decision), then (4) Slice 3** |
+| **Snapshot** | 2026-06-02 — **"do all": (1)✅ (3) UX✅; (2) Robolectric NavHost smoke IN FLIGHT (`0033`); then (4) Slice 3** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
 | **Local HEAD / origin/master** | `d1bda811a2a27978a5b4a5b7354c5c49d13620d7` (`d1bda81`) — in sync, clean |
@@ -82,9 +82,12 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
       `acceptAdvisory` → reload + `:app` wiring; `:feature-inventory` 14→16, assemble OK; verified
       vs real git. **🎉 Backlog (3) UX follow-ups COMPLETE** (selector-driven add-plant · email-OTP
       sign-in + gating · advisory→accept→CareTask e2e).
-    - **(2) Automated emulator e2e smoke — PAUSED for owner decision** (how to run it: real
-      `connectedAndroidTest` on an AVD/emulator vs a JVM/Robolectric-level smoke vs defer to the
-      owner's manual device run). Human "add my real plants on my device" acceptance stays with owner.
+    - **(2) e2e smoke — owner chose ROBOLECTRIC NavHost smoke (2026-06-02).** IN FLIGHT (`0033`):
+      a `:feature-inventory` Robolectric test driving a real `NavController`/`NavHost` over the
+      actual screens + ViewModels built from **fake** `InventoryRepository`/`AuthRepository`
+      (no Hilt-test infra) — gated journey sign-in→list→detail→accept (+ add via selectors).
+      Deterministic, JVM, no emulator/backend. Human "real plants on my device" acceptance stays
+      with the owner. (Adds `navigation-compose` as a `:feature-inventory` testImpl.)
     - **(4) Slice 3** — watering reminders; WorkManager local path first, then **STOP for owner
       Firebase/FCM setup**.
       (Gate note: `:domain` is a JVM module → `:domain:test`, not `:domain:testDebugUnitTest`.)

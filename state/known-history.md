@@ -342,3 +342,10 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   decision on (2) e2e smoke approach.** Grounding: no instrumented-test scaffolding yet; emulator +
   system-images (30/34/37) + AVD `Babage_Pixel` are available, so a real `connectedAndroidTest` is
   feasible (heavy) — vs a JVM/Robolectric NavHost smoke vs deferring to the owner's manual device run.
+- **2026-06-02** — Owner chose the **Robolectric NavHost smoke** for (2). Published
+  `0033-navhost-smoke` (in flight): test-only `:feature-inventory` Robolectric test driving a
+  mirrored `NavController`/`NavHost` over the real screens + ViewModels built from fake
+  `InventoryRepository`/`AuthRepository` (no Hilt-test/emulator/backend) — gated journey
+  sign-in→list→detail→accept (+ add); adds `navigation-compose` testImpl + a guard comment that
+  the test mirrors `MainActivity`'s graph. Vision ALIGNED-WITH-NOTES (test-only; D-09 safe).
+  After it, only **(4) Slice 3** remains.
