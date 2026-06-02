@@ -8,3 +8,13 @@
 # Planner repo is intentionally small and fully tracked.
 # scratch/ is tracked (via .gitkeep) so handoffs survive across sessions;
 # delete individual scratch files when stale rather than ignoring the dir.
+
+# Listener runtime artifacts — keep the dirs (.gitkeep) but not the volatile state.
+logs/watchers/**/*.log
+state/watchers/planner-listener.json
+state/watchers/processed-report-ids.txt
+state/watchers/*.flag
+state/watchers/*.heartbeat
+state/watchers/owner-needed-*.md
+# Transient exchange advisory locks.
+exchange/locks/*.lock
