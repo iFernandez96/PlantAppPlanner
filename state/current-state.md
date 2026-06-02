@@ -183,8 +183,18 @@ applied (reuse-not-duplicate, select-by-identity, Add disabled until ids resolve
 → **device walkthrough DONE** (first-run, real S24 Ultra; backend re-stood-up: Fastify task
 `bukr6ufh1`, ufw open): full flow PASSed (sign-in via Mailpit OTP 200 → empty list → wizard →
 Tomato/Balcony/5-gal → CareTask + advisory → all 200/201; screenshots `device-evidence/W01–W12`).
-→ **icon upgrade `0043` IN FLIGHT** (owner: source online, not self-drawn): CC0 open-crop-icons
-species + Material Symbols pots/locations; vision ALIGNED-WITH-NOTES + guardian PASS.
+→ **icon upgrade `0043` ✅ DONE (`c485afc`)**: CC0 open-crop-icons species (SVGO-inlined → real
+fills) + Material Symbols pots/locations (distinct: bucket→Compost, window-box→Window, raised-bed→Grass);
+`material-icons-extended` dep; placeholders deleted; ICON_LICENSES.md; `:feature-inventory` 20 green;
+verified vs real git (scoped, no raster). Icon APK installed on the phone.
+→ **NEW (owner 2026-06-02): modern/thematic UI overhaul.** Owner: make the app "highly thematic /
+beautiful / modern" (pivoted away from accessibility-first framing — content stays beginner-plain,
+but the LOOK is modern/premium). Using **Codex** (per owner; `[[using-codex-cli]]`): generated 3
+modern directions (`reviews/theme-directions-modern.md`) — **Verdant Glasshouse** (codex rec:
+conservatory glass/blur, Fraunces+Manrope), **Midnight Botanical** (editorial dark, Cormorant+Plus
+Jakarta), **Wildflower Pop** (playful, Bricolage+DM Sans). **Awaiting owner pick**, then build the
+`:design-system` theme (currently bare default M3) + apply across screens. `:design-system/Theme.kt`
+today = `MaterialTheme(content)` only (no color/type/shape).
 → **copy sweep (queued)** — fixes from the walkthrough:
   - **Plant DETAIL leaks dev data (worst):** shows the scientific slug `solanum-lycopersicum` (not
     "Tomato"), raw engine rationale ("base interval 2d adjusted by container factor 1; baseline <ISO>"),
