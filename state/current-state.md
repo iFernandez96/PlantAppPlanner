@@ -29,22 +29,18 @@
 the initial water `CareTask` deterministically with full traceability. Loop **paused**
 awaiting an owner decision on the next milestone.
 
-## Next step — DECISION PENDING (owner)
+## Next step — owner chose "B, then A"
 
-The plan's next numbered items need owner-gated infrastructure, so the planner stopped
-to ask. Options on the table (see the round-2 message):
-- **A** — Repository/API integration tests #15–#20 → needs a local Postgres/Supabase
-  test DB (**new approval**: install/run a DB).
-- **B** — Approval-free backend increment now: seed `PlantProfile` catalog (the 5 real
-  plants) + a red-first test that `computeInitialWaterTask` emits a **schema-valid**
-  `CareTask` (Ajv against `care-task.schema.json`) for each. Keeps the loop moving, no
-  new approval. *(planner-recommended next)*
-- **C** — Android UI tests #21–#24 → needs Android toolchain/emulator + the
-  uncommitted Gradle wrapper (heavier infra).
-- **D** — Pause Slice 1 here.
+- **B (in flight):** seed `PlantProfile` catalog (the 5 real plants) + a red-first
+  test that `computeInitialWaterTask` emits a **schema-valid** `CareTask` for each.
+  Approval-free. Published as exchange handoff **`0003-seed-catalog`** (two commits:
+  red placeholder+test, then green catalog). Impl Claude processing autonomously.
+- **A (next, owner pre-approved):** repository/API integration tests #15–#20 against a
+  local Postgres/Supabase test DB. Planner will design + publish it after B lands, and
+  only stop to ask if the local DB environment isn't available.
 
-No new implementation prompt is published until the owner chooses. Exchange handoffs so
-far: `0001-option-b` (red, done), `0002-care-engine-green` (green, done).
+Exchange handoffs: `0001-option-b` (done), `0002-care-engine-green` (done),
+`0003-seed-catalog` (in flight).
 
 ## Test state
 Backend deps installed; `npm test` = 7 files / **47 tests all green**. care-engine +

@@ -96,5 +96,8 @@ confirm the 8 tests fail red → commit → push (two commits total).
   (`25f1dbb`, `npm test` 47/47; test file unchanged). care-engine #7–#14 complete.
   Planner **paused the loop** to ask the owner the next milestone — A: Postgres-gated
   API tests #15–#20 (needs approval); B: approval-free seed `PlantProfile` catalog +
-  schema-valid-CareTask test (recommended); C: Android UI #21–#24; D: pause. No
-  watcher armed, no prompt pending until the owner picks.
+  schema-valid-CareTask test (recommended); C: Android UI #21–#24; D: pause.
+- **Owner chose "B, then A" (2026-06-02).** Round 3: published `0003-seed-catalog`
+  (red→green seed catalog + schema-valid-CareTask test) and re-armed the watcher.
+  **A is pre-approved** (local Postgres for API tests #15–#20) — planner proceeds to it
+  after B without re-asking, stopping only if the DB environment isn't available.
