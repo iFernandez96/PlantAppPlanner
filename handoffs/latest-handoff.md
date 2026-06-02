@@ -121,10 +121,11 @@ confirm the 8 tests fail red → commit → push (two commits total).
   list/get/delete + #19 RLS isolation + #20 cascade; **Slice 1 backend DOD #1–#20
   complete** (test:int 20/20, unit 50/50); planner-verified (app.ts additive, protected
   paths untouched).
-- **LOOP PAUSED — owner decision pending:** (a) Android UI #21–#24 (env: Java 21 ✓,
-  `ANDROID_HOME` ✓, adb ✓, but Gradle wrapper not committed → step 1 = generate wrapper +
-  build skeleton; needs emulator/Robolectric for Compose tests), (b) lint-config cleanup,
-  or (c) close Slice 1 at backend boundary. No prompt pending / no watcher armed.
+- **Owner chose "b, then a" (2026-06-02).** Round 8: published `0008-lint-config` (fix
+  ESLint↔tsconfig so `npm run lint` passes; config-only; vision-check N/A tooling) and
+  armed the watcher. **a (Android UI #21–#24) pre-approved next** — start with
+  Gradle-wrapper generation + skeleton build (Java 21 / `ANDROID_HOME` / adb present),
+  then Compose + UI tests; proceed after b, stop only on a real env blocker.
 - **Tracked issue:** `npm run lint` fails (pre-existing ESLint↔tsconfig project mismatch;
   `tests/**` not in the TS project). Not gated; needs a small config handoff if wanted.
 - **New gate:** every published prompt is vision-checked vs `../PlantApp/ChatHistory.md`

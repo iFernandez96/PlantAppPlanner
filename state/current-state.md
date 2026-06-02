@@ -17,8 +17,15 @@
 - `npm test` **50/50**, `npm run test:int` **20/20**, typecheck clean @ `8f588af`.
 - Exchange handoffs `0001`–`0007` all ✓ (each since `0006` vision-checked ALIGNED).
 
-## Loop PAUSED — owner decision: next direction
-Slice 1's remaining DOD item is the **on-device Android UI** (#21–#24), so the choices:
+## Next: owner chose "b, then a"
+- **b (IN FLIGHT):** `0008-lint-config` — fix the ESLint↔tsconfig project mismatch so
+  `npm run lint` passes (config-only; vision-check N/A tooling). Watcher armed.
+- **a (NEXT, pre-approved):** Android UI #21–#24 — step a1 = generate the Gradle wrapper
+  (not committed) + build the 6-module skeleton (Java 21 / `ANDROID_HOME` / adb present),
+  then Compose screens + UI tests (emulator or Robolectric). Proceed after b; stop only on
+  a real env blocker.
+
+Original options (for reference):
 - **(a) Android UI slice #21–#24** — completes Slice 1's "owner adds plants on a device"
   DOD. Env (read-only check): Java 21 ✓, `ANDROID_HOME=~/Android/Sdk` ✓, `adb` ✓, but the
   **Gradle wrapper is not committed** (and no Kotlin source). So step 1 would be
