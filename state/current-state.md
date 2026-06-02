@@ -22,20 +22,10 @@
 - **a1** ✓ (`d0ec682`) Gradle wrapper committed + `:app:assembleDebug` BUILD SUCCESSFUL
   (compileSdk 35; `platforms;android-35` installed). Toolchain proven. Build with
   `GRADLE_USER_HOME=/tmp/plantapp-gradle-home` (`~/.gradle` is on the slow external Drive).
-- **⚠️ PAUSED before a2 — API-contract decision (owner).** API responses don't conform to
-  the camelCase shared-schemas: `GET /plants[/:id][/tasks]` return raw **snake_case** DB
-  rows; `POST /plants` returns `task` camelCase (engine output) but `plant` snake_case — the
-  same CareTask has two shapes. Shared-schemas (camelCase) are the stated cross-boundary
-  contract (D-06: Android validates DTOs against them). Building Android DTOs now bakes in
-  the inconsistency. Options:
-  - **(A, recommended)** Conform all API responses to the camelCase shared-schemas (snake→
-    camel mapping + integration tests validating responses against `shared-schemas/*` via
-    Ajv). Then a2 builds on a clean contract.
-  - **(B)** Make snake_case the wire contract (also make `POST` `task` snake_case for
-    consistency; treat shared-schemas as DB-mirrors / add a separate wire schema).
-  - **(C)** Proceed to a2 against the current API, mapping per-endpoint in Android (not
-    recommended — bakes in the inconsistency).
-  No prompt pending / no watcher armed until the owner chooses.
+- **Decision: A — conform to the camelCase shared-schemas (IN FLIGHT).** Published
+  `0010-api-contract-conformance`: snake→camel response mappers for GardenSpace/Container/
+  PlantInstance/CareTask on all endpoints + Ajv integration tests validating responses
+  against `shared-schemas/*`. Red→green; closes the contract gap before a2. Watcher armed.
 - **a2 (after decision):** `:network` Retrofit DTOs + Compose screens (`:feature-inventory`:
   add/list/detail) + UI tests #21–#24 (Robolectric). Vision-checked for real.
 

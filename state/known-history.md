@@ -159,3 +159,6 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   decision: API responses are snake_case / inconsistent vs the camelCase shared-schemas;
   owner to choose conform-to-camelCase (rec) vs snake-wire vs proceed-and-map. The
   vision-alignment gate surfaced this.
+- **2026-06-02** — Owner chose A. Published `0010-api-contract-conformance` (snake→camel
+  response mappers + Ajv response-validation tests vs `shared-schemas/*`), in flight; a2
+  (Android UI) resumes once the API is schema-conformant.
