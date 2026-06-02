@@ -184,4 +184,18 @@ confirm the 8 tests fail red → commit → push (two commits total).
 - **Tracked issue:** `npm run lint` fails (pre-existing ESLint↔tsconfig project mismatch;
   `tests/**` not in the TS project). Not gated; needs a small config handoff if wanted.
 - **New gate:** every published prompt is vision-checked vs `../PlantApp/ChatHistory.md`
-  (`reviews/vision-checks.md`); `0006` + `0007` both ALIGNED.
+  (`reviews/vision-checks.md`); all handoffs since `0006` recorded ALIGNED (or N/A for
+  tooling chores).
+
+## SLICE 2 COMPLETE (2026-06-02) — loop PAUSED for owner
+- **S2.3 done:** `63440be`/`c4e4396` — Android advisory display (severity-styled,
+  informational-only, no advisory→task); module tests + UI green; `:app:assembleDebug` OK;
+  backend untouched. **Slice 2 (advisories) complete end-to-end** (engine + API + Android),
+  all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-retro.md`.
+- **HEAD `c4e4396`.** Backend unit 67/67 + integration 25/25; Android green.
+- **Owner decision pending — no prompt pending, no watcher armed.** Backlog: (1)
+  `validate-schemas` tooling fix (pre-existing broken gate) · (2) on-device acceptance run
+  (Slice 1+2) · (3) UX follow-ups (real selectors / sign-in / advisory→task flow) · (4)
+  Slice 3 (deterministic watering reminders + notifications).
+- **Next planner session:** re-fetch (expect `c4e4396`), read `reviews/slice-2-retro.md` +
+  `reviews/slice-1-retro.md`, act on the owner's choice; resume the ping-pong on a new approved handoff.

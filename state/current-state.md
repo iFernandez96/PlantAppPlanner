@@ -7,7 +7,7 @@
 | **Snapshot** | 2026-06-02 — **Slice 1 DOD #1–#24 engineering-complete; loop paused for owner** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `8d3e813cc35f37f6b2cbf592dfbfb47bd072b096` (`8d3e813`) — in sync, clean |
+| **Local HEAD / origin/master** | `c4e4396bde2470706abe04a29b53ed307e430028` (`c4e4396`) — in sync, clean |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
@@ -19,17 +19,18 @@
   `:network` 10/10, `:domain` 2/2, `:data` 5/5, `:feature-inventory` 4/4; `:app:assembleDebug` OK.
 - **Retro:** `reviews/slice-1-retro.md`. Exchange handoffs `0001`–`0013` all ✓.
 
-## Slice 2 (advisories) — IN PROGRESS (owner chose option 3)
+## Slice 2 (advisories) — COMPLETE end-to-end; loop PAUSED for owner
 Deterministic, profile-driven advisories surfaced in the UI, **never auto-creating
-CareTasks** (BDD: `features/container-health.feature` `@slice-2`).
-- **S2.0 (`06f581d`)** schema · **S2.1 (`4f3d76a`)** engine · **S2.2 done (`8d3e813`):**
-  `GET /plants/:id/advisories` + migration `0004` ideal-range; integration **25/25**, all 5
-  `@slice-2` scenarios green.
-- **S2.3 (IN FLIGHT — closes Slice 2):** `0017-android-advisories` — Android `:network`
-  `AdvisoryDto` + `:data` repo + `:feature-inventory` detail advisory display + Compose UI test
-  (informational-only; no advisory→task). Vision ALIGNED. Watcher armed.
-- **After S2.3:** Slice 2 done → stop, short wrap, ask next direction (Slice 3 reminders, etc.).
-  Backlog: `validate-schemas` tooling fix; Slice 1 on-device run; UX follow-ups.
+CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-retro.md`.
+- S2.0–S2.3 done (`06f581d`→`4f3d76a`→`8d3e813`→`c4e4396`): advisory schema · deterministic
+  `computeAdvisories` engine · `GET /plants/:id/advisories` (RLS, no task) · Android detail
+  display. Backend unit **67/67** + integration **25/25**; Android module + UI tests green;
+  `:app:assembleDebug` OK.
+- **Loop PAUSED — owner decision (no prompt pending, no watcher armed).** Backlog:
+  - **`validate-schemas` tooling fix** (pre-existing broken gate; cheap; makes it green).
+  - **On-device acceptance run** (Slice 1+2) on a device/emulator (API reachable).
+  - **UX follow-ups** (real selectors; sign-in; advisory "accept → task" flow).
+  - **Slice 3** — deterministic watering reminders + notifications (FCM/WorkManager).
 - **Tracked (pre-existing, NOT blocking):** `npm run validate-schemas` red for all 8 schemas
   (ajv-cli lacks `ajv-formats`; `diagnosis-result` strictTypes). Real gate is `npm test` (green).
   Tiny hygiene handoff candidate (`-c ajv-formats` + one `type:"array"`).

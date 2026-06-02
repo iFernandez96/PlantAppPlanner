@@ -87,8 +87,9 @@ Verified from `git log --oneline` on 2026-05-31. The full history is 20 commits;
 - `1077764` test(care-engine): add Slice 2 advisory-engine failing tests — 2026-06-02; red
 - `4f3d76a` feat(care-engine): add deterministic advisory engine (Slice 2) — 2026-06-02; `npm test` 67/67
 - `623c91f` test(api): add Slice 2 advisories-endpoint integration tests (red) — 2026-06-02; red
-- `8d3e813` feat(api): add GET /plants/:id/advisories + seed ideal container range (Slice 2) ← **HEAD / origin/master** — 2026-06-02; integration 25/25, all 5 `@slice-2` scenarios green
-- *(in flight)* `0017-android-advisories` (S2.3) — Android advisory display (closes Slice 2)
+- `8d3e813` feat(api): add GET /plants/:id/advisories + seed ideal container range (Slice 2) — 2026-06-02; integration 25/25, all 5 `@slice-2` scenarios green
+- `63440be` test(android-advisories): add Slice 2 advisory DTO/repo/UI tests — 2026-06-02; red
+- `c4e4396` feat(android-advisories): surface plant advisories on the detail screen (Slice 2) ← **HEAD / origin/master** — 2026-06-02; **Slice 2 complete end-to-end** (retro: `reviews/slice-2-retro.md`)
 
 ## Accepted decisions (canonical record in `docs/slice-01-decision-log.md`)
 
@@ -216,3 +217,8 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   0004 ideal-range + seed; integration 25/25; all 5 `@slice-2` scenarios green. S2.3
   (`0017-android-advisories`: Android advisory display) published, vision ALIGNED, in flight —
   closes Slice 2.
+- **2026-06-02** — S2.3 landed (`63440be`/`c4e4396`): Android advisory display, module + UI
+  tests green, `:app:assembleDebug` OK. **Slice 2 (advisories) complete end-to-end** (engine
+  + API + Android); all 5 `@slice-2` scenarios exercised. Loop **paused**; retro
+  `reviews/slice-2-retro.md`. 17 handoffs across Slices 1–2, all green, no regressions. Owner
+  to direct next (validate-schemas fix / device run / UX follow-ups / Slice 3).
