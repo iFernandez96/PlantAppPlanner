@@ -1,0 +1,43 @@
+# Handoff 0039-android-device-debug-build — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD   -> e95c40ee0712d8e57d667f07f33d5974f99323bd == origin/master
+$ git status --short                        -> (empty)
+$ ls ~/Android/Sdk/platforms                -> android-34/35/36/36.1 (SDK OK)
+
+## Implement
+# data/build.gradle.kts: buildFeatures{buildConfig=true}; defaultConfig:
+#   apiBase = findProperty("plantapp.apiBaseUrl") ?: "http://10.0.2.2:3000/"   (corrected to Fastify)
+#   authBase= findProperty("plantapp.authBaseUrl") ?: "http://10.0.2.2:54321/"
+#   buildConfigField API_BASE_URL / AUTH_BASE_URL
+# data/di/DataModule.kt: providePlantAppApi baseUrl=settings.baseUrlBlocking(BuildConfig.API_BASE_URL);
+#   provideSupabaseAuthApi authBaseUrl=BuildConfig.AUTH_BASE_URL (kept DEFAULT_ANON_KEY);
+#   removed DEFAULT_BASE_URL/DEFAULT_AUTH_BASE_URL; import dev.plantapp.data.BuildConfig
+# app/src/debug/res/xml/network_security_config.xml (new): base-config cleartextTrafficPermitted=true
+# app/src/debug/AndroidManifest.xml (new): application android:networkSecurityConfig=@xml/network_security_config
+
+## Gate
+$ cd android
+# (a)
+$ GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :data:testDebugUnitTest :feature-inventory:testDebugUnitTest --no-daemon
+  -> BUILD SUCCESSFUL (unit tests green)
+# (b) device apk with LAN -P
+$ GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :app:assembleDebug \
+    -Pplantapp.apiBaseUrl=http://10.0.0.179:3000/ -Pplantapp.authBaseUrl=http://10.0.0.179:54321/ --no-daemon
+  -> BUILD SUCCESSFUL
+$ ls -la app/build/outputs/apk/debug/app-debug.apk
+  -> 12299519 bytes, mtime 2026-06-02 09:54:42 -0700
+# (c) confirm baked in
+$ aapt2 dump xmltree --file AndroidManifest.xml app-debug.apk | grep networkSecurityConfig   -> present (@0x7f0e0000)
+$ unzip -p app-debug.apk classes*.dex | strings | grep -c 10.0.0.179:3000                      -> 2
+$ aapt2 dump permissions app-debug.apk | grep POST_NOTIFICATIONS                               -> present
+
+## Commit + push (source only, not apk)
+$ git show HEAD | grep -c 10.0.0.179   -> 0 (host IP only in git-ignored data/build/.../BuildConfig.java)
+$ git add android/data/build.gradle.kts android/data/src/main/kotlin/dev/plantapp/data/di/DataModule.kt android/app/src/debug/
+$ git commit -m "feat(android): build-overridable base URLs (API->Fastify) + debug cleartext network config"
+  [master a3cb50e] 4 files changed, 27 insertions(+), 9 deletions(-)
+$ git push origin master       -> e95c40e..a3cb50e
+$ git rev-parse origin/master  -> a3cb50e4d82020d9716c151180c628f92d61e6b8
+$ git show --stat HEAD | grep -c .apk            -> 0
+$ git show --stat HEAD | grep -c local.properties -> 0

@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"wire it & re-test": (1) backend server bootstrap ✅ (`0038`, `e95c40e`); (2) Android device-debug build IN FLIGHT (`0039`); then (3) run LAN stack + re-run agent. (Slice 3 LOCAL ✅; FCM gated.)** |
+| **Snapshot** | 2026-06-02 — **"wire it & re-test": (1)✅ server bootstrap (2)✅ device-debug build (`0039`, `a3cb50e`). (3) LAN stack UP (Supabase :54321 + Fastify :3000, 5 profiles seeded, LAN-baked APK installed) — BLOCKED on owner `ufw` open, then re-run device agent. (Slice 3 LOCAL ✅; FCM gated.)** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
 | **Local HEAD / origin/master** | `369f2f06dcc6bc8019cf051b40228e01a0746b89` (`369f2f0`) — in sync, clean |
@@ -126,15 +126,23 @@ Ran the queued 13-test suite (`reviews/device-test-suite.md`) via a QA agent →
 - **Unblock path — owner chose "wire it & re-test" (2026-06-02); IN PROGRESS:**
   1. **Backend server bootstrap ✅ DONE (`0038`, `e95c40e`):** `src/server.ts` (`listen 0.0.0.0:PORT`)
      + `start` script; boots → `GET /plants` 401, unit 72/72. Verified vs real git.
-  2. **Android device-debug build — IN FLIGHT (`0039`):** base URLs → `BuildConfig` fields
+  2. **Android device-debug build ✅ DONE (`0039`, `a3cb50e`):** base URLs → `BuildConfig` fields
      (`-P`-overridable; emulator defaults, **API corrected to Fastify `:3000`** vs the old `:54321`,
      auth stays Supabase `:54321`); device build passes `-Pplantapp.apiBaseUrl=http://10.0.0.179:3000/
      -Pplantapp.authBaseUrl=http://10.0.0.179:54321/`. + **debug-only `network-security-config`**
      permitting cleartext (the device blocker was cleartext-NSC, not connectivity). Impl's verification
      build = the device-ready APK.
-  3. **Run LAN stack + re-test:** planner (owner-approved this session) runs Supabase + the Fastify
-     server bound to the LAN; **owner opens `ufw` 54321 + 3000 to the LAN (sudo)**; reinstall APK;
-     re-run the device agent suite (`reviews/device-test-suite.md`). **Re-close ufw ports after.**
+  3. **Run LAN stack + re-test — IN PROGRESS (owner-approved this session):**
+     - Supabase UP + LAN-reachable (`10.0.0.179:54321`→200); **`db reset` applied (5 profiles
+       seeded; the `[]` via anon was an RLS artifact — confirmed 5 via service_role)**.
+     - Fastify UP (background task `bhdrygzdg`): `node dist/src/server.js` `HOST=0.0.0.0 PORT=3000`,
+       `SUPABASE_URL=127.0.0.1:54321`; `10.0.0.179:3000/plants`→401 from host.
+     - LAN-baked device APK (`a3cb50e`, mtime 09:54) **installed** on the phone (`adb install -r` Success).
+     - **BLOCKED on owner `ufw`** (host default-deny inbound blocks the phone): owner runs
+       `sudo ufw allow from 10.0.0.0/24 to any port 54321 proto tcp` + `… port 3000 proto tcp`.
+     - Then re-run the device agent suite. **OTP note:** local Supabase emails the code to **Mailpit**
+       (`127.0.0.1:54324`); the agent reads the code from Mailpit's API to complete sign-in.
+     - **Teardown after:** re-close ufw ports; stop Fastify (`bhdrygzdg`).
 - **Transport decision (2026-06-02):** owner chose **cleartext-on-LAN for the local device test**
   (debug-only NSC). **Production stays HTTPS** — release builds keep Android's no-cleartext default;
   hosted Supabase is HTTPS; a deployed Fastify would be behind TLS. **Tracked requirement: prod = HTTPS.**
