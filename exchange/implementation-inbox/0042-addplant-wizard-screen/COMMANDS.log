@@ -1,0 +1,32 @@
+# Handoff 0042-addplant-wizard-screen — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD   -> 12f0dbb4aabc0a774f507a17ed91394f0a48de98 == origin/master
+$ git status --short                        -> (empty)
+$ ls android/feature-inventory/src/main/res -> (absent; created this handoff)
+
+## Implement (red-first)
+# InventoryTestTags: +WIZARD_SPECIES/LOCATION/POT_TILE_PREFIX, WIZARD_ADD_BUTTON, WIZARD_BACK_BUTTON
+# WizardModel.kt: removed emoji categoryIcon (icons now via WizardIcons)
+# res/drawable/: 11 custom <vector> icons (5 species + default, 4 locations, 1 pot) — no emoji/raster
+# addplant/WizardIcons.kt: @DrawableRes speciesIconRes/locationIconRes/potIconRes
+# addplant/AddPlantWizard.kt: stateless 3-step wizard + confirm; reuse-or-create + id-by-identity
+#   (LaunchedEffect resolves created space/container ids; Add disabled until both resolve); TextButton "Back"
+# deleted AddPlantScreen.kt; trimmed InventoryScreensTest to #21 + #23
+# NavSmokeTest + app MainActivity Routes.ADD -> AddPlantWizard (same VM wiring)
+# test AddPlantWizardModelTest: replaced categoryIcon assertions with hidden-defaults check
+# test AddPlantWizardTest: stateful Host mirrors VM (append on create); walk + back-then-reselect
+
+## Gate
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest :app:assembleDebug --no-daemon
+  BUILD SUCCESSFUL in 56s
+  AddPlantWizardTest 2/2 ; AddPlantWizardModelTest 3/3 ; InventoryScreensTest 2 ; feature-inventory total 25->20 ; :app:assembleDebug SUCCESSFUL
+$ grep -rlP '[emoji ranges]' android/feature-inventory/src android/app/src   -> none (no emoji)
+
+## Commit + push
+$ git add android/feature-inventory/ android/app/
+$ git commit -m "feat(android-inventory): beginner add-plant wizard (3-step, custom icons) replacing the jargon form"
+  [master 5f1e7ce] 21 files changed, 516 insertions(+), 474 deletions(-)
+$ git push origin master       -> 12f0dbb..5f1e7ce
+$ git rev-parse origin/master  -> 5f1e7ce102a3ad219cedd38bb75c186752da4b17
+$ git show --stat HEAD | grep -c local.properties  -> 0

@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **Full-stack on-device PASS earlier today (incl. reminder fired). Test backend torn down. NOW: beginner-first UX overhaul (owner top priority) — add-plant 3-step wizard; H1 model IN FLIGHT (`0041`). FCM deferred.** |
+| **Snapshot** | 2026-06-02 — **Beginner add-plant WIZARD built & verified (`0041` model + `0042` screen, `5f1e7ce`): 3-step, custom non-emoji icons, jargon form deleted, tests green. Next: owner device-review of the wizard, then the copy sweep. (Full-stack on-device PASS earlier; FCM deferred.)** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
 | **Local HEAD / origin/master** | `369f2f06dcc6bc8019cf051b40228e01a0746b89` (`369f2f0`) — in sync, clean |
@@ -176,11 +176,12 @@ simple choices. See memory `[[beginner-first-ux]]`. **Direction CONFIRMED by own
 tiles · add-plant first (then copy sweep) · pot sizes labeled **"how pots are sold"** (4-inch/6-inch/
 1-gal/5-gal bucket/window box/raised bed, mapped to litres internally; novice never sees litres).
 Spec: `reviews/beginner-ux-addplant-spec.md`. Decomposition: **H1 `0041` ✅ DONE** (`12f0dbb`: pot-size→litres + location presets + hidden
-defaults; verified, only `:feature-inventory`) → **H2 `0042` the `AddPlantWizard` composable — PUBLISHED/IN
-FLIGHT** (3 steps + confirm, **custom per-species vector icons, no emoji**, replaces the jargon
-`AddPlantScreen`; vision ALIGNED-WITH-NOTES + guardian PASS; reviewer hardening folded in:
-reuse-not-duplicate on Back/re-tap, select-by-identity since VM create is async, Add disabled until
-ids resolve) → then a **device review** (rebuild LAN APK, owner eyeballs the wizard) → **copy sweep**. (FCM deferred/owner-gated.)
+defaults; verified, only `:feature-inventory`) → **H2 `0042` ✅ DONE (`5f1e7ce`)**: 3-step `AddPlantWizard` + confirm, 11 custom non-emoji vector
+drawables, `AddPlantScreen` deleted, `WizardIcons` mapping, emoji `categoryIcon` removed; hardening
+applied (reuse-not-duplicate, select-by-identity, Add disabled until ids resolve); `:feature-inventory`
+20 tests green, assemble OK; verified vs real git. Icons are **simple placeholders** (refine later).
+→ **owner device review** of the wizard (needs LAN-APK rebuild + Fastify + owner ufw — pending owner
+choice) → **copy sweep** (sign-in/list/detail + friendly advisory wording). (FCM deferred/owner-gated.)
 **Icons (owner decision): NO EMOJI — custom per-species vector drawables.** `0041` shipped an emoji
 `categoryIcon`; **`0042` removes it** and bundles original, distinct, recognizable vector drawables
 per species (+ pot/location icons), mapped `profileId→drawable`. (No open vector set covers these
