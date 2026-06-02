@@ -1,0 +1,86 @@
+# Handoff 0004-db-garden-spaces — commands (in order), app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline + docs
+$ git fetch origin && git rev-parse HEAD     -> b32e7a46a5b8390f9d5ed1616e41dee7f701729c
+$ git status --short                          -> (empty)
+$ docker info >/dev/null 2>&1 && echo docker-ok -> docker-ok
+# consulted Supabase local-dev docs (CLI getting-started): npx supabase init/start/db reset; DB URL :54322
+
+## COMMIT 1 — pg + supabase init
+$ cd backend && npm install -D pg @types/pg
+  -> pg ^8.21.0, @types/pg ^8.20.0 added to devDependencies
+
+# npx supabase init FIRST attempt (FAILED — environment):
+$ cd .. && npx --yes supabase init
+  npm error code EPERM
+  npm error syscall symlink
+  npm error path ../supabase/dist/supabase.js
+  npm error dest /media/israel/Drive/cache-mirror/npm/_npx/aa8e5c70f9d8d161/node_modules/.bin/supabase
+  # cause: external Drive npx cache cannot create symlinks
+
+# RETRY with local npx cache (symlink-capable FS); only the cache path changed:
+$ npm_config_cache=/tmp/plantapp-npx-cache npx --yes supabase init
+  Finished supabase init.
+$ ls -la supabase/   -> config.toml, .gitignore, .temp/ (ignored), migrations/0001..., README.md
+$ cat supabase/.gitignore  -> ignores .branches, .temp, .env.*
+$ git status --short
+   M backend/package-lock.json
+   M backend/package.json
+  ?? supabase/.gitignore
+  ?? supabase/config.toml          # .temp NOT listed (ignored)
+
+$ git add backend/package.json backend/package-lock.json supabase/.gitignore supabase/config.toml
+$ git commit -m "chore(backend): add pg client and init Supabase local dev"
+  [master 661a135] 4 files changed, 597 insertions(+)
+$ git push origin master           -> b32e7a4..661a135
+
+## COMMIT 2 (red) — integration test
+# wrote backend/tests/integration/garden-spaces-schema.integration.test.ts (verbatim from prompt)
+
+$ npm_config_cache=/tmp/plantapp-npx-cache npx --yes supabase start
+  # pulled images (slow); DB URL postgresql://postgres:postgres@127.0.0.1:54322/postgres
+$ npm_config_cache=/tmp/plantapp-npx-cache npx --yes supabase db reset
+  Applying migration 0001_init_extensions.sql...
+  (uuid-ossp / pgcrypto already exist — NOTICE skip)
+  Finished supabase db reset.
+
+$ cd backend && npm run test:int
+  FAIL tests/integration/garden-spaces-schema.integration.test.ts
+    × table exists                 -> rows length 0
+    × RLS enabled                  -> error: relation "public.garden_spaces" does not exist
+    × owner RLS policies (>=4)     -> expected 0 to be >= 4
+  Test Files  1 failed (1)
+       Tests  3 failed (3)          # desired red; pg connection OK
+
+$ git add backend/tests/integration/garden-spaces-schema.integration.test.ts
+$ git commit -m "test(db): add Slice 1 garden_spaces integration test"
+  [master 8d1905a] 1 file changed, 37 insertions(+)
+$ git push origin master           -> 661a135..8d1905a
+
+## COMMIT 3 (green) — migration 0002
+# wrote supabase/migrations/0002_slice1_garden_spaces.sql (table + RLS + 4 policies)
+
+$ npm_config_cache=/tmp/plantapp-npx-cache npx --yes supabase db reset
+  Applying migration 0001_init_extensions.sql...
+  Applying migration 0002_slice1_garden_spaces.sql...
+  Finished supabase db reset.       # no errors
+
+$ cd backend && npm run test:int
+  ✓ tests/integration/garden-spaces-schema.integration.test.ts (3 tests)
+  Test Files  1 passed (1)
+       Tests  3 passed (3)          # green
+$ npm test
+  Test Files  8 passed (8)
+       Tests  50 passed (50)        # unit unaffected
+
+$ git diff --quiet HEAD -- backend/care-engine/ && echo care-engine UNCHANGED  -> UNCHANGED
+$ git diff --quiet HEAD -- shared-schemas/ && echo shared-schemas UNCHANGED    -> UNCHANGED
+$ git add supabase/migrations/0002_slice1_garden_spaces.sql
+$ git commit -m "feat(db): add garden_spaces table with RLS (migration 0002)"
+  [master e92bc0f] 1 file changed, 28 insertions(+)
+$ git push origin master           -> 8d1905a..e92bc0f
+
+## Harness capture
+$ npm_config_cache=/tmp/plantapp-npx-cache npx --yes supabase --version   -> 2.104.0
+$ npm_config_cache=/tmp/plantapp-npx-cache npx --yes supabase status       -> DB URL postgresql://postgres:postgres@127.0.0.1:54322/postgres
+$ git rev-parse origin/master      -> e92bc0f7bebaf02a15acea13b7f7ecd90ff47c1a

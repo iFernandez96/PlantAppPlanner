@@ -4,58 +4,40 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 (seed catalog landed; loop paused before milestone A on env + framework decisions) |
+| **Snapshot** | 2026-06-02 (A1 DB landed; A2 core-tables in flight) |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `b32e7a46a5b8390f9d5ed1616e41dee7f701729c` (`b32e7a4`) — in sync, clean |
-| **Commit chain (Slice 1)** | `b2836ca` → `ce141da` → `1d4e888` → `25f1dbb` → `7a4e19b` → `b32e7a4` |
+| **Local HEAD / origin/master** | `e92bc0f7bebaf02a15acea13b7f7ecd90ff47c1a` (`e92bc0f`) — in sync, clean |
+| **Slice 1 chain** | `b2836ca`→`ce141da`→`1d4e888`→`25f1dbb`→`7a4e19b`→`b32e7a4`→`661a135`→`8d1905a`→`e92bc0f` |
 
-## Last confirmed commits (planner-verified)
-```
-b32e7a4 feat(care-engine): add Slice 1 seed PlantProfile catalog
-7a4e19b test(care-engine): add Slice 1 seed-catalog failing tests
-```
-Verified: only 2 new files since `25f1dbb` (`care-engine/seed-profiles.ts`,
-`tests/care-engine/seed-catalog.test.ts`); engine/schemas/existing tests/package.json
-untouched. `7a4e19b` red → `b32e7a4` green. `npm test` = **50/50**.
+## Where we are
+**Backend Slice 1: unit layer complete (50 tests) + DB foundation started.**
+- Schema validation (#1–#6), care-engine (#7–#14), seed catalog — all green (`npm test` 50/50).
+- DB: Supabase local dev stood up (D-03); `garden_spaces` table + owner RLS; 3 integration
+  tests green (`npm run test:int`). Verified at `e92bc0f`.
 
-## Current phase
-**Backend Slice 1 unit/contract layer COMPLETE & green (50 tests):** schema validation
-(#1–#6), deterministic care-engine (#7–#14), seed catalog + schema-valid-CareTask. No
-DB tables, no HTTP server, no Android source yet.
+## Milestone A (owner-approved) — decomposition + status
+- **A1 (done, verified):** `0004-db-garden-spaces` → `661a135` (pg dep + `supabase init`),
+  `8d1905a` (red integration test), `e92bc0f` (green: `garden_spaces` + RLS migration 0002).
+- **A2 (IN FLIGHT):** `0005-db-core-tables` — `plant_profiles` (seeded read-only),
+  `containers`, `plant_instances`, `care_tasks` + RLS, red→green integration test.
+- **A3 (next):** Fastify (+ ADR), `POST /plants` → care-engine + `GET`/`DELETE` +
+  integration tests #15–#20 (incl. RLS isolation + cascade delete).
 
-## Next step — milestone A IN FLIGHT (owner chose Supabase CLI)
+Exchange: `0001`✓ `0002`✓ `0003`✓ `0004`✓ · `0005-db-core-tables` (in flight).
 
-Owner chose **(i) Supabase CLI** (D-03). Framework for A2 = Fastify (planner's call +
-ADR). A decomposed into **A1** (in flight) → **A2**.
-- **A1 (in flight):** published exchange handoff **`0004-db-garden-spaces`** — stand up
-  Supabase local dev + `garden_spaces` table + RLS, proven by a red→green integration
-  test (`npm run test:int`). Three commits (deps+init, red test, green migration).
-  Deliberately minimal to de-risk the first CLI install / Docker image pull.
-- **A2 (next):** Fastify + ADR, remaining tables (`plant_profiles` seeded read-only,
-  `containers`, `plant_instances`, `care_tasks`) + RLS + `POST /plants` → care-engine +
-  integration tests #15–#20.
+## Local DB harness (for next steps)
+`npx supabase` needs `npm_config_cache=/tmp/plantapp-npx-cache` (Drive symlink quirk).
+Local DB URL `postgresql://postgres:postgres@127.0.0.1:54322/postgres`; integration tests =
+`backend/tests/integration/*.integration.test.ts` via `npm run test:int`. See memory
+`plantapp-local-db-harness`.
 
-Exchange: `0001`✓ `0002`✓ `0003`✓ `0004-db-garden-spaces` (in flight).
-
-## (superseded) earlier pause note
-Owner pre-approved A (API integration tests #15–#20 against a local Postgres/Supabase).
-Read-only env check (2026-06-02) shows A can't start yet:
-- **Supabase CLI: NOT installed** (Docker IS up). `supabase/` has only the extensions
-  migration; no `config.toml` (not initialized). `psql`: not installed.
-- **No web framework / server** in `backend/` (no `src/`, no express/fastify/hono/pg/
-  supabase-js deps). The framework is an **un-pinned** decision (D-01 only pins Node+TS).
-Two real decisions before A can run (asked the owner):
-1. **DB approach / tool install** — (i) install Supabase CLI (matches D-03; pulls
-   Docker images), (ii) lighter Dockerized plain Postgres + `pg` client (deviates from
-   D-03), (iii) defer A.
-2. **Web framework** for the endpoints (planner can decide + ADR; recommend on ask).
-Planner proposes decomposing A into **A1** (migrations: create tables + RLS + a
-DB-apply test) then **A2** (framework + server + endpoints + integration tests #15–#20).
-
-Exchange handoffs: `0001-option-b` ✓, `0002-care-engine-green` ✓, `0003-seed-catalog` ✓.
-No prompt pending, no watcher armed — resumes when the owner answers the A decisions.
+## Production behavior state
+care-engine emits a deterministic water `CareTask`; `garden_spaces` table + RLS exist.
+No HTTP server/endpoints yet; remaining tables in flight (A2). No Android source. No
+AI/weather/photos/notifications.
 
 ## Autonomous loop
 Planner + impl Claude ping-pong via `exchange/` with in-session `run_in_background`
-watchers (impl runs `--dangerously-skip-permissions`). Paused at the A decision above.
+watchers (impl runs `--dangerously-skip-permissions`). Owner pre-approved through A;
+planner posts an update each round, stops only on a real blocker. A2 watcher armed.

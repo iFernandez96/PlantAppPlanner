@@ -4,14 +4,16 @@
 
 | Question | Answer |
 |---|---|
-| Latest `origin/master` | `b32e7a4` — feat(care-engine): add Slice 1 seed PlantProfile catalog |
-| Local == origin/master? | ✅ yes (`b32e7a4` both sides) |
-| Recent commits | `b32e7a4` (seed catalog) ← `7a4e19b` (red) ← `25f1dbb` (engine) ← `1d4e888` ← `ce141da` ← `b2836ca` |
+| Latest `origin/master` | `e92bc0f` — feat(db): add garden_spaces table with RLS (migration 0002) |
+| Local == origin/master? | ✅ yes (`e92bc0f` both sides) |
+| A1 commits | `661a135` (pg + supabase init) → `8d1905a` (red integration test) → `e92bc0f` (green migration 0002) |
 | Uncommitted changes? | none (clean) |
 | CI / workflows / checks / PRs / issues | none |
 | Default branch | `master` |
 
-Verified via `git fetch` + `git diff --name-status 25f1dbb HEAD`: only 2 new files
-(`backend/care-engine/seed-profiles.ts`, `backend/tests/care-engine/seed-catalog.test.ts`);
-engine/schemas/existing tests/package.json unchanged. Report: `npm test` 50/50. No CI;
-local `npm test` is the only gate; planner verified structurally.
+Verified via `git diff --name-status b32e7a4 e92bc0f`: 6 files (package.json, lockfile,
+`garden-spaces-schema.integration.test.ts`, `supabase/.gitignore`, `config.toml`,
+migration `0002`). `care-engine/**` + `shared-schemas/**` + existing tests untouched.
+Migration 0002 confirmed (table + RLS + 4 owner policies). Report: integration 3/3, unit
+50/50. No CI; local `npm test`/`npm run test:int` are the gates; planner verified
+structurally (can't run npm/supabase itself).

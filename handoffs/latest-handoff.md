@@ -103,8 +103,11 @@ confirm the 8 tests fail red → commit → push (two commits total).
   after B without re-asking, stopping only if the DB environment isn't available.
 - **Round 3 done (2026-06-02):** B landed (`7a4e19b` red + `b32e7a4` green; `npm test`
   50/50; planner-verified, only 2 new files). Toward A the planner found the **DB env
-  not ready** (Supabase CLI not installed — Docker is up; no web framework chosen) and
-  **paused to ask the owner**: (1) DB approach — Supabase CLI (D-03) vs. Dockerized
-  plain Postgres + `pg` vs. defer; (2) web framework (planner can pick + ADR). Plan:
-  decompose A into A1 (migrations: tables + RLS + apply test) then A2 (server +
-  endpoints + integration #15–#20). No prompt pending / no watcher armed until answered.
+  not ready** and paused; owner chose **(i) Supabase CLI**, framework = Fastify (A3).
+- **Round 4 (A1) done (2026-06-02):** `0004-db-garden-spaces` → `661a135`/`8d1905a`/
+  `e92bc0f`. Supabase local up; `garden_spaces` + RLS (migration 0002); 3 integration
+  tests green; unit 50/50; planner-verified. Harness recorded (memory
+  `plantapp-local-db-harness`; note the `npm_config_cache=/tmp/plantapp-npx-cache` quirk).
+- **Round 5 (A2) in flight:** published `0005-db-core-tables` (remaining tables +
+  RLS + seeded `plant_profiles`, red→green) and armed the watcher. A3 next: Fastify +
+  ADR + `POST /plants` + integration #15–#20. Owner pre-approved through A.

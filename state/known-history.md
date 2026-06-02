@@ -45,7 +45,12 @@ Verified from `git log --oneline` on 2026-05-31. The full history is 20 commits;
 - `1d4e888` test(care-engine): add Slice 1 watering-engine failing tests — 2026-06-02; 8 care-engine tests red (`is not a function`), 39 green; engine still placeholder
 - `25f1dbb` feat(care-engine): implement computeInitialWaterTask — 2026-06-02; engine green, `npm test` 47/47; test file unchanged; D-10 #7–#14 done
 - `7a4e19b` test(care-engine): add Slice 1 seed-catalog failing tests — 2026-06-02; red (empty catalog)
-- `b32e7a4` feat(care-engine): add Slice 1 seed PlantProfile catalog ← **HEAD / origin/master** — 2026-06-02; 5 profiles, `npm test` 50/50; each emits a schema-valid CareTask
+- `b32e7a4` feat(care-engine): add Slice 1 seed PlantProfile catalog — 2026-06-02; 5 profiles, `npm test` 50/50; each emits a schema-valid CareTask
+
+## Phase 8 — Slice 1 backend DB foundation (milestone A1)
+- `661a135` chore(backend): add pg client and init Supabase local dev — 2026-06-02
+- `8d1905a` test(db): add Slice 1 garden_spaces integration test — 2026-06-02; red
+- `e92bc0f` feat(db): add garden_spaces table with RLS (migration 0002) ← **HEAD / origin/master** — 2026-06-02; 3 integration tests green, unit 50/50
 
 ## Accepted decisions (canonical record in `docs/slice-01-decision-log.md`)
 
@@ -112,3 +117,7 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   local DB env not ready (Supabase CLI not installed; no web framework chosen) and
   **paused to ask the owner** the A approach (Supabase CLI vs. Dockerized Postgres) +
   framework, proposing A1 migrations/RLS then A2 server/endpoints.
+- **2026-06-02** — Owner chose Supabase CLI (i) + Fastify (for A3). A1 landed
+  (`661a135`/`8d1905a`/`e92bc0f`): Supabase local + `garden_spaces` + RLS; 3 integration
+  tests green; planner-verified. A2 (`0005-db-core-tables`: remaining tables + RLS +
+  seed) published and in flight.
