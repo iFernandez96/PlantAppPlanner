@@ -42,7 +42,8 @@ Verified from `git log --oneline` on 2026-05-31. The full history is 20 commits;
 
 ## Phase 7 — Slice 1 care-engine (Option B, red-first)
 - `ce141da` chore(backend): install dependencies and commit lockfile — 2026-06-02; first-ever `npm test` = 39 schema tests green
-- `1d4e888` test(care-engine): add Slice 1 watering-engine failing tests ← **HEAD / origin/master** — 2026-06-02; 8 care-engine tests red (`is not a function`), 39 green; engine still placeholder
+- `1d4e888` test(care-engine): add Slice 1 watering-engine failing tests — 2026-06-02; 8 care-engine tests red (`is not a function`), 39 green; engine still placeholder
+- `25f1dbb` feat(care-engine): implement computeInitialWaterTask ← **HEAD / origin/master** — 2026-06-02; engine green, `npm test` 47/47; test file unchanged; D-10 #7–#14 done
 
 ## Accepted decisions (canonical record in `docs/slice-01-decision-log.md`)
 
@@ -100,3 +101,7 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   landed: `ce141da` (deps+lockfile; 39 schema tests green on first run) + `1d4e888`
   (8 care-engine tests red). Planner verified and published green prompt
   `0002-care-engine-green`.
+- **2026-06-02** — Green landed: `25f1dbb` implements `computeInitialWaterTask`,
+  `npm test` 47/47 (planner-verified: function exported, test file unchanged).
+  Care-engine #7–#14 complete. Planner **paused the loop** to ask the owner the next
+  milestone (Postgres-gated API tests vs. an approval-free seed-catalog step vs. Android).

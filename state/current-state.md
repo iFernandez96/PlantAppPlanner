@@ -5,62 +5,56 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot timestamp** | 2026-06-02 (Option B red landed; green in flight) |
+| **Snapshot timestamp** | 2026-06-02 (care-engine red→green complete; loop paused for a scope decision) |
 | **PlantApp repo path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD** | `1d4e888769f4f982e0368ed41e723416b1b91dea` (`1d4e888`) |
-| **origin/master** | `1d4e888` |
+| **Local HEAD** | `25f1dbb0ae1a45549714c0411c04145532d142de` (`25f1dbb`) |
+| **origin/master** | `25f1dbb` |
 | **Local == remote?** | ✅ YES · working tree clean |
-| **Prev HEADs** | `b2836ca` (Option A) → `ce141da` (deps) → `1d4e888` (red tests) |
+| **Prev HEADs** | `b2836ca` → `ce141da` (deps) → `1d4e888` (red tests) → `25f1dbb` (green) |
 
-## Last confirmed commits (planner-verified)
+## Last confirmed commit (planner-verified)
 
 ```
-1d4e888 test(care-engine): add Slice 1 watering-engine failing tests
-ce141da chore(backend): install dependencies and commit lockfile
+25f1dbb feat(care-engine): implement computeInitialWaterTask
 ```
-- `ce141da` — `npm install` in `backend/` + committed `package-lock.json` (+3213,
-  1 file). First-ever `npm test`: **39 schema tests passed** (verified via report;
-  `package.json` unchanged, `node_modules` git-ignored).
-- `1d4e888` — added `backend/tests/care-engine/compute-initial-water-task.test.ts`
-  (+167, 1 file; dynamic-import, not converted). `npm test`: **47 tests, 8 failing**
-  (the care-engine 8 fail per-test with `computeInitialWaterTask is not a function` —
-  intended red), 39 passing. Engine still `export {};` (verified `git show
-  1d4e888:backend/care-engine/index.ts`).
+1-file change (`backend/care-engine/index.ts`, +110/-5). Function exported (verified
+`git show HEAD:…index.ts`); the test file is **unchanged** since `1d4e888` (verified
+`git diff --name-only`). Report: `npm test` = **47/47 pass** (8 care-engine now green,
+39 schema green). D-10 engine (#7–#14) done.
 
 ## Current phase
 
-**Slice 1 care-engine: red landed, green in flight.** The deterministic watering
-engine has failing tests committed; the implementation prompt to make them pass is
-published and being processed by the implementation Claude.
+**Slice 1 deterministic care-engine: COMPLETE (red→green).** The backend can compute
+the initial water `CareTask` deterministically with full traceability. Loop **paused**
+awaiting an owner decision on the next milestone.
+
+## Next step — DECISION PENDING (owner)
+
+The plan's next numbered items need owner-gated infrastructure, so the planner stopped
+to ask. Options on the table (see the round-2 message):
+- **A** — Repository/API integration tests #15–#20 → needs a local Postgres/Supabase
+  test DB (**new approval**: install/run a DB).
+- **B** — Approval-free backend increment now: seed `PlantProfile` catalog (the 5 real
+  plants) + a red-first test that `computeInitialWaterTask` emits a **schema-valid**
+  `CareTask` (Ajv against `care-task.schema.json`) for each. Keeps the loop moving, no
+  new approval. *(planner-recommended next)*
+- **C** — Android UI tests #21–#24 → needs Android toolchain/emulator + the
+  uncommitted Gradle wrapper (heavier infra).
+- **D** — Pause Slice 1 here.
+
+No new implementation prompt is published until the owner chooses. Exchange handoffs so
+far: `0001-option-b` (red, done), `0002-care-engine-green` (green, done).
 
 ## Test state
-
-- Backend deps installed (`node_modules` present, lockfile committed). `npm test`
-  runs: 7 files, 47 tests (8 red care-engine + 39 green schema).
-- 8 care-engine tests pin the D-10 contract; they go green when
-  `computeInitialWaterTask` is exported from `backend/care-engine/index.ts`.
+Backend deps installed; `npm test` = 7 files / **47 tests all green**. care-engine +
+all schema tests pass.
 
 ## Production behavior state
-
-care-engine still a placeholder (`export {};`) until the green commit lands. No DB
-tables, no Kotlin, no AI/weather/photos/notifications/auth.
-
-## Next recommended action / in flight
-
-**Green: `feat(care-engine): implement computeInitialWaterTask`** — published as
-exchange handoff **`0002-care-engine-green`** (pointer `latest-ready-prompt`), mirror
-in `prompts/next-implementation-prompt.md`. The implementation Claude is processing
-it autonomously; the planner watcher will wake on its report.
-
-After green: assess Slice 1 DOD — seed `PlantProfile` records + repository/API
-integration tests (#15–#20, may need a local Postgres → owner approval) and Android
-UI tests (#21–#24).
+care-engine now produces a deterministic water `CareTask` (pure function). Still no DB
+tables, no HTTP server, no Kotlin, no AI/weather/photos/notifications/auth.
 
 ## Autonomous loop
-
-Planner (live session) + implementation Claude (live session, `--dangerously-skip-permissions`)
-ping-pong via the `exchange/` folders using in-session `run_in_background` watchers.
-Planner posts an update to the owner each round; stops only on a real blocker
-(env/tool failure, decision needing owner judgment, new approval, unexpected
-regression, baseline mismatch). See PD-06 and `prompts/impl-claude-autonomy-bootstrap.md`.
+Planner + impl Claude ping-pong via `exchange/` with in-session `run_in_background`
+watchers (impl runs `--dangerously-skip-permissions`). Currently **paused** at the
+decision above — no watcher armed, no prompt pending. Resumes when the owner picks A/B/C/D.

@@ -4,15 +4,15 @@
 
 | Question | Answer |
 |---|---|
-| Latest `origin/master` | `1d4e888` — test(care-engine): add Slice 1 watering-engine failing tests |
-| Local == origin/master? | ✅ yes (`1d4e888` both sides) |
-| Recent commits | `1d4e888` (red tests) ← `ce141da` (deps+lockfile) ← `b2836ca` (Option A) ← `52c9d77` |
+| Latest `origin/master` | `25f1dbb` — feat(care-engine): implement computeInitialWaterTask |
+| Local == origin/master? | ✅ yes (`25f1dbb` both sides) |
+| Recent commits | `25f1dbb` (engine green) ← `1d4e888` (red tests) ← `ce141da` (deps) ← `b2836ca` |
 | Uncommitted changes? | none (clean) |
-| CI / workflows / checks | none (no GitHub Actions; nothing gates the build) |
+| CI / workflows / checks | none (no GitHub Actions) |
 | PRs / issues | none |
 | Default branch | `master` |
 
-Verified via `git fetch` + `git rev-parse` + `git show --stat`: `ce141da` = 1 file
-(`backend/package-lock.json`); `1d4e888` = 1 file (the care-engine test). The engine
-file is unchanged (`export {};`) — red-first intact. No CI, so the local `npm test`
-(47 tests, 8 intended-red) is the only gate; the planner is the verifier.
+Verified via `git fetch` + `git rev-parse` + `git show --stat`: `25f1dbb` = 1 file
+(`backend/care-engine/index.ts`, +110/-5), function now exported; the care-engine test
+file is unchanged since `1d4e888`. Report: `npm test` 47/47 green. No CI, so local
+`npm test` is the only gate; planner verified structurally.

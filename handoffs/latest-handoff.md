@@ -92,3 +92,9 @@ confirm the 8 tests fail red → commit → push (two commits total).
   `ce141da` + `1d4e888`, pushed; 8 care-engine tests red, 39 schema green). Planner
   verified against real git and published the green handoff `0002-care-engine-green`
   (implement `computeInitialWaterTask`). Watcher re-armed for the `0002` report.
+- **Round 2 done (2026-06-02):** impl Claude completed `0002-care-engine-green`
+  (`25f1dbb`, `npm test` 47/47; test file unchanged). care-engine #7–#14 complete.
+  Planner **paused the loop** to ask the owner the next milestone — A: Postgres-gated
+  API tests #15–#20 (needs approval); B: approval-free seed `PlantProfile` catalog +
+  schema-valid-CareTask test (recommended); C: Android UI #21–#24; D: pause. No
+  watcher armed, no prompt pending until the owner picks.

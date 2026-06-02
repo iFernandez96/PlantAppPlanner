@@ -1,0 +1,44 @@
+# Handoff 0002-care-engine-green — commands (in order), app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline precondition
+$ git fetch origin
+$ git rev-parse --abbrev-ref HEAD        -> master
+$ git rev-parse HEAD                      -> 1d4e888769f4f982e0368ed41e723416b1b91dea
+$ git rev-parse origin/master            -> 1d4e888769f4f982e0368ed41e723416b1b91dea
+$ git status --porcelain                 -> (empty)
+$ test -d backend/node_modules && echo deps-present   -> deps-present
+$ tail -1 backend/care-engine/index.ts   -> export {};
+
+## Change
+# wrote backend/care-engine/index.ts (engine implementation, verbatim from prompt)
+
+## Standalone verification (GREEN)
+$ cd backend && npm test
+  RUN  v2.1.9
+  ✓ tests/care-engine/compute-initial-water-task.test.ts (8 tests) 19ms
+  ✓ tests/schema/container.test.ts (4 tests)
+  ✓ tests/schema/plant-instance.test.ts (4 tests)
+  ✓ tests/schema/plant-profile.test.ts (5 tests)
+  ✓ tests/schema/care-task.test.ts (18 tests)
+  ✓ tests/schema/garden-space.test.ts (3 tests)
+  ✓ tests/schema/round-trip.test.ts (5 tests)
+  Test Files  7 passed (7)
+       Tests  47 passed (47)
+  (exit 0)
+
+## Confirm test file unchanged
+$ git diff --quiet backend/tests/care-engine/compute-initial-water-task.test.ts && echo UNCHANGED
+  TEST FILE UNCHANGED
+$ git status --short
+   M backend/care-engine/index.ts
+
+## Commit + push
+$ git add backend/care-engine/index.ts
+$ git commit -m "feat(care-engine): implement computeInitialWaterTask"
+  [master 25f1dbb] ... 1 file changed, 110 insertions(+), 5 deletions(-)
+$ git push origin master
+  1d4e888..25f1dbb  master -> master
+$ git show --stat HEAD
+  backend/care-engine/index.ts | 115 ++++--- ; 1 file changed, 110 insertions(+), 5 deletions(-)
+$ git rev-parse origin/master
+  25f1dbb0ae1a45549714c0411c04145532d142de
