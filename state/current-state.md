@@ -113,19 +113,3 @@ finding to triage (separate from the intended care-engine red).
 - Implementation reads via `scripts/exchange-read-latest-prompt.sh`, writes a report
   via `scripts/exchange-create-implementation-report.sh`, and on a decision writes a
   `BLOCKED.md` report (only the planner asks the owner).
-
-## Listener + Option B status (2026-06-01)
-
-- **Planner background listener is RUNNING and PAUSED.** Watches
-  `exchange/implementation-inbox/`. Scripts: `scripts/start-planner-listener.sh`,
-  `watch-planner-loop.sh`, `stop-planner-listener.sh`, `list-listeners.sh`;
-  metadata `state/watchers/planner-listener.json` (gitignored, runtime).
-- **Option B attempt = BLOCKED.** Implementation report `0001-option-b` blocked at
-  Commit 1 `npm install`: `~/.npm` is a broken symlink to an unmounted external
-  Drive (`ENOTDIR`). Environment issue, not code. **No PlantApp change** — still
-  `b2836ca`, clean (verified local == origin/master).
-- **Owner decision pending** — packet `exchange/owner-needed/0001-option-b/`:
-  (1) mount the Drive, (2) fix the npm cache globally, or (3) scoped
-  `--cache /tmp/...` override in a revised prompt. Planner recommends (3). No new
-  implementation prompt is published until the owner answers and
-  `state/watchers/paused.flag` is cleared.

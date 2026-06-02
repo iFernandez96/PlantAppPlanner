@@ -78,17 +78,3 @@ confirm the 8 tests fail red → commit → push (two commits total).
 - Implementation returns results via
   `scripts/exchange-create-implementation-report.sh <id> <src-dir>` (add `--blocked`
   with a `BLOCKED.md` if it needs an owner decision).
-
-## Listener live + Option B BLOCKED (2026-06-01)
-- Planner background listener is **RUNNING** (PID in
-  `state/watchers/planner-listener.json`) and **PAUSED**, watching
-  `exchange/implementation-inbox/`.
-- The implementation Claude returned a **BLOCKED** report for `0001-option-b`:
-  `npm install` failed `ENOTDIR` because `~/.npm` → unmounted external Drive. No
-  PlantApp mutation (still `b2836ca`, clean).
-- **Owner decision pending** — `exchange/owner-needed/0001-option-b/DECISION.md`
-  (option 1 mount Drive / 2 fix cache globally / 3 scoped `--cache` override;
-  planner recommends 3). No new implementation prompt until the owner answers.
-- **Resume after the owner answers:** for option 3 the planner first revises +
-  republishes the Option B prompt; then clear `state/watchers/paused.flag`.
-- Inspect: `bash scripts/list-listeners.sh`. Stop: `bash scripts/stop-planner-listener.sh`.

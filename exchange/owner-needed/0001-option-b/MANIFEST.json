@@ -1,8 +1,0 @@
-{
-  "id": "0001-option-b",
-  "kind": "owner-needed",
-  "status": "open",
-  "producer": "planner",
-  "createdUtc": "2026-06-01T23:59:37Z",
-  "files": ["DECISION.md"]
-}

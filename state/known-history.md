@@ -91,9 +91,3 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   (`git@github.com:iFernandez96/PlantAppPlanner.git`) and pushed `master`.
   Next step set to Option B (care-engine red-first tests #7–#14), pending the
   `npm install` decision.
-- **2026-06-01** — Standalone-verification gate (PD-05), atomic exchange protocol
-  (PD-06), and the planner background listener landed. Implementation Claude
-  attempted Option B and returned a **BLOCKED** report (`npm install` `ENOTDIR` —
-  `~/.npm` → unmounted external Drive); no PlantApp change (still `b2836ca`).
-  Planner published owner-needed packet `0001-option-b` and paused the listener
-  pending the owner's unblock choice (mount Drive / fix cache / scoped `--cache`).
