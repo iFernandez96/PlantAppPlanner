@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **Beginner wizard built (`0042`) + device-walkthrough done (first-run PASSed end-to-end). Owner: replace self-drawn icons with sourced ones → `0043` IN FLIGHT (CC0 crop SVGs + Material Symbols). Then a copy sweep (detail screen leaks dev data). Backend still UP for re-review. FCM deferred.** |
+| **Snapshot** | 2026-06-02 — **Wizard built + device-PASS; sourced icons `0043`✅. NOW: modern UI overhaul — owner picked "Verdant Glasshouse"; Codex generated the theme; `0044` (theme foundation) IN FLIGHT. Backend still UP. FCM deferred.** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
 | **Local HEAD / origin/master** | `369f2f06dcc6bc8019cf051b40228e01a0746b89` (`369f2f0`) — in sync, clean |
@@ -192,9 +192,14 @@ beautiful / modern" (pivoted away from accessibility-first framing — content s
 but the LOOK is modern/premium). Using **Codex** (per owner; `[[using-codex-cli]]`): generated 3
 modern directions (`reviews/theme-directions-modern.md`) — **Verdant Glasshouse** (codex rec:
 conservatory glass/blur, Fraunces+Manrope), **Midnight Botanical** (editorial dark, Cormorant+Plus
-Jakarta), **Wildflower Pop** (playful, Bricolage+DM Sans). **Awaiting owner pick**, then build the
-`:design-system` theme (currently bare default M3) + apply across screens. `:design-system/Theme.kt`
-today = `MaterialTheme(content)` only (no color/type/shape).
+Jakarta), **Wildflower Pop** (playful, Bricolage+DM Sans). Owner picked **Verdant Glasshouse**. **Codex generated the theme code** (Color/Type/Shape/Theme),
+planner-reviewed. **`0044-verdant-glasshouse-theme` PUBLISHED/IN FLIGHT** — build `:design-system`
+(full light+dark M3 schemes + Fraunces/Manrope OFL fonts + modern shapes + `PlantAppTheme(darkTheme,
+content)`, no dynamic color) → re-skins the whole app via tokens. Vision ALIGNED-WITH-NOTES; guardian
+BLOCKED then PASS after fixes (expected-failure section, git-add scoped to `:design-system/`,
+FontVariation weights, font-integrity check). → then **device review** (icons + theme together) →
+**signature components** (glass hero cards, dew-drop progress, motion, leaf imagery) + **copy sweep**
+(detail-screen slug/engine-text/ISO, friendly sign-in, confirm echoes pot).
 → **copy sweep (queued)** — fixes from the walkthrough:
   - **Plant DETAIL leaks dev data (worst):** shows the scientific slug `solanum-lycopersicum` (not
     "Tomato"), raw engine rationale ("base interval 2d adjusted by container factor 1; baseline <ISO>"),
