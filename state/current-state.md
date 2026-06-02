@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **Modern UI overhaul: Verdant Glasshouse theme `0044`✅ (on-device review done). Owner: "whole app needs a backdrop." Codex generated backdrop+glass → `0045` (app-wide backdrop/glass + fix lavender tiles + serif titles) IN FLIGHT. Backend UP. FCM deferred.** |
+| **Snapshot** | 2026-06-02 — **UI overhaul: theme `0044`✅ + app-wide backdrop/glass `0045`✅ (`ae60aea`, ready for device review). NEW EPIC: plant-catalog (~75 pilot) + cited care data + icons + backend RAG AI — Phase 1 list DONE (`scratch/catalog/pilot-list.md`), awaiting owner OK to run Phase 2 cited-research fan-out. Backend UP. FCM deferred.** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
 | **Local HEAD / origin/master** | `369f2f06dcc6bc8019cf051b40228e01a0746b89` (`369f2f0`) — in sync, clean |

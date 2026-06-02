@@ -1,0 +1,30 @@
+# Handoff 0045-app-backdrop-glass — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD   -> 70c6be9892538624817d39df623e04bf07b1ffc0 == origin/master
+$ git status --short                        -> (android/.kotlin build artifact only)
+$ ls ~/Android/Sdk/platforms                -> android-34/35/36/36.1 (SDK OK)
+
+## Implement
+# design-system/Background.kt (new, verbatim): PlantAppBackground = linear backdrop + radial top glow (light/dark)
+# design-system/GlassCard.kt (new, verbatim): translucent Card + clickable GlassCard(onClick)
+# app/MainActivity.kt: PlantAppTheme { PlantAppBackground { PlantAppNavHost(...) } } (+ import)
+# PlantListScreen: Scaffold containerColor=Transparent; TopAppBar transparent + headlineSmall title; PlantRow -> GlassCard (clickable on text kept)
+# AddPlantWizard: Scaffold transparent + serif title; Tile Card -> GlassCard(onClick) (de-lavender); tags/logic kept
+# PlantDetailScreen: Scaffold transparent + serif title; CareTaskCard + AdvisoryRow -> GlassCard; ENGINE_VERSION_BADGE Surface kept; tags kept
+
+## Gate
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :design-system:assembleDebug :feature-inventory:testDebugUnitTest :app:assembleDebug --no-daemon
+  -> BUILD SUCCESSFUL ; feature-inventory 20 tests / 0 failures
+
+## Device APK (LAN -P) for owner review
+$ ./gradlew :app:assembleDebug -Pplantapp.apiBaseUrl=http://10.0.0.179:3000/ -Pplantapp.authBaseUrl=http://10.0.0.179:54321/
+  -> app-debug.apk 19134116 bytes, mtime 2026-06-02 14:05:00 -0700
+
+## Commit + push
+$ git add android/design-system/ android/feature-inventory/ android/app/
+$ git commit -m "feat(ui): app-wide themed backdrop + glass surfaces (Verdant Glasshouse); fix lavender wizard tiles + serif app-bar titles"
+  [master ae60aea] 6 files changed, 160 insertions(+), 25 deletions(-)
+$ git push origin master       -> 70c6be9..ae60aea
+$ git rev-parse origin/master  -> ae60aea075aac3c89ebe82c2b49887eea7a6992c
+$ git show --stat HEAD | grep -c raster / local.properties  -> 0 / 0

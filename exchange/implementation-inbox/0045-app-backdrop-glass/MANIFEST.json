@@ -1,0 +1,8 @@
+{
+  "id": "0045-app-backdrop-glass",
+  "kind": "report",
+  "status": "done",
+  "producer": "implementation",
+  "createdUtc": "2026-06-02T21:06:09Z",
+  "files": ["REPORT.md","COMMANDS.log","VERIFICATION.md"]
+}
