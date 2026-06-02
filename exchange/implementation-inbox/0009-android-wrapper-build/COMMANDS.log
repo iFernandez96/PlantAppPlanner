@@ -1,0 +1,49 @@
+# Handoff 0009-android-wrapper-build — commands (in order), app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline + env
+$ git fetch origin && git rev-parse HEAD     -> 603869e6cf111957083042ce2b2dd4ce6ec2e1cf
+$ git status --short                          -> (empty)
+$ echo $ANDROID_HOME; ls $ANDROID_HOME/platforms   -> /home/israel/Android/Sdk ; android-34 android-36 android-36.1
+$ java -version                               -> openjdk 21.0.11
+$ command -v gradle                           -> (none)
+$ ls $ANDROID_HOME/build-tools                -> 34.0.0 35.0.0 36.0.0 37.0.0
+$ grep compileSdk android/app/build.gradle.kts -> compileSdk = 35 (targetSdk 35, minSdk 26)
+
+## Provide Gradle 8.11.1 + install android-35
+$ cd /tmp && curl -fsSL -o gradle-8.11.1-bin.zip https://services.gradle.org/distributions/gradle-8.11.1-bin.zip && unzip -q -o gradle-8.11.1-bin.zip
+  -> /tmp/gradle-8.11.1/bin/gradle  (Gradle 8.11.1)
+$ yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platforms;android-35"
+  -> installed; platforms now android-34 android-35 android-36 android-36.1
+
+## Generate wrapper
+$ cd android && /tmp/gradle-8.11.1/bin/gradle wrapper --gradle-version 8.11.1 --distribution-type bin
+  BUILD SUCCESSFUL ; wrote gradlew, gradlew.bat, gradle/wrapper/gradle-wrapper.jar
+
+## COMMIT 1 — wrapper
+$ git add android/gradlew android/gradlew.bat android/gradle/wrapper/gradle-wrapper.jar
+$ git commit -m "chore(android): generate Gradle wrapper"
+  [master d0ec682] 3 files changed, 346 insertions(+)
+$ git push origin master   -> 603869e..d0ec682
+
+## Assemble (first attempt FAILED — environment, not code)
+$ cd android && ./gradlew :app:assembleDebug
+  RuntimeException: Timeout waiting for exclusive access to ~/.gradle/wrapper/dists/.../gradle-8.11.1-bin.zip
+  # cause: ~/.gradle -> /media/israel/Drive/Linux/gradle (slow Drive); a stuck earlier
+  #        `./gradlew --version` (PID 285164) held the dist lock; concurrent download contention.
+$ pgrep -af gradle   -> found stuck GradleWrapperMain --version (285164) + /tmp gradle daemon (279478)
+$ kill 285164 285161 279478 ; pkill -f "GradleWrapperMain --version"   -> clean
+$ rm -f /media/israel/Drive/Linux/gradle/wrapper/dists/gradle-8.11.1-bin/*/gradle-8.11.1-bin.zip.lck
+$ mkdir -p /tmp/plantapp-gradle-home
+
+## Assemble (retry with local GRADLE_USER_HOME on SSD)
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :app:assembleDebug --console=plain --no-daemon
+  ... :app:assembleDebug ...
+  BUILD SUCCESSFUL in 5m 10s
+  106 actionable tasks: 101 executed, 5 from cache
+$ ls android/app/build/outputs/apk/debug/app-debug.apk   -> 11,351,810 bytes
+
+## Scope / cleanliness
+$ git status --short        -> (empty)
+$ git check-ignore android/app/build android/.gradle android/local.properties  -> all ignored
+$ git rev-parse origin/master  -> d0ec682b1d3e086ea8d7d35d61a404a74dd45f21
+# No commit 2: no Gradle/version fixes were needed.

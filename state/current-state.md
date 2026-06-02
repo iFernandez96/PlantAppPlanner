@@ -7,7 +7,7 @@
 | **Snapshot** | 2026-06-02 — **Slice 1 backend DOD complete (#1–#20)**; loop paused for owner decision |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `603869e6cf111957083042ce2b2dd4ce6ec2e1cf` (`603869e`) — in sync, clean |
+| **Local HEAD / origin/master** | `d0ec682b1d3e086ea8d7d35d61a404a74dd45f21` (`d0ec682`) — in sync, clean |
 
 ## 🎉 Slice 1 backend is DOD-complete (#1–#20), all green
 - Schema validation #1–#6 · deterministic care-engine #7–#14 · seed catalog · DB schema +
@@ -17,15 +17,27 @@
 - `npm test` **50/50**, `npm run test:int` **20/20**, typecheck clean @ `8f588af`.
 - Exchange handoffs `0001`–`0007` all ✓ (each since `0006` vision-checked ALIGNED).
 
-## Next: owner chose "b, then a"
-- **b (done, verified):** `603869e` — `npm run lint` passes (16→0) via
-  `tsconfig.eslint.json`; build tsconfig untouched; unit 50/50; no production logic changed.
-- **a1 (IN FLIGHT):** `0009-android-wrapper-build` — generate the Gradle wrapper + assemble
-  the 6-module skeleton. System `gradle` missing (a1 bootstraps it); SDK/cmdline-tools/
-  emulator/licenses present; Java 21. Vision-check N/A (toolchain). Most blocker-prone step
-  (first Android build — long downloads, possible SDK-component installs/licenses).
-- **a2 (next):** `:network` Retrofit DTOs + Compose screens (`:feature-inventory`: add/list/
-  detail) + UI tests #21–#24 (Robolectric preferred). Vision-checked for real (product surface).
+## Next: "b, then a" — a1 done, PAUSED on an API-contract decision
+- **b** ✓ (`603869e`) `npm run lint` passes (16→0).
+- **a1** ✓ (`d0ec682`) Gradle wrapper committed + `:app:assembleDebug` BUILD SUCCESSFUL
+  (compileSdk 35; `platforms;android-35` installed). Toolchain proven. Build with
+  `GRADLE_USER_HOME=/tmp/plantapp-gradle-home` (`~/.gradle` is on the slow external Drive).
+- **⚠️ PAUSED before a2 — API-contract decision (owner).** API responses don't conform to
+  the camelCase shared-schemas: `GET /plants[/:id][/tasks]` return raw **snake_case** DB
+  rows; `POST /plants` returns `task` camelCase (engine output) but `plant` snake_case — the
+  same CareTask has two shapes. Shared-schemas (camelCase) are the stated cross-boundary
+  contract (D-06: Android validates DTOs against them). Building Android DTOs now bakes in
+  the inconsistency. Options:
+  - **(A, recommended)** Conform all API responses to the camelCase shared-schemas (snake→
+    camel mapping + integration tests validating responses against `shared-schemas/*` via
+    Ajv). Then a2 builds on a clean contract.
+  - **(B)** Make snake_case the wire contract (also make `POST` `task` snake_case for
+    consistency; treat shared-schemas as DB-mirrors / add a separate wire schema).
+  - **(C)** Proceed to a2 against the current API, mapping per-endpoint in Android (not
+    recommended — bakes in the inconsistency).
+  No prompt pending / no watcher armed until the owner chooses.
+- **a2 (after decision):** `:network` Retrofit DTOs + Compose screens (`:feature-inventory`:
+  add/list/detail) + UI tests #21–#24 (Robolectric). Vision-checked for real.
 
 Original options (for reference):
 - **(a) Android UI slice #21–#24** — completes Slice 1's "owner adds plants on a device"

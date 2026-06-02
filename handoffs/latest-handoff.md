@@ -123,11 +123,16 @@ confirm the 8 tests fail red → commit → push (two commits total).
   paths untouched).
 - **Owner chose "b, then a" (2026-06-02).** Round 8 (b) done: `603869e` — lint passes
   (16→0) via `tsconfig.eslint.json`; build tsconfig untouched; unit 50/50; verified.
-- **Round 9 (a1) in flight:** published `0009-android-wrapper-build` — generate the Gradle
-  wrapper + assemble the 6-module skeleton (system gradle missing; SDK/cmdline-tools/
-  emulator/licenses present; Java 21). Vision-check N/A (toolchain). Watcher armed. Most
-  blocker-prone step (first Android build). **a2 next:** `:network` DTOs + Compose screens
-  (`:feature-inventory`) + UI tests #21–#24 (Robolectric preferred) — vision-check a2 for real.
+- **Round 9 (a1) done (2026-06-02):** `0009-android-wrapper-build` → `d0ec682`: Gradle
+  wrapper committed; `:app:assembleDebug` BUILD SUCCESSFUL (compileSdk 35; android-35
+  installed); no feature code/forbidden deps; backend untouched. Build with
+  `GRADLE_USER_HOME=/tmp/plantapp-gradle-home` (`~/.gradle` on the Drive).
+- **PAUSED before a2 — API-contract decision (owner):** API responses don't conform to the
+  camelCase shared-schemas — GET endpoints return snake_case DB rows; POST `task` is
+  camelCase but `plant` snake_case (same CareTask, two shapes). Options: **(A, rec)** conform
+  responses to camelCase shared-schemas (+ Ajv response-validation tests); (B) snake_case
+  wire contract; (C) proceed + map in Android (not rec). The vision-alignment gate surfaced
+  this. No prompt pending / no watcher armed until the owner picks.
 - **Tracked issue:** `npm run lint` fails (pre-existing ESLint↔tsconfig project mismatch;
   `tests/**` not in the TS project). Not gated; needs a small config handoff if wanted.
 - **New gate:** every published prompt is vision-checked vs `../PlantApp/ChatHistory.md`

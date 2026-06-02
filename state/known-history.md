@@ -66,8 +66,8 @@ Verified from `git log --oneline` on 2026-05-31. The full history is 20 commits;
 - `8f588af` feat(api): add plant list/get/delete endpoints (RLS + cascade) — 2026-06-02; **#1–#20 green** (test:int 20/20, unit 50/50)
 
 ## Phase 12 — Backend lint hygiene + Android toolchain (post-DOD)
-- `603869e` chore(backend): fix ESLint TypeScript project config so lint passes ← **HEAD / origin/master** — 2026-06-02; lint 16→0 via `tsconfig.eslint.json`; build tsconfig untouched; unit 50/50
-- *(in flight)* `0009-android-wrapper-build` (a1) — generate Gradle wrapper + assemble the 6-module skeleton
+- `603869e` chore(backend): fix ESLint TypeScript project config so lint passes — 2026-06-02; lint 16→0 via `tsconfig.eslint.json`; build tsconfig untouched; unit 50/50
+- `d0ec682` chore(android): generate Gradle wrapper ← **HEAD / origin/master** — 2026-06-02; a1: wrapper committed, `:app:assembleDebug` BUILD SUCCESSFUL (compileSdk 35, android-35 installed)
 
 ## Accepted decisions (canonical record in `docs/slice-01-decision-log.md`)
 
@@ -154,3 +154,8 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   (16→0, `tsconfig.eslint.json`). a1 (`0009-android-wrapper-build`: Gradle wrapper +
   skeleton assemble) published, in flight; a2 = `:network` DTOs + Compose screens + UI
   tests #21–#24 next.
+- **2026-06-02** — a1 landed (`d0ec682`): Gradle wrapper + skeleton assembles
+  (`:app:assembleDebug` OK, compileSdk 35). **Paused before a2** on an API-contract
+  decision: API responses are snake_case / inconsistent vs the camelCase shared-schemas;
+  owner to choose conform-to-camelCase (rec) vs snake-wire vs proceed-and-map. The
+  vision-alignment gate surfaced this.
