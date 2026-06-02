@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b ALL)✅; next = 3c sign-in (grounding; likely owner decision)** |
+| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b ALL)✅; 3c=email-OTP (owner); (3c-net) IN FLIGHT (`0026`)** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
 | **Local HEAD / origin/master** | `8d5187490e9171cf32a62c42a1ff2530bdd2dd0b` (`8d51874`) — in sync, clean |
@@ -52,10 +52,14 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
       via `createContainer(name,volumeLiters,material,drainage)`; validation moves onto selection)
       — ✅ DONE (`0025`, `8d51874`): InventoryScreensTest 9/9, assemble OK; verified vs real git
       (all 3 raw-id fields removed). **3b COMPLETE — add-plant fully selector-driven, no raw-id fields.**
-    - **Next: 3c Supabase magic-link sign-in → DataStore token.** Grounding the existing auth
-      wiring (`:data` SettingsStore, `:network` PlantAppApiFactory interceptor); **likely needs an
-      owner decision** (auth approach: supabase-kt SDK vs hand-rolled GoTrue OTP + deep-link; new
-      dep; redirect/deep-link config). 3d advisory→accept→CareTask after.
+    - **3c sign-in — owner chose EMAIL OTP CODE (2026-06-02):** email → GoTrue `/auth/v1/otp`
+      (6-digit code) → enter code → `/auth/v1/verify` → token → existing `SettingsStore.setToken`
+      plumbing. Dependency-free (Retrofit/OkHttp/kotlinx), no deep-link/manifest. Decomposed
+      net→data→ui: **3c-net IN FLIGHT (`0026`)** — `:network` `SupabaseAuthApi` (otp+verify) +
+      DTOs + factory (apikey header, auth base URL) + round-trip tests → 3c-data (`AuthRepository`
+      + config anon-key/auth-URL + token write) → 3c-ui (sign-in screen + VM + `:app` gating).
+      Local-dev anon key is the public well-known local-stack JWT (safe to commit); real project
+      URL/key configurable. 3d advisory→accept→CareTask after.
       (Gate note: `:domain` is a JVM module → `:domain:test`, not `:domain:testDebugUnitTest`.)
     - 3c Supabase magic-link sign-in → DataStore token. 3d advisory→accept→CareTask flow.
   - **(2) Automated emulator e2e smoke** (instrumented). **Human device-acceptance (real plants on

@@ -17,8 +17,9 @@ container selector + `createContainer` present; `:network`/`:data`/`:domain`/bac
 `local.properties` not committed. `InventoryScreensTest` 9/9 (updated #22/#24 + 2 new container
 tests), `:app:assembleDebug` SUCCESSFUL.
 
-**"Do all" loop status.** (1)✅ (3a)✅ (3b-network)✅ (3b-data)✅ (3b-ui a/b/c)✅ — **3b (Android
-add-plant selectors) COMPLETE; the form is fully selector-driven.** **Next = 3c sign-in: PAUSED
-for an owner decision** on the auth approach (no prompt published / no watcher armed). Token
-plumbing already exists (`SettingsStore.setToken` → `AuthTokenProvider` → OkHttp interceptor);
-missing = a sign-in UI that obtains a token; needs the Supabase anon key + auth URL on device.
+**"Do all" loop status.** (1)✅ (3a)✅ (3b-network)✅ (3b-data)✅ (3b-ui a/b/c)✅ — **3b COMPLETE;
+form fully selector-driven.** **3c sign-in: owner chose EMAIL OTP CODE.** **3c-net
+`0026-android-auth-network` published & IN FLIGHT:** `:network` `SupabaseAuthApi` (GoTrue
+otp+verify) + DTOs + factory (public anon apikey header; BASIC logging — no email/OTP/token in
+logs). Gate: `:network:testDebugUnitTest`. Vision ALIGNED. Watcher armed for `0026`. (3c-data +
+3c-ui follow.)
