@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **Beginner add-plant WIZARD built & verified (`0041` model + `0042` screen, `5f1e7ce`): 3-step, custom non-emoji icons, jargon form deleted, tests green. Next: owner device-review of the wizard, then the copy sweep. (Full-stack on-device PASS earlier; FCM deferred.)** |
+| **Snapshot** | 2026-06-02 — **Beginner wizard built (`0042`) + device-walkthrough done (first-run PASSed end-to-end). Owner: replace self-drawn icons with sourced ones → `0043` IN FLIGHT (CC0 crop SVGs + Material Symbols). Then a copy sweep (detail screen leaks dev data). Backend still UP for re-review. FCM deferred.** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
 | **Local HEAD / origin/master** | `369f2f06dcc6bc8019cf051b40228e01a0746b89` (`369f2f0`) — in sync, clean |
@@ -180,8 +180,23 @@ defaults; verified, only `:feature-inventory`) → **H2 `0042` ✅ DONE (`5f1e7c
 drawables, `AddPlantScreen` deleted, `WizardIcons` mapping, emoji `categoryIcon` removed; hardening
 applied (reuse-not-duplicate, select-by-identity, Add disabled until ids resolve); `:feature-inventory`
 20 tests green, assemble OK; verified vs real git. Icons are **simple placeholders** (refine later).
-→ **owner device review** of the wizard (needs LAN-APK rebuild + Fastify + owner ufw — pending owner
-choice) → **copy sweep** (sign-in/list/detail + friendly advisory wording). (FCM deferred/owner-gated.)
+→ **device walkthrough DONE** (first-run, real S24 Ultra; backend re-stood-up: Fastify task
+`bukr6ufh1`, ufw open): full flow PASSed (sign-in via Mailpit OTP 200 → empty list → wizard →
+Tomato/Balcony/5-gal → CareTask + advisory → all 200/201; screenshots `device-evidence/W01–W12`).
+→ **icon upgrade `0043` IN FLIGHT** (owner: source online, not self-drawn): CC0 open-crop-icons
+species + Material Symbols pots/locations; vision ALIGNED-WITH-NOTES + guardian PASS.
+→ **copy sweep (queued)** — fixes from the walkthrough:
+  - **Plant DETAIL leaks dev data (worst):** shows the scientific slug `solanum-lycopersicum` (not
+    "Tomato"), raw engine rationale ("base interval 2d adjusted by container factor 1; baseline <ISO>"),
+    an "engine v0.1.0" badge, ISO timestamps → hide/translate to plain ("Water by Jun 4").
+  - Confirm screen should **echo the pot choice** (currently only species+location).
+  - Sign-in: add a "we emailed you a 6-digit code" instruction + a send confirmation.
+  - Advisory: drop the "MEDIUM ·" severity prefix; friendly wording.
+  - (Icons handled by `0043`.)
+
+## Device backend (left UP for the icon re-review) — teardown pending
+Fastify `bukr6ufh1` on `0.0.0.0:3000`; Supabase running; ufw open (owner re-added). After the icon
+re-review: stop Fastify + owner re-closes ufw. (FCM deferred/owner-gated.)
 **Icons (owner decision): NO EMOJI — custom per-species vector drawables.** `0041` shipped an emoji
 `categoryIcon`; **`0042` removes it** and bundles original, distinct, recognizable vector drawables
 per species (+ pot/location icons), mapped `profileId→drawable`. (No open vector set covers these

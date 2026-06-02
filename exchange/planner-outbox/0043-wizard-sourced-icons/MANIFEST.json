@@ -1,0 +1,9 @@
+{
+  "id": "0043-wizard-sourced-icons",
+  "kind": "prompt",
+  "status": "ready",
+  "producer": "planner",
+  "createdUtc": "2026-06-02T20:03:28Z",
+  "sourceFile": "next-implementation-prompt.md",
+  "files": ["PROMPT.md"]
+}

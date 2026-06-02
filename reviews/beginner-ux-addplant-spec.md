@@ -11,13 +11,14 @@ tiles · add-plant first (then a copy sweep) · pot sizes labeled "how pots are 
 ### Step 1 — "What are you growing?"
 - Grid of big tiles, one per catalog species from `getPlantProfiles()`: **icon (by category) +
   common name** (`commonNames.first()`). Search box if the list grows.
-- **Icons = custom per-species vector drawables (NO emoji — owner decision 2026-06-02).** Each of
-  the 5 species gets a distinct, recognizable, **original** simple vector drawable (line/flat style)
-  bundled in `:feature-inventory` res/drawable + a generic plant fallback; pots + locations get
-  matching simple vector icons. (No openly-licensed set covers tomato/strawberry/passion-fruit/
-  tomatillo without being emoji art, so author original vectors — no license risk.) Map
-  `profileId → drawable` (presentation map, fallback for unknown). **The emoji `categoryIcon` from
-  `0041` is removed.** Owner gives final visual approval on-device; icon refinement is an easy follow-up.
+- **Icons (NO emoji). SUPERSEDED 2026-06-02:** owner directive after the device review — **"do not
+  create your own svg icons; find them online and include them."** So instead of authoring originals
+  (`0042`'s hand-drawn placeholders were weak — identical pot for all 6 sizes), `0043` sources **real
+  openly-licensed icons**: **species (5)** from `openfarmcc/open-crop-icons` (**CC0**: tomato, basil,
+  strawberry, tomatillo + `generic-plant` for passion fruit) → vector drawables; **pots (6) +
+  locations (4)** from **Material Symbols** (Apache-2.0) via `material-icons-extended`, mapped to
+  **distinct** glyphs (bucket/window-box/raised-bed must differ). `profileId → drawable` map,
+  fallback for unknown. Emoji `categoryIcon` removed in `0042`. Owner approves the look on-device.
 - Picks `profileId`.
 
 ### Step 2 — "Where will it live?"
