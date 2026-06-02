@@ -52,3 +52,5 @@ and the baseline SHA.
 - If the change needs an install/build/migration, make that an **explicit owner
   approval gate** in the prompt — never silently include it.
 - Run the `no-mutation-guardian` mental checklist before finalizing.
+- After writing/publishing, run the `vision-alignment-reviewer` against
+  `../PlantApp/ChatHistory.md` (product vision); revise or escalate on drift.

@@ -65,7 +65,9 @@ Real app on GitHub: `github.com/iFernandez96/PlantApp` — **public**, default b
 3. Update `reviews/latest-repo-review.md` after any repo review.
 4. Update `state/current-state.md` and `state/known-history.md` when state moves.
 5. Update `github-checks/latest-github-check.md` after any GitHub check.
-6. Produce the next prompt in `prompts/next-implementation-prompt.md`.
+6. Produce the next prompt in `prompts/next-implementation-prompt.md`, then
+   **sanity-check it against the product vision** (`../PlantApp/ChatHistory.md`) with the
+   `vision-alignment-reviewer` before handing it off; revise or escalate on drift.
 7. Write `handoffs/latest-handoff.md` before ending the session.
 8. Commit the planner repo.
 

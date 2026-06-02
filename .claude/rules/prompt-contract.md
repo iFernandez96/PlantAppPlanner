@@ -44,4 +44,7 @@ by diff and grep."
   exchange outbox with `scripts/exchange-create-planner-prompt.sh <id>
   prompts/next-implementation-prompt.md` (PD-06). Published `<id>/` dirs are
   immutable — supersede with a new id, never edit in place.
+- After writing/publishing a prompt, run the `vision-alignment-reviewer` to
+  sanity-check it against the product vision (`../PlantApp/ChatHistory.md`); revise or
+  escalate to the owner on drift before the implementation proceeds.
 - Run the `no-mutation-guardian` checklist before finalizing.
