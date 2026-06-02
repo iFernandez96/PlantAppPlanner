@@ -1,0 +1,36 @@
+# Handoff 0044-verdant-glasshouse-theme — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD   -> c485afc52f3e687c138ec4ac106dae7e1d7a237e == origin/master
+$ git status --short                        -> (android/.kotlin build artifact only)
+$ ls ~/Android/Sdk/platforms                -> android-34/35/36/36.1 (SDK OK)
+
+## Fonts (OFL) + licenses
+$ mkdir -p android/design-system/src/main/res/font android/design-system/FONT_LICENSES
+$ curl -fsSL ".../ofl/fraunces/Fraunces[SOFT,WONK,opsz,wght].ttf" -o .../res/font/fraunces.ttf   -> 360440 bytes
+$ curl -fsSL ".../ofl/manrope/Manrope[wght].ttf"                  -o .../res/font/manrope.ttf    -> 165420 bytes
+$ curl -fsSL ".../ofl/{fraunces,manrope}/OFL.txt" -> FONT_LICENSES/{Fraunces,Manrope}-OFL.txt
+$ file .../res/font/*.ttf  -> both TrueType Font data (valid)
+
+## Theme files (src/main/kotlin/.../designsystem/)
+# Color.kt: VerdantLight/DarkColorScheme (full M3 roles, brand palette)
+# Type.kt: Fraunces/Manrope FontFamily via FontVariation.weight(n) (@OptIn ExperimentalTextApi) + PlantAppTypography
+# Shape.kt: PlantAppShapes 8/12/18/24/28dp
+# Theme.kt (replaced): PlantAppTheme(darkTheme=isSystemInDarkTheme(), content) -> MaterialTheme(scheme/type/shapes), dynamic color OFF
+
+## Gate
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :design-system:assembleDebug :feature-inventory:testDebugUnitTest :app:assembleDebug --no-daemon
+# first run FAILED: FontVariation Font overload is @ExperimentalTextApi -> added @OptIn(ExperimentalTextApi::class)
+  -> BUILD SUCCESSFUL ; feature-inventory 20 tests / 0 failures ; both TTFs in res/font/
+
+## Device APK (LAN -P) for owner review
+$ ./gradlew :app:assembleDebug -Pplantapp.apiBaseUrl=http://10.0.0.179:3000/ -Pplantapp.authBaseUrl=http://10.0.0.179:54321/
+  -> app-debug.apk 19134116 bytes, mtime 2026-06-02 13:43:14 -0700
+
+## Commit + push
+$ git add android/design-system/
+$ git commit -m "feat(design-system): Verdant Glasshouse theme (M3 color schemes + Fraunces/Manrope type + shapes)"
+  [master 70c6be9] 8 files changed, 332 insertions(+), 4 deletions(-)
+$ git push origin master       -> c485afc..70c6be9
+$ git rev-parse origin/master  -> 70c6be9892538624817d39df623e04bf07b1ffc0
+$ git show --stat HEAD | grep -c raster / local.properties  -> 0 / 0 ; only android/design-system/**

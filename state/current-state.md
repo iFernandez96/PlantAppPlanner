@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **Wizard built + device-PASS; sourced icons `0043`✅. NOW: modern UI overhaul — owner picked "Verdant Glasshouse"; Codex generated the theme; `0044` (theme foundation) IN FLIGHT. Backend still UP. FCM deferred.** |
+| **Snapshot** | 2026-06-02 — **Modern UI overhaul: Verdant Glasshouse theme `0044`✅ (on-device review done). Owner: "whole app needs a backdrop." Codex generated backdrop+glass → `0045` (app-wide backdrop/glass + fix lavender tiles + serif titles) IN FLIGHT. Backend UP. FCM deferred.** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
 | **Local HEAD / origin/master** | `369f2f06dcc6bc8019cf051b40228e01a0746b89` (`369f2f0`) — in sync, clean |
@@ -196,10 +196,18 @@ Jakarta), **Wildflower Pop** (playful, Bricolage+DM Sans). Owner picked **Verdan
 planner-reviewed. **`0044-verdant-glasshouse-theme` PUBLISHED/IN FLIGHT** — build `:design-system`
 (full light+dark M3 schemes + Fraunces/Manrope OFL fonts + modern shapes + `PlantAppTheme(darkTheme,
 content)`, no dynamic color) → re-skins the whole app via tokens. Vision ALIGNED-WITH-NOTES; guardian
-BLOCKED then PASS after fixes (expected-failure section, git-add scoped to `:design-system/`,
-FontVariation weights, font-integrity check). → then **device review** (icons + theme together) →
-**signature components** (glass hero cards, dew-drop progress, motion, leaf imagery) + **copy sweep**
-(detail-screen slug/engine-text/ISO, friendly sign-in, confirm echoes pot).
+BLOCKED then PASS after fixes. **✅ DONE (`0044`, `70c6be9`)**: OFL fonts (TrueType-verified) +
+FontVariation weights + dynamic-color-off; `:feature-inventory` 20 green; verified scoped.
+- **Device review of the theme DONE** (themed APK installed; agent walked sign-in→list→wizard→detail
+  + dark mode; screenshots `device-evidence/T01–T08`). **Theme reads cohesive** (cream/green/teal,
+  Fraunces serif content headings, rounded). **Findings:** (a) surfaces FLAT with no backdrop; (b)
+  **wizard tiles render default lavender** (off-theme); (c) app-bar titles were sans not serif.
+- **Owner: "whole app needs a background/backdrop + modern color scheme."** Codex generated the
+  backdrop+glass code (planner-reviewed). **`0045-app-backdrop-glass` PUBLISHED/IN FLIGHT** —
+  `PlantAppBackground` (theme-aware gradient + glow) + `GlassCard` in `:design-system`, wrap NavHost,
+  transparent Scaffolds, **fix lavender tiles** (→ GlassCard/green-tinted), **serif app-bar titles**.
+  Vision ALIGNED-WITH-NOTES + guardian PASS. → device review (light+dark) → optional hero/leaf
+  imagery + **copy sweep** (detail slug/engine-text/ISO, friendly sign-in, confirm echoes pot).
 → **copy sweep (queued)** — fixes from the walkthrough:
   - **Plant DETAIL leaks dev data (worst):** shows the scientific slug `solanum-lycopersicum` (not
     "Tomato"), raw engine rationale ("base interval 2d adjusted by container factor 1; baseline <ISO>"),
