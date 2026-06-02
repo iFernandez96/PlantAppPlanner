@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all": (1)✅ (2)✅ (3)✅ — only (4) Slice 3 left; Slice 3 opener IN FLIGHT (`0034`)** |
+| **Snapshot** | 2026-06-02 — **"do all": (1)✅ (2)✅ (3)✅; Slice 3 opener✅; WorkManager local-notif IN FLIGHT (`0035`)** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `da020e3abdc3bd4ada2d2ec5c4ec39a8f1a53e58` (`da020e3`) — in sync, clean |
+| **Local HEAD / origin/master** | `79944a53e76bf85a91b085fc78f030da41053e9f` (`79944a5`) — in sync, clean |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·

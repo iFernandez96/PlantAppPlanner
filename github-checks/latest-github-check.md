@@ -4,23 +4,22 @@
 
 | Question | Answer |
 |---|---|
-| Latest `origin/master` | `da020e3` — test(android): Robolectric NavHost smoke for the gated sign-in -> list -> detail -> accept journey |
-| Local == origin/master? | ✅ yes (`da020e3` both sides) |
-| `0033` commits | `da020e3` (single commit; 3 files `:feature-inventory` test-only, +267) |
+| Latest `origin/master` | `79944a5` — feat(domain): Slice 3 plan + deterministic computeReminders reminder policy |
+| Local == origin/master? | ✅ yes (`79944a5` both sides) |
+| `0034` commits | `79944a5` (single commit; 3 files: slice-03 doc + `:domain` policy + test, +222) |
 | Uncommitted changes? | none (clean; git-ignored `android/local.properties` may exist locally) |
 | CI / workflows / checks / PRs / issues | **none** — no CI, no open PRs, no open issues |
 | Default branch | `master` |
 
-`0033` verified vs real git: `git diff d1bda81 da020e3` = only `android/feature-inventory/**`
-(build.gradle test dep + `NavSmokeFakes.kt` + `NavSmokeTest.kt`); **no `src/main`** of any module;
-`local.properties` not committed. `:feature-inventory` 16→18, all green.
+`0034` verified vs real git: only `docs/slice-03-reminders-plan.md` + `android/domain/**`
+(ReminderPolicy + test); pure (no `Instant.now`/Android import — only a doc comment mentions it);
+D-13 + FCM STOP gate recorded in the doc; `:domain` 2→9.
 
-**🎉 Backlog (1)+(2)+(3) COMPLETE** — selector-driven add-plant · email-OTP sign-in + gating ·
-advisory→accept→CareTask e2e · Robolectric NavHost smoke.
-
-**Slice 3 STARTED.** **`0034-slice3-opener` published & IN FLIGHT:** `docs/slice-03-reminders-plan.md`
-+ pure deterministic `computeReminders` reminder policy in `:domain` (red-first; **no**
-WorkManager/notification/permission/dep yet). Gate: `:domain:test`. Vision ALIGNED-WITH-NOTES
-(D-09 honored — on-device delivery timing, backend care computation; ratified D-13-style in the
-doc; FCM STOP gate preserved). Watcher armed for `0034`. **Next:** WorkManager local notification
-path (new deps + `POST_NOTIFICATIONS`) → app-open scheduling → **STOP for owner Firebase/FCM setup.**
+**Slice 3 underway.** Opener `0034` ✅. **`0035-workmanager-local-reminders` published & IN
+FLIGHT:** `ReminderWorker` (inputData-driven, permission-guarded) + `ReminderScheduler` (unique
+delayed work per spec) + WorkManager dep + `POST_NOTIFICATIONS` + channel; Robolectric
+`WorkManagerTestInitHelper` scheduling tests. Gate: `:data:testDebugUnitTest` + `:app:assembleDebug`.
+**Vision ALIGNED** (ChatHistory lines 1/167-168/175/177/556) **+ no-mutation guardian PASS**.
+**Local-only — FCM STOP gate intact** (Forbidden bans google-services). Watcher armed for `0035`.
+**Next:** app-open scheduling + runtime `POST_NOTIFICATIONS` request → **STOP for owner Firebase/FCM
+setup.**

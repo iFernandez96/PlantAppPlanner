@@ -1,0 +1,30 @@
+# Handoff 0034-slice3-opener — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD   -> da020e3abdc3bd4ada2d2ec5c4ec39a8f1a53e58 == origin/master
+$ git status --short                        -> (empty)
+$ ls ~/Android/Sdk/platforms                -> android-34/35/36/36.1 (SDK OK)
+
+## Implement (red-first)
+# test: android/domain/src/test/.../ReminderPolicyTest.kt (7 cases; kotlin-test-junit; java.time)
+# fn:   android/domain/src/main/.../reminder/ReminderPolicy.kt (ReminderSpec + computeReminders;
+#        pure, no Instant.now(); filter pending + dueAt>=now-staleAfter; trigger=dueAt-leadTime; skip unparseable)
+# doc:  docs/slice-03-reminders-plan.md (goal, in/out scope, STOP gates, D-13, red-first sequence, past-trigger note)
+
+## First run: 1 failure
+#   zero-lead test compared triggerAtUtc (canonical ISO "...07:00:00Z") to raw dueAt ("...07:00:00.000Z");
+#   Instant.toString() drops .000 millis. FIX: assert Instant.parse(trigger) == Instant.parse(dueAt).
+#   Policy unchanged (canonical output is correct; dueAt still echoed verbatim).
+
+## Gate
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :domain:test --no-daemon
+  BUILD SUCCESSFUL in 7s
+  ReminderPolicyTest 7/7 ; InventoryModelsTest 2/2 ; :domain total 2 -> 9
+
+## Commit + push
+$ git add docs/slice-03-reminders-plan.md android/domain/
+$ git commit -m "feat(domain): Slice 3 plan + deterministic computeReminders reminder policy"
+  [master 79944a5] 3 files changed, 222 insertions(+)
+$ git push origin master       -> da020e3..79944a5
+$ git rev-parse origin/master  -> 79944a53e76bf85a91b085fc78f030da41053e9f
+$ git show --stat HEAD | grep -c local.properties  -> 0

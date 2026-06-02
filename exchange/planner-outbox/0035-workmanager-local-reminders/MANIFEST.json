@@ -1,0 +1,9 @@
+{
+  "id": "0035-workmanager-local-reminders",
+  "kind": "prompt",
+  "status": "ready",
+  "producer": "planner",
+  "createdUtc": "2026-06-02T15:48:50Z",
+  "sourceFile": "next-implementation-prompt.md",
+  "files": ["PROMPT.md"]
+}

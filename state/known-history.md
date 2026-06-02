@@ -358,3 +358,11 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   (D-09 honored — delivery timing on-device, care computation backend; ratified as D-13-style in
   the doc; FCM STOP gate preserved; no permission/dep yet). Next: WorkManager local notification
   path (new deps + `POST_NOTIFICATIONS`) → app-open scheduling → STOP for owner Firebase/FCM.
+- **2026-06-02** — `0034` ✅ landed (`79944a5`): `docs/slice-03-reminders-plan.md` (scope + STOP
+  gates + **D-13** ratified) + pure deterministic `computeReminders` in `:domain` (`ReminderSpec`;
+  filters pending, stale-window, lead time; no `Instant.now`/random). `:domain` 2→9. 3 files
+  (doc + `:domain`). Verified vs real git (pure; `Instant.now` only in a comment). Published
+  `0035-workmanager-local-reminders` (Slice 3 step 2; in flight): `ReminderWorker` +
+  `ReminderScheduler` + WorkManager dep + `POST_NOTIFICATIONS` + channel; Robolectric scheduling
+  tests. Vision ALIGNED (cited ChatHistory lines 1/167-168/175/177/556) + **no-mutation guardian
+  PASS**. Local-only; FCM STOP gate intact; runtime-perm UI + app-open wiring deferred to next.
