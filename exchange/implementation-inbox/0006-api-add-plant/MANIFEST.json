@@ -1,0 +1,8 @@
+{
+  "id": "0006-api-add-plant",
+  "kind": "report",
+  "status": "done",
+  "producer": "implementation",
+  "createdUtc": "2026-06-02T01:16:09Z",
+  "files": ["REPORT.md","COMMANDS.log","VERIFICATION.md"]
+}

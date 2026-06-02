@@ -1,0 +1,53 @@
+# Handoff 0006-api-add-plant — commands (in order), app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline + harness
+$ git fetch origin && git rev-parse HEAD     -> 670ebaf9c68d5325de0058dcdc7ccf1eefce35b6
+$ git status --short                          -> (empty)
+$ npm_config_cache=/tmp/plantapp-npx-cache npx --yes supabase status        -> running
+$ npm_config_cache=/tmp/plantapp-npx-cache npx --yes supabase status -o env  -> API_URL, ANON_KEY, SERVICE_ROLE_KEY (JWT), DB_URL (redacted; never committed)
+# consulted Fastify + supabase-js v2 API (createClient global headers, auth.admin.createUser, signInWithPassword, getUser)
+
+## COMMIT 1 — deps + ADRs
+$ cd backend && npm install fastify @supabase/supabase-js   -> fastify ^5.8.5, @supabase/supabase-js ^2.106.2
+# wrote docs/adr/0005-backend-web-framework.md, docs/adr/0006-api-auth.md
+$ git add backend/package.json backend/package-lock.json docs/adr/0005-backend-web-framework.md docs/adr/0006-api-auth.md
+$ git commit -m "chore(backend): add Fastify + supabase-js; ADRs for framework and API auth"
+  [master 118660a] 4 files changed, 717 insertions(+), 4 deletions(-)
+$ git push origin master   -> 670ebaf..118660a
+
+## COMMIT 2 (red) — API integration tests
+# wrote backend/tests/integration/plants-api.integration.test.ts (app.inject; admin createUser + signIn; dynamic import ../../src/app.js)
+$ set -a; eval "$(... supabase status -o env)"; set +a
+$ export SUPABASE_URL=$API_URL SUPABASE_ANON_KEY=$ANON_KEY SUPABASE_SERVICE_ROLE_KEY=$SERVICE_ROLE_KEY
+$ cd backend && npm run test:int
+  FAIL tests/integration/plants-api.integration.test.ts
+    Error: Failed to load url ../../src/app.js — Does the file exist?   (5 skipped)
+  Test Files  1 failed | 2 passed (3)
+       Tests  12 passed | 5 skipped (17)     # desired red
+$ git add backend/tests/integration/plants-api.integration.test.ts
+$ git commit -m "test(api): add Slice 1 add-plant integration tests (#15–#18)"
+  [master 3b263d1] 1 file changed, 174 insertions(+)
+$ git push origin master   -> 118660a..3b263d1
+
+## COMMIT 3 (green) — Fastify server
+# wrote backend/src/{config.ts,auth.ts,app.ts}
+$ cd backend && npm run typecheck    -> clean
+$ npm run test:int                    # first run: 16 passed | 1 failed (401 test got 400: body-validation ran before preHandler)
+# fix: switched auth hook from preHandler -> onRequest (runs before body validation) in src/app.ts
+$ npm run typecheck                   -> clean
+$ npm run test:int
+  ✓ core-tables.integration.test.ts (9)
+  ✓ garden-spaces-schema.integration.test.ts (3)
+  ✓ plants-api.integration.test.ts (5)
+  Test Files  3 passed (3)
+       Tests  17 passed (17)           # green
+$ npm test
+       Tests  50 passed (50)           # unit unaffected
+$ npm run lint                         # 15 PRE-EXISTING parse errors (test/config files not in tsconfig project); ZERO src/ files; not a handoff gate
+
+$ git diff --quiet HEAD -- backend/care-engine/ shared-schemas/ supabase/migrations/ backend/tests/   -> all UNCHANGED
+$ git add backend/src/
+$ git commit -m "feat(api): add Fastify server + inventory endpoints and add-plant CareTask flow"
+  [master 1cd2eac] 3 files changed, 331 insertions(+)
+$ git push origin master   -> 3b263d1..1cd2eac
+$ git rev-parse origin/master   -> 1cd2eac8354427c8afe24de9304cda594d4de53e

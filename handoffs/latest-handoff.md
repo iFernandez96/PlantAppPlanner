@@ -111,6 +111,15 @@ confirm the 8 tests fail red → commit → push (two commits total).
 - **Round 5 (A2) done (2026-06-02):** `0005-db-core-tables` → `e2c3795` (red) + `670ebaf`
   (green): 4 tables + RLS + seeded `plant_profiles`; 12 integration tests green; unit
   50/50; planner-verified.
-- **Round 6 (A3a) in flight:** published `0006-api-add-plant` (Fastify + ADRs +
-  add-plant→CareTask flow + #15–#18) and armed the watcher. A3b next: #19 RLS isolation +
-  #20 DELETE cascade. Owner pre-approved through A; framework = Fastify (planner's call).
+- **Round 6 (A3a) done (2026-06-02):** `0006-api-add-plant` → `118660a`/`3b263d1`/`1cd2eac`:
+  Fastify + ADRs 0005/0006 + add-plant→CareTask API + auth(RLS) + #15–#18; integration
+  17/17, unit 50/50; planner-verified; vision-checked ALIGNED.
+- **Round 7 (A3b) in flight:** published `0007-api-read-delete` (`GET /plants`,
+  `GET /plants/:id`, `DELETE /plants/:id` + #19 RLS isolation + #20 cascade), vision-checked
+  ALIGNED, watcher armed. Closes Slice 1 backend DOD (#1–#20).
+- **After A3b:** STOP and ask owner — (a) Android UI #21–#24, (b) lint-config cleanup, or
+  (c) close Slice 1 at backend boundary.
+- **Tracked issue:** `npm run lint` fails (pre-existing ESLint↔tsconfig project mismatch;
+  `tests/**` not in the TS project). Not gated; needs a small config handoff if wanted.
+- **New gate:** every published prompt is vision-checked vs `../PlantApp/ChatHistory.md`
+  (`reviews/vision-checks.md`); `0006` + `0007` both ALIGNED.

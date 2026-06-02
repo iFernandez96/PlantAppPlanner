@@ -54,7 +54,12 @@ Verified from `git log --oneline` on 2026-05-31. The full history is 20 commits;
 
 ## Phase 9 — Slice 1 core tables (milestone A2)
 - `e2c3795` test(db): add Slice 1 core-tables integration test — 2026-06-02; red
-- `670ebaf` feat(db): add Slice 1 core tables with RLS + seed profiles ← **HEAD / origin/master** — 2026-06-02; 4 tables + RLS + 5 seeded profiles; 12 integration tests green, unit 50/50
+- `670ebaf` feat(db): add Slice 1 core tables with RLS + seed profiles — 2026-06-02; 4 tables + RLS + 5 seeded profiles; 12 integration tests green
+
+## Phase 10 — Slice 1 backend API (milestone A3a)
+- `118660a` chore(backend): add Fastify + supabase-js; ADRs for framework and API auth — 2026-06-02
+- `3b263d1` test(api): add Slice 1 add-plant integration tests (#15–#18) — 2026-06-02; red
+- `1cd2eac` feat(api): add Fastify server + inventory endpoints and add-plant CareTask flow ← **HEAD / origin/master** — 2026-06-02; integration 17/17, unit 50/50
 
 ## Accepted decisions (canonical record in `docs/slice-01-decision-log.md`)
 
@@ -128,3 +133,8 @@ inputsHash         = sha256(canonical-json(sourceInputs))
 - **2026-06-02** — A2 landed (`e2c3795` red + `670ebaf` green): 4 tables + RLS + seeded
   `plant_profiles`; 12 integration tests green. A3a (`0006-api-add-plant`: Fastify +
   ADRs + add-plant→CareTask + #15–#18) published and in flight.
+- **2026-06-02** — A3a landed (`118660a`/`3b263d1`/`1cd2eac`): Fastify API + auth (RLS) +
+  add-plant→CareTask + #15–#18; integration 17/17, unit 50/50; planner-verified. Added the
+  **vision-alignment gate** (each published prompt checked vs `../PlantApp/ChatHistory.md`;
+  log `reviews/vision-checks.md`). A3b (`0007-api-read-delete`: #19 RLS isolation + #20
+  cascade) published, vision-checked ALIGNED, in flight.

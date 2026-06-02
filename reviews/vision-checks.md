@@ -10,6 +10,7 @@ proceeds. Encoded in `CLAUDE.md` (step 6), `.claude/rules/prompt-contract.md`, a
 | Handoff | Date | Verdict | Note |
 |---|---|---|---|
 | `0006-api-add-plant` | 2026-06-02 | **ALIGNED** (ship as-is) | All 8 principles ok: GardenSpace+Container+PlantInstance first-class; deterministic engine **imported, not reimplemented**; data-driven profile loaded at runtime; backend-only, no keys; no premature AI/photos/space-optimizer; Fastify recorded as a new ADR (D-01 left the web framework unpinned). No scope drift. |
+| `0007-api-read-delete` | 2026-06-02 | **ALIGNED** (ship as-is) | #19 RLS isolation + #20 cascade delete — both explicit Slice 1 plan items (impl-plan #19/#20); `GET/DELETE /plants` in plan backend scope; RLS test *strengthens* privacy; care-engine/migrations forbidden; no AI/photos/space-optimizer pulled in. No drift. |
 
 _Earlier handoffs `0001`–`0005` predate this gate; they were aligned by construction
 (schema validation, deterministic care-engine, seed catalog, DB foundation — all
