@@ -333,3 +333,12 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   `PlantDetailScreen` (container-size/support only) → `PlantDetailViewModel.accept` →
   `acceptAdvisory` → reload + `:app` wiring + Robolectric tests. Vision ALIGNED. **After it,
   backlog (3) UX follow-ups COMPLETE.**
+- **2026-06-02** — `0032` ✅ landed (`d1bda81`): per-advisory **Accept** button on
+  `PlantDetailScreen` (container-size/support only; not pollination) → `PlantDetailViewModel.accept`
+  → `acceptAdvisory` → reload; `:app` DETAIL route wires `onAccept`. `:feature-inventory` 14→16,
+  assemble OK. 5 files, only `feature-inventory|app/**`. Verified vs real git. **🎉 Backlog (3) UX
+  follow-ups COMPLETE** (selector-driven add-plant · email-OTP sign-in + gating ·
+  advisory→accept→CareTask e2e: engine→API→:network/:data→detail Accept). **Paused for owner
+  decision on (2) e2e smoke approach.** Grounding: no instrumented-test scaffolding yet; emulator +
+  system-images (30/34/37) + AVD `Babage_Pixel` are available, so a real `connectedAndroidTest` is
+  feasible (heavy) — vs a JVM/Robolectric NavHost smoke vs deferring to the owner's manual device run.

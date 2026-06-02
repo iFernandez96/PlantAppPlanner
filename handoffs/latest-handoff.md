@@ -18,14 +18,15 @@ auth Json encodeDefaults=true); AuthDtoTest 3/3. 3c (sign-in) COMPLETE: 3c-net `
 support→support, pollination throws); `npm test` 67→72; verified pure & not endpoint-wired.
 3d-api `0030` (`53d093e`) ✅ — `POST /plants/:id/advisories/accept {kind}` → engine → persist one
 care_tasks row; `test:int` 31→35 incl. GET-creates-nothing; verified GET handler has no insert.
-3d-android net+data `0031` (`bfdd946`) ✅ — `:network` `acceptAdvisory` + `AcceptAdvisoryRequest`
-+ `:domain`/`:data` repo + fake + tests (`:network` 16→17, `:data` 10→11). **3d-android-ui IN
-FLIGHT (`0032-android-accept-ui`)** — per-advisory **Accept** button on `PlantDetailScreen`
-(container-size/support only; not pollination) → `PlantDetailViewModel.accept` → `acceptAdvisory`
-→ reload + `:app` wiring + Robolectric tests; vision ALIGNED (explicit user tap; D-09). **Last 3d
-step — after it, backlog (3) UX follow-ups COMPLETE → then (2) e2e smoke (likely an owner
-decision on emulator/AVD) → (4) Slice 3 (FCM creds gate).** Watcher armed for `0032`. PlantApp HEAD
-`bfdd946`. **Structural debt:** sign-in in `:feature-inventory` → `:feature-auth`
+3d complete: net+data `0031` (`bfdd946`) ✅, UI `0032` (`d1bda81`) ✅ — per-advisory Accept button →
+`acceptAdvisory` → reload; `:feature-inventory` 14→16. **🎉 Backlog (3) UX follow-ups COMPLETE**
+(selector-driven add-plant · email-OTP sign-in + gating · advisory→accept→CareTask e2e). **PAUSED
+for owner decision on (2) automated e2e smoke approach** (real `connectedAndroidTest` on the
+existing `Babage_Pixel` AVD vs a JVM/Robolectric NavHost smoke vs defer to the owner's manual
+device run — no instrumented scaffolding exists yet; emulator+images+AVD are available). No prompt
+published / no watcher armed until the owner chooses. Then **(4) Slice 3** (WorkManager local first;
+STOP for owner Firebase/FCM setup). PlantApp HEAD `d1bda81`. **Tripwire:** Drive mounted before any
+`gradlew`/npm/npx. **Gate note:** `:domain` → `:domain:test`. **Structural debt:** sign-in in `:feature-inventory` → `:feature-auth`
 later. **Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate note:** `:domain` →
 `:domain:test`.
 

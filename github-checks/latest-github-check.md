@@ -4,22 +4,24 @@
 
 | Question | Answer |
 |---|---|
-| Latest `origin/master` | `bfdd946` — feat(android): acceptAdvisory network call + repository method |
-| Local == origin/master? | ✅ yes (`bfdd946` both sides) |
-| `0031` commits | `bfdd946` (single commit; 7 files `network`+`domain`+`data`, +48) |
+| Latest `origin/master` | `d1bda81` — feat(android-inventory): accept-advisory action on the plant detail screen |
+| Local == origin/master? | ✅ yes (`d1bda81` both sides) |
+| `0032` commits | `d1bda81` (single commit; 5 files `feature-inventory`+`app`, +77/−5) |
 | Uncommitted changes? | none (clean; git-ignored `android/local.properties` may exist locally) |
 | CI / workflows / checks / PRs / issues | **none** — no CI, no open PRs, no open issues |
 | Default branch | `master` |
 
-`0031` verified vs real git: `git diff 53d093e bfdd946` = only `android/network|domain|data/**`
-(Dtos, PlantAppApi, AcceptAdvisoryDtoTest, InventoryRepository, InventoryRepositoryImpl,
-FakePlantAppApi, InventoryRepositoryImplTest); `:feature-inventory`/`:app`/backend untouched;
-`local.properties` not committed. `:network` 16→17, `:data` 10→11, `:domain` 2 — all green.
+`0032` verified vs real git: `git diff bfdd946 d1bda81` = only `android/feature-inventory/**` +
+`android/app/**` (5 files); Accept button (per-kind tag) + `PlantDetailViewModel.accept` +
+`MainActivity` `onAccept` wiring present; `:network`/`:data`/`:domain`/backend untouched;
+`local.properties` not committed. `:feature-inventory` 14→16, `:app:assembleDebug` SUCCESSFUL.
 
-**"Do all" loop RUNNING.** (1)✅ (3a)✅ (3b)✅ (3c)✅ (3d-engine)✅ (3d-api)✅ (3d-android net+data)✅.
-**3d-android-ui `0032-android-accept-ui` published & IN FLIGHT:** per-advisory Accept button on
-`PlantDetailScreen` (container-size/support only) → `PlantDetailViewModel.accept` →
-`acceptAdvisory` → reload + `:app` wiring + Robolectric tests. Gate:
-`:feature-inventory:testDebugUnitTest` + `:app:assembleDebug`. Vision ALIGNED. Watcher armed for
-`0032`. **After it lands, backlog (3) UX follow-ups is COMPLETE → then (2) e2e smoke (likely an
-owner decision re emulator/AVD) → (4) Slice 3 (FCM creds gate).**
+**🎉 Backlog (3) UX follow-ups COMPLETE** — selector-driven add-plant (`0019`–`0025`), email-OTP
+sign-in + gating (`0026`–`0028`), advisory→accept→CareTask end-to-end (`0029`–`0032`).
+
+**Loop PAUSED for an owner decision on (2) automated e2e smoke** (no prompt published / no watcher
+armed). Grounding: no instrumented-test scaffolding yet; emulator binary + system-images
+(30/34/37) + AVD `Babage_Pixel` are available — so a real `connectedAndroidTest` is feasible
+(heavy/flaky, needs emulator + backend up) vs a JVM/Robolectric NavHost smoke (fast, deterministic,
+not on-device) vs defer to the owner's manual device run. Then **(4) Slice 3** (watering reminders;
+WorkManager local first; STOP for owner Firebase/FCM setup).

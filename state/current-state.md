@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b)✅ (3c)✅ (3d-engine/api/net+data)✅; (3d-android-ui) IN FLIGHT (`0032`) = last 3d step** |
+| **Snapshot** | 2026-06-02 — **"do all": (1)✅ (3) UX✅ ALL — next = (2) e2e smoke (PAUSED for owner decision), then (4) Slice 3** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `bfdd946108ffb31b45f66e80177e9aff9734e949` (`bfdd946`) — in sync, clean |
+| **Local HEAD / origin/master** | `d1bda811a2a27978a5b4a5b7354c5c49d13620d7` (`d1bda81`) — in sync, clean |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
@@ -77,10 +77,16 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
       assertion; verified vs real git (GET handler has no insert). **3d-android net+data ✅ DONE
       (`0031`, `bfdd946`)** — `:network` `acceptAdvisory` + `AcceptAdvisoryRequest` + `:domain`/`:data`
       repo method + fake + tests (`:network` 16→17, `:data` 10→11); verified vs real git.
-      **3d-android-ui IN FLIGHT (`0032`)** — per-advisory **Accept** button on `PlantDetailScreen`
-      (container-size/support only; not pollination) → `PlantDetailViewModel.accept` →
-      `acceptAdvisory` → reload + `:app` wiring + Robolectric tests. **Last 3d step; after it,
-      backlog (3) UX follow-ups COMPLETE.**
+      **3d-android-ui ✅ DONE (`0032`, `d1bda81`)** — per-advisory **Accept** button on
+      `PlantDetailScreen` (container-size/support only) → `PlantDetailViewModel.accept` →
+      `acceptAdvisory` → reload + `:app` wiring; `:feature-inventory` 14→16, assemble OK; verified
+      vs real git. **🎉 Backlog (3) UX follow-ups COMPLETE** (selector-driven add-plant · email-OTP
+      sign-in + gating · advisory→accept→CareTask e2e).
+    - **(2) Automated emulator e2e smoke — PAUSED for owner decision** (how to run it: real
+      `connectedAndroidTest` on an AVD/emulator vs a JVM/Robolectric-level smoke vs defer to the
+      owner's manual device run). Human "add my real plants on my device" acceptance stays with owner.
+    - **(4) Slice 3** — watering reminders; WorkManager local path first, then **STOP for owner
+      Firebase/FCM setup**.
       (Gate note: `:domain` is a JVM module → `:domain:test`, not `:domain:testDebugUnitTest`.)
   - **(2) Automated emulator e2e smoke** (instrumented). **Human device-acceptance (real plants on
     a real phone) stays with the owner — I can't do that part.**

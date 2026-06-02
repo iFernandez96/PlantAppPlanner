@@ -1,0 +1,26 @@
+# Handoff 0032-android-accept-ui — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD   -> bfdd946108ffb31b45f66e80177e9aff9734e949 == origin/master
+$ git status --short                        -> (empty)
+$ ls ~/Android/Sdk/platforms                -> android-34/35/36/36.1 (SDK OK)
+
+## Implement (red-first)
+# test: PlantDetailAdvisoriesTest.kt +showsAcceptButtonForContainerSizeAndInvokesCallback +noAcceptButtonForPollination
+# InventoryTestTags.kt: +ADVISORY_ACCEPT_BUTTON_PREFIX = "advisory_accept_"
+# PlantDetailScreen.kt: +onAccept param; thread to AdvisoriesSection/AdvisoryRow; Accept Button for kind in {container-size,support}
+# InventoryViewModels.kt: PlantDetailViewModel.accept(plantId, kind) -> acceptAdvisory then loadFor (reload on both paths)
+# app MainActivity.kt: DETAIL composable passes onAccept = { kind -> vm.accept(plantId, kind) }
+
+## Gate
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest :app:assembleDebug --no-daemon
+  BUILD SUCCESSFUL in 27s
+  PlantDetailAdvisoriesTest 2->4 ; feature-inventory total 14->16 ; :app:assembleDebug SUCCESSFUL
+
+## Commit + push
+$ git add android/feature-inventory/ android/app/
+$ git commit -m "feat(android-inventory): accept-advisory action on the plant detail screen"
+  [master d1bda81] 5 files changed, 77 insertions(+), 5 deletions(-)
+$ git push origin master       -> bfdd946..d1bda81
+$ git rev-parse origin/master  -> d1bda811a2a27978a5b4a5b7354c5c49d13620d7
+$ git show --stat HEAD | grep -c local.properties  -> 0
