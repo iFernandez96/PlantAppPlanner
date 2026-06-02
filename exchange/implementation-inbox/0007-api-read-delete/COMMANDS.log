@@ -1,0 +1,37 @@
+# Handoff 0007-api-read-delete — commands (in order), app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline + harness
+$ git fetch origin && git rev-parse HEAD     -> 1cd2eac8354427c8afe24de9304cda594d4de53e
+$ git status --short                          -> (empty)
+$ npm_config_cache=/tmp/plantapp-npx-cache npx --yes supabase status   -> running
+
+## COMMIT 1 (red) — #19/#20 tests
+# wrote backend/tests/integration/plants-rls-delete.integration.test.ts (2 users via admin API; pg cascade check)
+$ set -a; eval "$(... supabase status -o env)"; set +a
+$ export SUPABASE_URL=$API_URL SUPABASE_ANON_KEY=$ANON_KEY SUPABASE_SERVICE_ROLE_KEY=$SERVICE_ROLE_KEY
+$ cd backend && npm run test:int
+  FAIL tests/integration/plants-rls-delete.integration.test.ts (3 tests)
+    (list/get/delete routes absent -> own-plant read 404, delete 404, survival 404)
+  Test Files  1 failed | 3 passed (4)
+       Tests  3 failed | 17 passed (20)        # desired red
+$ git add backend/tests/integration/plants-rls-delete.integration.test.ts
+$ git commit -m "test(api): add Slice 1 RLS-isolation + delete-cascade tests (#19, #20)"
+  [master cfb3751] 1 file changed, 163 insertions(+)
+$ git push origin master   -> 1cd2eac..cfb3751
+
+## COMMIT 2 (green) — list/get/delete endpoints
+# edited backend/src/app.ts: added GET /plants, GET /plants/:id (404 when hidden), DELETE /plants/:id (204/404, FK cascade)
+$ cd backend && npm run typecheck    -> clean
+$ npm run test:int
+  ✓ garden-spaces-schema (3) ✓ core-tables (9) ✓ plants-api (5) ✓ plants-rls-delete (3)
+  Test Files  4 passed (4)
+       Tests  20 passed (20)           # green (#19 isolation + #20 cascade pass)
+$ npm test
+       Tests  50 passed (50)           # unit unaffected
+
+$ git diff --quiet HEAD -- backend/care-engine/ shared-schemas/ supabase/migrations/ backend/src/auth.ts backend/src/config.ts   -> all UNCHANGED
+$ git add backend/src/app.ts
+$ git commit -m "feat(api): add plant list/get/delete endpoints (RLS + cascade)"
+  [master 8f588af] 1 file changed, 37 insertions(+)
+$ git push origin master   -> cfb3751..8f588af
+$ git rev-parse origin/master   -> 8f588af90c69b569db1abdeceb5d97020b56b6f6

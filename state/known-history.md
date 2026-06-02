@@ -59,7 +59,11 @@ Verified from `git log --oneline` on 2026-05-31. The full history is 20 commits;
 ## Phase 10 — Slice 1 backend API (milestone A3a)
 - `118660a` chore(backend): add Fastify + supabase-js; ADRs for framework and API auth — 2026-06-02
 - `3b263d1` test(api): add Slice 1 add-plant integration tests (#15–#18) — 2026-06-02; red
-- `1cd2eac` feat(api): add Fastify server + inventory endpoints and add-plant CareTask flow ← **HEAD / origin/master** — 2026-06-02; integration 17/17, unit 50/50
+- `1cd2eac` feat(api): add Fastify server + inventory endpoints and add-plant CareTask flow — 2026-06-02; integration 17/17, unit 50/50
+
+## Phase 11 — Slice 1 backend DOD complete (milestone A3b)
+- `cfb3751` test(api): add Slice 1 RLS-isolation + delete-cascade tests (#19, #20) — 2026-06-02; red
+- `8f588af` feat(api): add plant list/get/delete endpoints (RLS + cascade) ← **HEAD / origin/master** — 2026-06-02; **#1–#20 green** (test:int 20/20, unit 50/50)
 
 ## Accepted decisions (canonical record in `docs/slice-01-decision-log.md`)
 
@@ -138,3 +142,7 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   **vision-alignment gate** (each published prompt checked vs `../PlantApp/ChatHistory.md`;
   log `reviews/vision-checks.md`). A3b (`0007-api-read-delete`: #19 RLS isolation + #20
   cascade) published, vision-checked ALIGNED, in flight.
+- **2026-06-02** — A3b landed (`cfb3751`/`8f588af`): plant list/get/delete + #19 RLS
+  isolation + #20 delete cascade. **Slice 1 backend DOD #1–#20 complete** (`npm run
+  test:int` 20/20, unit 50/50, typecheck clean). Loop **paused** for owner decision:
+  Android UI #21–#24 / lint-config cleanup / close Slice 1 at backend boundary.

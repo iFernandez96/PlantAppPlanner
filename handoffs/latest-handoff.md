@@ -117,8 +117,14 @@ confirm the 8 tests fail red → commit → push (two commits total).
 - **Round 7 (A3b) in flight:** published `0007-api-read-delete` (`GET /plants`,
   `GET /plants/:id`, `DELETE /plants/:id` + #19 RLS isolation + #20 cascade), vision-checked
   ALIGNED, watcher armed. Closes Slice 1 backend DOD (#1–#20).
-- **After A3b:** STOP and ask owner — (a) Android UI #21–#24, (b) lint-config cleanup, or
-  (c) close Slice 1 at backend boundary.
+- **Round 7 (A3b) done (2026-06-02):** `0007-api-read-delete` → `cfb3751`/`8f588af`:
+  list/get/delete + #19 RLS isolation + #20 cascade; **Slice 1 backend DOD #1–#20
+  complete** (test:int 20/20, unit 50/50); planner-verified (app.ts additive, protected
+  paths untouched).
+- **LOOP PAUSED — owner decision pending:** (a) Android UI #21–#24 (env: Java 21 ✓,
+  `ANDROID_HOME` ✓, adb ✓, but Gradle wrapper not committed → step 1 = generate wrapper +
+  build skeleton; needs emulator/Robolectric for Compose tests), (b) lint-config cleanup,
+  or (c) close Slice 1 at backend boundary. No prompt pending / no watcher armed.
 - **Tracked issue:** `npm run lint` fails (pre-existing ESLint↔tsconfig project mismatch;
   `tests/**` not in the TS project). Not gated; needs a small config handoff if wanted.
 - **New gate:** every published prompt is vision-checked vs `../PlantApp/ChatHistory.md`
