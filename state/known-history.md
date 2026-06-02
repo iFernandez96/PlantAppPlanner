@@ -245,3 +245,11 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   `0021-android-network-lists-rerun` (identical `:network` scope; baseline updated to expect the
   4 pre-existing uncommitted edits; run gate → commit). **Tripwire:** the Drive must be mounted
   before any Android (`gradlew`) or npm/npx step; it can drop on restart.
+- **2026-06-02** — `0021` ✅ landed (`ce59e5e`): the `0020` `:network` edits gate-verified +
+  committed (`:network` SchemaValidationTest 4→5, BUILD SUCCESSFUL). Only `android/network/**`;
+  `local.properties` not committed. Verified vs real git. **NB:** `0021` added 3 abstract methods
+  to `PlantAppApi` without updating the `:data` test double `FakePlantAppApi` →
+  `:data:testDebugUnitTest` compile is **red** on `ce59e5e` (latent; the `0021` gate only ran
+  `:network`). Published `0022-android-data-lists` (in flight) which fixes it red→green:
+  `:domain` `PlantProfile` + 3 repo read methods, `:data` mapper/impl + `FakePlantAppApi` update
+  + mapping test. Vision-check ALIGNED.
