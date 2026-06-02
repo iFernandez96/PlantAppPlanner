@@ -236,3 +236,12 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   untouched). Item 3b (Android selectors) decomposed network→data→ui; published
   `0020-android-network-lists` (in flight): `:network` `PlantProfileDto` + 3 GET calls +
   networknt schema test. Vision-check ALIGNED.
+- **2026-06-02** — `0020` **BLOCKED at gate**, not code: Android SDK (`~/Android/Sdk` →
+  `/media/israel/Drive/...`), `~/.gradle`, `~/.npm` all dangling — the external Drive was
+  **unmounted after the session restart** (same Drive-symlink class as the earlier npm/gradle
+  blockers). Impl implemented the 4 `:network` files correctly but left them **uncommitted**
+  (gate `:network:testDebugUnitTest` un-runnable), mounted nothing. Owner **re-mounted** the
+  Drive (SDK resolves: android-34/35/36; caches restored). Re-issued as
+  `0021-android-network-lists-rerun` (identical `:network` scope; baseline updated to expect the
+  4 pre-existing uncommitted edits; run gate → commit). **Tripwire:** the Drive must be mounted
+  before any Android (`gradlew`) or npm/npx step; it can drop on restart.

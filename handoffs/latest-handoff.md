@@ -6,10 +6,12 @@
 ## One-line status (2026-06-02)
 "Do all" loop RUNNING. (1) `validate-schemas` ✅ (`0018`, `392ba86`). (3a) list endpoints ✅
 (`0019`, `c7b8c54`) — 3 read-only endpoints + `toPlantProfile`, integration 31/31, verified vs
-real git. (3b) Android selectors decomposed network→data→ui; **3b-network IN FLIGHT
-(`0020-android-network-lists`)** — `:network` `PlantProfileDto` + `getPlantProfiles/
-getGardenSpaces/getContainers` + networknt schema test; vision ALIGNED. Watcher armed for the
-`0020` report. PlantApp HEAD `c7b8c54`, clean.
+real git. (3b) Android selectors decomposed network→data→ui. 3b-network `0020` was **BLOCKED at the gate**
+(Android SDK on the external Drive, unmounted after restart) — impl wrote the 4 `:network` files
+but couldn't run `:network:testDebugUnitTest`, left them uncommitted. Owner **re-mounted** the
+Drive (SDK resolves). **Re-issued as `0021-android-network-lists-rerun`** (same scope; commits the
+pre-existing edits once the gate is green). Watcher armed for the `0021` report. PlantApp HEAD
+`c7b8c54`. **Tripwire:** Drive must be mounted before any `gradlew`/npm/npx step.
 
 ## What this session did
 - Verified Option A on `origin/master` independently (`git show`/`diff`): one file,

@@ -1,0 +1,9 @@
+{
+  "id": "0021-android-network-lists-rerun",
+  "kind": "prompt",
+  "status": "ready",
+  "producer": "planner",
+  "createdUtc": "2026-06-02T06:49:14Z",
+  "sourceFile": "next-implementation-prompt.md",
+  "files": ["PROMPT.md"]
+}

@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all" loop RUNNING; (1)✅ (3a)✅; (3b-network) IN FLIGHT (`0020`)** |
+| **Snapshot** | 2026-06-02 — **"do all" loop RUNNING; (1)✅ (3a)✅; (3b-network) re-run IN FLIGHT (`0021`, after Drive remount)** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
 | **Local HEAD / origin/master** | `c7b8c54fa70163c3e974d50bec5d9fa9f4f3464d` (`c7b8c54`) — in sync, clean |
@@ -34,9 +34,13 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
       (catalog) + `GET /garden-spaces`/`/containers` (RLS) + `toPlantProfile` mapper; integration
       31/31, unit 67/67. Verified vs real git (3 files, protected paths untouched, read-only, RLS).
     - **3b Android selectors — decomposed network→data→ui:**
-      **3b-network IN FLIGHT (`0020`)** (`:network` `PlantProfileDto` + `getPlantProfiles/
-      getGardenSpaces/getContainers` + schema test) → 3b-data (`:domain`/`:data` repo + model +
-      mapper + MockK tests) → 3b-ui (`:feature-inventory` selectors replacing id text fields + UI tests).
+      **3b-network re-run IN FLIGHT (`0021`)** — `0020` was implemented correctly but **BLOCKED
+      at the gate** (Android SDK on the external Drive, unmounted after a session restart). Owner
+      **re-mounted** the Drive (SDK resolves: android-34/35/36); `0021` re-issues the same
+      `:network`-only scope (commits the already-written `PlantProfileDto` + `getPlantProfiles/
+      getGardenSpaces/getContainers` + schema test once `:network:testDebugUnitTest` is green) →
+      3b-data (`:domain`/`:data` repo + model + mapper + MockK tests) → 3b-ui
+      (`:feature-inventory` selectors replacing id text fields + UI tests).
     - 3c Supabase magic-link sign-in → DataStore token. 3d advisory→accept→CareTask flow.
   - **(2) Automated emulator e2e smoke** (instrumented). **Human device-acceptance (real plants on
     a real phone) stays with the owner — I can't do that part.**
