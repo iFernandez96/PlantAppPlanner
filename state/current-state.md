@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b ALL)✅ (3c ALL)✅ (3d-engine/api)✅; (3d-android net+data) IN FLIGHT (`0031`)** |
+| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b)✅ (3c)✅ (3d-engine/api/net+data)✅; (3d-android-ui) IN FLIGHT (`0032`) = last 3d step** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `53d093e0ee570dcaf1e44a926dfb343935f6c7a8` (`53d093e`) — in sync, clean |
+| **Local HEAD / origin/master** | `bfdd946108ffb31b45f66e80177e9aff9734e949` (`bfdd946`) — in sync, clean |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
@@ -74,11 +74,13 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
       **3d-api ✅ DONE (`0030`, `53d093e`)** — `POST /plants/:id/advisories/accept {kind}`:
       recompute advisories (RLS 404), match applicable (400 if absent/unsupported), engine →
       persist one care_tasks row → return CareTask; `test:int` 31→35 incl. GET-creates-nothing
-      assertion; verified vs real git (GET handler has no insert). **3d-android net+data IN FLIGHT
-      (`0031`)** — `:network` `acceptAdvisory` + `AcceptAdvisoryRequest` DTO + `:domain`/`:data`
-      repo method + `FakePlantAppApi` update + tests (net+data combined to avoid the interface-break
-      across handoffs). → 3d-android-ui (detail-screen Accept action). **This is the last 3d step;
-      after it, backlog (3) UX follow-ups COMPLETE.**
+      assertion; verified vs real git (GET handler has no insert). **3d-android net+data ✅ DONE
+      (`0031`, `bfdd946`)** — `:network` `acceptAdvisory` + `AcceptAdvisoryRequest` + `:domain`/`:data`
+      repo method + fake + tests (`:network` 16→17, `:data` 10→11); verified vs real git.
+      **3d-android-ui IN FLIGHT (`0032`)** — per-advisory **Accept** button on `PlantDetailScreen`
+      (container-size/support only; not pollination) → `PlantDetailViewModel.accept` →
+      `acceptAdvisory` → reload + `:app` wiring + Robolectric tests. **Last 3d step; after it,
+      backlog (3) UX follow-ups COMPLETE.**
       (Gate note: `:domain` is a JVM module → `:domain:test`, not `:domain:testDebugUnitTest`.)
   - **(2) Automated emulator e2e smoke** (instrumented). **Human device-acceptance (real plants on
     a real phone) stays with the owner — I can't do that part.**

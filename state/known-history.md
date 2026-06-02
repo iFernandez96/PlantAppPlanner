@@ -326,3 +326,10 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   `AcceptAdvisoryRequest` + `:domain`/`:data` repo method + `FakePlantAppApi` update + tests
   (net+data combined to avoid the interface-break). Vision ALIGNED (D-09: client holds no care
   logic; task server-computed/opaque). After 3d-android-ui, backlog (3) complete.
+- **2026-06-02** — `0031` ✅ landed (`bfdd946`): `:network` `acceptAdvisory` + `AcceptAdvisoryRequest`,
+  `:domain` port, `:data` impl + `FakePlantAppApi` override + tests. `:network` 16→17, `:data`
+  10→11, `:domain` 2. 7 files, only `network|domain|data/**`. Verified vs real git. Published
+  `0032-android-accept-ui` (final 3d step; in flight): per-advisory Accept button on
+  `PlantDetailScreen` (container-size/support only) → `PlantDetailViewModel.accept` →
+  `acceptAdvisory` → reload + `:app` wiring + Robolectric tests. Vision ALIGNED. **After it,
+  backlog (3) UX follow-ups COMPLETE.**

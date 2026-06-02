@@ -1,0 +1,31 @@
+# Handoff 0031-android-accept-netdata — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD   -> 53d093e0ee570dcaf1e44a926dfb343935f6c7a8 == origin/master
+$ git status --short                        -> (empty)
+$ ls ~/Android/Sdk/platforms                -> android-34/35/36/36.1 (SDK OK)
+
+## Implement (red-first)
+# :network Dtos.kt: +@Serializable AcceptAdvisoryRequest(kind: String)
+# :network PlantAppApi.kt: +@POST("plants/{id}/advisories/accept") acceptAdvisory(id, body): CareTaskDto
+# :domain InventoryRepository.kt: +suspend acceptAdvisory(plantId, kind): CareTask
+# :data InventoryRepositoryImpl.kt: +override acceptAdvisory -> api.acceptAdvisory(plantId, AcceptAdvisoryRequest(kind)).toDomain()
+# :data test FakePlantAppApi.kt: +lastAccept; +override acceptAdvisory = task.also { lastAccept = id to body.kind }
+# tests: network/.../AcceptAdvisoryDtoTest.kt (encodes "kind":"container-size" + round-trip)
+#        data/.../InventoryRepositoryImplTest.kt +acceptAdvisoryMapsTheReturnedCareTask
+
+## Gate
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :network:testDebugUnitTest :domain:test :data:testDebugUnitTest --no-daemon
+  BUILD SUCCESSFUL in 19s
+  network: AcceptAdvisoryDtoTest 1/1 ; total 16->17
+  data:    InventoryRepositoryImplTest 7->8 ; data total 10->11
+  domain:  compiles against new port; InventoryModelsTest 2/2 unchanged
+  all prior green
+
+## Commit + push
+$ git add android/network/ android/domain/ android/data/
+$ git commit -m "feat(android): acceptAdvisory network call + repository method"
+  [master bfdd946] 7 files changed, 48 insertions(+)
+$ git push origin master       -> 53d093e..bfdd946
+$ git rev-parse origin/master  -> bfdd946108ffb31b45f66e80177e9aff9734e949
+$ git show --stat HEAD | grep -c local.properties  -> 0

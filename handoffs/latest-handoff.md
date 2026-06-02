@@ -18,11 +18,14 @@ auth Json encodeDefaults=true); AuthDtoTest 3/3. 3c (sign-in) COMPLETE: 3c-net `
 support→support, pollination throws); `npm test` 67→72; verified pure & not endpoint-wired.
 3d-api `0030` (`53d093e`) ✅ — `POST /plants/:id/advisories/accept {kind}` → engine → persist one
 care_tasks row; `test:int` 31→35 incl. GET-creates-nothing; verified GET handler has no insert.
-**3d-android net+data IN FLIGHT (`0031-android-accept-netdata`)** — `:network` `acceptAdvisory` +
-`AcceptAdvisoryRequest` + `:domain`/`:data` repo method + `FakePlantAppApi` update + tests (net+data
-combined to avoid the `0021→0022` interface-break). Vision ALIGNED (D-09: client holds no care
-logic; task server-computed/opaque). → 3d-android-ui (detail-screen Accept action) = **last 3d
-step; then backlog (3) UX COMPLETE.** Watcher armed for `0031`. PlantApp HEAD `53d093e`. **Structural debt:** sign-in in `:feature-inventory` → `:feature-auth`
+3d-android net+data `0031` (`bfdd946`) ✅ — `:network` `acceptAdvisory` + `AcceptAdvisoryRequest`
++ `:domain`/`:data` repo + fake + tests (`:network` 16→17, `:data` 10→11). **3d-android-ui IN
+FLIGHT (`0032-android-accept-ui`)** — per-advisory **Accept** button on `PlantDetailScreen`
+(container-size/support only; not pollination) → `PlantDetailViewModel.accept` → `acceptAdvisory`
+→ reload + `:app` wiring + Robolectric tests; vision ALIGNED (explicit user tap; D-09). **Last 3d
+step — after it, backlog (3) UX follow-ups COMPLETE → then (2) e2e smoke (likely an owner
+decision on emulator/AVD) → (4) Slice 3 (FCM creds gate).** Watcher armed for `0032`. PlantApp HEAD
+`bfdd946`. **Structural debt:** sign-in in `:feature-inventory` → `:feature-auth`
 later. **Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate note:** `:domain` →
 `:domain:test`.
 
