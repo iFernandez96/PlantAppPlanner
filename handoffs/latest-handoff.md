@@ -148,6 +148,16 @@ confirm the 8 tests fail red → commit → push (two commits total).
   — verify on landing; tiny follow-up only if dropped & wanted). Watcher armed.
 - **After a3b:** Slice 1 DOD #1–#24 complete → STOP, write the one-page Slice 1 retro, and
   ask the owner the next direction (do NOT auto-start Slice 2).
+- **Round 13 (a3b) done (2026-06-02) — SLICE 1 ENGINEERING-COMPLETE:** `0013-android-inventory-ui`
+  → `da0eee0`/`a568a4d`: Compose add/list/detail + nav + UI tests #21–#24 (Robolectric 4/4);
+  `:app:assembleDebug` OK; protected paths untouched. **Loop paused.** Retro written
+  (`reviews/slice-1-retro.md`).
+- **Owner decision pending (next session):** (1) device-acceptance run of the 5 real plants
+  (needs API reachable — local Supabase base URL or a deploy); (2) UX follow-ups (real
+  selectors, optional `nickname`/`placement`, sign-in screen); (3) Slice 2 advisories;
+  (4) CI to enforce the suites on GitHub. No prompt pending / no watcher armed until chosen.
+- **Next planner session:** re-fetch (expect `a568a4d`), read the retro, then act on the
+  owner's choice. Resume the ping-pong only when there's a new approved handoff.
 - **Tracked issue:** `npm run lint` fails (pre-existing ESLint↔tsconfig project mismatch;
   `tests/**` not in the TS project). Not gated; needs a small config handoff if wanted.
 - **New gate:** every published prompt is vision-checked vs `../PlantApp/ChatHistory.md`

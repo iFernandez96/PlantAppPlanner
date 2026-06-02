@@ -4,57 +4,36 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **Slice 1 backend DOD complete (#1–#20)**; loop paused for owner decision |
+| **Snapshot** | 2026-06-02 — **Slice 1 DOD #1–#24 engineering-complete; loop paused for owner** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `a99cb755ecdbb76463e394b914a395a2916dcdbf` (`a99cb75`) — in sync, clean |
+| **Local HEAD / origin/master** | `a568a4d4ac746e3d3e9942263af32d5bf75356b2` (`a568a4d`) — in sync, clean |
 
-## 🎉 Slice 1 backend is DOD-complete (#1–#20), all green
-- Schema validation #1–#6 · deterministic care-engine #7–#14 · seed catalog · DB schema +
-  RLS (`garden_spaces`, `plant_profiles` seeded, `containers`, `plant_instances`,
-  `care_tasks`) · Fastify add-plant→CareTask API + auth (request-scoped client → RLS) ·
-  add-plant + validation #15–#18 · RLS isolation #19 · delete cascade #20.
-- `npm test` **50/50**, `npm run test:int` **20/20**, typecheck clean @ `8f588af`.
-- Exchange handoffs `0001`–`0007` all ✓ (each since `0006` vision-checked ALIGNED).
+## 🎉 Slice 1 complete (engineering) — #1–#24 green
+- **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
+  Supabase schema + RLS · Fastify add-plant→CareTask API + auth(RLS) · #15–#18 · RLS
+  isolation #19 · delete cascade #20 · all responses camelCase-conformant (Ajv-locked).
+- **Android:** `:network` Retrofit DTOs (schema-validated) · `:domain`/`:data` repository ·
+  `:feature-inventory` Compose add/list/detail + nav + UI tests #21–#24 (Robolectric).
+- **Tests:** backend unit 50/50, integration 21/21, lint+typecheck clean; Android
+  `:network` 10/10, `:domain` 2/2, `:data` 5/5, `:feature-inventory` 4/4; `:app:assembleDebug` OK.
+- **Retro:** `reviews/slice-1-retro.md`. Exchange handoffs `0001`–`0013` all ✓.
 
-## Next: "b, then a" — a1 done, PAUSED on an API-contract decision
-- **b** ✓ (`603869e`) `npm run lint` passes (16→0).
-- **a1** ✓ (`d0ec682`) Gradle wrapper committed + `:app:assembleDebug` BUILD SUCCESSFUL
-  (compileSdk 35; `platforms;android-35` installed). Toolchain proven. Build with
-  `GRADLE_USER_HOME=/tmp/plantapp-gradle-home` (`~/.gradle` is on the slow external Drive).
-- **A done (`678a488`):** `src/mappers.ts` conforms all responses to camelCase
-  shared-schemas; Ajv integration tests lock it (21/21). Contract gap closed.
-- **a2 done (`f6c8155`):** `:network` DTOs + Retrofit + JVM schema-validation tests (10/10);
-  D-02/D-06; no forbidden deps; `:app:assembleDebug` OK.
-- **a3a done (`a99cb75`):** `:domain` models + `:data` repo over `:network` + DataStore +
-  Hilt; `:domain` 2/2, `:data` 5/5; Room deferred; `:app:assembleDebug` OK.
-- **a3b (IN FLIGHT — closes Slice 1):** `0013-android-inventory-ui` — Compose add/list/detail
-  screens + Hilt ViewModels + nav + UI tests #21–#24 (Robolectric). Vision ALIGNED (minor:
-  plan's optional `nickname`/`placement` form fields — verify on landing).
-- **After a3b:** Slice 1 DOD #1–#24 complete → stop, write the one-page Slice 1 retro, ask
-  the owner re: next direction (do NOT auto-start Slice 2).
-- **a2 (after decision):** `:network` Retrofit DTOs + Compose screens (`:feature-inventory`:
-  add/list/detail) + UI tests #21–#24 (Robolectric). Vision-checked for real.
+## Loop PAUSED — owner decision (no prompt pending, no watcher armed)
+Slice 1's remaining items are the owner's:
+- **Device acceptance** (the plan's human exit criterion): add the 5 real plants on a
+  device and see one water task each — needs the API reachable (local Supabase + base URL,
+  or a deploy).
+- Next direction: (1) device-acceptance run · (2) UX follow-ups (real selectors + optional
+  `nickname`/`placement`; sign-in screen) · (3) Slice 2 advisories · (4) CI. See the retro.
 
-Original options (for reference):
-- **(a) Android UI slice #21–#24** — completes Slice 1's "owner adds plants on a device"
-  DOD. Env (read-only check): Java 21 ✓, `ANDROID_HOME=~/Android/Sdk` ✓, `adb` ✓, but the
-  **Gradle wrapper is not committed** (and no Kotlin source). So step 1 would be
-  generate the wrapper + build the skeleton, then Compose modules + UI tests. Feasible
-  but a real lift; needs an emulator or Robolectric for Compose tests.
-- **(b) Lint-config cleanup** — small handoff: fix the pre-existing ESLint↔`tsconfig`
-  project mismatch so `npm run lint`/`just lint-backend` pass (`tests/**` not in the TS
-  project). Pure hygiene; no behavior change.
-- **(c) Close Slice 1 at the backend boundary** — declare the backend slice done; pause.
+## Deferrals (tracked; not blockers)
+Add-plant form = id text fields (no selectors yet); optional `nickname`/`placement` not in
+the form; no sign-in UI (token via DataStore); no on-device run yet; Room deferred (Slice 3+);
+ViewModels not unit-tested; lint-config fixed but **no CI** enforces the suites on GitHub.
 
-No prompt pending, no watcher armed until the owner chooses.
-
-## Known issue (tracked)
-`npm run lint` fails (pre-existing ESLint↔tsconfig project mismatch; `tests/**` + config
-files not in the TS project; zero `src/**` errors). Not in the test gate. = option (b).
-
-## Workflow
-Autonomous in-session ping-pong (planner ↔ impl; `run_in_background` watchers; impl
-`--dangerously-skip-permissions`). Each published prompt vision-checked vs
-`../PlantApp/ChatHistory.md` (`reviews/vision-checks.md`). DB harness: memory
-`plantapp-local-db-harness`. Planner stops only on a real blocker / owner decision (now).
+## Workflow (durable)
+Autonomous in-session ping-pong (planner ↔ impl via `exchange/` watchers; impl
+`--dangerously-skip-permissions`). Gates: standalone-verification (PD-05), atomic exchange
+(PD-06), vision-alignment vs `../PlantApp/ChatHistory.md` (`reviews/vision-checks.md`). DB +
+gradle harness quirks (external-Drive symlinks): memory `plantapp-local-db-harness`.

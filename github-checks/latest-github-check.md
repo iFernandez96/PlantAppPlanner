@@ -4,16 +4,18 @@
 
 | Question | Answer |
 |---|---|
-| Latest `origin/master` | `a99cb75` — feat(android-domain-data): add inventory domain models + repository over :network |
-| Local == origin/master? | ✅ yes (`a99cb75` both sides) |
-| a3a commits | `0f8c596` (red repo mapping tests) → `a99cb75` (green `:domain`/`:data`) |
+| Latest `origin/master` | `a568a4d` — feat(android-inventory): add add-plant/list/detail screens + nav (Slice 1 UI) |
+| Local == origin/master? | ✅ yes (`a568a4d` both sides) |
+| a3b commits | `da0eee0` (red Compose UI tests #21–#24) → `a568a4d` (green screens + nav) |
 | Uncommitted changes? | none (clean) |
-| CI / workflows / checks / PRs / issues | none |
+| CI / workflows / checks / PRs / issues | **none (no CI)** — local suites are the only gate |
 | Default branch | `master` |
 
-a3a verified: `git diff f6c8155 a99cb75` = only `:domain`/`:data` (models, repo, mappers,
-DataStore, Hilt module, tests); `backend/**`, `shared-schemas/**`, `supabase/**`,
-`:network` source untouched; no forbidden deps; Room deps removed (deferred). `:domain`
-2/2, `:data` 5/5; `:app:assembleDebug` OK. Backend suites unchanged (unit 50/50,
-integration 21/21). No CI; local suites are the gate. Next: a3b
-(`0013-android-inventory-ui`) in flight — Compose screens + UI tests #21–#24 (closes Slice 1).
+a3b verified: `git diff a99cb75 a568a4d` = only `:feature-inventory` / `:app` /
+`:design-system` (+ test-only catalog deps); backend/`shared-schemas`/`supabase`/`:network`/
+`:domain`/`:data` untouched; no forbidden deps (Room entries in the catalog are pre-existing
+and unused). `:feature-inventory:testDebugUnitTest` 4/4 (Robolectric); `:app:assembleDebug` OK.
+
+**Slice 1 DOD #1–#24 engineering-complete.** Full chain green: backend unit 50/50 +
+integration 21/21; Android `:network` 10/10, `:domain` 2/2, `:data` 5/5, UI 4/4. No CI yet
+(candidate follow-up). Loop paused for owner decision (device acceptance + next direction).

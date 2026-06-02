@@ -75,8 +75,11 @@ Verified from `git log --oneline` on 2026-05-31. The full history is 20 commits;
 - `e69f6a0` test(android-network): add Slice 1 DTO + schema-validation tests — 2026-06-02; red
 - `f6c8155` feat(android-network): add Slice 1 Retrofit DTOs + API client — 2026-06-02; `:network` tests 10/10 (networknt schema-valid), `:app:assembleDebug` OK
 - `0f8c596` test(android-data): add Slice 1 repository mapping tests — 2026-06-02; red
-- `a99cb75` feat(android-domain-data): add inventory domain models + repository over :network ← **HEAD / origin/master** — 2026-06-02; `:domain` 2/2, `:data` 5/5, assembleDebug OK; Room deferred
-- *(in flight)* `0013-android-inventory-ui` (a3b) — Compose add/list/detail + UI tests #21–#24 (closes Slice 1)
+- `a99cb75` feat(android-domain-data): add inventory domain models + repository over :network — 2026-06-02; `:domain` 2/2, `:data` 5/5, assembleDebug OK; Room deferred
+
+## Phase 14 — Slice 1 Android UI (a3b) — DOD #1–#24 complete
+- `da0eee0` test(android-inventory): add Slice 1 Compose UI tests (#21–#24) — 2026-06-02; red
+- `a568a4d` feat(android-inventory): add add-plant/list/detail screens + nav (Slice 1 UI) ← **HEAD / origin/master** — 2026-06-02; UI 4/4 (Robolectric), `:app:assembleDebug` OK. **Slice 1 DOD #1–#24 complete** (retro: `reviews/slice-1-retro.md`).
 
 ## Accepted decisions (canonical record in `docs/slice-01-decision-log.md`)
 
@@ -183,3 +186,7 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   `:domain` 2/2 + `:data` 5/5, assembleDebug OK, Room deferred. a3b (`0013-android-inventory-ui`:
   Compose add/list/detail + UI #21–#24) published, vision ALIGNED, in flight — closes Slice 1
   (#1–#24); then a one-page retro + owner decision on Slice 2.
+- **2026-06-02** — a3b landed (`da0eee0`/`a568a4d`): Compose inventory UI + UI tests #21–#24
+  (Robolectric 4/4), `:app:assembleDebug` OK. **Slice 1 DOD #1–#24 engineering-complete.**
+  Loop **paused**; one-page retro written (`reviews/slice-1-retro.md`); owner to decide next
+  (device-acceptance run / UX follow-ups / Slice 2 / CI). 13 handoffs, all green, no regressions.
