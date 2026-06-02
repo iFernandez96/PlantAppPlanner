@@ -1,0 +1,27 @@
+# Handoff 0025-android-container-selector — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline + unblock
+$ git fetch origin && git rev-parse HEAD      -> 5ce6f29cc14a0fb1946dece9b4ff9432e29f2b68 == origin/master
+$ git status --short                           -> (empty)
+$ ls /home/israel/Android/Sdk/platforms        -> android-34/35/36/36.1 (SDK OK)
+
+## Implement
+# InventoryTestTags.kt: + FIELD_CONTAINER_SELECTOR, CONTAINER_CREATE_ITEM, FIELD_NEW_CONTAINER_{NAME,VOLUME,MATERIAL,DRAINAGE}, CONTAINER_CREATE_BUTTON (drop FIELD_CONTAINER_ID; keep CONTAINER_ERROR)
+# AddPlantScreen.kt: + containers + onCreateContainer params; ExposedDropdownMenuBox container selector + create item + inline create form (volume toDoubleOrNull>0, material/drainage non-blank); LaunchedEffect auto-select last; validation: selectedContainer==null -> error; submit containerId = selectedContainer.id; + containerLabel()
+# InventoryViewModels.kt: AddPlantViewModel loads containers in init; + createContainer(...) appends to _containers
+# MainActivity.kt: Routes.ADD collects vm.containers, passes containers + onCreateContainer=vm::createContainer
+# InventoryScreensTest.kt: containers fixture; #22 selects container; #24 uses emptyList(); + "container selector lists existing containers" + "container create path invokes callback"
+
+## Gate
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest :app:assembleDebug --no-daemon
+  BUILD SUCCESSFUL in 26s
+  InventoryScreensTest tests=9 failures=0 ; PlantDetailAdvisoriesTest tests=2 failures=0
+  :app:assembleDebug SUCCESSFUL
+
+## Commit + push
+$ git add android/feature-inventory/ android/app/
+$ git commit -m "feat(android-inventory): container select-or-create for add-plant"
+  [master 8d51874] 5 files changed, 171 insertions(+), 19 deletions(-)
+$ git push origin master        -> 5ce6f29..8d51874
+$ git rev-parse origin/master   -> 8d5187490e9171cf32a62c42a1ff2530bdd2dd0b
+$ git show --stat HEAD | grep -c local.properties   -> 0

@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b-net/data)✅ (3b-ui-a/b)✅; (3b-ui-c container selector) IN FLIGHT (`0025`)** |
+| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b ALL)✅; next = 3c sign-in (grounding; likely owner decision)** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `5ce6f29cc14a0fb1946dece9b4ff9432e29f2b68` (`5ce6f29`) — in sync, clean |
+| **Local HEAD / origin/master** | `8d5187490e9171cf32a62c42a1ff2530bdd2dd0b` (`8d51874`) — in sync, clean |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
@@ -49,8 +49,13 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
       form is name+kind only — no location) — ✅ DONE (`0024`, `5ce6f29`): InventoryScreensTest 7/7,
       assemble OK; verified vs real git (`FIELD_GARDEN_SPACE_ID` removed). **3b-ui-c IN FLIGHT
       (`0025`)** — container **select-or-create** (dropdown from `getContainers()` + inline create
-      via `createContainer(name,volumeLiters,material,drainage)`; validation moves onto selection).
-      After it lands, **3b complete — add-plant fully selector-driven, no raw-id fields.**
+      via `createContainer(name,volumeLiters,material,drainage)`; validation moves onto selection)
+      — ✅ DONE (`0025`, `8d51874`): InventoryScreensTest 9/9, assemble OK; verified vs real git
+      (all 3 raw-id fields removed). **3b COMPLETE — add-plant fully selector-driven, no raw-id fields.**
+    - **Next: 3c Supabase magic-link sign-in → DataStore token.** Grounding the existing auth
+      wiring (`:data` SettingsStore, `:network` PlantAppApiFactory interceptor); **likely needs an
+      owner decision** (auth approach: supabase-kt SDK vs hand-rolled GoTrue OTP + deep-link; new
+      dep; redirect/deep-link config). 3d advisory→accept→CareTask after.
       (Gate note: `:domain` is a JVM module → `:domain:test`, not `:domain:testDebugUnitTest`.)
     - 3c Supabase magic-link sign-in → DataStore token. 3d advisory→accept→CareTask flow.
   - **(2) Automated emulator e2e smoke** (instrumented). **Human device-acceptance (real plants on

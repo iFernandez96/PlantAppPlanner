@@ -276,3 +276,11 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   `0025-android-container-selector` (3b-ui-c, final selector; in flight): container
   select-or-create + validation onto selection. After it lands, 3b is complete (add-plant fully
   selector-driven). Vision-check ALIGNED.
+- **2026-06-02** — `0025` ✅ landed (`8d51874`): container select-or-create (dropdown of
+  `getContainers()` + inline create via `createContainer`); container-required validation moved
+  onto the selection. `InventoryScreensTest` 9/9, assemble OK. 5 files, only `feature-inventory|app/**`.
+  Verified vs real git (all 3 raw-id fields removed). **3b (Android add-plant selectors) COMPLETE
+  — profile (0023) + garden-space (0024) + container (0025), form fully selector-driven.** Next =
+  3c sign-in; paused to ask the owner the auth approach (token plumbing already exists:
+  `SettingsStore.setToken`→`AuthTokenProvider`→OkHttp; missing = a sign-in UI that obtains a token;
+  needs the Supabase anon key + auth URL on device).
