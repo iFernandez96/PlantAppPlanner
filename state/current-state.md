@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all" backlog DONE except owner-gated FCM. Slice 3 LOCAL path COMPLETE (`0037`). Loop PAUSED at the FCM gate — awaiting owner.** |
+| **Snapshot** | 2026-06-02 — **"do all" backlog DONE except owner-gated FCM. Slice 3 LOCAL path ✅. On-device smoke run (real S24 Ultra / Android 16): install/launch/gating/sign-in-UI/WorkManager ✅; full-stack BLOCKED on 3 wiring prereqs. Awaiting owner.** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
 | **Local HEAD / origin/master** | `369f2f06dcc6bc8019cf051b40228e01a0746b89` (`369f2f0`) — in sync, clean |
@@ -113,6 +113,24 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
   Tiny hygiene handoff candidate (`-c ajv-formats` + one `type:"array"`).
 - **Still recommended (Slice 1, not blocking):** on-device acceptance run of the 5 real
   plants (needs the API reachable). See `reviews/slice-1-retro.md`.
+
+## On-device smoke (2026-06-02) — real Samsung SM-S928U1, Android 16 / SDK 36 (wireless adb `10.0.0.166`)
+Ran the queued 13-test suite (`reviews/device-test-suite.md`) via a QA agent → report
+`reviews/device-test-report-2026-06-02.md` + screenshots `reviews/device-evidence/`.
+- **PASS:** T0 connect · T1 install · T2 cold launch (643ms, no crash) + correct unauth gating
+  (fresh→Sign in) · T3 sign-in UI · T12 warm restart. **WorkManager verified working** (DiagnosticsWorker
+  → SUCCESS); `POST_NOTIFICATIONS granted=true`. **No crashes/regressions.**
+- **BLOCKED (full-stack):** T4–T11 behind the first network call. "Send code" → `POST
+  http://10.0.2.2:54321/auth/v1/otp` fails with **`UnknownServiceException: CLEARTEXT communication
+  to 10.0.2.2 not permitted by network security policy`** (shown in-app too).
+- **3 prerequisites to unblock on-device full-stack** (all owner-gated / impl-Claude — planner can't):
+  1. **Source (impl Claude):** debug base URL(s) → LAN `10.0.0.179` **AND** allow cleartext to that
+     host (debug `network-security-config`, or HTTPS). Repointing the URL alone is NOT enough — the
+     cleartext-NSC block fires before the socket. Base URLs are baked at build time.
+  2. **Run** local Supabase + Fastify bound to the LAN (planner barred from `supabase`/builds).
+  3. **Rebuild + reinstall** the APK (impl Claude), then re-run the agent suite.
+- APK tested was the pre-built debug (mtime 09:05, targetSdk 35), trails HEAD `369f2f0` — fine for
+  the smoke; rebuild for the real full-stack pass.
 
 ## Structural debt (tracked; not blockers)
 - **Sign-in lives in `:feature-inventory`** (3c-ui, MVP pragmatism — no new Gradle module). Vision's

@@ -35,7 +35,19 @@ Slice 3 done at the local path). **No prompt published / no watcher armed until 
 "Do all" backlog (1)(2)(3)(4) all delivered except the owner-gated FCM remainder. PlantApp HEAD
 `369f2f0`. **Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate note:** `:domain` →
 `:domain:test`. **Owner manual check available:** run on a 33+ device, grant the permission, confirm
-a reminder fires for a due task. **Tripwire:** Drive mounted before any
+a reminder fires for a due task.
+
+## On-device smoke (2026-06-02)
+Owner directed a real-device test. Connected Samsung SM-S928U1 (Android 16/SDK36) over wireless adb
+(`10.0.0.166:41027`; pair info from `FinanceWebsite/DEV.md`; Maestro 2.6.0 installed, scrcpy needs
+sudo). Queued `reviews/device-test-suite.md`; QA agent ran T0–T12 → `reviews/device-test-report-2026-06-02.md`
++ `reviews/device-evidence/`. **✅ install · cold/warm launch (no crash) · unauth gating · sign-in UI
+· WorkManager working · POST_NOTIFICATIONS granted. ⛔ full-stack BLOCKED at the first network call:
+`CLEARTEXT … to 10.0.2.2 not permitted by network security policy`.** No crashes/regressions.
+**To unblock on-device full-stack (3 prereqs, all impl-Claude/owner — planner can't):** (1) impl-Claude:
+debug base URL → `10.0.0.179` **+** allow cleartext to it (debug `network-security-config` or HTTPS)
+— repointing alone is insufficient; (2) run Supabase+Fastify on the LAN; (3) rebuild+reinstall, re-run
+the agent. **Asked owner whether to proceed.** Loop still paused (FCM gate + this). **Tripwire:** Drive mounted before any
 `gradlew`/npm/npx. **Gate note:** `:domain` → `:domain:test`. **Structural debt:** sign-in in `:feature-inventory` → `:feature-auth`
 later. **Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate note:** `:domain` →
 `:domain:test`.

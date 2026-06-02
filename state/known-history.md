@@ -392,3 +392,14 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   **⏸ Loop PAUSED at the FCM STOP gate — asked the owner** (proceed with FCM [needs Firebase project
   + google-services.json + backend FCM sender + token registration] vs defer / mark Slice 3 done at
   local). **"Do all" backlog (1)(2)(3)(4) all delivered except the owner-gated FCM remainder.**
+- **2026-06-02** — Owner directed an **on-device test** (real Samsung SM-S928U1 / Android 16 / SDK 36
+  over wireless adb; found connect info in `FinanceWebsite/DEV.md`, paired 10.0.0.166, connect port
+  41027; installed Maestro 2.6.0; scrcpy needs sudo — not installed). Queued `reviews/device-test-suite.md`
+  (T0–T12) + ran a QA agent → `reviews/device-test-report-2026-06-02.md` (+ screenshots in
+  `reviews/device-evidence/`). **PASS:** install, cold/warm launch (no crash), unauth gating,
+  sign-in UI, WorkManager init (DiagnosticsWorker SUCCESS), POST_NOTIFICATIONS granted. **BLOCKED:**
+  T4+ at the first network call — `CLEARTEXT communication to 10.0.2.2 not permitted by network
+  security policy` (base URLs baked to emulator loopback; no LAN backend). **New finding:** even
+  repointing the base URL won't unblock without HTTPS or a debug cleartext `network-security-config`.
+  3 prereqs to unblock (impl-Claude base-URL+NSC change · run LAN backend · rebuild+reinstall).
+  No crashes/regressions. Asked owner whether to proceed with the unblock path.
