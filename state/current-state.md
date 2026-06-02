@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **Owner chose "wire it & re-test". On-device full-stack enablement: backend server bootstrap IN FLIGHT (`0038`), then Android device-debug build, then run LAN stack + re-run agent. (Slice 3 LOCAL ✅; FCM still gated.)** |
+| **Snapshot** | 2026-06-02 — **"wire it & re-test": (1) backend server bootstrap ✅ (`0038`, `e95c40e`); (2) Android device-debug build IN FLIGHT (`0039`); then (3) run LAN stack + re-run agent. (Slice 3 LOCAL ✅; FCM gated.)** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
 | **Local HEAD / origin/master** | `369f2f06dcc6bc8019cf051b40228e01a0746b89` (`369f2f0`) — in sync, clean |
@@ -124,15 +124,21 @@ Ran the queued 13-test suite (`reviews/device-test-suite.md`) via a QA agent →
   http://10.0.2.2:54321/auth/v1/otp` fails with **`UnknownServiceException: CLEARTEXT communication
   to 10.0.2.2 not permitted by network security policy`** (shown in-app too).
 - **Unblock path — owner chose "wire it & re-test" (2026-06-02); IN PROGRESS:**
-  1. **Backend server bootstrap — IN FLIGHT (`0038`):** the Fastify app had **no HTTP entry point**
-     (only `app.inject()` in tests) — add `src/server.ts` (`listen 0.0.0.0:PORT`) + `start` script.
-  2. **Android device-debug build (next handoff):** split base URLs — auth → Supabase
-     `10.0.0.179:54321`, PlantApp API → Fastify `10.0.0.179:3000` — via a debug-overridable
-     mechanism (not a committed host IP) + **debug `network-security-config` permitting cleartext**
-     to the LAN host (the device blocker was cleartext-NSC, not connectivity); rebuild.
+  1. **Backend server bootstrap ✅ DONE (`0038`, `e95c40e`):** `src/server.ts` (`listen 0.0.0.0:PORT`)
+     + `start` script; boots → `GET /plants` 401, unit 72/72. Verified vs real git.
+  2. **Android device-debug build — IN FLIGHT (`0039`):** base URLs → `BuildConfig` fields
+     (`-P`-overridable; emulator defaults, **API corrected to Fastify `:3000`** vs the old `:54321`,
+     auth stays Supabase `:54321`); device build passes `-Pplantapp.apiBaseUrl=http://10.0.0.179:3000/
+     -Pplantapp.authBaseUrl=http://10.0.0.179:54321/`. + **debug-only `network-security-config`**
+     permitting cleartext (the device blocker was cleartext-NSC, not connectivity). Impl's verification
+     build = the device-ready APK.
   3. **Run LAN stack + re-test:** planner (owner-approved this session) runs Supabase + the Fastify
      server bound to the LAN; **owner opens `ufw` 54321 + 3000 to the LAN (sudo)**; reinstall APK;
-     re-run the device agent suite (`reviews/device-test-suite.md`).
+     re-run the device agent suite (`reviews/device-test-suite.md`). **Re-close ufw ports after.**
+- **Transport decision (2026-06-02):** owner chose **cleartext-on-LAN for the local device test**
+  (debug-only NSC). **Production stays HTTPS** — release builds keep Android's no-cleartext default;
+  hosted Supabase is HTTPS; a deployed Fastify would be behind TLS. **Tracked requirement: prod = HTTPS.**
+  (Local-HTTPS-via-owner-CA was the alternative; deferred — more setup, not needed for a functional smoke.)
 - APK tested was the pre-built debug (mtime 09:05, targetSdk 35), trails HEAD `369f2f0` — fine for
   the smoke; rebuild for the real full-stack pass.
 

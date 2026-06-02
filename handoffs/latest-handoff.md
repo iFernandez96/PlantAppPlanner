@@ -57,7 +57,14 @@ vision N/A infra, guardian PASS). **(2) Android device-debug build** (split base
 `10.0.0.179:54321`, API→Fastify `10.0.0.179:3000`, debug-overridable; + debug cleartext
 `network-security-config`; rebuild). **(3) run LAN stack** (planner owner-approved to run Supabase +
 Fastify on the LAN; **owner opens ufw 54321+3000, sudo**) + reinstall + re-run the device agent suite.
-Watcher armed for `0038`. PlantApp HEAD `369f2f0`. **Tripwire:** Drive mounted before any
+PlantApp HEAD `e95c40e`. **(1) server bootstrap `0038` ✅** (`e95c40e`). **(2) Android device-debug
+build IN FLIGHT (`0039-android-device-debug-build`)** — base URLs → BuildConfig (`-P`-overridable;
+API corrected `:54321`→`:3000` Fastify, auth stays Supabase `:54321`) + debug-only cleartext NSC;
+impl's `-P` assembleDebug = the device APK. Vision ALIGNED (repo-verified split) + guardian PASS.
+**Transport decision:** owner chose **cleartext-on-LAN for the local test**; **release stays
+HTTPS-only; prod-HTTPS is a tracked requirement.** Watcher armed for `0039`. **(3) next:** planner
+runs LAN Supabase+Fastify (`HOST=0.0.0.0`), owner opens `ufw` 54321+3000 (sudo, re-close after),
+reinstall APK, re-run device suite. **Tripwire:** Drive mounted before any
 `gradlew`/npm/npx. **Gate note:** `:domain` → `:domain:test`. **Structural debt:** sign-in in `:feature-inventory` → `:feature-auth`
 later. **Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate note:** `:domain` →
 `:domain:test`.

@@ -1,113 +1,127 @@
-# Next Implementation Prompt — backend server bootstrap (enable real HTTP runs)
+# Next Implementation Prompt — Android device-debug build (LAN base URLs + cleartext)
 
-**On-device full-stack enablement, step 1 of 2 (backend).** The Fastify backend currently has
-**no HTTP entry point** — `buildApp()` is only ever exercised in-process via `app.inject()` in
-tests. To run a real on-device full-stack test, the API must actually `listen()`. This handoff adds
-a minimal server bootstrap + a `start` script. **No route/engine/schema change**; purely makes the
-existing app runnable over HTTP.
+**On-device full-stack enablement, step 2 of 2 (Android).** Make the app reach a **LAN-hosted**
+backend from a real phone: (a) the two base URLs must be **build-overridable** (and the PlantApp
+API base must point at **Fastify**, not Supabase — it is currently mis-set to `:54321`), and (b) a
+**debug-only** `network-security-config` must permit cleartext to the LAN host (the device blocker
+was `CLEARTEXT … not permitted`, *before* any socket). Release builds are untouched. No
+host-specific IP is committed — the device IP is passed at build time via Gradle properties.
 
 **Verified baseline (2026-06-02):** PlantApp `master`, HEAD
-`369f2f06dcc6bc8019cf051b40228e01a0746b89` == `origin/master`, clean. `backend/src/` has
-`app.ts` (exports `async buildApp(): Promise<FastifyInstance>`), `auth.ts`, `config.ts`,
-`mappers.ts` — **no `server.ts`/`index.ts`, no `.listen()`**, and `package.json` has **no
-`start`/`dev` script**. `auth.ts`: a request with no `Authorization: Bearer` → **`401
-missing_bearer_token`** before any Supabase call. `config.ts` `loadConfig()` throws if
-`SUPABASE_URL`/`SUPABASE_ANON_KEY` (or `API_URL`/`ANON_KEY`) are unset. `tsconfig.json`:
-`module/moduleResolution NodeNext`, `outDir ./dist` (so `src/server.ts` → `dist/src/server.js`,
-and `../care-engine/*.js` imports resolve under `dist/`). `build` script = `tsc -p tsconfig.json`.
+`e95c40ee0712d8e57d667f07f33d5974f99323bd` == `origin/master`, clean. `backend/src/server.ts` now
+serves the Fastify API on `:3000` (`0038`). Android `:data` `di/DataModule.kt` has
+`DEFAULT_BASE_URL = "http://10.0.2.2:54321/"` (used for **PlantAppApi** — wrong port; the
+`/plants…` routes are Fastify) and `DEFAULT_AUTH_BASE_URL = "http://10.0.2.2:54321/"` +
+`DEFAULT_ANON_KEY` (used for **SupabaseAuthApi**, correct host:port). `providePlantAppApi` uses
+`settings.baseUrlBlocking(DEFAULT_BASE_URL)`; `provideSupabaseAuthApi` uses
+`DEFAULT_AUTH_BASE_URL`/`DEFAULT_ANON_KEY`. `:data` is an `android.library` (no `buildConfig`
+feature yet). `:app/src/main/AndroidManifest.xml` declares no `networkSecurityConfig`; there is no
+`:app/src/debug/` sourceset. Device under test is Android 16 (cleartext blocked by default).
 
-Single logical change (the server bootstrap + start script) → one commit.
+Single logical change (device-targetable base-URL config + debug cleartext) → one commit.
 
 ---
 
 ## ⬇️ COPY EVERYTHING BELOW THIS LINE INTO THE IMPLEMENTATION CLAUDE ⬇️
 
-You are in **PlantApp** (`/home/israel/Documents/Development/PlantApp`, `master`). Add a minimal
-HTTP server entry point so the existing Fastify app can run for real (device/integration use).
+You are in **PlantApp** (`/home/israel/Documents/Development/PlantApp`, `master`). Make the base
+URLs build-overridable (API→Fastify, auth→Supabase) and add a debug cleartext network config.
+**Consult the Android `network-security-config` + AGP `buildConfigField` docs.**
 
 ### Baseline precondition (STOP and report if mismatch)
 ```bash
 cd /home/israel/Documents/Development/PlantApp
-git fetch origin && git rev-parse HEAD   # expect 369f2f06dcc6bc8019cf051b40228e01a0746b89 == origin/master
-git status --short                         # expect empty
+git fetch origin && git rev-parse HEAD     # expect e95c40ee0712d8e57d667f07f33d5974f99323bd == origin/master
+git status --short                          # expect empty (git-ignored android/local.properties may exist)
+ls /home/israel/Android/Sdk/platforms      # expect android-34/35/36 (Drive mounted)
 ```
 
 ### Scope
-1. **`backend/src/server.ts`** (new) — bootstrap the existing app; bind all interfaces so a LAN
-   device can reach it; port/host overridable by env:
-   ```ts
-   import { buildApp } from './app.js';
-
-   async function main(): Promise<void> {
-     const host = process.env.HOST ?? '0.0.0.0';
-     const port = Number(process.env.PORT ?? 3000);
-     const app = await buildApp();
-     await app.listen({ host, port });
-     // eslint-disable-next-line no-console
-     console.log(`PlantApp API listening on http://${host}:${port}`);
+1. **`android/data/build.gradle.kts`** — enable BuildConfig + add two overridable fields (defaults
+   are the **emulator** values; the API default is corrected to the Fastify port `:3000`):
+   ```kotlin
+   android {
+     buildFeatures { buildConfig = true }
+     defaultConfig {
+       // ... existing ...
+       val apiBase  = (project.findProperty("plantapp.apiBaseUrl")  as String?) ?: "http://10.0.2.2:3000/"
+       val authBase = (project.findProperty("plantapp.authBaseUrl") as String?) ?: "http://10.0.2.2:54321/"
+       buildConfigField("String", "API_BASE_URL",  "\"$apiBase\"")
+       buildConfigField("String", "AUTH_BASE_URL", "\"$authBase\"")
+     }
    }
-
-   main().catch((err) => {
-     // eslint-disable-next-line no-console
-     console.error('Failed to start PlantApp API:', err);
-     process.exit(1);
-   });
    ```
-2. **`backend/package.json`** — add two scripts (no new dependency):
-   - `"build:run": "tsc -p tsconfig.json"` is NOT needed if `build` already exists — reuse `build`.
-   - `"start": "node dist/src/server.js"` (runs the compiled server; assumes `npm run build` first).
-   Keep all existing scripts unchanged. Do **not** add a TS-runtime dep; the run path is
-   build-then-node.
+2. **`android/data/.../di/DataModule.kt`** — use the BuildConfig values (keep the runtime
+   `SettingsStore` override for the API base):
+   - `providePlantAppApi`: `baseUrl = settings.baseUrlBlocking(dev.plantapp.data.BuildConfig.API_BASE_URL)`.
+   - `provideSupabaseAuthApi`: `authBaseUrl = dev.plantapp.data.BuildConfig.AUTH_BASE_URL` (keep
+     `DEFAULT_ANON_KEY` as-is). Remove the now-unused `DEFAULT_BASE_URL`/`DEFAULT_AUTH_BASE_URL`
+     consts (or leave `DEFAULT_ANON_KEY`). Import `dev.plantapp.data.BuildConfig`.
+3. **`android/app/src/debug/res/xml/network_security_config.xml`** (new) — permit cleartext for
+   **debug** builds (dev/LAN HTTP):
+   ```xml
+   <?xml version="1.0" encoding="utf-8"?>
+   <network-security-config>
+       <base-config cleartextTrafficPermitted="true" />
+   </network-security-config>
+   ```
+4. **`android/app/src/debug/AndroidManifest.xml`** (new) — debug overlay that points the app at it
+   (merges over main for debug only; release stays default-secure):
+   ```xml
+   <?xml version="1.0" encoding="utf-8"?>
+   <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+       <application android:networkSecurityConfig="@xml/network_security_config" />
+   </manifest>
+   ```
 
 ### Forbidden
-- No change to `app.ts` route handlers, the care engines, `auth.ts`, `config.ts`, `mappers.ts`,
-  schemas, migrations, or Android. No new dependency. Do not alter `buildApp()`’s signature/behavior.
-  No CORS needed (the Android client is not a browser). Don't commit `.env`/secrets/`dist/`.
+- No `:network`/`:domain`/`:feature-inventory` logic change (only `:data` DI + build config + the
+  `:app` debug sourceset). No change to release behavior (cleartext stays **debug-only**). No
+  committed host-specific IP (the `10.0.0.179` device value is passed via `-P` at build time only —
+  never written into a committed file). No Firebase/FCM. No new dependency. Don't mount/repoint the
+  SDK/Drive; don't commit `android/local.properties`.
 
-### Standalone verification (the gate) — proves the HTTP server runs, routes, and auth-guards
+### Standalone verification (the gate)
 ```bash
-cd /home/israel/Documents/Development/PlantApp/backend
-npm run build                                   # tsc -> dist/ (expect dist/src/server.js)
-# Boot with DUMMY env (server only needs the vars present; the no-token path 401s before touching Supabase):
-SUPABASE_URL=http://127.0.0.1:54321 SUPABASE_ANON_KEY=dummy PORT=3000 node dist/src/server.js &
-SRV=$!; sleep 2
-echo -n "GET /plants (no token) -> "; curl -s -o /dev/null -w '%{http_code}\n' http://127.0.0.1:3000/plants   # expect 401
-echo -n "startup log present -> "; (kill -0 $SRV 2>/dev/null && echo "server alive on :3000") || echo "server NOT alive"
-kill $SRV 2>/dev/null
-npm test                                         # unit still 72/72 (server.ts isn't imported by tests)
-npm run typecheck && npm run lint                # clean
+cd /home/israel/Documents/Development/PlantApp/android
+# (a) default (emulator) build still compiles + tests pass:
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :data:testDebugUnitTest :feature-inventory:testDebugUnitTest
+# (b) DEVICE-READY build with the LAN IP injected via -P (this APK is what gets installed on the phone):
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :app:assembleDebug \
+  -Pplantapp.apiBaseUrl=http://10.0.0.179:3000/ -Pplantapp.authBaseUrl=http://10.0.0.179:54321/
+ls -la app/build/outputs/apk/debug/app-debug.apk
+# (c) confirm the LAN URLs + cleartext config are actually baked into THIS apk:
+"$ANDROID_HOME"/build-tools/*/aapt2 dump xmltree --file AndroidManifest.xml app/build/outputs/apk/debug/app-debug.apk 2>/dev/null | grep -i networkSecurityConfig || echo "(check NSC present)"
+unzip -p app/build/outputs/apk/debug/app-debug.apk classes*.dex >/dev/null 2>&1 && echo "apk built"
 ```
-Expected: `dist/src/server.js` exists; the server boots and `GET /plants` with no token returns
-**401** (server up + routing + auth hook working — no Supabase contact needed for the no-token
-path); unit 72/72; typecheck + lint clean. This is **green** verification (the server runs).
-Report the 401 + the startup log line.
+Expected: unit tests green (BuildConfig change is behavior-neutral for tests); `app-debug.apk`
+produced; the manifest references `networkSecurityConfig`. **Report the exact APK path + mtime** so
+the planner installs that artifact. (Optionally `strings` the apk for `10.0.0.179` to confirm the
+`-P` values baked in.)
 
-### Commit + push
+### Commit + push (source only — NOT the apk)
 ```bash
-git -C /home/israel/Documents/Development/PlantApp add backend/src/server.ts backend/package.json
-git -C /home/israel/Documents/Development/PlantApp commit -m "feat(backend): HTTP server bootstrap (server.ts + start script) for real runs"
+git -C /home/israel/Documents/Development/PlantApp add android/data/build.gradle.kts android/data/src/main/kotlin/dev/plantapp/data/di/DataModule.kt android/app/src/debug/
+git -C /home/israel/Documents/Development/PlantApp commit -m "feat(android): build-overridable base URLs (API->Fastify) + debug cleartext network config"
 git -C /home/israel/Documents/Development/PlantApp push origin master
 ```
 
 ### Final report
-1. `server.ts` (host `0.0.0.0`, env PORT/HOST) + the `start` script.
-2. The verification output: `dist/src/server.js` built, `GET /plants` → 401, server-alive log,
-   `npm test` 72/72, typecheck + lint clean.
-3. `git show --stat HEAD`; new commit hash; new `origin/master` SHA; confirm only
-   `backend/src/server.ts` + `backend/package.json` changed.
+1. The BuildConfig fields (defaults + `-P` overrides; API corrected to `:3000`), the DataModule
+   change, and the debug-only NSC + manifest overlay.
+2. Verification: unit tests green; the **device APK path + mtime** (built with the LAN `-P`); NSC
+   present in the apk manifest.
+3. `git show --stat HEAD`; new commit hash; new `origin/master` SHA; confirm only `:data` build/DI +
+   `android/app/src/debug/**` changed; confirm **no** committed host IP and **no** apk committed.
 
 ## ⬆️ COPY EVERYTHING ABOVE THIS LINE ⬆️
 
 ---
 
 ## Planner follow-up after this lands
-Verify (HEAD moved; only `server.ts` + `package.json`; server boots → 401; unit 72/72). Then
-**step 2 (Android device-debug build)**: split the two base URLs (auth → Supabase
-`http://10.0.0.179:54321/`, PlantApp API → Fastify `http://10.0.0.179:3000/`) via a
-**debug-overridable** mechanism (BuildConfig/Gradle property — avoid committing a host-specific IP
-as the production default) **and** add a **debug-only `network-security-config`** permitting
-cleartext to the LAN host (the device blocker was `CLEARTEXT … not permitted`, not connectivity);
-rebuild the debug APK. Then the planner (owner-approved this session) runs **Supabase + the Fastify
-server bound to the LAN** (and the owner opens the `ufw` ports 54321 + 3000 to the LAN — `sudo`),
-reinstalls the APK, and re-runs the device agent suite (`reviews/device-test-suite.md`) for the
-real sign-in → add-plant → reminder-fires journey. Vision-check the Android step.
+Verify (HEAD moved; only `:data` build/DI + `:app/src/debug/**`; no committed IP/apk; tests green;
+device APK produced). **Then step 3 (planner runs the LAN stack + re-test):** start local Supabase +
+the Fastify server bound to the LAN (`HOST=0.0.0.0 PORT=3000`, env from `supabase status`); **ask
+the owner to open `ufw` 54321 + 3000 to the LAN (sudo)**; `adb install -r` the device APK; re-run the
+device agent suite (`reviews/device-test-suite.md`) for the real sign-in → add-plant → reminder
+journey, capturing exhaustive evidence. (FCM remains a separate owner-gated step.)

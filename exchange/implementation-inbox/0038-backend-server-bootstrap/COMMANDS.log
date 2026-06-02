@@ -1,0 +1,33 @@
+# Handoff 0038-backend-server-bootstrap — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD   -> 369f2f06dcc6bc8019cf051b40228e01a0746b89 == origin/master
+$ git status --short                        -> (empty)
+$ ls backend/src                            -> app.ts auth.ts config.ts mappers.ts (no server.ts)
+
+## Implement
+# backend/src/server.ts (new): main() host=HOST??0.0.0.0 port=PORT??3000; buildApp().listen(); catch->exit(1)
+# backend/package.json: +"start": "node dist/src/server.js"
+
+## Verify (server runs)
+$ cd backend && npm run build                                  -> dist/src/server.js present
+$ SUPABASE_URL=http://127.0.0.1:54321 SUPABASE_ANON_KEY=dummy PORT=3000 node dist/src/server.js &
+  -> "PlantApp API listening on http://0.0.0.0:3000"
+$ curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:3000/plants   -> 401
+  -> server alive on :3000
+$ kill $SRV
+$ npm test            -> Tests 72 passed (72)
+$ npm run typecheck   -> clean
+$ npm run lint        -> 2 warnings (unused no-console disable directives)
+
+## Lint cleanup
+# Removed the // eslint-disable-next-line no-console comments (no-console rule not enabled).
+$ npm run build && npm run lint && npm run typecheck   -> all clean (0/0)
+
+## Commit + push
+$ git check-ignore backend/dist/src/server.js   -> ignored
+$ git add backend/src/server.ts backend/package.json
+$ git commit -m "feat(backend): HTTP server bootstrap (server.ts + start script) for real runs"
+  [master e95c40e] 2 files changed, 18 insertions(+)
+$ git push origin master       -> 369f2f0..e95c40e
+$ git rev-parse origin/master  -> e95c40ee0712d8e57d667f07f33d5974f99323bd
