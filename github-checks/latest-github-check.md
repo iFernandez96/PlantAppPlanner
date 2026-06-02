@@ -4,22 +4,21 @@
 
 | Question | Answer |
 |---|---|
-| Latest `origin/master` | `79944a5` — feat(domain): Slice 3 plan + deterministic computeReminders reminder policy |
-| Local == origin/master? | ✅ yes (`79944a5` both sides) |
-| `0034` commits | `79944a5` (single commit; 3 files: slice-03 doc + `:domain` policy + test, +222) |
+| Latest `origin/master` | `6f6f58b` — feat(android-data): WorkManager local reminder scheduler + worker (Slice 3) |
+| Local == origin/master? | ✅ yes (`6f6f58b` both sides) |
+| `0035` commits | `6f6f58b` (single commit; 7 files: libs + `:data` (3 main + 1 test) + `:app` manifest, +208/−2) |
 | Uncommitted changes? | none (clean; git-ignored `android/local.properties` may exist locally) |
 | CI / workflows / checks / PRs / issues | **none** — no CI, no open PRs, no open issues |
 | Default branch | `master` |
 
-`0034` verified vs real git: only `docs/slice-03-reminders-plan.md` + `android/domain/**`
-(ReminderPolicy + test); pure (no `Instant.now`/Android import — only a doc comment mentions it);
-D-13 + FCM STOP gate recorded in the doc; `:domain` 2→9.
+`0035` verified vs real git: scoped to `libs.versions.toml` + `android/data/**` + the `:app`
+manifest; `POST_NOTIFICATIONS` declared; WorkManager 2.9.1 added; the only "FCM" hit is an
+absence-comment; **no google-services**. `:data` 11→14, `:app:assembleDebug` SUCCESSFUL.
 
-**Slice 3 underway.** Opener `0034` ✅. **`0035-workmanager-local-reminders` published & IN
-FLIGHT:** `ReminderWorker` (inputData-driven, permission-guarded) + `ReminderScheduler` (unique
-delayed work per spec) + WorkManager dep + `POST_NOTIFICATIONS` + channel; Robolectric
-`WorkManagerTestInitHelper` scheduling tests. Gate: `:data:testDebugUnitTest` + `:app:assembleDebug`.
-**Vision ALIGNED** (ChatHistory lines 1/167-168/175/177/556) **+ no-mutation guardian PASS**.
-**Local-only — FCM STOP gate intact** (Forbidden bans google-services). Watcher armed for `0035`.
-**Next:** app-open scheduling + runtime `POST_NOTIFICATIONS` request → **STOP for owner Firebase/FCM
-setup.**
+**Slice 3 underway** (backlog 1/2/3 already complete). **`0036-reminder-sync-appopen` published &
+IN FLIGHT:** `ReminderSync` coordinator (pending CareTasks across plants → `computeReminders` →
+`ReminderScheduler.schedule`) + `ReminderScheduling` seam + `Clock` + `PlantListViewModel`
+fire-and-forget app-open trigger; hand-fake test. Gate: `:data` + `:feature-inventory`
+`testDebugUnitTest` + `:app:assembleDebug`. Vision ALIGNED (local-only; D-09/D-13). Watcher armed
+for `0036`. **Next = runtime `POST_NOTIFICATIONS` request UI → then STOP for owner Firebase/FCM
+setup** (project + `google-services.json`).

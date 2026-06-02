@@ -366,3 +366,12 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   `ReminderScheduler` + WorkManager dep + `POST_NOTIFICATIONS` + channel; Robolectric scheduling
   tests. Vision ALIGNED (cited ChatHistory lines 1/167-168/175/177/556) + **no-mutation guardian
   PASS**. Local-only; FCM STOP gate intact; runtime-perm UI + app-open wiring deferred to next.
+- **2026-06-02** — `0035` ✅ landed (`6f6f58b`): WorkManager **local** plumbing — `ReminderScheduler`
+  (unique delayed work/task) + `ReminderWorker` (inputData-driven, permission-guarded post) +
+  WorkManager 2.9.1 dep + `POST_NOTIFICATIONS` + channel; Robolectric `WorkManagerTestInitHelper`
+  scheduling tests. `:data` 11→14. 7 files (libs + `:data` + `:app` manifest). Verified vs real git
+  (scoped; only "FCM" hit is an absence-comment; no google-services). Published
+  `0036-reminder-sync-appopen` (Slice 3 step 3; in flight): `ReminderSync` coordinator (pending
+  tasks across plants → `computeReminders` → schedule) + `ReminderScheduling` seam + `Clock` +
+  `PlantListViewModel` fire-and-forget trigger + test. Vision ALIGNED. Local-only. **Next = runtime
+  `POST_NOTIFICATIONS` UI → STOP for owner Firebase/FCM.**

@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all": (1)✅ (2)✅ (3)✅; Slice 3 opener✅; WorkManager local-notif IN FLIGHT (`0035`)** |
+| **Snapshot** | 2026-06-02 — **"do all": backlog(1/2/3)✅; Slice 3: opener✅ WM-local✅; app-open scheduling IN FLIGHT (`0036`) — FCM stop next** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `79944a53e76bf85a91b085fc78f030da41053e9f` (`79944a5`) — in sync, clean |
+| **Local HEAD / origin/master** | `6f6f58b55ca85a27a99974c682831ce301cf9ee8` (`6f6f58b`) — in sync, clean |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
@@ -90,12 +90,14 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
       with the owner. (Adds `navigation-compose` as a `:feature-inventory` testImpl.)
     - **(2) e2e ✅ DONE (`0033`, `da020e3`)** — test-only Robolectric NavHost smoke (`:feature-inventory`
       18 tests); verified test-only (no `src/main`). **Backlog (1)+(2)+(3) COMPLETE.**
-    - **(4) Slice 3 — watering reminders. STARTED (`0034` opener IN FLIGHT):** plan doc + deterministic
-      pure `computeReminders` (pending CareTasks + `dueAt` → reminder specs) red-first. Sequence:
-      deterministic policy → WorkManager **local** notification path (new deps + `POST_NOTIFICATIONS`,
-      Android 13+) → schedule-on-app-open wiring → **STOP for owner Firebase/FCM setup** (project +
-      `google-services.json`) before any push. Slice 3 flips the Slices-1/2 "no notifications" posture
-      (D-11/D-12) — expected/owner-approved for this slice.
+    - **(4) Slice 3 — watering reminders.** opener `0034`✅ (plan doc + `computeReminders`); WM-local
+      `0035`✅ (`6f6f58b`: `ReminderScheduler`+`ReminderWorker`+WorkManager dep+`POST_NOTIFICATIONS`+
+      channel; `:data` 11→14; verified — local-only, no FCM). **app-open scheduling IN FLIGHT
+      (`0036`):** `ReminderSync` coordinator (gather pending CareTasks across plants → `computeReminders`
+      → `ReminderScheduler.schedule`) wired to run post-sign-in, + tests (seam for the scheduler). →
+      runtime `POST_NOTIFICATIONS` request UI → **STOP for owner Firebase/FCM setup** (project +
+      `google-services.json`). Slice 3 relaxes the Slices-1/2 "no notifications" posture (D-11/D-12;
+      ratified D-13) — owner-approved.
       (Gate note: `:domain` is a JVM module → `:domain:test`, not `:domain:testDebugUnitTest`.)
   - **(2) Automated emulator e2e smoke** (instrumented). **Human device-acceptance (real plants on
     a real phone) stays with the owner — I can't do that part.**

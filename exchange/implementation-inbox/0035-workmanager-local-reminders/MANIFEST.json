@@ -1,0 +1,8 @@
+{
+  "id": "0035-workmanager-local-reminders",
+  "kind": "report",
+  "status": "done",
+  "producer": "implementation",
+  "createdUtc": "2026-06-02T15:54:16Z",
+  "files": ["REPORT.md","COMMANDS.log","VERIFICATION.md"]
+}

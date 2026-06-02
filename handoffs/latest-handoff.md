@@ -22,14 +22,15 @@ care_tasks row; `test:int` 31→35 incl. GET-creates-nothing; verified GET handl
 `acceptAdvisory` → reload; `:feature-inventory` 14→16. **🎉 Backlog (3) UX follow-ups COMPLETE**
 (selector-driven add-plant · email-OTP sign-in + gating · advisory→accept→CareTask e2e). (2) e2e ✅ `0033` (`da020e3`), test-only Robolectric NavHost smoke (`:feature-inventory` 16→18).
 **🎉 Backlog (1)+(2)+(3) COMPLETE.** **Slice 3 underway.** Opener `0034` (`79944a5`) ✅ — plan doc (D-13 + STOP gates) + pure
-`computeReminders` in `:domain` (`:domain` 2→9). **WorkManager local-notif IN FLIGHT
-(`0035-workmanager-local-reminders`)** — `ReminderWorker` + `ReminderScheduler` + WorkManager dep +
-`POST_NOTIFICATIONS` + channel; Robolectric scheduling tests. Vision ALIGNED (ChatHistory
-1/167-168/175/177/556) + **no-mutation guardian PASS**. Local-only; FCM STOP gate intact.
-**Sequence:** `computeReminders`✅ → WorkManager local (`0035`) → app-open scheduling +
-runtime `POST_NOTIFICATIONS` request → **STOP for owner Firebase/FCM** (project +
-`google-services.json`). Watcher armed for `0035`. PlantApp HEAD `79944a5`. **Tripwire:** Drive
-mounted before any `gradlew`/npm/npx. **Gate note:** `:domain` → `:domain:test`. **Tripwire:** Drive mounted before any
+`computeReminders` in `:domain` (`:domain` 2→9). WorkManager local `0035` (`6f6f58b`) ✅ —
+`ReminderScheduler`+`ReminderWorker`+WorkManager dep+`POST_NOTIFICATIONS`+channel; `:data` 11→14;
+local-only (no FCM). **app-open scheduling IN FLIGHT (`0036-reminder-sync-appopen`)** —
+`ReminderSync` (pending tasks across plants → `computeReminders` → schedule) + `ReminderScheduling`
+seam + `Clock` + `PlantListViewModel` fire-and-forget trigger + test. Vision ALIGNED. **Sequence:**
+`computeReminders`✅ → WM-local✅ → app-open scheduling (`0036`) → runtime `POST_NOTIFICATIONS`
+request UI → **STOP for owner Firebase/FCM** (project + `google-services.json`). Watcher armed for
+`0036`. PlantApp HEAD `6f6f58b`. **Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate
+note:** `:domain` → `:domain:test`. **Tripwire:** Drive mounted before any
 `gradlew`/npm/npx. **Gate note:** `:domain` → `:domain:test`. **Structural debt:** sign-in in `:feature-inventory` → `:feature-auth`
 later. **Tripwire:** Drive mounted before any `gradlew`/npm/npx. **Gate note:** `:domain` →
 `:domain:test`.

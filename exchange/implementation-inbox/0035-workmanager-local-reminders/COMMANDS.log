@@ -1,0 +1,39 @@
+# Handoff 0035-workmanager-local-reminders — commands, app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline
+$ git fetch origin && git rev-parse HEAD   -> 79944a53e76bf85a91b085fc78f030da41053e9f == origin/master
+$ git status --short                        -> (empty)
+$ ls ~/Android/Sdk/platforms                -> android-34/35/36/36.1 (SDK OK)
+$ grep work gradle/libs.versions.toml       -> none (no WorkManager entry yet)
+
+## Implement (red-first)
+# libs.versions.toml: +androidx-work=2.9.1 ; +androidx-work-runtime-ktx +androidx-work-testing
+# data/build.gradle.kts: +impl work-runtime-ktx ; +test work-testing/robolectric/test-ext-junit ;
+#   testOptions unitTests isIncludeAndroidResources=true
+# app/AndroidManifest.xml: +<uses-permission POST_NOTIFICATIONS/>
+# data/reminder/ReminderNotifications.kt: REMINDER_CHANNEL_ID + ensureReminderChannel (API26+, idempotent)
+# data/reminder/ReminderWorker.kt: CoroutineWorker; inputData title/text/id; permission-guarded notify; DI-free
+# data/reminder/ReminderScheduler.kt: @Inject(@ApplicationContext); schedule(specs, now) delay=max(0,trigger-now);
+#   enqueueUniqueWork("reminder-<taskId>", REPLACE); TAG_REMINDER="plant-reminder"
+# test: data/.../ReminderSchedulerTest.kt (Robolectric + WorkManagerTestInitHelper; 3 cases)
+
+## First run: 1 failure
+#   pastTrigger assertion expected ENQUEUED but got RUNNING (zero-delay work runs under the test's
+#   synchronous executor). FIX: assert state in {ENQUEUED,RUNNING,SUCCEEDED} (still-enqueued/live).
+
+## Gate
+$ cd android && GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :data:testDebugUnitTest :app:assembleDebug --no-daemon
+  BUILD SUCCESSFUL in 15s
+  ReminderSchedulerTest 3/3 ; data total 11->14 ; :app:assembleDebug SUCCESSFUL
+
+## No FCM check
+$ grep -rin 'firebase|google-services|com.google.gms|fcm' android/data android/app/.../AndroidManifest.xml libs.versions.toml
+  -> only a ReminderScheduler.kt comment "Local path only — no Firebase/FCM"
+
+## Commit + push
+$ git add android/gradle/libs.versions.toml android/data/ android/app/src/main/AndroidManifest.xml
+$ git commit -m "feat(android-data): WorkManager local reminder scheduler + worker (Slice 3)"
+  [master 6f6f58b] 7 files changed, 208 insertions(+), 2 deletions(-)
+$ git push origin master       -> 79944a5..6f6f58b
+$ git rev-parse origin/master  -> 6f6f58b55ca85a27a99974c682831ce301cf9ee8
+$ git show --stat HEAD | grep -c local.properties  -> 0
