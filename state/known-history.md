@@ -268,3 +268,11 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   vs real git (`FIELD_PROFILE_ID` removed). Published `0024-android-gardenspace-selector` (3b-ui-b;
   in flight): garden-space **select-or-create** (dropdown + inline create via
   `createGardenSpace(name,kind)`; create form name+kind only — no location). Vision-check ALIGNED.
+- **2026-06-02** — `0024` ✅ landed (`5ce6f29`): add-plant Garden-space id field replaced by a
+  select-or-create control (dropdown of `getGardenSpaces()` + inline create via
+  `createGardenSpace`); `AddPlantViewModel` loads spaces + `createGardenSpace`; `:app` wiring.
+  `InventoryScreensTest` 7/7 (updated #22/#24 + 2 new), assemble OK. 5 files, only
+  `feature-inventory|app/**`. Verified vs real git (`FIELD_GARDEN_SPACE_ID` removed). Published
+  `0025-android-container-selector` (3b-ui-c, final selector; in flight): container
+  select-or-create + validation onto selection. After it lands, 3b is complete (add-plant fully
+  selector-driven). Vision-check ALIGNED.

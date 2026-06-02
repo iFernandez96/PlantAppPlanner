@@ -8,12 +8,13 @@
 (`0019`, `c7b8c54`) — 3 read-only endpoints + `toPlantProfile`, integration 31/31, verified vs
 real git. (3b) Android selectors decomposed network→data→ui. 3b-network `0021` (`ce59e5e`) ✅; 3b-data
 `0022` (`3fba718`) ✅ — `:domain` `PlantProfile` + repo list methods, `:data` 7/7 / `:domain` 2/2
-(fixed `0021`'s latent `:data` compile-red). 3b-ui-a profile dropdown `0023` (`20f4e35`) ✅ — Material3 catalog dropdown replacing the
-Profile-id field; InventoryScreensTest 5/5, assemble OK. **3b-ui-b IN FLIGHT
-(`0024-android-gardenspace-selector`)** — garden-space **select-or-create** (dropdown from
-`getGardenSpaces()` + inline create via `createGardenSpace(name,kind)`, create form name+kind only,
-no location) + VM load/create + `:app` wiring + Robolectric tests; vision ALIGNED. Watcher armed
-for the `0024` report. PlantApp HEAD `20f4e35`. **Tripwire:** Drive mounted before any
+(fixed `0021`'s latent `:data` compile-red). 3b-ui-a profile dropdown `0023` (`20f4e35`) ✅; 3b-ui-b garden-space select-or-create `0024`
+(`5ce6f29`) ✅ — InventoryScreensTest 7/7, assemble OK. **3b-ui-c IN FLIGHT
+(`0025-android-container-selector`)** — container **select-or-create** (dropdown from
+`getContainers()` + inline create via `createContainer(name,volumeLiters,material,drainage)`;
+validation moves onto selection) + VM + `:app` wiring + Robolectric tests; vision ALIGNED. After
+it lands, **3b complete — add-plant fully selector-driven, no raw-id fields.** Watcher armed for
+the `0025` report. PlantApp HEAD `5ce6f29`. **Tripwire:** Drive mounted before any
 `gradlew`/npm/npx. **Gate note:** `:domain` is a JVM module → `:domain:test`.
 
 ## What this session did

@@ -1,0 +1,8 @@
+{
+  "id": "0024-android-gardenspace-selector",
+  "kind": "report",
+  "status": "done",
+  "producer": "implementation",
+  "createdUtc": "2026-06-02T07:41:02Z",
+  "files": ["REPORT.md","COMMANDS.log","VERIFICATION.md"]
+}

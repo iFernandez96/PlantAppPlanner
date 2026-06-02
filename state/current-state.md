@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b-net/data)✅ (3b-ui-a)✅; (3b-ui-b garden-space selector) IN FLIGHT (`0024`)** |
+| **Snapshot** | 2026-06-02 — **"do all" RUNNING; (1)✅ (3a)✅ (3b-net/data)✅ (3b-ui-a/b)✅; (3b-ui-c container selector) IN FLIGHT (`0025`)** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `20f4e354486f79d93e21bdbacbec24ff9d4ae7c3` (`20f4e35`) — in sync, clean |
+| **Local HEAD / origin/master** | `5ce6f29cc14a0fb1946dece9b4ff9432e29f2b68` (`5ce6f29`) — in sync, clean |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
@@ -46,7 +46,11 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
       5/5, `:app:assembleDebug` OK); verified vs real git (`FIELD_PROFILE_ID` removed; only
       `feature-inventory|app/**`). **3b-ui-b IN FLIGHT (`0024`)** — Garden-space **select-or-create**
       (dropdown from `getGardenSpaces()` + inline create via `createGardenSpace(name,kind)`; create
-      form is name+kind only — no location). → 3b-ui-c: container select-or-create.
+      form is name+kind only — no location) — ✅ DONE (`0024`, `5ce6f29`): InventoryScreensTest 7/7,
+      assemble OK; verified vs real git (`FIELD_GARDEN_SPACE_ID` removed). **3b-ui-c IN FLIGHT
+      (`0025`)** — container **select-or-create** (dropdown from `getContainers()` + inline create
+      via `createContainer(name,volumeLiters,material,drainage)`; validation moves onto selection).
+      After it lands, **3b complete — add-plant fully selector-driven, no raw-id fields.**
       (Gate note: `:domain` is a JVM module → `:domain:test`, not `:domain:testDebugUnitTest`.)
     - 3c Supabase magic-link sign-in → DataStore token. 3d advisory→accept→CareTask flow.
   - **(2) Automated emulator e2e smoke** (instrumented). **Human device-acceptance (real plants on
