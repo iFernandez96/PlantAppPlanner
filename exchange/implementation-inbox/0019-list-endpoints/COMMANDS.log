@@ -1,0 +1,32 @@
+# Handoff 0019-list-endpoints — commands (in order), app repo /home/israel/Documents/Development/PlantApp
+
+## Baseline + harness
+$ git fetch origin && git rev-parse HEAD     -> 392ba8640aea98f4091e8a61c4180495c4bbf0f9
+$ git status --short                          -> (empty)
+$ npm_config_cache=/tmp/plantapp-npx-cache npx --yes supabase status   -> running
+
+## Red-first
+# wrote backend/tests/integration/lists-api.integration.test.ts (profiles catalog; spaces/containers RLS; 401)
+$ set -a; eval "$(... supabase status -o env)"; set +a ; export SUPABASE_URL/ANON_KEY/SERVICE_ROLE_KEY
+$ cd backend && npm run test:int
+  Test Files  1 failed | 6 passed (7)
+       Tests  6 failed | 25 passed (31)     # red (3 list endpoints absent + 401 cases)
+
+## Green
+# backend/src/mappers.ts: + toPlantProfile (snake->camel; verticalSuitability Number(); jsonb passthrough)
+# backend/src/app.ts: + GET /plant-profiles (unscoped catalog), GET /garden-spaces (RLS), GET /containers (RLS) — all read-only, onRequest auth
+$ npm run typecheck   -> clean
+$ npm run lint        -> LINT OK
+$ npm run validate-schemas -> VS OK (8 schemas)
+$ npm run test:int
+  Test Files  7 passed (7)
+       Tests  31 passed (31)                 # green
+$ npm test
+       Tests  67 passed (67)
+
+$ git diff --quiet HEAD -- backend/care-engine/ shared-schemas/ supabase/ backend/src/auth.ts backend/src/config.ts android/   -> UNCHANGED
+$ git add backend/src/app.ts backend/src/mappers.ts backend/tests/integration/lists-api.integration.test.ts
+$ git commit -m "feat(api): list endpoints for plant-profiles, garden-spaces, containers"
+  [master c7b8c54] 3 files changed, 176 insertions(+), 1 deletion(-)
+$ git push origin master   -> 392ba86..c7b8c54
+$ git rev-parse origin/master   -> c7b8c54fa70163c3e974d50bec5d9fa9f4f3464d

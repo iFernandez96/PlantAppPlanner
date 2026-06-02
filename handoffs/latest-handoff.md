@@ -4,11 +4,12 @@
 "Do all" section near the bottom + `state/current-state.md` for the live picture)_
 
 ## One-line status (2026-06-02)
-"Do all" loop RUNNING. (1) `validate-schemas` fix ✅ landed (`0018`, `392ba86`) — green, 67/67,
-verified vs real git. (3a) `0019-list-endpoints` published & IN FLIGHT (read-only
-`GET /plant-profiles` catalog + `GET /garden-spaces`/`/containers` RLS + `toPlantProfile`
-mapper + integration tests; vision ALIGNED). Watcher armed for the `0019` report. PlantApp
-HEAD `392ba86`, clean.
+"Do all" loop RUNNING. (1) `validate-schemas` ✅ (`0018`, `392ba86`). (3a) list endpoints ✅
+(`0019`, `c7b8c54`) — 3 read-only endpoints + `toPlantProfile`, integration 31/31, verified vs
+real git. (3b) Android selectors decomposed network→data→ui; **3b-network IN FLIGHT
+(`0020-android-network-lists`)** — `:network` `PlantProfileDto` + `getPlantProfiles/
+getGardenSpaces/getContainers` + networknt schema test; vision ALIGNED. Watcher armed for the
+`0020` report. PlantApp HEAD `c7b8c54`, clean.
 
 ## What this session did
 - Verified Option A on `origin/master` independently (`git show`/`diff`): one file,

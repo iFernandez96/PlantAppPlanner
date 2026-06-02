@@ -230,3 +230,9 @@ inputsHash         = sha256(canonical-json(sourceInputs))
   Item (3a) published `0019-list-endpoints` (in flight): read-only `GET /plant-profiles`
   (catalog) + `GET /garden-spaces`/`/containers` (RLS) + `toPlantProfile` mapper + integration
   tests, feeding the add-plant selectors. Vision-check ALIGNED.
+- **2026-06-02** — `0019` ✅ landed (`c7b8c54`): 3 read-only list endpoints + `toPlantProfile` +
+  `lists-api.integration.test.ts`; 3 files; integration 25→31, unit 67/67, validate-schemas
+  green. Verified vs real git (read-only handlers, RLS lists rely on RLS, protected paths
+  untouched). Item 3b (Android selectors) decomposed network→data→ui; published
+  `0020-android-network-lists` (in flight): `:network` `PlantProfileDto` + 3 GET calls +
+  networknt schema test. Vision-check ALIGNED.

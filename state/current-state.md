@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **"do all" loop RUNNING; (1) validate-schemas DONE; (3a) list endpoints IN FLIGHT (`0019`)** |
+| **Snapshot** | 2026-06-02 — **"do all" loop RUNNING; (1)✅ (3a)✅; (3b-network) IN FLIGHT (`0020`)** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `392ba8640aea98f4091e8a61c4180495c4bbf0f9` (`392ba86`) — in sync, clean |
+| **Local HEAD / origin/master** | `c7b8c54fa70163c3e974d50bec5d9fa9f4f3464d` (`c7b8c54`) — in sync, clean |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
@@ -29,9 +29,15 @@ CareTasks** — all 5 `@slice-2` scenarios exercised. Retro: `reviews/slice-2-re
 - **Owner chose "do all" (2026-06-02) — loop RUNNING through the backlog.** Order:
   - **(1) `validate-schemas` fix — ✅ DONE (`0018`, `392ba86`):** `-c ajv-formats` + one
     `type:"array"`; all 8 schemas compile, `npm test` 67/67. Verified against real git.
-  - **(3) UX follow-ups:** **3a backend list endpoints — IN FLIGHT (`0019`)** (`GET /plant-profiles`
-    catalog + `GET /garden-spaces`/`/containers` RLS-scoped, read-only, + `toPlantProfile` mapper)
-    → 3b Android form selectors → 3c Supabase sign-in screen → 3d advisory→accept→CareTask flow.
+  - **(3) UX follow-ups:**
+    - **3a backend list endpoints — ✅ DONE (`0019`, `c7b8c54`):** read-only `GET /plant-profiles`
+      (catalog) + `GET /garden-spaces`/`/containers` (RLS) + `toPlantProfile` mapper; integration
+      31/31, unit 67/67. Verified vs real git (3 files, protected paths untouched, read-only, RLS).
+    - **3b Android selectors — decomposed network→data→ui:**
+      **3b-network IN FLIGHT (`0020`)** (`:network` `PlantProfileDto` + `getPlantProfiles/
+      getGardenSpaces/getContainers` + schema test) → 3b-data (`:domain`/`:data` repo + model +
+      mapper + MockK tests) → 3b-ui (`:feature-inventory` selectors replacing id text fields + UI tests).
+    - 3c Supabase magic-link sign-in → DataStore token. 3d advisory→accept→CareTask flow.
   - **(2) Automated emulator e2e smoke** (instrumented). **Human device-acceptance (real plants on
     a real phone) stays with the owner — I can't do that part.**
   - **(4) Slice 3** (watering reminders): WorkManager local path first, then **STOP to ask the owner
