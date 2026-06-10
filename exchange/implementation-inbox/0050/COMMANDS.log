@@ -1,0 +1,53 @@
+# Commands executed for 0050 (in order)
+
+cd /home/israel/Documents/Development/PlantApp
+git rev-parse HEAD
+# -> 130c391a2fa088c3001e3e7fda62d625e0c1d29b (matched expected baseline)
+git status --porcelain
+# -> only "?? android/.kotlin/" (expected; left alone)
+grep -n -A8 "data class PlantProfile" android/domain/src/main/kotlin/dev/plantapp/domain/model/*.kt
+# -> commonNames: List<String> (field used for speciesName resolution)
+
+# Main-code edits:
+#   InventoryUiState.kt   — Content + speciesName: String? = null
+#   InventoryViewModels.kt — PlantDetailViewModel.loadFor resolves speciesName via
+#                            runCatching { getPlantProfiles()...commonNames.firstOrNull() }
+#   DisplayText.kt        — NEW (taskKindLabel/growthStageLabel per prompt)
+#   PlantDetailScreen.kt  — friendly title w/ prettify(); plain stage/kind labels;
+#                            rationale de-emphasized; engine badge deleted; advisory title
+#                            without severity prefix; button "Yes, add this task"
+
+# RED-FIRST run (before test edits):
+cd android
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest
+# -> FAILED: #23 (expected red, badge removed) + PlantDetailAdvisoriesTest
+#    showsAdvisoryTitleMessageAndSeverity ("HIGH" prefix assertion — same prescribed change)
+#    20 tests completed, 2 failed
+
+# Test edits:
+#   InventoryScreensTest.kt        — #23: badge/"0.1.0" assertions removed, "Growing well"
+#                                    assertion added, name updated
+#   InventoryTestTags.kt           — ENGINE_VERSION_BADGE deleted
+#   PlantDetailAdvisoriesTest.kt   — "HIGH" assertion removed + method renamed (flagged deviation)
+#   DisplayTextTest.kt             — NEW (5 prescribed assertions)
+
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest
+# -> BUILD SUCCESSFUL; JUnit XML aggregate tests=25 failures+errors=0
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :app:assembleDebug
+# -> BUILD SUCCESSFUL
+
+cd /home/israel/Documents/Development/PlantApp
+grep -c "ENGINE_VERSION_BADGE\|engine v" .../PlantDetailScreen.kt .../InventoryTestTags.kt | grep -v :0 || echo CLEAN
+# -> CLEAN
+grep -c "Growth stage:" android/feature-inventory/src/main/kotlin/dev/plantapp/feature/inventory/PlantDetailScreen.kt
+# -> 0
+
+git add android/feature-inventory
+git commit -m "feat(ui): beginner-friendly plant detail (species name, plain stage/kind labels, no engine badge)"
+# -> [master cbe520b] 8 files changed, 99 insertions(+), 32 deletions(-)
+git push origin master
+# -> 130c391..cbe520b  master -> master
+git rev-parse origin/master
+# -> cbe520ba263c197e3609c3bf6f939f539f77cac2
+git status --porcelain
+# -> only "?? android/.kotlin/"

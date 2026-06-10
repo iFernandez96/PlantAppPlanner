@@ -79,3 +79,10 @@ core-vision items)._
 - **Guardian:** PASS — 10/10; HEAD 130c391; every old string/assertion + kind-enum match verified live.
 - **Vision:** ALIGNED — badge removal + rationale de-emphasis is the vision's own Beginner-mode
   (ChatHistory "Expert mode/Beginner mode"); engine data untouched in model/API; ship as-is.
+
+## 0051 — HOTFIX wizard location kinds vs DB constraint (2026-06-10)
+- Found by the 0050 per-slice device check (PD-10 paying off): 3/4 location presets 400 on the
+  garden_spaces kind constraint → silent permanently-disabled Add. Only Balcony worked.
+- **Guardian:** PASS — bug + all 4 file/line refs + constraint list verified live.
+- **Vision:** ALIGNED — "Backyard"→other uses an existing sanctioned enum member; labels stay;
+  no schema migration in a hotfix slice; follow-up error-surfacing slice queued. Ship as-is.
