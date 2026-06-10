@@ -109,3 +109,9 @@ core-vision items)._
   received but never stored/used; no 401→sign-in path).
 - **Guardian:** PASS — HEAD a0cbc3d; endpoint shape sanity-checked vs GoTrue conventions.
 - **Vision:** ALIGNED — maintenance on shipped sign-in (0026-pattern decomposition). Ship as-is.
+
+## 0056 — persist refresh token + auto-refresh on 401 (:data), part 2/3 (2026-06-10)
+- **Guardian:** PASS — HEAD 1a60c3f; all deltas verified live; clarity note (FakeSupabaseAuthApi
+  override) folded into the prompt before publish.
+- **Vision:** ALIGNED — session credential ≠ provider key (D-11/D-12 intact); DataStore parity
+  with existing access token (encrypted-store hardening = separate future handoff). Ship as-is.

@@ -1,0 +1,37 @@
+# Commands executed for 0055 (in order)
+
+cd /home/israel/Documents/Development/PlantApp
+git rev-parse HEAD
+# -> a0cbc3d93a4db8d2ef47109ea5a4a8943712ee0a (matched expected baseline)
+git status --porcelain
+# -> only "?? android/.kotlin/" (expected; left alone)
+
+# 1) RED: added ONLY the new serialization test to AuthDtoTest.kt
+cd android
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :network:testDebugUnitTest
+# -> COMPILE-RED: e: AuthDtoTest.kt:33:43 Unresolved reference 'RefreshTokenRequest'.
+#    :network:compileDebugUnitTestKotlin FAILED
+
+# 2) GREEN edits:
+#    AuthDtos.kt        — + RefreshTokenRequest(@SerialName("refresh_token") refreshToken)
+#    SupabaseAuthApi.kt — + @POST("auth/v1/token?grant_type=refresh_token") refreshToken(...)
+#                         + KDoc mentions the third endpoint
+
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :network:testDebugUnitTest
+# -> BUILD SUCCESSFUL; JUnit XML aggregate tests=18 failures+errors=0
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :app:assembleDebug
+# -> BUILD SUCCESSFUL
+
+cd /home/israel/Documents/Development/PlantApp
+grep -c "grant_type=refresh_token" android/network/src/main/kotlin/dev/plantapp/network/SupabaseAuthApi.kt
+# -> 1
+
+git add android/network
+git commit -m "feat(network): GoTrue refresh-token endpoint + DTO"
+# -> [master 1a60c3f] 3 files changed, 24 insertions(+), 2 deletions(-)
+git push origin master
+# -> a0cbc3d..1a60c3f  master -> master
+git rev-parse origin/master
+# -> 1a60c3fc945dc30366c5843d0e78c75c07bcac5d
+git status --porcelain
+# -> only "?? android/.kotlin/"
