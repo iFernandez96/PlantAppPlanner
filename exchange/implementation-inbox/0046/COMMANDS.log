@@ -1,0 +1,37 @@
+# Commands executed for 0046 (in order)
+
+cd /home/israel/Documents/Development/PlantApp
+git rev-parse HEAD
+# -> ae60aea075aac3c89ebe82c2b49887eea7a6992c (matched expected baseline)
+git status --porcelain
+# -> empty (clean tree)
+
+# 3 one-line edits (Edit tool):
+#   PlantListScreen.kt   +line 39: contentColor = MaterialTheme.colorScheme.onBackground,
+#   PlantDetailScreen.kt +line 43: contentColor = MaterialTheme.colorScheme.onBackground,
+#   addplant/AddPlantWizard.kt +line 96: contentColor = MaterialTheme.colorScheme.onBackground,
+
+git diff --stat
+# -> 3 files changed, 3 insertions(+)
+
+cd android
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest
+# -> BUILD SUCCESSFUL in 3m 38s; JUnit XML aggregate tests=20 failures+errors=0
+
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :app:assembleDebug
+# -> BUILD SUCCESSFUL in 2m 1s
+
+cd /home/israel/Documents/Development/PlantApp
+grep -n "contentColor = MaterialTheme.colorScheme.onBackground" \
+  android/feature-inventory/src/main/kotlin/dev/plantapp/feature/inventory/PlantListScreen.kt \
+  android/feature-inventory/src/main/kotlin/dev/plantapp/feature/inventory/PlantDetailScreen.kt \
+  android/feature-inventory/src/main/kotlin/dev/plantapp/feature/inventory/addplant/AddPlantWizard.kt
+# -> exactly 3 matches, one per file
+
+git add android/feature-inventory
+git commit -m "fix(ui): set onBackground content color on transparent Scaffolds (dark-mode empty-state contrast)"
+# -> [master a5968a4] 3 files changed, 3 insertions(+)
+git push origin master
+# -> ae60aea..a5968a4  master -> master
+git rev-parse origin/master
+# -> a5968a40b466d99a9e5597ce02e5cfa5e24b14ae
