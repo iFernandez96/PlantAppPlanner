@@ -92,3 +92,8 @@ core-vision items)._
 - **Guardian:** PASS — HEAD e726070; unconditional-Loading bug + insertion points verified live.
 - **Vision:** ALIGNED — bug fix; ReminderSync-on-every-visit consistent with its "on app open"
   intent (fire-and-forget, no engine impact). Ship as-is.
+
+## 0053 — Hearth list rows + friendly names (Wave 2 W1 slice 6) (2026-06-10)
+- **Guardian:** PASS — HEAD a222929; current PlantRow/Content/prettify/icon/overload/tag state all verified live.
+- **Vision:** ALIGNED — names data-driven via getPlantProfiles (no hard-coding); slug-leak kill =
+  beginner-first TOP constraint; 104dp/64dp per Hearth spec. Ship as-is.

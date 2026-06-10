@@ -1,0 +1,40 @@
+# Commands executed for 0052 (in order)
+
+cd /home/israel/Documents/Development/PlantApp
+git rev-parse HEAD
+# -> e72607095ad2d5636a744501a4c002bc18fc09b0 (matched expected baseline)
+git status --porcelain
+# -> only "?? android/.kotlin/" (expected; left alone)
+
+# 1) RED: added ONLY PlantListViewModelTest.kt (StandardTestDispatcher + MutablePlantsRepo
+#    delegating to FakeInventoryRepository; reminderSync() helper reused)
+cd android
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest
+# -> FAILED: PlantListViewModelTest > refreshOverVisibleContentNeverShowsTheSpinner
+#    java.lang.AssertionError at PlantListViewModelTest.kt:59
+#    29 tests completed, 1 failed (first-load + error tests passed)
+
+# 2) GREEN edits:
+#    InventoryViewModels.kt — refresh(): Loading only when state !is Content
+#    MainActivity.kt — vm.refresh() first statement of the LIST LaunchedEffect(Unit)
+
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest
+# -> BUILD SUCCESSFUL; JUnit XML aggregate tests=29 failures+errors=0
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :app:assembleDebug
+# -> BUILD SUCCESSFUL
+
+cd /home/israel/Documents/Development/PlantApp
+grep -n "vm.refresh()" android/app/src/main/kotlin/dev/plantapp/android/MainActivity.kt
+# -> 162:                vm.refresh()  (1 match, inside the LIST composable)
+
+git add android/app/src/main/kotlin/dev/plantapp/android/MainActivity.kt \
+        android/feature-inventory/src/main/kotlin/dev/plantapp/feature/inventory/InventoryViewModels.kt \
+        android/feature-inventory/src/test/kotlin/dev/plantapp/feature/inventory/PlantListViewModelTest.kt
+git commit -m "fix(ui): refresh My Garden on every visit and reload quietly when content is shown"
+# -> [master a222929] 3 files changed, 101 insertions(+), 1 deletion(-)
+git push origin master
+# -> e726070..a222929  master -> master
+git rev-parse origin/master
+# -> a22292988b9a32c5aa04433da6e3485a189a9933
+git status --porcelain
+# -> only "?? android/.kotlin/"
