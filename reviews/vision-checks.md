@@ -53,3 +53,9 @@ proceeds. Encoded in `CLAUDE.md` (step 6), `.claude/rules/prompt-contract.md`, a
 _Earlier handoffs `0001`–`0005` predate this gate; they were aligned by construction
 (schema validation, deterministic care-engine, seed catalog, DB foundation — all
 core-vision items)._
+
+## 0046 — fix dark-mode content color on transparent Scaffolds (2026-06-02)
+- **Guardian:** PASS — all 10 contract sections present; single-purpose; SHA + 3 file/line refs
+  verified against live repo; no installs/destructive git; exchange boundary respected.
+- **Vision:** ALIGNED — 3-line Compose styling fix on accepted 0045 work; serves beginner-first
+  UX (invisible dark-mode text); no engine/AI/privacy/slice-order implications. Ship as-is.
