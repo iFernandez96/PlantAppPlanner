@@ -74,3 +74,8 @@ core-vision items)._
 - **Guardian:** PASS — 10/10; HEAD 7b5ba83, catalog dep + icon imports + no :app tests all verified live.
 - **Vision:** ALIGNED — Spaces gets its first-class nav slot (core vision), Assistant correctly
   deferred to W5, placeholder copy beginner-clean. Ship as-is.
+
+## 0050 — beginner-friendly plant detail (Wave 2 W1 slice 4) (2026-06-10)
+- **Guardian:** PASS — 10/10; HEAD 130c391; every old string/assertion + kind-enum match verified live.
+- **Vision:** ALIGNED — badge removal + rationale de-emphasis is the vision's own Beginner-mode
+  (ChatHistory "Expert mode/Beginner mode"); engine data untouched in model/API; ship as-is.
