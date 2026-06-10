@@ -1,0 +1,107 @@
+{
+  "id": "cucurbita-pepo",
+  "scientificName": "Cucurbita pepo",
+  "commonNames": [
+    "Zucchini",
+    "Summer Squash",
+    "Courgette"
+  ],
+  "category": "vegetable",
+  "growthHabit": "bush",
+  "requiresSupport": false,
+  "selfFruitful": true,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "low",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.6,
+    "rainSkipThresholdMm": 25
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 14,
+    "fruitingIntervalDays": 14,
+    "containerLeachAdjustment": 0.7,
+    "preferredNpk": "balanced (e.g. 10-10-10), side-dress when vines spread / female flowers appear"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 19,
+    "idealMinLiters": 38,
+    "idealMaxLiters": 57,
+    "soilMixTags": [
+      "rich",
+      "compost-amended",
+      "well-draining",
+      "ph-6.0-6.5"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6,
+    "maxSunHours": 10
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 10,
+    "heatStressC": 32,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [
+      7,
+      8,
+      9
+    ],
+    "dormancyMonths": [
+      11,
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Heavy water feeder: needs at least ~25mm (1 inch) water per week; soil dries faster in containers, so container plants may need daily watering in hot weather.",
+    "Very frost-sensitive warm-season annual: do not plant out until after last frost and soil is at least ~18C (65-70F) at seed depth.",
+    "Susceptible to squash vine borer, squash bug, and striped/spotted cucumber beetles.",
+    "Prone to powdery mildew and cucurbit viruses; keep foliage dry by watering at the base (drip/soaker), not overhead.",
+    "Poor fruit set often reflects a pollination problem (low pollinator activity), not a watering or feeding fault; early flowers are male only.",
+    "Container minimum of ~19L (5 gal) is the practical floor; a 38-57L (10-15 gal) container gives far better yield and far less watering stress."
+  ],
+  "verticalSuitability": 0.2,
+  "source": [
+    {
+      "citation": "University of Minnesota Extension — Growing summer squash and zucchini in home gardens. Sow after last frost once soil is at least 70F at 2-inch depth (late May-early June in MN); vine crops need about one inch of water per week; keep foliage dry with drip/soaker hoses; side-dress when vines begin spreading (e.g. 1 cup 27-3-3 per 100 ft of row); best soil pH 6.0-6.5; pests include cucumber beetles, squash vine borer, squash bugs; diseases include powdery mildew and cucurbit viruses.",
+      "url": "https://extension.umn.edu/vegetables/growing-summer-squash-and-zucchini",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Growing summer squash and zucchini in home gardens. Slightly acidic best soil pH 6.0-6.5; side-dress fertilizer when vines begin spreading; soil test before planting (medium nutrient requirement).",
+      "url": "https://extension.umn.edu/vegetables/growing-summer-squash-and-zucchini",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "University of Maryland Extension — Growing Summer Squash (Zucchini) in a Home Garden. Full sun requires direct light at least 6 hours/day; prefers 8-10 hours/day. Water deeply and regularly at the base, especially in hot dry weather and once fruits form. Medium nutrient requirement; incorporate compost/fertilizer before planting, then side-dress when female flowers appear. Very tender warm-season annual; frost will injure top growth. Days to maturity 50-65 from transplant. Spacing: bush types ~2-3 ft.",
+      "url": "https://extension.umd.edu/resource/growing-summer-squash-zucchini-home-garden",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "University of Maryland Extension — Growing Summer Squash (Zucchini) in a Home Garden. Very tender warm-season annual; frost will injure top growth; needs warm weather to grow. Pests/diseases: bacterial wilt, cucumber beetle, squash bug, squash vine borer, powdery mildew, downy mildew, pollination problems.",
+      "url": "https://extension.umd.edu/resource/growing-summer-squash-zucchini-home-garden",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac — Growing Zucchini: How to Plant, Grow, and Harvest. Direct sow ~2 weeks after last frost when soil is around 65-70F; needs 6 to 8 hours of direct sun daily; needs at least an inch of water each week; slightly acidic to neutral pH ~5.8-7.0; most varieties average ~60 days to maturity; harvest fruit at 6-8 inches.",
+      "url": "https://www.almanac.com/plant/zucchini",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Container sizing for zucchini is not given a single authoritative number by US extension services; the schema requires a container minimum. Synthesis of horticultural guidance places the practical floor near 5 gal (~19L) with 10-15 gal (~38-57L) markedly better given zucchini's large root system and high water demand. recommendedMinLiters, idealMinLiters, and idealMaxLiters are conservative estimates, not directly extension-sourced.",
+      "field": "confidence"
+    },
+    {
+      "citation": "Estimated thermal thresholds: coldHardyMinC (~10C) reflects that zucchini is a very tender warm-season crop needing soil at least ~18C (65-70F) to germinate and warm air to grow (UMN, UMD, Almanac); heatStressC (~32C) reflects typical cucurbit heat/pollination stress. Exact stress temperatures are not published per-degree by these sources and are conservative estimates.",
+      "field": "temperatureProfile"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

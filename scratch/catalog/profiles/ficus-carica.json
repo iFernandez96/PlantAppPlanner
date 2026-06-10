@@ -1,0 +1,117 @@
+{
+  "id": "ficus-carica",
+  "scientificName": "Ficus carica",
+  "commonNames": [
+    "Fig",
+    "Common Fig",
+    "Edible Fig"
+  ],
+  "category": "fruit",
+  "growthHabit": "tree",
+  "requiresSupport": false,
+  "selfFruitful": true,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 2,
+    "rainSkipThresholdMm": 25
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 14,
+    "fruitingIntervalDays": 14,
+    "containerLeachAdjustment": -3,
+    "preferredNpk": "high-potassium liquid (e.g. 5-10-10 or kelp); balanced 8-8-8 / 10-10-10 in ground"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 30,
+    "idealMinLiters": 40,
+    "idealMaxLiters": 60,
+    "soilMixTags": [
+      "soil-based",
+      "free-draining",
+      "fine-bark-added",
+      "organically-rich"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6,
+    "maxSunHours": 12
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -9,
+    "heatStressC": 38,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "dormancyMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Container minimum (30 L) reflects that mature figs are 3-6 m trees grown in-ground; in pots figs actually fruit better with restricted roots, so avoid overpotting and repot only into a slightly larger container every couple of years (RHS).",
+    "Drought-sensitive: yellowing leaves and wilting signal under-watering; container figs and restricted-root plants can need daily checks in hot, dry weather (Clemson, RHS).",
+    "Frost-sensitive: significant die-back below about -9 C / 15 F; in cold zones (5-7) plant against a south-facing wall, mulch roots, or move container plants into an unheated shelter over winter (Missouri Botanical Garden, RHS).",
+    "Most cultivars recommended for home growing are parthenocarpic and self-fruitful; do NOT buy wild/Smyrna types that need fig-wasp (caprification) pollination (Clemson, Missouri Botanical Garden).",
+    "Over-feeding nitrogen, especially in colder regions, reduces cold hardiness and promotes leaf over fruit (Clemson)."
+  ],
+  "verticalSuitability": 0.2,
+  "source": [
+    {
+      "citation": "Missouri Botanical Garden Plant Finder — Ficus carica (Edible Fig): USDA zones 6-9 (best 8-10), full sun to part shade, medium water, organically rich moist well-drained soil, self-fruitful/parthenocarpic, winter protection needed below 15 F, mature 10-20 ft, fruit late summer/fall.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=282762",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder — Ficus carica: self-fruitful, most cultivars parthenocarpic (set fruit without cross-pollination).",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=282762",
+      "field": "selfFruitful"
+    },
+    {
+      "citation": "Clemson HGIC — Figs: How to Grow and Care for Figs in South Carolina: full sun (8 hours or more daily) required during the growing season.",
+      "url": "https://hgic.clemson.edu/factsheet/figs-how-to-grow-and-care-for-figs-in-south-carolina/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Clemson HGIC — Figs: about 1 inch (25 mm) of water per week from rain or irrigation is adequate; more in hot dry periods; yellowing/wilting indicates drought stress.",
+      "url": "https://hgic.clemson.edu/factsheet/figs-how-to-grow-and-care-for-figs-in-south-carolina/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Clemson HGIC — Figs: mature in-ground plants fed balanced 8-8-8 or 10-10-10 three times yearly (early April, early June, mid-July); colder-region plants fed less to preserve cold hardiness; common SC cultivars are self-fertile (female flowers, set fruit without cross-pollination).",
+      "url": "https://hgic.clemson.edu/factsheet/figs-how-to-grow-and-care-for-figs-in-south-carolina/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "RHS — How to grow figs: feed container figs with an organic high-potassium liquid fertiliser fortnightly (every ~14 days) throughout the growing season until figs ripen in late summer.",
+      "url": "https://www.rhs.org.uk/fruit/figs/grow-your-own",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "RHS — How to grow figs: start young figs in a pot ~30 cm (1 ft) wide and deep; figs fruit better with restricted roots so avoid overpotting and repot only into a slightly larger soil-based container every couple of years; keep evenly moist, checking daily in hot dry weather; position in a warm sunny south-facing spot; move container figs under cover or wrap them over winter (frost-sensitive).",
+      "url": "https://www.rhs.org.uk/fruit/figs/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox — Ficus carica (Common Fig): grow in full sun; large fruit/ornamental tree habit; container culture in colder areas with overwintering indoors.",
+      "url": "https://plants.ces.ncsu.edu/plants/ficus-carica/",
+      "field": "growthHabit"
+    },
+    {
+      "citation": "Confidence note — recommendedMinLiters (30 L), idealMin/Max (40/60 L), heatStressC (38 C), hotWeatherMultiplier (2), and rainSkipThresholdMm (25, from Clemson's 1 inch/week) are conservative app estimates. Extension sources give pot size in diameter (RHS ~30 cm starter pot ≈ 14 L; figs are otherwise large in-ground 3-6 m trees) and water as ~1 inch/week rather than an exact pot volume or interval; no source gives a numeric upper heat-stress temperature. Values chosen for a realistic productive container fig that intentionally keeps roots somewhat restricted per RHS.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

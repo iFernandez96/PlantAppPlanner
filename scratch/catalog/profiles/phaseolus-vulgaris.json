@@ -1,0 +1,105 @@
+{
+  "id": "phaseolus-vulgaris",
+  "scientificName": "Phaseolus vulgaris",
+  "commonNames": [
+    "Green bean",
+    "Snap bean",
+    "French bean",
+    "String bean",
+    "Bush bean"
+  ],
+  "category": "vegetable",
+  "growthHabit": "bush",
+  "requiresSupport": false,
+  "selfFruitful": true,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 1.5,
+    "rainSkipThresholdMm": 25
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 30,
+    "containerLeachAdjustment": 0.5,
+    "preferredNpk": "5-10-10"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 8,
+    "idealMinLiters": 19,
+    "idealMaxLiters": 38,
+    "soilMixTags": [
+      "well-drained",
+      "fertile",
+      "potting-mix-plus-compost",
+      "ph-6-to-7"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 7,
+    "minSunHours": 6,
+    "maxSunHours": 10
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 4,
+    "heatStressC": 29,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [7, 8, 9],
+    "dormancyMonths": [11, 12, 1, 2, 3]
+  },
+  "commonIssues": [
+    "Frost-sensitive annual: plants are killed by even a light frost, so sow only after the last frost and once soil is at least 16 C (60 F) at 10 cm depth (Clemson HGIC).",
+    "Direct-sow rather than transplant; beans resent root disturbance (Old Farmer's Almanac, UMN Extension).",
+    "Avoid high-nitrogen feed: too much nitrogen produces lush foliage and few pods. Beans fix their own nitrogen and have low fertilizer needs (UMN Extension, Old Farmer's Almanac).",
+    "Most critical watering period is during flowering, pod set, and pod development; drought stress then sharply reduces yield (Clemson HGIC, UMN Extension).",
+    "Container minimum (8 L) is sized for ONE bush plant; a 19 L (5-gallon) pot holds about three bush plants (Old Farmer's Almanac).",
+    "POLE/climbing varieties of the same species are NOT covered by the bush defaults here: they reach ~2 m, require a sturdy 1.8-2.4 m (6-8 ft) trellis or wigwam, and need a larger container (RHS: min ~75 cm wide x 45 cm deep). For pole beans set requiresSupport=true and use a larger pot."
+  ],
+  "verticalSuitability": 0.3,
+  "source": [
+    {
+      "citation": "University of Minnesota Extension - Growing beans in home gardens. Bush beans grow ~2 ft tall and do not need support; pole beans need a trellis and can reach 6 ft. One inch of rainfall per week; an inch of water wets sandy soil to ~10 in and clay to ~6 in. Beans need less fertilizer than other crops; prefers pH 6-7. Plant after soil warms (late May / early June in MN).",
+      "url": "https://extension.umn.edu/vegetables/growing-beans",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension - Growing beans in home gardens. Bush beans do not need support (requiresSupport=false); seeds spaced ~4 in apart, rows 2-3 ft apart. Beans require less fertilizer than most crops (low feeding need).",
+      "url": "https://extension.umn.edu/vegetables/growing-beans",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC 1308 - Bush & Pole-Type Snap Beans. Snap beans grow best at average temperatures of 60-75 F; do not plant until soil is at least 60 F at 4-in depth; plants are killed by light frost (frostSensitive). Maturity ~55 days. Pre-plant fertilizer 5-10-10; sidedress nitrogen before first bloom. Water to moisten soil to 6-in depth; critical moisture period is pod set and pod development.",
+      "url": "https://hgic.clemson.edu/factsheet/bush-pole-type-snap-beans/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC 1308 - Bush & Pole-Type Snap Beans. Recommended fertilizer 5-10-10 pre-plant with a nitrogen sidedress before first bloom; supports the low-nitrogen, ~30-day feeding cadence.",
+      "url": "https://hgic.clemson.edu/factsheet/bush-pole-type-snap-beans/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac - How to Grow Green Beans. Beans need full sun; container guidance ~6-8 hours of sun per day. An 8-in deep x 8-in wide container holds one bush plant; a 5-gallon (~19 L) pot holds up to three bush or pole plants. Use a low-nitrogen 5-10-10 to avoid excess foliage. Direct-sow after frost into warm (55 F+) soil.",
+      "url": "https://www.almanac.com/plant/beans",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac - How to Grow Green Beans. Full sun; container beans want roughly 6-8 hours of direct sun per day (vegetables grown for pods perform best with 8+ hours).",
+      "url": "https://www.almanac.com/plant/beans",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society - How to grow French beans. Highly frost-sensitive; sow outdoors only after the last frost. Dwarf (bush) varieties ~45 cm tall need only twiggy support; climbing varieties ~2 m need tall canes/wigwams. Dwarf-bean container min ~30-45 cm wide; climbing-bean container min ~75 cm wide x 45 cm deep. Water during dry weather, especially once flowering and forming pods.",
+      "url": "https://www.rhs.org.uk/vegetables/french-beans/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Confidence note: heatStressC (29 C / ~85 F) is a conservative estimate derived from Clemson's stated optimal range of 60-75 F (above which bean blossoms commonly drop) rather than a single published heat-stress threshold. coldHardyMinC (4 C) is likewise conservative: sources state plants are killed by light frost, so the safe lower bound is set above freezing rather than at an exact published figure. hotWeatherMultiplier (1.5) and rainSkipThresholdMm (25 mm = the cited 1 in/week) are derived operational defaults, not directly published intervals.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

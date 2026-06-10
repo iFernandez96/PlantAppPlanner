@@ -3,7 +3,21 @@
 **From:** "do all" backlog session · **Date:** 2026-06-02 · _(history below is older; see the
 "Do all" section near the bottom + `state/current-state.md` for the live picture)_
 
-## ▶ RESUME HERE — post-compaction plan (owner: "compact, then run phase 2"; 2026-06-02)
+## ▶ RESUME HERE — updated 2026-06-02 ~14:40 (post-compaction actions RAN)
+**ACTION 1 (backdrop device review) ✅ DONE** — 13 screenshots in `reviews/device-evidence/backdrop-*`,
+verdicts in `reviews/backdrop-device-review-2026-06-02.md`: backdrop/glass/tiles/serif all PASS;
+**1 real bug** (dark-mode empty-state text dark-on-dark) + confirm-"Add" prominence check → fold
+into next UI-polish impl handoff. Owner got the 6 key shots.
+**ACTION 2 (catalog Phase 2) 54/75 DONE** — all 54 schema-valid w/ citations
+(`python3 scratch/catalog/validate.py` → 54/54). **21 missing (queue tail)** — agents hit the
+session limit (resets 5:30pm). Resume: `Workflow({scriptPath:
+"scratch/catalog/phase2-research.workflow.js", resumeFromRunId: "wf_a43f2284-06b"})` (same
+session) or just re-run the script (idempotent). Details: `scratch/catalog/phase2-status.md`.
+**Then:** validate 75/75 → owner sample review → Phase 3 (icons; per-species-vs-category decision
+for owner) → Phase 4 (backend RAG; needs owner OpenAI key + consent). Backend left UP; ufw open
+(re-close after device work is finished).
+
+## (older) post-compaction plan (owner: "compact, then run phase 2"; 2026-06-02)
 Owner asked to compact the conversation, then do these two in order. Everything needed is in files
 (this handoff + `state/current-state.md` + `scratch/catalog/pilot-list.md` + memory
 `plant-catalog-and-ai-epic`). **Re-verify live state before acting** (don't trust stale bg-task ids).

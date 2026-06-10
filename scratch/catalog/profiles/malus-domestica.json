@@ -1,0 +1,133 @@
+{
+  "id": "malus-domestica",
+  "scientificName": "Malus domestica",
+  "commonNames": [
+    "Apple",
+    "Orchard apple",
+    "Domestic apple"
+  ],
+  "category": "fruit",
+  "growthHabit": "tree",
+  "requiresSupport": false,
+  "selfFruitful": false,
+  "pollinationPartnersRequired": 1,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.5,
+    "rainSkipThresholdMm": 12
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 14,
+    "fruitingIntervalDays": 14,
+    "postHarvestIntervalDays": 30,
+    "containerLeachAdjustment": -3,
+    "preferredNpk": "high-potassium (e.g. 5-5-10) for containers; general-purpose granular in early spring for in-ground"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 38,
+    "idealMinLiters": 45,
+    "idealMaxLiters": 90,
+    "soilMixTags": [
+      "loam-based",
+      "well-drained",
+      "slightly-acidic-ph-6.0-6.5",
+      "peat-free-compost"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6,
+    "maxSunHours": 14
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -34,
+    "heatStressC": 35,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "4": [
+        {
+          "startMonth": 4,
+          "endMonth": 5
+        }
+      ],
+      "5": [
+        {
+          "startMonth": 3,
+          "endMonth": 5
+        }
+      ],
+      "7": [
+        {
+          "startMonth": 2,
+          "endMonth": 4
+        },
+        {
+          "startMonth": 11,
+          "endMonth": 12
+        }
+      ]
+    },
+    "productiveMonths": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "dormancyMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Apple is a deciduous tree (standard trees reach 4.5-9 m / 15-30 ft); in-ground planting is strongly preferred. For containers use only a dwarfing rootstock (e.g. M27, M9, M26); the recommendedMinLiters (38 L) is a realistic dwarf-apple container minimum, not a size for standard or semi-dwarf trees.",
+    "Most apple varieties are self-unfruitful and set only a small crop with their own pollen; plant at least one compatible second variety (or a flowering crabapple) with an overlapping bloom period within ~15-30 m (50-100 ft) for a good crop.",
+    "Late spring frosts damage open flowers and reduce fruit set; choose a sheltered, non-frost-pocket site and consider late-flowering varieties in cold areas.",
+    "Container trees dry out fast and may need watering daily in hot weather; keep compost evenly moist but never waterlogged (root rot risk).",
+    "Most classic apple varieties are high-chill (need roughly 800+ hours below ~6 C / 45 F); low-chill needs vary by cultivar and climate."
+  ],
+  "verticalSuitability": 0.2,
+  "source": [
+    {
+      "citation": "North Carolina Extension Gardener Plant Toolbox — Malus domestica (Apple): full sun (6+ hours direct sun) to partial shade; USDA hardiness zones 4a-9b; slightly acidic, moist, well-drained soil (pH 6.0-6.5); deciduous tree 15-30 ft mature height; grafted dwarf rootstocks much smaller.",
+      "url": "https://plants.ces.ncsu.edu/plants/malus-domestica/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "North Carolina Extension Gardener Plant Toolbox — Malus domestica: USDA hardiness zones 4a-9b. Zone 4a average annual minimum temperature is about -34 C (-30 F), used as coldHardyMinC for cold-hardy cultivars.",
+      "url": "https://plants.ces.ncsu.edu/plants/malus-domestica/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Iowa State University Extension and Outreach — Pollination requirements for tree and small fruits: apples are self-unfruitful (most varieties set only a small crop with their own pollen); plant at least two different varieties with overlapping bloom for cross-pollination; flowering crabapples can pollinate nearby apples; space cross-pollinating trees within 50-100 ft.",
+      "url": "https://yardandgarden.extension.iastate.edu/how-to/pollination-requirements-tree-and-small-fruits",
+      "field": "pollinationPartnersRequired"
+    },
+    {
+      "citation": "RHS — How to grow apples (grow your own): full sun, warm sheltered site not prone to late frosts which damage flowers; container apples on M9/M26 dwarf rootstock need a pot at least 45 cm (18 in) diameter with loam-based peat-free compost; keep compost evenly moist, water regularly in dry spells; feed containers with high-potassium liquid fertiliser every fortnight in the growing season; in-ground trees in regularly mulched soil generally need no extra feeding.",
+      "url": "https://www.rhs.org.uk/fruit/apples/grow-your-own",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "RHS — How to grow apples: container apples on dwarf rootstock need a pot of at least 45 cm (18 in) diameter; a ~45 cm cube/round pot is roughly 38-45 L, used for recommendedMin/idealMin container volume. Frost damages open flowers (frostSensitive).",
+      "url": "https://www.rhs.org.uk/fruit/apples/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "RHS — How to grow apples: keep container compost evenly moist and water regularly in dry spells; apples do not tolerate prolonged drought but dislike waterlogging. baseIntervalDays (3) and hotWeatherMultiplier reflect 'evenly moist' for an established in-ground/large-container tree; container trees may need more frequent watering (daily in heat).",
+      "url": "https://www.rhs.org.uk/fruit/apples/grow-your-own",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Confidence note: schema numeric watering interval (baseIntervalDays=3) and hotWeatherMultiplier are conservative estimates. RHS and NCSU specify 'evenly moist / regular watering' qualitatively rather than a day interval, and actual frequency depends heavily on rootstock, in-ground vs container, soil and climate (container trees can need daily watering in heat). Treated as an estimate.",
+      "url": "https://www.rhs.org.uk/fruit/apples/grow-your-own",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

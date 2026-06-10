@@ -1,0 +1,125 @@
+{
+  "id": "salvia-officinalis",
+  "scientificName": "Salvia officinalis",
+  "commonNames": [
+    "Sage",
+    "Common sage",
+    "Garden sage",
+    "Culinary sage"
+  ],
+  "category": "herb",
+  "growthHabit": "bush",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 7,
+    "dryingTolerance": "high",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 1.5,
+    "rainSkipThresholdMm": 25
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 30,
+    "containerLeachAdjustment": 0.75,
+    "preferredNpk": "balanced general-purpose (e.g. 10-10-10)"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 10,
+    "idealMinLiters": 15,
+    "idealMaxLiters": 25,
+    "soilMixTags": [
+      "well-drained",
+      "loam-based",
+      "added-grit",
+      "low-fertility"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6,
+    "maxSunHours": 10
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -34,
+    "heatStressC": 35,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "productiveMonths": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "dormancyMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Root rot in consistently moist or wet soils is the primary problem; let the top 2 inches (5 cm) of soil dry before watering and never let pots sit in saucers of water.",
+    "Overwatering and waterlogged soil are far more dangerous than underwatering; sage is drought tolerant once established.",
+    "Powdery mildew, spider mites, slugs, spittlebugs, sage leafhoppers, and rosemary beetles may appear but rarely cause severe damage; good air circulation reduces foliar disease.",
+    "In hot climates (USDA zone 8 and warmer) provide light afternoon shade to prevent leaf scorch.",
+    "Becomes leggy and woody with age; prune in spring and lightly through the season, and replace plants every 3-5 years as flavor and vigor decline.",
+    "In wet winters move containers to a sheltered spot, as excess rain can rot the roots."
+  ],
+  "verticalSuitability": 0.1,
+  "source": [
+    {
+      "citation": "University of Wisconsin-Madison Division of Extension, Horticulture: 'Sage, Salvia officinalis' - states sage grows best in a sunny location with well-drained soil, tolerates drought and poor fertility, is hardy in USDA zones 4a to 10b, grows to about 2.5 ft, and lists root rot and wilt among possible problems.",
+      "url": "https://hort.extension.wisc.edu/articles/sage-salvia-officinalis/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "University of Wisconsin-Madison Division of Extension: smaller varieties of Salvia officinalis can be grown as container plants; possible problems include slugs, spider mites, spittlebugs, root rot and wilt; good air circulation reduces foliar disease.",
+      "url": "https://hort.extension.wisc.edu/articles/sage-salvia-officinalis/",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder, Salvia officinalis: Zone 4 to 8 (species range to 10b), full sun, water needs 'Dry to medium' with 'Wet soils can be fatal', susceptible to root rot in consistently moist or wet soils, tolerates drought and dry soil, mature size 2.0-2.5 ft, bloom time June.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=m260",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder, Salvia officinalis: drought tolerant; requires average, dry-to-medium, well-drained soil; wet soils can be fatal (overwater risk).",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=m260",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society (RHS), 'How to grow Sage': grow in full sun in a sheltered spot; once established sage is drought tolerant and needs no extra ground watering; for containers keep compost slightly moist but not saturated and use a container at least 30cm (12in) wide and deep with plenty of drainage; mix in horticultural grit (up to 25% by volume); feed container plants with general-purpose granular feed in late spring/early summer after their first year.",
+      "url": "https://www.rhs.org.uk/herbs/sage/grow-your-own",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society (RHS), 'How to grow Sage': use a container at least 30cm (12in) wide and deep with plenty of drainage holes; in wet winters move pots to a sheltered spot as excess rain can rot the roots. A 30cm cube is roughly 27 L; a single plant establishes well in a 10-15 L pot, hence recommendedMin 10 L, ideal 15-25 L.",
+      "url": "https://www.rhs.org.uk/herbs/sage/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "UMN Extension / Clemson HGIC guidance for Salvia: full sun, 6-8 hours of sunlight per day; water lightly when the top 2 inches of soil is dry; water in summer only if rainfall is less than 1 inch (~25 mm) per week; salvia dislikes excessive summer irrigation. (Used for target/min sun hours, base watering interval, and rain-skip threshold.)",
+      "url": "https://hgic.clemson.edu/factsheet/salvia/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Clemson HGIC / UMN Extension guidance: water lightly when the top 2 inches of soil is dry and only if weekly rainfall is under ~1 inch (25 mm); supports a conservative 7-day base watering interval with a high drying tolerance and a 25 mm rain-skip threshold.",
+      "url": "https://hgic.clemson.edu/factsheet/salvia/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Confidence note: feeding interval is estimated. RHS states sage in the ground needs no feeding and container plants need only an annual late-spring granular feed; sources do not give a routine recurring interval. A conservative 30-day growing-season interval (with containerLeachAdjustment 0.75) is used as a light-feeder default and should be treated as low confidence.",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: heatStressC (35 C) is estimated. Sources indicate sage tolerates hot, dry conditions but advise light afternoon shade in USDA zone 8+ to avoid scorch; no precise heat-stress temperature is published, so 35 C is a conservative estimate. coldHardyMinC (-34 C) is derived from the documented USDA zone 4 lower limit.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

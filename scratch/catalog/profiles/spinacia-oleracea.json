@@ -1,0 +1,148 @@
+{
+  "id": "spinacia-oleracea",
+  "scientificName": "Spinacia oleracea",
+  "commonNames": [
+    "Spinach"
+  ],
+  "category": "vegetable",
+  "growthHabit": "rosette",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 2,
+    "dryingTolerance": "low",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 1.5,
+    "rainSkipThresholdMm": 25
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 21,
+    "containerLeachAdjustment": 0.5,
+    "preferredNpk": "15.5-0-0 (calcium nitrate) or balanced; side-dress 3-4 weeks after planting"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 10,
+    "idealMinLiters": 18,
+    "idealMaxLiters": 27,
+    "soilMixTags": [
+      "well-drained",
+      "high-organic-matter",
+      "soilless-potting-mix",
+      "ph-6.0-7.0"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 4,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -7,
+    "heatStressC": 27,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "7": [
+        {
+          "startMonth": 3,
+          "endMonth": 4
+        },
+        {
+          "startMonth": 8,
+          "endMonth": 9
+        }
+      ],
+      "8": [
+        {
+          "startMonth": 2,
+          "endMonth": 4
+        },
+        {
+          "startMonth": 8,
+          "endMonth": 10
+        }
+      ]
+    },
+    "productiveMonths": [
+      3,
+      4,
+      5,
+      9,
+      10,
+      11
+    ],
+    "dormancyMonths": [
+      6,
+      7
+    ]
+  },
+  "commonIssues": [
+    "Bolts (sends up seed stalk and turns bitter) when soil dries out or once days warm toward 27C (80F) and daylength lengthens; grow in spring/fall and keep evenly moist.",
+    "Heat above 29C (85F) soil inhibits seed germination; optimum germination soil temp is about 21C (70F).",
+    "Premature flowering from inconsistent watering, especially in containers which dry quickly and need more frequent watering.",
+    "Container minimum (~10 L) reflects spinach's shallow root system; a wider, shallower pot (at least 30 cm / 1 ft wide and deep per RHS) suits baby-leaf and cut-and-come-again harvests better than a deep narrow one.",
+    "Fungal disease and slug/snail pressure increase with overhead/evening watering; water the soil in the morning."
+  ],
+  "verticalSuitability": 0.3,
+  "source": [
+    {
+      "citation": "Clemson Cooperative Extension HGIC, Spinach factsheet: days to maturity 37-45 days; optimum germination soil temp 70F; >85F inhibits germination; survives 20F without injury; side-dress 1 lb calcium nitrate (15.5-0-0) per 100 sq ft 3-4 weeks after planting; soil pH 6.0-7.0; spring (Mar-Apr Piedmont, Feb-Apr Coastal) and fall (Aug-Oct) planting.",
+      "url": "https://hgic.clemson.edu/factsheet/spinach/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC, Spinach factsheet: fertilizer side-dress rate and timing (calcium nitrate 15.5-0-0, 3-4 weeks after planting); soil pH 6.0-7.0; moisten soil to 6 inches; water in morning.",
+      "url": "https://hgic.clemson.edu/factsheet/spinach/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "UMN Extension, Growing spinach and Swiss chard in home gardens: supply about one inch of water (rain) per week; water more frequently on sandy soil; spacing two to four inches apart; sow spring crops until temperatures reach 80F; fall crops sown ~2 months before first frost will not bolt under shortening days.",
+      "url": "https://extension.umn.edu/vegetables/growing-spinach-and-swiss-chard",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Penn State Extension, Growing Spinach (A Cool-Season Vegetable): optimum growing temperature 50-60F; seeds germinate best 45-68F; young seedlings survive as low as 15-20F; full sun but tolerates partial shade; keep soil consistently moist; dry conditions trigger bolting; grows in containers with adequate size and nutrient-rich soilless potting mix.",
+      "url": "https://extension.psu.edu/growing-spinach-a-cool-season-vegetable",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Penn State Extension, Growing Spinach: optimum growing temperature 50-60F (~10-16C); young seedlings tolerate 15-20F (~-9 to -7C); spacing four to six inches.",
+      "url": "https://extension.psu.edu/growing-spinach-a-cool-season-vegetable",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "RHS, How to grow spinach: choose a sunny or lightly shaded site; thirsty crop, needs watering in dry weather; plant 15cm (6in) apart, thin to 7.5cm (3in); sow mid-to-late spring and late summer to early autumn; containers at least 30cm (1ft) wide and deep, potting compost dries quickly and needs frequent watering; optimal growth 15-20C (60-70F); baby leaves in ~1 month, mature in ~2 months.",
+      "url": "https://www.rhs.org.uk/vegetables/spinach/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "RHS, How to grow spinach: sunny or lightly shaded planting site; partial shade beneficial in warmer months to reduce heat stress and bolting.",
+      "url": "https://www.rhs.org.uk/vegetables/spinach/grow-your-own",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac, Spinach (Planting, Growing, and Harvesting): cool-season crop; can survive frost and temps down to 15F (-9C); bolts as days lengthen (~14h) and temperatures reach 80F; supply 1-2 inches water per week; harvest ~37-45 days after planting.",
+      "url": "https://www.almanac.com/plant/spinach",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Confidence note: wateringProfile.baseIntervalDays (2) is estimated from extension guidance of ~1 inch/week with the caveat that spinach is a thirsty crop that bolts if the soil dries out and that container compost dries quickly (RHS, PSU, UMN); no source gives an explicit day-interval, so a conservative 2-day interval is used for containers/warm conditions. hotWeatherMultiplier (1.5) and rainSkipThresholdMm (25 ~= 1 inch/week) are derived, not directly cited.",
+      "url": "https://www.almanac.com/plant/spinach",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: containerProfile liters are converted/estimated from RHS 'at least 30cm wide and deep' (~27 L for a 30cm cube) and PSU 'adequately sized container' for a shallow-rooted green; recommendedMinLiters (10) is a conservative practical minimum for a small baby-leaf pot, idealMin/Max (18-27) bracket the RHS 30cm guidance. No source states liters directly.",
+      "url": "https://www.rhs.org.uk/vegetables/spinach/grow-your-own",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: feedingProfile.baseIntervalDays (21) generalized from Clemson's single side-dress at 3-4 weeks after planting; spinach is a short-season crop usually fed once or twice rather than on a fixed recurring interval. containerLeachAdjustment (0.5) is a derived estimate for faster nutrient leaching in pots, not directly cited.",
+      "url": "https://hgic.clemson.edu/factsheet/spinach/",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

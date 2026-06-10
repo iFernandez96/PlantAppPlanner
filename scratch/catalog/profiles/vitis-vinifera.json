@@ -1,0 +1,122 @@
+{
+  "id": "vitis-vinifera",
+  "scientificName": "Vitis vinifera",
+  "commonNames": [
+    "Grape",
+    "European grape",
+    "Wine grape",
+    "Common grape vine"
+  ],
+  "category": "vine",
+  "growthHabit": "climbing",
+  "requiresSupport": true,
+  "selfFruitful": true,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 7,
+    "dryingTolerance": "high",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.5,
+    "rainSkipThresholdMm": 13
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 14,
+    "fruitingIntervalDays": 14,
+    "postHarvestIntervalDays": 30,
+    "containerLeachAdjustment": 0.75,
+    "preferredNpk": "high-potassium (e.g. tomato feed)"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 21,
+    "idealMinLiters": 30,
+    "idealMaxLiters": 45,
+    "soilMixTags": [
+      "loam-based",
+      "John Innes No3",
+      "free-draining",
+      "well-drained"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6,
+    "maxSunHours": 12
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -23,
+    "heatStressC": 38,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [8, 9, 10],
+    "dormancyMonths": [12, 1, 2]
+  },
+  "commonIssues": [
+    "European (Vitis vinifera) grapes are the least cold-hardy grape type; midwinter dormant bud injury occurs roughly between -22 C and -26 C, so they suit warmer zones (about USDA 6-9) or need winter protection in colder regions.",
+    "Requires a sturdy trellis, wires, fence or arbor; without support the vine trails along the ground.",
+    "Young spring shoots after bud break are very susceptible to late-frost injury, which reduces yield.",
+    "Roots dislike sitting in wet or poorly drained soil; plant in well-drained ground and avoid overwatering.",
+    "Best grown in the ground; the listed container minimum (about 21 L / a 30 cm wide-and-deep pot per RHS) supports a single trained vine but full long-term vigor and yield favor in-ground planting.",
+    "Needs annual dormant-season pruning (before leaves emerge) to control vigor and fruit well.",
+    "Stop feeding once grapes begin to ripen and colour up, as extra feeding then can spoil flavour."
+  ],
+  "verticalSuitability": 0.95,
+  "source": [
+    {
+      "citation": "UMN Extension - Growing grapes in the home garden (full sun; young vines need about 1/2 to 1 inch of water per week for the first two years; ~6 ft spacing per vine; self-pollinating, wind/insect pollinated; annual spring pruning; trellis/support required; spring compost feeding).",
+      "url": "https://extension.umn.edu/fruit/growing-grapes-home-garden",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "UMN Extension - Growing grapes in the home garden (vines are self-pollinating; flowers pollinated by wind and insects).",
+      "url": "https://extension.umn.edu/fruit/growing-grapes-home-garden",
+      "field": "selfFruitful"
+    },
+    {
+      "citation": "OSU Extension EC 1639 - Growing table grapes (full sunlight required for good table-grape production; European cultivars planted 6 ft apart in rows; trellis with training wires required; grow best in well-drained soils; young spring shoots very susceptible to frost injury after bud break).",
+      "url": "https://extension.oregonstate.edu/catalog/ec-1639-growing-table-grapes",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "OSU Extension EC 1639 - Growing table grapes (grapevines grow best in well-drained soils; roots do not tolerate waterlogged conditions).",
+      "url": "https://extension.oregonstate.edu/catalog/ec-1639-growing-table-grapes",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "OSU Extension EC 1639 - Growing table grapes (trellis required; young spring shoots very susceptible to frost injury after April/May bud break).",
+      "url": "https://extension.oregonstate.edu/catalog/ec-1639-growing-table-grapes",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "RHS - How to grow grapes / Grapes: outdoor cultivation (containers: pot about 30-38 cm (12-15 in) in diameter and depth, loam-based John Innes No3 compost; warm sheltered sunny site; almost all grape varieties self-fertile, mostly wind-pollinated; feed dessert grapes every 2-3 weeks with a high-potassium liquid feed such as tomato feed from a month after spring growth until grapes ripen, then stop; fairly drought tolerant; trained along horizontal wires).",
+      "url": "https://www.rhs.org.uk/fruit/grapes/outdoor-cultivation",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "RHS - Grapes: outdoor cultivation (feed every 2-3 weeks with a high-potassium feed such as tomato feed from ~1 month after spring growth starts until grapes ripen; stop feeding once grapes colour up).",
+      "url": "https://www.rhs.org.uk/fruit/grapes/outdoor-cultivation",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "RHS - How to grow grapes (vines are fairly drought tolerant; container vines need regular watering during the growing season; established in-ground vines often need no supplemental water).",
+      "url": "https://www.rhs.org.uk/fruit/grapes/grow-your-own",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Old Farmer's Almanac - Grapes (full sun; young grapes require about 1/2 to 1 inch of water per week; each vine needs about 6 ft of space; vines need a trellis/arbor support; European grapes do well in warm, dry Mediterranean-type zones).",
+      "url": "https://www.almanac.com/plant/grapes",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "OSU/Cornell-cited grapevine cold-hardiness data: maximum midwinter cold hardiness of common Vitis vinifera buds ranges roughly -14.3 F to -7.4 F (about -25.7 C to -21.9 C); V. vinifera is the least cold-hardy grape type. coldHardyMinC set conservatively to -23 C; suited to roughly USDA zones 6-9.",
+      "url": "https://extension.oregonstate.edu/catalog/em-9432-grapevine-training-systems-managing-winter-cold-injury",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Confidence note: heatStressC (38 C), hotWeatherMultiplier, rainSkipThresholdMm, container liter conversions, and exact dormancy/productive months are estimated. Sources give qualitative guidance (full sun, drought tolerant once established, Mediterranean-adapted, pot 30-38 cm, 1/2-1 inch/week young vines) but not exact daily watering intervals, heat-stress thresholds, or month windows; these were converted/estimated conservatively from the cited care text. Productive/dormancy months are Northern-Hemisphere temperate-climate generalizations and shift by region and cultivar.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

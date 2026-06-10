@@ -1,0 +1,127 @@
+{
+  "id": "viola-x-wittrockiana",
+  "scientificName": "Viola x wittrockiana",
+  "commonNames": [
+    "Pansy",
+    "Garden Pansy",
+    "Lady's Delight"
+  ],
+  "category": "ornamental",
+  "growthHabit": "rosette",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "low",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.6,
+    "rainSkipThresholdMm": 25
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 18,
+    "containerLeachAdjustment": 0.7,
+    "preferredNpk": "5-10-10"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 5,
+    "idealMinLiters": 8,
+    "idealMaxLiters": 15,
+    "soilMixTags": [
+      "well-drained",
+      "organically-rich",
+      "potting-mix",
+      "slightly-acidic"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 5,
+    "minSunHours": 4,
+    "maxSunHours": 6
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -4,
+    "heatStressC": 24,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "3-8": [
+        { "startMonth": 3, "endMonth": 4 },
+        { "startMonth": 8, "endMonth": 9 }
+      ],
+      "9-10": [
+        { "startMonth": 10, "endMonth": 11 }
+      ]
+    },
+    "productiveMonths": [3, 4, 5, 6, 10, 11],
+    "dormancyMonths": [7, 8]
+  },
+  "commonIssues": [
+    "Heat-intolerant: plants get leggy and decline once temperatures stay above roughly 24C (75F); commonly removed and replaced when summer heat arrives.",
+    "Susceptible to fungal leaf spots, black root/stem rot, anthracnose, powdery mildew, scab, rust and smut, especially in wet or poorly drained conditions.",
+    "Avoid watering in late afternoon or evening and avoid overhead watering, as wet foliage encourages disease.",
+    "Avoid high-nitrogen fertilizers, which increase rot susceptibility; a balanced-to-low-N feed such as 5-10-10 is preferred.",
+    "Pests include aphids, spider mites, slugs, snails, cutworms and various caterpillars; deer, rabbits and squirrels may browse foliage and flowers.",
+    "Container minimum reflects a small, portable pot (about 30 cm / 12 in diameter or less) so plants can be moved to cooler shade as the sun intensifies; pansies are small (15-25 cm tall) and do not need a large root volume."
+  ],
+  "verticalSuitability": 0.5,
+  "source": [
+    {
+      "citation": "Missouri Botanical Garden Plant Finder - Viola x wittrockiana: full sun to part shade (part afternoon shade in St. Louis), medium/consistently moist well-drained humus-rich soil, USDA zones 6-10, height 0.50-0.75 ft, bloom April-June, short-lived perennial grown as cool-season annual, succumbs to summer heat, susceptible to fungal leaf diseases and slugs/snails, used in window boxes and containers.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a616",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder - Viola x wittrockiana: humus-rich, consistently moist, well-drained soil; medium water needs; container and window-box suitable; small habit ~6-9 in tall.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a616",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder - Viola x wittrockiana: plants succumb to summer heat and should be removed when temperatures rise; grown as cool-season annual; susceptible to fungal leaf diseases, slugs and snails.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a616",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "Clemson HGIC 'Pansies and Johnny-Jump-Ups' - rich well-draining soil with organic matter, pH 5.4-5.8; water ~1 inch per week (continue when less than 1 inch of rain falls weekly); never water late afternoon/evening; avoid overhead watering; apply 5-10-10 in late fall and early spring; avoid high-nitrogen fertilizers; spacing 6-8 in (small-flowered) to 10-12 in (large-flowered); 2 in organic mulch; diseases include black root rot and fungal leaf spots; pests aphids, spider mites, slugs.",
+      "url": "https://hgic.clemson.edu/factsheet/pansies-and-johnny-jump-ups/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Clemson HGIC 'Pansies and Johnny-Jump-Ups' - fertilizer: mix granular slow-release at planting or apply 5-10-10 in late fall and early spring; avoid high-nitrogen formulas (increase rot susceptibility).",
+      "url": "https://hgic.clemson.edu/factsheet/pansies-and-johnny-jump-ups/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Clemson HGIC 'Pansies, Violas, and Panolas' - plant in fall in full sun and organically rich well-drained soil; water-soluble liquid fertilizer every two to three weeks; pansies flower less in extreme cold; avoid moisture-retention potting mixes in wet winters to prevent root rot; deer, rabbits and squirrels browse plants.",
+      "url": "https://hgic.clemson.edu/pansies-violas-and-panolas-oh-my/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "UF/IFAS FPS-609 Viola x wittrockiana - part shade/part sun with shade during hot weather; needs ample moisture; tolerates clay, sand, acidic and loam soils, prefers rich soil; height 0.5-1 ft, spread 0.5-1 ft, round spreading form; thrives in winter in zones 8-11, not suitable for summer there; seed germinates 10-14 days at 65-75F; pests include aphids, cutworms, slugs, mites; diseases anthracnose, leaf spots, powdery mildew, scab, stem rot, rust, smut; used in containers, planters, edging, borders; spacing 6-12 in.",
+      "url": "https://ask.ifas.ufl.edu/publication/FP609",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "Old Farmer's Almanac 'Pansies' - hardy in USDA zones 3-8; full sun to part shade; keep soil consistently moist, water when the top inch of soil feels dry; heavy feeders, fertilize with water-soluble liquid fertilizer every two to three weeks; tolerate light frost and temperatures to about 25F (-4C); get leggy in summer heat (decline above ~75F/24C); grow best at soil temperatures 45-65F (7-18C); plant in early spring or fall; portable containers 12 in diameter or less recommended so plants can be moved to cooler areas.",
+      "url": "https://www.almanac.com/plant/pansies",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Old Farmer's Almanac 'Pansies' - watering: keep soil consistently moist but not soggy, water when the top inch of soil feels dry, especially during dry spells; container soil dries faster than garden soil; light: full sun to part shade.",
+      "url": "https://www.almanac.com/plant/pansies",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Old Farmer's Almanac 'Pansies' - portable containers 12 inches or less in diameter recommended (about 5 liters minimum) so plants can be moved to cooler shade; standard potting soil; light: full sun to part shade with morning sun preferred.",
+      "url": "https://www.almanac.com/plant/pansies",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Confidence note: baseIntervalDays=3 is a conservative interpretation of 'water when the top inch is dry' / '~1 inch per week' (Almanac, Clemson); actual interval varies with weather/pot size. feedingProfile baseIntervalDays=18 is the midpoint of the cited 'every two to three weeks' (14-21 days) liquid-feed guidance (Almanac, Clemson). Light targetSunHours=5 is a mid-range estimate for the cited 'full sun to part shade / morning sun with afternoon shade in heat' (no exact hour count is published). containerProfile liters are estimated from the cited '12-inch-or-less diameter portable pot' since extensions give pot diameter, not volume. verticalSuitability=0.5 reflects documented suitability for window boxes and hanging containers without an authoritative numeric rating.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

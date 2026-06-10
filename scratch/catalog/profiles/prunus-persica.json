@@ -1,0 +1,144 @@
+{
+  "id": "prunus-persica",
+  "scientificName": "Prunus persica",
+  "commonNames": [
+    "Peach"
+  ],
+  "category": "fruit",
+  "growthHabit": "tree",
+  "requiresSupport": false,
+  "selfFruitful": true,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 4,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 1.5,
+    "rainSkipThresholdMm": 25
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 30,
+    "fruitingIntervalDays": 30,
+    "postHarvestIntervalDays": 30,
+    "containerLeachAdjustment": 14,
+    "preferredNpk": "10-10-10"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 70,
+    "idealMinLiters": 70,
+    "idealMaxLiters": 95,
+    "soilMixTags": [
+      "loam-based",
+      "well-drained",
+      "moisture-retentive"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6,
+    "maxSunHours": 14
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -23,
+    "heatStressC": 35,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "5": [
+        {
+          "startMonth": 3,
+          "endMonth": 4
+        }
+      ],
+      "6": [
+        {
+          "startMonth": 3,
+          "endMonth": 4
+        }
+      ],
+      "7": [
+        {
+          "startMonth": 2,
+          "endMonth": 3
+        }
+      ],
+      "8": [
+        {
+          "startMonth": 12,
+          "endMonth": 3
+        }
+      ]
+    },
+    "productiveMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "dormancyMonths": [
+      11,
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Blooms very early in spring; blossoms are easily killed by late frosts, so site in a frost-free, sheltered spot or cover/move container trees during flowering (RHS, Clemson, UMN).",
+    "Needs sufficient winter chill (hours at or below ~7 C / 45 F) to break dormancy and set fruit; choose a cultivar matched to local chill accumulation (Clemson, Almanac).",
+    "Self-fertile but flowers early when few pollinators are active; hand-pollinate container or sheltered trees to ensure a good crop (RHS).",
+    "Container minimum of ~70 L is a practical large-pot size for a dwarf/patio peach (RHS recommends a pot at least 45 cm wide and deep, ~71 L); full-size, standard peach trees are in-ground plants and will not reach full size or yield in a container.",
+    "Prone to root problems in waterlogged soil; plant in moist but well-drained soil and avoid overwatering.",
+    "Cold hardiness varies by cultivar; hardy types (e.g. Reliance, Contender) survive to about USDA zone 4 while many cultivars are best in zones 5-8."
+  ],
+  "verticalSuitability": 0.2,
+  "source": [
+    {
+      "citation": "Clemson Cooperative Extension, Home & Garden Information Center — Peaches & Nectarines: full-sun siting, self-fruitful (only one variety needed), 10-10-10 plus calcium nitrate fertilizer schedule for young trees, dormant planting early December to mid-March, harvest mid-June to mid-September, chill requirement (hours at 45 F / 7 F or less).",
+      "url": "https://hgic.clemson.edu/factsheet/peaches-nectarines/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension — Peaches & Nectarines: fertilizer program for peaches (10-10-10 in March, supplemental calcium nitrate in May and July for young trees), establishing the ~monthly growing-season feeding cadence and preferred balanced NPK.",
+      "url": "https://hgic.clemson.edu/factsheet/peaches-nectarines/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension — Peaches & Nectarines: peach flowers are self-fruitful, so it is not necessary to plant more than one variety.",
+      "url": "https://hgic.clemson.edu/factsheet/peaches-nectarines/",
+      "field": "selfFruitful"
+    },
+    {
+      "citation": "University of Minnesota Extension — Growing stone fruits in the home garden: young fruit trees require 1-2 inches of water per week from rain or irrigation; stone fruits need at least a half day of sun (more sun = more fruit); nitrogen is the main annual nutrient; bare-root trees planted in early spring while dormant; blossoms easily damaged by spring freezes.",
+      "url": "https://extension.umn.edu/fruit/growing-stone-fruits-home-garden",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Growing stone fruits in the home garden: hardy peach cultivars (Reliance, Contender, Intrepid) can be grown in Minnesota's colder zones (down to about zone 4), establishing the conservative cold-hardy lower limit and strong frost sensitivity of blossoms.",
+      "url": "https://extension.umn.edu/fruit/growing-stone-fruits-home-garden",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society (RHS) — How to grow peaches: container peaches need a pot at least 45 cm (18 in) wide and deep with loam-based compost (about 71 L), feed container trees with high-potassium liquid feed every fortnight in the growing season or granular general-purpose feed each spring; all peach varieties are self-fertile; protect/move flowering trees from frost and hand-pollinate.",
+      "url": "https://www.rhs.org.uk/fruit/peaches/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society (RHS) — How to grow peaches: container-grown trees need a steady supply of moisture throughout the growing season and newly planted trees need regular watering in dry spells for the first couple of years; supports the container-leach feeding adjustment and frost-protection / hand-pollination guidance.",
+      "url": "https://www.rhs.org.uk/fruit/peaches/grow-your-own",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac — Peaches: Planting, Growing, and Harvesting Peach Trees: peaches grow in USDA zones 4-10 and do best in zones 6-8; trees are self-pollinating; chill hours are hours at or below 45 F (7 C) needed to break dormancy; early spring planting and summer harvest windows.",
+      "url": "https://www.almanac.com/plant/peaches",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Confidence note — heatStressC (35 C) and the hotWeatherMultiplier (1.5x watering in hot weather) are conservative engine estimates. The authoritative extension sources read (Clemson, UMN, RHS, Almanac) emphasize cold/frost hardiness and a fixed 1-2 in/week watering baseline but do not state an explicit upper heat-stress temperature or a quantitative hot-weather watering multiplier for peach; these values are inferred from the general stone-fruit watering guidance and should be revisited with a heat-specific extension source.",
+      "url": "https://extension.umn.edu/fruit/growing-stone-fruits-home-garden",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

@@ -1,0 +1,109 @@
+{
+  "id": "cucumis-sativus",
+  "scientificName": "Cucumis sativus",
+  "commonNames": [
+    "Cucumber",
+    "Garden cucumber"
+  ],
+  "category": "vegetable",
+  "growthHabit": "vine",
+  "requiresSupport": true,
+  "selfFruitful": false,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 2,
+    "dryingTolerance": "low",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 1.5,
+    "rainSkipThresholdMm": 25
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 14,
+    "fruitingIntervalDays": 14,
+    "containerLeachAdjustment": 0.5,
+    "preferredNpk": "5-10-10"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 19,
+    "idealMinLiters": 19,
+    "idealMaxLiters": 38,
+    "soilMixTags": [
+      "well-drained",
+      "sandy-loam",
+      "compost-enriched",
+      "ph-6.0-6.5"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6,
+    "maxSunHours": 14
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 10,
+    "heatStressC": 35,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [
+      7,
+      8,
+      9
+    ]
+  },
+  "commonIssues": [
+    "Frost-tender: plants are killed by light frost; do not plant outdoors until soil reaches 21C (70F) at 1-inch depth.",
+    "Standard varieties need insect (bee) pollination for fruit set; poor pollination causes misshapen or dropped fruit. Parthenocarpic hybrids set fruit without pollinators.",
+    "Heavy feeder for water: needs ~1 inch (25mm) of water per week; uneven moisture causes bitter or misshapen fruit.",
+    "Pests: striped/spotted cucumber beetles, aphids, spider mites, pickleworms, squash vine borers.",
+    "Diseases: powdery and downy mildew, bacterial wilt (vectored by cucumber beetles), anthracnose, angular leaf spot, mosaic viruses.",
+    "Best grown on a 3-6 ft trellis; container minimum is a 5-gallon (19L) pot with 1-2 plants and a support."
+  ],
+  "verticalSuitability": 0.95,
+  "source": [
+    {
+      "citation": "University of Minnesota Extension — Growing cucumbers in home gardens: ~1 inch of water per week; sow when soil is at least 70F at 1-inch depth; plants cannot survive freezing; thin to 8-12 inches apart; use a 3-to-4-foot trellis; soil pH 6.0-6.5.",
+      "url": "https://extension.umn.edu/vegetables/growing-cucumbers",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Growing cucumbers in home gardens: frost-tender (plants cannot survive freezing temperatures), plant after last frost; soil pH 6.0-6.5; recommends a 3-4 ft trellis.",
+      "url": "https://extension.umn.edu/vegetables/growing-cucumbers",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC — Cucumber: best growth between 75 and 85F; minimum planting soil temp 70F, no germination below 50F; very tender, killed by light frosts; harvest about 50-70 days; pre-plant 5-10-10 fertilizer, sidedress nitrogen; trellis about 6 feet high; most varieties require pollinating insects, parthenocarpic hybrids do not.",
+      "url": "https://hgic.clemson.edu/factsheet/cucumber/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC — Cucumber: pre-plant fertilizer 5-10-10 at 3 lb per 100 sq ft, then sidedress nitrogen before vine development; soil pH 6.0-6.5.",
+      "url": "https://hgic.clemson.edu/factsheet/cucumber/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac — Growing Cucumbers in Pots, Containers, Bags: at least a 5-gallon (about 19L) container, minimum 12 inches wide and 12 inches deep, 1-2 plants per pot; fresh potting/soilless mix; trellis recommended.",
+      "url": "https://www.almanac.com/growing-cucumbers-pots",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "University of Illinois Extension / UGA Extension — cucumbers require long warm days and plenty of sunshine (full sun). Extensions describe the requirement as 'full sun' rather than a precise hours figure; targetSunHours 8 and minSunHours 6 reflect the standard full-sun definition (6+ hours/day).",
+      "url": "https://extension.illinois.edu/gardening/cucumber",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Confidence note — lightProfile (targetSunHours/min/maxSunHours): authoritative extensions specify 'full sun' / 'plenty of sunshine' for cucumber but do not state an exact hours-per-day number. Values are conservative estimates derived from the standard horticultural definition of full sun (6+ hours direct sun); target 8h, max 14h reflect summer daylength, not a cited cap.",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note — wateringProfile.baseIntervalDays and hotWeatherMultiplier: extensions specify ~1 inch (25mm) of water per week and warn cucumbers are heavy water users with low drought tolerance, but do not give a fixed day interval. A 2-day base interval (and 1.5x in hot weather) is a conservative conversion of 'consistent, uniform moisture, ~1 inch/week, more in heat' for a container/raised-bed care schedule.",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note — feedingProfile intervals: extensions describe pre-plant fertilizer plus nitrogen sidedressing 'when plants begin to vine' / about one week after bloom then ~3 weeks later, not a fixed recurring day interval. A 14-day base/fruiting interval is a conservative schedule consistent with that cadence; preferredNpk 5-10-10 follows the Clemson pre-plant recommendation (avoid excess nitrogen, which reduces fruiting).",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

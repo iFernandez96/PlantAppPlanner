@@ -1,0 +1,145 @@
+{
+  "id": "prunus-domestica",
+  "scientificName": "Prunus domestica",
+  "commonNames": [
+    "Plum",
+    "European plum",
+    "Common plum",
+    "Prune plum"
+  ],
+  "category": "fruit",
+  "growthHabit": "tree",
+  "requiresSupport": false,
+  "selfFruitful": true,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 7,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.5,
+    "rainSkipThresholdMm": 25
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 14,
+    "fruitingIntervalDays": 14,
+    "postHarvestIntervalDays": 30,
+    "containerLeachAdjustment": -3,
+    "preferredNpk": "high-potassium liquid feed (e.g. 5-5-10) every fortnight for containers; in-ground trees rarely need feeding if mulched (apply nitrogen in early spring only when annual shoot growth is under ~20 cm / 8 in)"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 90,
+    "idealMinLiters": 100,
+    "idealMaxLiters": 125,
+    "soilMixTags": [
+      "loam-based",
+      "well-drained",
+      "fertile",
+      "slightly-acidic-ph-6.0-6.5",
+      "peat-free-compost"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6,
+    "maxSunHours": 14
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -29,
+    "heatStressC": 35,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "4": [
+        {
+          "startMonth": 4,
+          "endMonth": 5
+        }
+      ],
+      "5": [
+        {
+          "startMonth": 3,
+          "endMonth": 5
+        }
+      ],
+      "8": [
+        {
+          "startMonth": 11,
+          "endMonth": 12
+        },
+        {
+          "startMonth": 1,
+          "endMonth": 3
+        }
+      ]
+    },
+    "productiveMonths": [
+      7,
+      8,
+      9
+    ],
+    "dormancyMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Plum is a deciduous tree; in-ground planting in a warm, sunny, sheltered spot is strongly preferred. For containers choose a compact/dwarfing variety; the recommendedMinLiters (90 L) reflects the RHS minimum pot of about 50 cm wide and 50 cm deep (~98 L for that volume) and is not a size for a standard or semi-dwarf tree.",
+    "Plums have little tolerance for wet, heavy or waterlogged soils and develop root-rotting diseases easily; water deeply but infrequently and never leave containers standing in water (overwaterRisk is high).",
+    "Most European plums (e.g. 'Victoria', 'Stanley', 'Mount Royal') are self-fertile, but fruit set and yield usually improve with a compatible European-plum pollinator flowering at the same time. European plums (Prunus domestica) and Japanese plums (Prunus salicina) generally do not cross-pollinate each other.",
+    "Blossoms open very early in spring and are easily killed by late frost, which can destroy an entire season's crop; choose a non-frost-pocket site and protect with fleece when frost is forecast.",
+    "European plums are relatively high-chill (roughly 700-1000 hours below ~7 C / 45 F), so they fruit poorly in mild-winter climates that do not meet their chilling requirement.",
+    "Container trees dry out far faster than in-ground trees and may need watering several times a week (even daily) in hot, dry weather despite the 7-day in-ground base interval."
+  ],
+  "verticalSuitability": 0.1,
+  "source": [
+    {
+      "citation": "RHS — How to grow plums (grow your own): plums need a warm, sunny spot with fertile soil that does not waterlog; container plums (compact varieties such as 'Blue Tit') need a pot at least 50 cm wide and deep with loam-based compost; water containers regularly in dry spells April-August keeping compost evenly moist but never standing in water; feed containers with high-potassium liquid fertiliser every fortnight April-August (or general-purpose granular each spring); in-ground mulched trees generally need no feeding.",
+      "url": "https://www.rhs.org.uk/fruit/plums/grow-your-own",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "RHS — How to grow plums: minimum container is about 50 cm wide and 50 cm deep for compact varieties; a 50 cm-diameter, 50 cm-deep round pot is roughly 98 L, so recommendedMin/idealMin container volumes are set near that (90-125 L). Soil should be fertile, ideally slightly acidic pH 6-6.5, well-drained loam/clay that neither dries out nor waterlogs.",
+      "url": "https://www.rhs.org.uk/fruit/plums/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "RHS — How to grow plums: blossom is vulnerable to frost in March-April (cover with fleece if frost forecast); avoid frost-prone sites. Many varieties ('Victoria', 'Czar', 'Warwickshire Drooper') are self-fertile. Harvest July-September when fruit is fully coloured and soft.",
+      "url": "https://www.rhs.org.uk/fruit/plums/grow-your-own",
+      "field": "seasonality"
+    },
+    {
+      "citation": "University of Minnesota Extension — Growing stone fruits in the home garden: European plums (Prunus domestica) are self-compatible and do not require a second variety, though cross-pollination can increase yields; stone-fruit trees need full sun for the most fruit; cold-hardy European cultivars (e.g. Mount Royal) are reliable to USDA zone 4; blossoms bloom very early and delicate flowers are easily frozen; space trees 12-20 ft apart; harvest mid-late August to early September.",
+      "url": "https://extension.umn.edu/fruit/growing-stone-fruits-home-garden",
+      "field": "pollinationPartnersRequired"
+    },
+    {
+      "citation": "University of Minnesota Extension — Growing stone fruits in the home garden: cold-hardy European plum cultivars are rated for USDA zone 4. Zone 4 average annual minimum temperature is about -34 to -29 C (-30 to -20 F); coldHardyMinC set conservatively to -29 C for typical European-plum hardiness. Blossoms are frost-sensitive.",
+      "url": "https://extension.umn.edu/fruit/growing-stone-fruits-home-garden",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Growing stone fruits in the home garden: stone fruit trees need full sun to produce the most fruit (minimum half-day sun). targetSunHours 8 / minSunHours 6 reflect 'full sun' (6+ hours direct sun) for a fruit tree.",
+      "url": "https://extension.umn.edu/fruit/growing-stone-fruits-home-garden",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "UC Statewide IPM Program — Cultural tips for growing plum and prune: young trees need up to 3-5 gallons of water per week; established trees are irrigated every 2-3 weeks (12-24 h to wet 3-6 ft deep), more often (every 3-5 days) in sandy soils and every ~1.5-2 weeks in heavier soils. European plums require about 700-1000 chilling hours (below 45 F / 7 C). Mature trees receive ~3-5 lb ammonium sulfate or ~2 lb urea per year. Trees need at least 150 frost-free days so spring blossoms are not damaged.",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/cultural-tips-for-growing-plum-and-prune/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Confidence note: baseIntervalDays (7) is a conservative in-ground/large-container default reconciling RHS 'keep evenly moist, water regularly in dry spells' with UC IPM ranges (young trees ~weekly 3-5 gal; established trees every 2-3 weeks; sandy soils every 3-5 days). Actual interval varies strongly with soil type, container vs ground, rootstock and climate (containers often need watering several times a week or daily in heat).",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/cultural-tips-for-growing-plum-and-prune/",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: heatStressC (35 C) is an estimate. The authoritative extension/RHS sources read for this profile do not state an explicit upper heat-stress temperature for Prunus domestica; the value is a conservative general fruit-tree heat-stress threshold and should be refined if a cited figure is found.",
+      "url": "https://extension.umn.edu/fruit/growing-stone-fruits-home-garden",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

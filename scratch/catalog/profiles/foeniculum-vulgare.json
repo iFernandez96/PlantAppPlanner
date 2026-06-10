@@ -1,0 +1,134 @@
+{
+  "id": "foeniculum-vulgare",
+  "scientificName": "Foeniculum vulgare",
+  "commonNames": [
+    "Fennel",
+    "Common fennel",
+    "Sweet fennel",
+    "Florence fennel"
+  ],
+  "category": "herb",
+  "growthHabit": "upright",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 4,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 1.5,
+    "rainSkipThresholdMm": 10
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 30,
+    "containerLeachAdjustment": 0.7,
+    "preferredNpk": "balanced (e.g. 10-10-10), light feeder"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 20,
+    "idealMinLiters": 25,
+    "idealMaxLiters": 40,
+    "soilMixTags": [
+      "free-draining",
+      "rich-in-organic-matter",
+      "multi-purpose-compost",
+      "neutral-pH"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 7,
+    "minSunHours": 6,
+    "maxSunHours": 10
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -34,
+    "heatStressC": 30,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "4-9": [
+        {
+          "startMonth": 4,
+          "endMonth": 7
+        }
+      ]
+    },
+    "productiveMonths": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "dormancyMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Stem and root rot in poorly-drained or waterlogged soil; let the top inch dry between waterings and use free-draining mix.",
+    "Bolting (premature flowering) if moisture is uneven or the plant is heat-stressed; keep soil consistently moist during bulb development.",
+    "Aphids on fresh spring foliage; usually minor.",
+    "Slugs and snails damage young seedlings.",
+    "Swallowtail butterfly caterpillars may feed on the foliage.",
+    "Has a taproot and resents transplanting/root disturbance; sow direct or transplant young to avoid transplant shock.",
+    "Container minimum (about 20 L, ~30 cm wide and deep per RHS) suits Florence/bulb and herb fennel; the plant grows tall (1.2-1.8 m), so use a heavy, stable, sheltered pot to prevent it blowing over.",
+    "Self-seeds aggressively; deadhead spent flowers to control spread."
+  ],
+  "verticalSuitability": 0.1,
+  "source": [
+    {
+      "citation": "Missouri Botanical Garden Plant Finder - Foeniculum vulgare: Zone 4 to 9, Sun = Full sun, Water = Medium, height 4-6 ft, problems include stem/root rot, aphids, slugs.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=275990",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder - Foeniculum vulgare: USDA hardiness Zone 4 (approx. -34 C cold limit) to 9; full sun; medium water needs.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=275990",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder - Foeniculum vulgare: common problems are stem and root rot (especially in poorly-drained conditions), aphids, slugs, and swallowtail butterfly caterpillars.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=275990",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "RHS - How to grow Fennel: grow in a large container at least 30 cm (1 ft) wide and deep filled with peat-free multi-purpose compost; use a heavy, stable, sheltered pot as fennel grows tall and can blow over.",
+      "url": "https://www.rhs.org.uk/herbs/fennel/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "RHS - How to grow Fennel: needs no feeding and is drought-tolerant once established; container plants need a steady supply of moisture through the growing season; full sun, warm, sheltered, free-draining soil.",
+      "url": "https://www.rhs.org.uk/herbs/fennel/grow-your-own",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "RHS - How to grow Fennel: free-draining soil essential; avoid waterlogged conditions (root rot risk); container plants need steady moisture but herb fennel is hardy and drought-tolerant once established.",
+      "url": "https://www.rhs.org.uk/herbs/fennel/grow-your-own",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac - Fennel: likes an inch of water per week or more but is drought tolerant once established (taproot); full sun; fertile soil high in organic matter; neutral pH 6.5-7.5; thin to 6-9 in spacing; constantly damp foliage invites fungal issues.",
+      "url": "https://www.almanac.com/plant/fennel",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac - Fennel: forms a taproot and can suffer extreme transplant shock if the taproot is injured; sow direct in midsummer; full-sun herb-garden/flower-bed crop.",
+      "url": "https://www.almanac.com/plant/fennel",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "University of Illinois Extension - Fennel: herb fennel sown in spring after frost is past; Florence fennel sown mid-June to July for cooler-season bulb development; prefers full sun and uniformly moist soil.",
+      "url": "https://extension.illinois.edu/herbs/fennel",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Confidence note: targetSunHours (7) and hotWeatherMultiplier (1.5) are conservative estimates derived from qualitative 'full sun' guidance (Missouri Bot. Garden, RHS, Almanac) standardized to the common 6-8 h/day full-sun convention; no source gave an exact hours/day figure. Feeding interval (30 days) is a conservative light-feeder estimate since RHS states fennel 'needs no feeding' while the Almanac calls it a heavy feeder in poor soil - intervals span widely by context. baseIntervalDays (4) is derived from the Almanac '1 inch/week' guideline interpreted for container drying.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

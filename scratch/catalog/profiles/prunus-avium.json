@@ -1,0 +1,132 @@
+{
+  "id": "prunus-avium",
+  "scientificName": "Prunus avium",
+  "commonNames": [
+    "Cherry",
+    "Sweet cherry",
+    "Wild cherry",
+    "Gean"
+  ],
+  "category": "fruit",
+  "growthHabit": "tree",
+  "requiresSupport": false,
+  "selfFruitful": true,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 10,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.6,
+    "rainSkipThresholdMm": 12
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 14,
+    "fruitingIntervalDays": 14,
+    "postHarvestIntervalDays": 30,
+    "preferredNpk": "low-nitrogen / high-potassium (e.g. 5-10-10 in spring; high-K liquid feed for containers)"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 90,
+    "idealMinLiters": 90,
+    "idealMaxLiters": 120,
+    "soilMixTags": [
+      "loam-based",
+      "well-drained",
+      "slightly-acidic",
+      "fertile"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6,
+    "maxSunHours": 12
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -20,
+    "heatStressC": 35,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [6, 7],
+    "dormancyMonths": [11, 12, 1, 2]
+  },
+  "commonIssues": [
+    "In-ground cherry trees reach 4.5-9 m tall; container culture requires a dwarfing rootstock such as 'Gisela 5' and a pot at least 45-50 cm wide and deep (~90 L). The recommendedMinLiters reflects this minimum dwarf-container size, not a full standard tree, which must be grown in the ground.",
+    "No tolerance for wet or poorly drained soils; overwatering and waterlogging cause root rot and crown gall.",
+    "Heavy rain or excessive irrigation near harvest causes fruit cracking/splitting.",
+    "Spring frosts during blossom can destroy the crop; protect flowers from late frosts.",
+    "Disease-prone: bacterial canker, brown rot, cherry leaf spot/scorch, silver leaf, black knot, powdery mildew, shot-hole.",
+    "Pests: birds and squirrels strip fruit (use netting), plus aphids, spotted wing drosophila / cherry fruit flies, peach tree borer, scale.",
+    "Self-fertile cultivars (e.g. 'Stella', 'Lapins', 'Sweetheart') fruit alone, but most older sweet cherries need a compatible pollinizer that blooms at the same time, planted within ~15-30 m; even self-fertile types crop more heavily with a partner.",
+    "Requires roughly 800-1200 winter chill hours below ~7 C to break dormancy and fruit."
+  ],
+  "verticalSuitability": 0.2,
+  "source": [
+    {
+      "citation": "Missouri Botanical Garden, Plant Finder: Prunus avium — USDA zones 3-8, full sun to part shade, medium moisture, no tolerance for wet soils, white flowers in April, small sweet red-to-black cherries ripen early summer; lists leaf spot, bacterial canker, brown rot, black knot, crown gall, leaf curl/scorch, powdery mildew, root rot, scab, shot-hole, plus aphids/fruit flies/sawflies/scale and bird/squirrel pressure.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=l860",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden, Plant Finder: Prunus avium — full sun to part shade; well-drained soil with no tolerance for wet soils.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=l860",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden, Plant Finder: Prunus avium — extensive disease/pest list and note that cold winter temperatures and spring frosts cause significant injury to buds/flowers.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=l860",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "RHS, How to grow cherries — sunny south/south-west position; deep, fertile, well-drained slightly acidic soil pH 6.5-6.7; water newly planted trees in dry spells for the first year, established trees generally need no extra water; avoid overwatering in summer (causes fruit splitting); feed established mulched trees little, or granular fertiliser in early spring; container trees fed fortnightly with high-potassium liquid feed April-August.",
+      "url": "https://www.rhs.org.uk/advice/profile?pid=318",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "RHS, How to grow cherries — feeding regime: granular fertiliser in early spring; containers fortnightly high-potassium liquid feed April-August; prune after harvest (late July/August).",
+      "url": "https://www.rhs.org.uk/advice/profile?pid=318",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "RHS, How to grow cherries — container growing possible on semi-dwarfing rootstock 'Gisela 5' in a pot at least 45-50 cm (18-20 in) wide and deep using loam-based compost.",
+      "url": "https://www.rhs.org.uk/advice/profile?pid=318",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "RHS, How to grow cherries — many modern sweet cherries are self-fertile; others need a compatible partner flowering at the same time; ripens early summer onwards; pests/diseases include birds, silver leaf, bacterial canker, brown rot, leaf scorch, spotted wing drosophila.",
+      "url": "https://www.rhs.org.uk/advice/profile?pid=318",
+      "field": "selfFruitful"
+    },
+    {
+      "citation": "RHS, Prunus avium 'Stella' (F) — self-fertile sweet cherry; full sun, south/west aspect; RHS hardiness H6 (-20 to -15 C); cropping season late July; reaches 2.5-4 m in 5-10 years; fruit prone to splitting in wet weather.",
+      "url": "https://www.rhs.org.uk/plants/59056/prunus-avium-stella-(f)/details",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "RHS, Prunus avium 'Stella' (F) — self-fertile cultivar example; late-July cropping; spring white flowers.",
+      "url": "https://www.rhs.org.uk/plants/59056/prunus-avium-stella-(f)/details",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Penn State Extension, Cherries in the Garden and the Kitchen — full sun; USDA zones 5-9; most sweet cherries need a different compatible cultivar nearby though several newer cultivars are self-fruitful (all crop better with a second cultivar); sweet and tart cherries cannot pollinate each other; diseases include cherry leaf spot, powdery mildew, rhizopus rot, bacterial canker; pests include cherry/black cherry fruit flies, peach tree borer, plum curculio, birds and mammals; fruit cracks with excessive rainfall near harvest.",
+      "url": "https://extension.psu.edu/cherries-in-the-garden-and-the-kitchen",
+      "field": "selfFruitful"
+    },
+    {
+      "citation": "UC IPM (UC ANR), Cultural Tips for Growing Cherry — full sun, good air movement, well-drained slightly acidic sandy loam at least 4 ft deep, no tolerance for poorly drained soil; young trees up to 3-5 gallons of water per week; established trees irrigated deeply every 2-3 weeks (12-24 h) rather than frequent shallow watering; apply nitrogen annually in the growing season (mature trees ~3-5 lb ammonium sulfate or 2 lb urea); cherries require 800-1200 chill hours below 45 F.",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/cultural-tips-for-growing-cherry/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "UC IPM (UC ANR), Cultural Tips for Growing Cherry — nitrogen applied annually during the growing season; chill requirement 800-1200 hours below 45 F.",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/cultural-tips-for-growing-cherry/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Confidence note: baseIntervalDays (watering=10, feeding=14) and hotWeatherMultiplier/rainSkipThresholdMm are conservative app-cadence values interpolated from qualitative guidance. Sources give young-tree weekly watering (UC IPM 3-5 gal/week) and established deep watering every 2-3 weeks (UC IPM), with established in-ground trees often needing no supplemental water (RHS); 10 days is a middle-ground default for a managed/container tree. Feeding 14 days follows RHS fortnightly container feeding; in-ground feeding is effectively annual in early spring. heatStressC (35) is an estimate — no source gave an explicit upper-temperature stress threshold. verticalSuitability is low (tree habit, not trellis/hanging).",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

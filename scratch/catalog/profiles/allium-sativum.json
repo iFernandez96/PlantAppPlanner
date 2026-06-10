@@ -1,0 +1,118 @@
+{
+  "id": "allium-sativum",
+  "scientificName": "Allium sativum",
+  "commonNames": [
+    "Garlic"
+  ],
+  "category": "vegetable",
+  "growthHabit": "upright",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 4,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.6,
+    "rainSkipThresholdMm": 25
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 21,
+    "postHarvestIntervalDays": 21,
+    "containerLeachAdjustment": 0.75,
+    "preferredNpk": "high-nitrogen, low/no-phosphorus (e.g. 30-0-10 or 21-0-0) before and at shoot emergence; stop nitrogen by early May"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 15,
+    "idealMinLiters": 19,
+    "idealMaxLiters": 38,
+    "soilMixTags": [
+      "well-drained",
+      "fertile",
+      "loamy",
+      "ph-6.0-7.0"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6,
+    "maxSunHours": 12
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -10,
+    "heatStressC": 30,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "cold-temperate": [
+        {
+          "startMonth": 9,
+          "endMonth": 11
+        }
+      ]
+    },
+    "productiveMonths": [
+      6,
+      7
+    ],
+    "dormancyMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Overwatering and poorly drained soil cause bulb rot and fungal disease; garlic prefers consistent but not soggy moisture.",
+    "Stop watering about two weeks before harvest to avoid staining bulb wrappers and disease.",
+    "Critical bulbing period (mid-spring to early summer) needs steady moisture; drying out then reduces bulb size.",
+    "Avoid applying nitrogen after the first week of May (per UMN); late nitrogen delays bulbing.",
+    "Container minimum (15 L) assumes a pot at least 20 cm / 8 in deep for a small cluster of cloves; deeper/wider pots give larger bulbs and hold more plants.",
+    "Hardneck types are hardier than softneck; the cold-hardy minimum cited reflects RHS H4 (-10 to -5 C) and is conservative for well-mulched hardneck garlic, which survives much colder Minnesota winters under mulch."
+  ],
+  "verticalSuitability": 0,
+  "source": [
+    {
+      "citation": "University of Minnesota Extension — Growing garlic in home gardens. Planting depth 2-3 in, cloves ~6 in apart, plant in fall after first killing frost; water at least 1 inch per week, stop two weeks before harvest; soil pH 6.0-7.0; moderate-to-high nitrogen, top-dress at shoot emergence and 2-3 weeks later, avoid nitrogen after first week of May (examples 30-0-10, 24-0-15); harvest late June to late July.",
+      "url": "https://extension.umn.edu/vegetables/growing-garlic",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Growing garlic in home gardens. Nitrogen feeding: top-dress as soon as shoots emerge then again 2-3 weeks afterward; low/no-phosphorus high-nitrogen products (30-0-10, 24-0-15); avoid nitrogen after first week in May.",
+      "url": "https://extension.umn.edu/vegetables/growing-garlic",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Growing garlic in home gardens. Soil pH between 6.0 and 7.0; well-drained fertile soil; planting depth 2-3 inches; fall planting one to two weeks after first killing frost.",
+      "url": "https://extension.umn.edu/vegetables/growing-garlic",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC — Onion, Leek, Shallot & Garlic. Garlic grows best in full sun; soil pH 6.2-6.5; consistent soil moisture especially critical during bulbing; planted in fall; pre-plant 5-10-10 plus sulfur, followed by calcium nitrate (15.5-0-0) side-dressings through winter into spring; harvest when leaves yellow in early summer.",
+      "url": "https://hgic.clemson.edu/factsheet/onion-leek-shallot-garlic/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC — Onion, Leek, Shallot & Garlic. Spacing 3-5 inches apart, 12-24 inches between rows; consistent moisture critical during the bulbing period.",
+      "url": "https://hgic.clemson.edu/factsheet/onion-leek-shallot-garlic/",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society (RHS) — Allium sativum (garlic). Position full sun; hardiness H4, minimum temperature -10 to -5 C; well-drained soil (chalk, loam, sand), alkaline to neutral; harvest from early summer once leaves turn yellow; cloves 15 cm apart, tip 2.5 cm below surface, rows 30 cm apart.",
+      "url": "https://www.rhs.org.uk/plants/858/i-allium-sativum-i/details",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Utah State University Extension — Garlic in the Garden. Plant largest cloves pointed-end up 2-3 inches deep; space 3-4 inches apart, rows 6-10 inches apart; moisten soil thoroughly to a depth of 12 inches; shallow roots make consistent watering critical; side-dress nitrogen (21-0-0) in mid-April and late May.",
+      "url": "https://extension.usu.edu/yardandgarden/research/garlic-in-the-garden",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Confidence note: targetSunHours (8 h) and minSunHours (6 h) are derived from the universal extension/RHS recommendation of 'full sun' (no source gives an exact hour count); 6+ h is the standard horticultural definition of full sun. baseIntervalDays of 4 is a conservative interpretation of UMN's '1 inch/week thorough soaking' and the bulbing-period 'every 3-5 days' guidance (no single canonical interval published). heatStressC (30 C) and the container minimum (15 L) are conservative estimates: garlic bulbing is impaired by high summer heat per multiple extensions, and no .edu source publishes an exact heat-stress threshold or a precise minimum container volume in liters. coldHardyMinC uses the conservative RHS H4 floor (-5 to -10 C) even though mulched hardneck garlic survives colder; field-grown Minnesota garlic tolerates well below this.",
+      "url": "https://extension.umn.edu/vegetables/growing-garlic",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

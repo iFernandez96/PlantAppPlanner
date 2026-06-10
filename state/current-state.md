@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **UI overhaul: theme `0044`✅ + app-wide backdrop/glass `0045`✅ (`ae60aea`, ready for device review). NEW EPIC: plant-catalog (~75 pilot) + cited care data + icons + backend RAG AI — Phase 1 list DONE (`scratch/catalog/pilot-list.md`), awaiting owner OK to run Phase 2 cited-research fan-out. Backend UP. FCM deferred.** |
+| **Snapshot** | 2026-06-02 — **Backdrop `0045` (`ae60aea`) DEVICE-REVIEWED ✅ (13 shots, light+dark; 1 real bug: dark-mode empty-state text dark-on-dark + check confirm "Add" prominence → `reviews/backdrop-device-review-2026-06-02.md`). Catalog Phase 2: 54/75 cited profiles written & ALL schema-valid (6–12 citations each, seeded 5 enriched v2); 21 tail (ornamentals/houseplants/succulents) pending — session limit, resets 5:30pm; resume `wf_a43f2284-06b` (`scratch/catalog/phase2-status.md`). Backend UP. FCM deferred.** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
 | **Local HEAD / origin/master** | `369f2f06dcc6bc8019cf051b40228e01a0746b89` (`369f2f0`) — in sync, clean |

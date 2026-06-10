@@ -1,0 +1,118 @@
+{
+  "id": "coriandrum-sativum",
+  "scientificName": "Coriandrum sativum",
+  "commonNames": [
+    "Cilantro",
+    "Coriander",
+    "Chinese parsley"
+  ],
+  "category": "herb",
+  "growthHabit": "upright",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 2,
+    "dryingTolerance": "low",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.5,
+    "rainSkipThresholdMm": 8
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 21,
+    "preferredNpk": "balanced low-nitrogen (light feeding)"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 5,
+    "idealMinLiters": 8,
+    "idealMaxLiters": 15,
+    "soilMixTags": [
+      "free-draining",
+      "multi-purpose-compost",
+      "ph-6-7",
+      "rich-in-organic-matter"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 4,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 0,
+    "heatStressC": 27,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "default": [
+        { "startMonth": 3, "endMonth": 5 },
+        { "startMonth": 9, "endMonth": 10 }
+      ]
+    },
+    "productiveMonths": [4, 5, 6, 9, 10],
+    "dormancyMonths": [12, 1, 2]
+  },
+  "commonIssues": [
+    "Bolting (premature flowering) in summer heat and long days; provide light afternoon shade and consistent moisture to delay it. Sources confirm bolting is triggered by heat and by irregular watering / dry soil.",
+    "Sensitive to both frost and heat; not cold hardy below freezing and prone to stress in hot weather. Protect from frost and avoid midday sun in hot climates.",
+    "Containers dry out faster than the ground (RHS): check daily in warm weather and keep compost just moist without waterlogging.",
+    "Avoid over-fertilizing; only light nitrogen feeding is needed (Clemson).",
+    "Sow successively every 1-3 weeks for a continuous leaf supply, as individual plants are short-lived."
+  ],
+  "verticalSuitability": 0.2,
+  "source": [
+    {
+      "citation": "Clemson Cooperative Extension HGIC - The Cilantro-Coriander Connection: at least six hours of sun per day; soil pH 6-7 with 20-25% organic matter, well-drained; about an inch of water a week once established; spacing 6-8 in apart; light nitrogen fertilizer, avoid over-fertilizing; bolts as temperatures rise late in the season.",
+      "url": "https://hgic.clemson.edu/the-cilantro-coriander-connection/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC - The Cilantro-Coriander Connection: about an inch of water a week once established unless extremely hot; well-drained soil; bolts when temperatures rise.",
+      "url": "https://hgic.clemson.edu/the-cilantro-coriander-connection/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC - The Cilantro-Coriander Connection: light applications of a nitrogen fertilizer keep plants lush; avoid the tendency to over-fertilize. Soil pH 6-7 with 20-25% organic matter, well-drained.",
+      "url": "https://hgic.clemson.edu/the-cilantro-coriander-connection/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "RHS - How to grow Coriander: thrives in a sunny or lightly shaded spot; for summer leaf harvests use cooler/midday-shaded positions to prevent early flowering (bolting); performs particularly well in containers due to free-draining preference; container plants dry faster - check daily and keep compost just moist without waterlogging; space ~10cm (4in) apart; bolts in hot, dry weather; harvest leaves at 10-15cm (4-6in); seeds ~10+ weeks from sowing.",
+      "url": "https://www.rhs.org.uk/herbs/coriander/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "RHS - How to grow Coriander: container-grown coriander should be checked daily and watered to keep compost just moist; ground-grown needs minimal watering except in extended dry periods; bolts in hot, dry weather, regular watering delays flowering.",
+      "url": "https://www.rhs.org.uk/herbs/coriander/grow-your-own",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "UC Master Gardener Program of Sonoma County - Cilantro and Coriander: prefers full sun except in hot microclimates where light shade is preferred; water soil regularly because irregular watering and dry soil cause bolting; cilantro is neither frost- nor heat-tolerant; spring planting from about May 1, succession sow every 1-3 weeks; thin to 3-4 in apart; small crops thrive in containers; fall planting needs at least 60 days for leafy growth before first frost.",
+      "url": "https://ucanr.edu/sites/scmg/Food_Gardening/Feature_Vegetables/Coriander/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "UC Master Gardener Program of Sonoma County - Cilantro and Coriander: cilantro is neither frost- nor heat-tolerant; plant in spring after last frost and again in fall; succession sow every 1-3 weeks.",
+      "url": "https://ucanr.edu/sites/scmg/Food_Gardening/Feature_Vegetables/Coriander/",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder - Coriandrum sativum: full sun to part shade, light afternoon shade helps avoid sun scald in hot summer climates; medium water needs in well-drained soils; USDA zones 2-11; mature height 1.5-2 ft; leaf pinching can begin in 30 days, seeds ready in 90 days; plants bolt easily in hot summer climates.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=275984&isprofile=1&basic=Parsley",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac - Coriander and Cilantro: plant in spring after the last frost date or in fall; not cold hardy and requires protection from frost; plants prefer at least 6 hours of sun, but for leaf production partial shade is more productive; plants bolt in summer heat; sow a new patch every 2-3 weeks for continuous supply.",
+      "url": "https://www.almanac.com/plant/cilantro-coriander",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Confidence note: Exact coldHardyMinC and heatStressC are not published as numeric thresholds by the cited extension/RHS/Almanac sources. Sources uniformly state cilantro is frost-sensitive (not cold hardy) and bolts in summer heat. coldHardyMinC set to 0C (freezing) as a conservative protect-from-frost floor; heatStressC set to 27C (~80F) as a conservative bolting-onset estimate consistent with 'bolts as temperatures rise in summer'. Treat both as estimates.",
+      "url": "https://www.almanac.com/plant/cilantro-coriander",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

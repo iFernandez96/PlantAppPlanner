@@ -1,0 +1,122 @@
+{
+  "id": "pyrus-communis",
+  "scientificName": "Pyrus communis",
+  "commonNames": ["Pear", "European pear", "Common pear"],
+  "category": "fruit",
+  "growthHabit": "tree",
+  "requiresSupport": false,
+  "selfFruitful": false,
+  "pollinationPartnersRequired": 1,
+  "wateringProfile": {
+    "baseIntervalDays": 7,
+    "dryingTolerance": "high",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 1.5,
+    "rainSkipThresholdMm": 12
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 180,
+    "fruitingIntervalDays": 180,
+    "containerLeachAdjustment": 14,
+    "preferredNpk": "10-10-10"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 90,
+    "idealMinLiters": 90,
+    "idealMaxLiters": 125,
+    "soilMixTags": ["loam-based", "well-drained", "peat-free", "John Innes No.3"]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -29,
+    "heatStressC": 35,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "4": [{ "startMonth": 4, "endMonth": 5 }],
+      "5": [{ "startMonth": 4, "endMonth": 5 }],
+      "6": [{ "startMonth": 3, "endMonth": 4 }],
+      "7": [{ "startMonth": 2, "endMonth": 4 }],
+      "8": [{ "startMonth": 2, "endMonth": 3 }]
+    },
+    "productiveMonths": [8, 9, 10, 11],
+    "dormancyMonths": [12, 1, 2]
+  },
+  "commonIssues": [
+    "Fire blight is the primary disease threat; avoid excess nitrogen, which increases susceptibility. Prune out diseased limbs at least 15 cm (6 in) below visible infection and disinfect pruners between cuts.",
+    "Other common problems: pear psylla, codling moth, wood-boring beetles, anthracnose, canker, scab, and powdery mildew.",
+    "Vole and rabbit bark damage on young trees; protect trunks.",
+    "Pears flower earlier than apples and are vulnerable to late-frost damage to blossoms; site in a sheltered spot protected from late frost.",
+    "Most varieties need a second compatible pear variety flowering at the same time for reliable fruit set; some cultivars are only partially self-fruitful.",
+    "This is a large tree (10-15 m / 25-50 ft in the ground). Container growing requires a dwarfing rootstock (e.g. Quince C / Quince Eline) and a large pot, roughly 45-50 cm wide and deep (about 90-125 L); the recommendedMinLiters value reflects that container minimum, not in-ground needs."
+  ],
+  "verticalSuitability": 0.2,
+  "source": [
+    {
+      "citation": "University of Minnesota Extension — Growing pears in the home garden. Full sun; soil pH 6 to 7, well-drained; water newly planted trees weekly the first year, deep water established trees during dry seasons; fertilizer generally unnecessary, apply only if annual new growth is below 18 in, and excess nitrogen increases fire blight; two varieties generally needed for pollination; hardy varieties suit USDA zones 3-4; bare-root planting in early spring, potted after frost danger (May-June); harvest mid-August through late September; fire blight, Japanese beetles, vole/rabbit damage.",
+      "url": "https://extension.umn.edu/fruit/growing-pears",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Growing pears: feeding generally unnecessary; apply compost/fertilizer only if annual new growth falls below 18 in; excess nitrogen increases fire blight susceptibility.",
+      "url": "https://extension.umn.edu/fruit/growing-pears",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Growing pears: bare-root trees planted in early spring when soil is workable; potted trees after frost danger passes (May-June); harvest mid-August through late September; two varieties needed for pollination; hardy varieties suit USDA zones 3-4.",
+      "url": "https://extension.umn.edu/fruit/growing-pears",
+      "field": "seasonality"
+    },
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox — Pyrus communis: 'Full sun (6 or more hours of direct sunlight a day)'; tolerates occasionally dry soil and prefers good drainage; USDA hardiness zones 4a-8b; deciduous tree 40-50 ft tall, 25-35 ft wide, erect spreading form; flowers in spring, fruits summer/fall; pests pear psylla, codling moth, wood-boring beetles; diseases fire blight, anthracnose, canker, scab, powdery mildew.",
+      "url": "https://plants.ces.ncsu.edu/plants/pyrus-communis/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox — Pyrus communis: USDA hardiness zones 4a-8b. Zone 4a corresponds to roughly -34 to -32 C; coldHardyMinC set conservatively to -29 C to represent the species/zone-5 range rather than the coldest cultivars. Frost-sensitive blossoms per RHS (pears flower early and are at risk from late frost).",
+      "url": "https://plants.ces.ncsu.edu/plants/pyrus-communis/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox — Pyrus communis: deciduous tree, erect spreading form, 40-50 ft tall; frequent disease and insect problems; high maintenance.",
+      "url": "https://plants.ces.ncsu.edu/plants/pyrus-communis/",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "UGA Extension (CAES) — Home Garden Pears: plant trees 20 ft apart; sunlight most or all day maximizes fruit; fertilize with 1 cup of 10-10-10 per tree per year of tree age (max 12 cups), half before growth begins and half after fruit set; Orient, Baldwin, Kieffer, Spalding are partially self-fruitful, otherwise plant compatible cross-pollinating varieties; fire blight management — remove diseased limbs 6 in below infection, disinfect pruners with rubbing alcohol or 1:9 bleach:water.",
+      "url": "https://fieldreport.caes.uga.edu/publications/C742/home-garden-pears/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "UGA Extension (CAES) — Home Garden Pears: fertilizer applied in two splits per year (half before growth, half after fruit set), supporting a ~180-day base feeding interval for in-ground trees; sunlight most or all of the day.",
+      "url": "https://fieldreport.caes.uga.edu/publications/C742/home-garden-pears/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "RHS — How to grow pears: pears crop best in warm, sunny, sheltered position protected from late frosts; newly planted trees watered regularly during dry spells for the first couple of years; container trees need steady moisture through the growing season; ground trees need no regular feeding if mulched, container trees fed with an organic high-potassium liquid fertiliser every fortnight through the growing season; container pot size 45-50 cm (18-20 in) wide and deep on dwarfing rootstock (Quince C / Quince Eline) with loam-based peat-free compost (John Innes No.3); most varieties need another pear flowering at the same time; harvest September-November depending on variety.",
+      "url": "https://www.rhs.org.uk/fruit/pears/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "RHS — How to grow pears: container trees benefit from feeding every fortnight (≈14 days) with high-potassium liquid fertiliser through the growing season, informing the containerLeachAdjustment; ground trees fed little if mulched.",
+      "url": "https://www.rhs.org.uk/fruit/pears/grow-your-own",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "RHS — How to grow pears: pears flower earlier than apples and are at greater risk of late-frost damage to blossom; site in a sheltered position protected from late frosts. Supports frostSensitive=true and the late-frost commonIssue.",
+      "url": "https://www.rhs.org.uk/fruit/pears/grow-your-own",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Confidence note: heatStressC (35 C) is an estimate. None of the authoritative sources read (UMN, NC State, UGA, RHS) state an explicit upper heat-stress temperature for Pyrus communis; 35 C is a conservative placeholder consistent with the species' temperate zone-4a-8b range. hotWeatherMultiplier (1.5) and rainSkipThresholdMm (12) are reasonable care-engine defaults extrapolated from 'deep water during dry seasons / very dry spells when fruit is swelling' guidance rather than explicit published figures.",
+      "url": "https://plants.ces.ncsu.edu/plants/pyrus-communis/",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

@@ -1,0 +1,131 @@
+{
+  "id": "mentha-spicata",
+  "scientificName": "Mentha spicata",
+  "commonNames": [
+    "Spearmint",
+    "Mint",
+    "Garden mint",
+    "Common mint"
+  ],
+  "category": "herb",
+  "growthHabit": "upright",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 2,
+    "dryingTolerance": "low",
+    "overwaterRisk": "low",
+    "hotWeatherMultiplier": 0.5,
+    "rainSkipThresholdMm": 5
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 28,
+    "postHarvestIntervalDays": 28,
+    "containerLeachAdjustment": 0.75,
+    "preferredNpk": "balanced (e.g. 10-10-10)"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 8,
+    "idealMinLiters": 19,
+    "idealMaxLiters": 30,
+    "soilMixTags": [
+      "rich",
+      "moisture-retentive",
+      "well-drained",
+      "loamy"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 4,
+    "maxSunHours": 10
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -20,
+    "heatStressC": 32,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "5": [
+        {
+          "startMonth": 5,
+          "endMonth": 6
+        }
+      ],
+      "7": [
+        {
+          "startMonth": 4,
+          "endMonth": 5
+        }
+      ],
+      "9": [
+        {
+          "startMonth": 3,
+          "endMonth": 5
+        }
+      ]
+    },
+    "productiveMonths": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "dormancyMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Aggressive spreader: spreads by underground rhizomes and surface runners and can become invasive. Always grow in a contained pot or with a root barrier (Missouri Botanical Garden; UC ANR).",
+    "Mints grow better in wide-mouthed containers than deep ones; use a pot at least 15 cm (6 in) deep with a large surface area, or a ~19 L (5-gallon) container with added drainage holes (UC ANR).",
+    "Keep soil consistently moist; small containers dry out quickly in hot weather and may need water more than once a day. Spearmint tolerates wet soil but should not be left bone dry (UC ANR; Missouri Botanical Garden).",
+    "Deciduous: top growth dies back in winter and regrows from the crown/rhizomes in spring (RHS).",
+    "Frequent harvesting and pruning keep plants bushy and flavorful; flowers (lilac/pink/white) appear July-August and shoots can be sheared back after flowering (Old Farmer's Almanac; Missouri Botanical Garden)."
+  ],
+  "verticalSuitability": 0.2,
+  "source": [
+    {
+      "citation": "RHS - Mentha spicata (spearmint), plant details: full sun or partial shade; moist but well-drained soil; hardiness H7 (hardy below -20C); deciduous; ultimate height 0.5-1 m, spread 1-1.5 m.",
+      "url": "https://www.rhs.org.uk/plants/11055/mentha-spicata/details",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "RHS - Mentha spicata: position full sun or partial shade; deciduous oval bright-green leaves; water newly planted specimens until established and provide summer irrigation for container-grown plants.",
+      "url": "https://www.rhs.org.uk/plants/11055/mentha-spicata/details",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder - Mentha spicata 'Kentucky Colonel': USDA zones 5-9; full sun to part shade; water medium to wet, thrives in rich moist soils and tolerates wet conditions; 1-2 ft tall and wide; rhizomatous perennial; blooms July-August; no serious pests/diseases but an aggressive spreader.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a244",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder - Mentha spicata: hardiness zones 5-9; mature size 1-2 ft; growth habit rhizomatous, spreads to form ground cover; bloom time July-August.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a244",
+      "field": "seasonality"
+    },
+    {
+      "citation": "UC ANR (UC Cooperative Extension, Fresno) - 'So you want to grow mint!': full sun to part shade; moderate water, water when soil becomes dry in hot weather and note small containers dry out faster; use containers at least 6 inches deep, five-gallon buckets work well with added drainage; avoid terra cotta; mint spreads rapidly without a physical barrier.",
+      "url": "https://ucanr.edu/blog/fresno-gardening-green/article/so-you-want-grow-mint",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Old Farmer's Almanac - Mint: Planting, Growing, and Harvesting: grow in pots to prevent spreading; keep soil evenly moist; minimal care, benefits from frequent picking and pruning; spreads by horizontal runners and underground rhizomes.",
+      "url": "https://www.almanac.com/plant/mint",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Confidence note: feedingProfile intervals (28-day light feeding, balanced NPK, container-leach adjustment) are a conservative estimate. Authoritative extension/RHS sources for spearmint emphasize rich, moist soil and minimal care but do not specify a numeric fertilizer interval; mint is a low-feed herb and over-fertilizing reduces essential-oil/flavor concentration. The targetSunHours value (6) is interpolated from 'full sun to part shade' guidance plus the widely cited 5-6 hours for best color/flavor; minSunHours/maxSunHours and heatStressC (32C) are conservative estimates not given as explicit numbers by the cited sources.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

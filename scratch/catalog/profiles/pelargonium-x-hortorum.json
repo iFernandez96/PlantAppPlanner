@@ -1,0 +1,89 @@
+{
+  "id": "pelargonium-x-hortorum",
+  "scientificName": "Pelargonium x hortorum",
+  "commonNames": [
+    "Geranium",
+    "Zonal Geranium",
+    "Bedding Geranium",
+    "Garden Geranium"
+  ],
+  "category": "ornamental",
+  "growthHabit": "bush",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.6,
+    "rainSkipThresholdMm": 8
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 28,
+    "containerLeachAdjustment": -7,
+    "preferredNpk": "10-20-10"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 3.8,
+    "idealMinLiters": 5,
+    "idealMaxLiters": 11,
+    "soilMixTags": [
+      "well-drained",
+      "fertile",
+      "neutral-to-alkaline",
+      "peat-or-compost-amended"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 4,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 5,
+    "heatStressC": 32,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [5, 6, 7, 8, 9, 10],
+    "dormancyMonths": [12, 1, 2]
+  },
+  "commonIssues": [
+    "Frost-tender (USDA zones 10-11); plant outdoors only after all frost danger passes and soil reaches about 16C (60F).",
+    "Overwatering and poorly drained soil cause stem and root rot and edema; let the top 2.5-5 cm (1-2 in) of soil dry before watering and never let pots sit in water.",
+    "Bacterial leaf spot, botrytis (gray mold) blight, and leaf spots; avoid overhead watering and wetting foliage.",
+    "Aphids, whiteflies, spider mites, caterpillars, and tobacco budworm.",
+    "Leggy growth and leaf drop indoors from insufficient light; bright south/west window or supplemental light needed.",
+    "Recommended container minimum is a single-plant pot (about 6-inch / 3.8 L); larger pots hold more water and reduce wilting, so size up if plants wilt frequently."
+  ],
+  "verticalSuitability": 0.3,
+  "source": [
+    {
+      "citation": "Clemson Cooperative Extension HGIC, Annual Geranium (Pelargonium): at least 4 hours direct sun daily (midday shade in very hot areas); allow soil to dry between waterings; keep water off foliage; fertilize every 4 to 6 weeks during the growing season with 10-20-10 or equivalent; use large, well-drained containers; plant after frost danger and soil warming; problems include bacterial leaf spot, botrytis blight, edema, aphids, caterpillars, mites, whiteflies.",
+      "url": "https://hgic.clemson.edu/factsheet/geranium/",
+      "field": "lightProfile,wateringProfile,feedingProfile,temperatureProfile,commonIssues"
+    },
+    {
+      "citation": "University of Minnesota Extension, Growing geraniums as annual flowers in Minnesota: minimum 8 hours sun (less sun = fewer flowers); water when top 1-2 inches of soil is dry; geraniums tolerate dry soil better than overly wet; fertilize roughly every 3 weeks at half strength with all-purpose water-soluble fertilizer; minimum 6-inch pot with drainage; plant outdoors when soil reaches 60F; dormant overwinter storage at 45-50F watering monthly.",
+      "url": "https://extension.umn.edu/flowers/growing-geraniums-minnesota",
+      "field": "lightProfile,wateringProfile,feedingProfile,containerProfile,temperatureProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder, Pelargonium x hortorum: USDA hardiness zones 10-11; full sun to part shade; medium water needs; height/spread 1-3 ft shrubby mounds; frost-tender; suitable for containers, hanging baskets and window boxes; poorly drained soils lead to stem and root rots; susceptible to leaf spots, gray mold, whiteflies, aphids, tobacco budworm.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a537",
+      "field": "category,growthHabit,containerProfile,temperatureProfile,commonIssues"
+    },
+    {
+      "citation": "Royal Horticultural Society (RHS), Pelargonium x hortorum (zonal/bedding geranium): tender perennial grown as bedding/container plant; well-drained soil; switch to a high-potassium feed once flowering begins; frost-free conditions required.",
+      "url": "https://www.rhs.org.uk/plants/160286/pelargonium-hortorum/details",
+      "field": "feedingProfile,temperatureProfile"
+    },
+    {
+      "citation": "Confidence note: heatStressC (32C) and coldHardyMinC (5C) are conservative estimates. Sources establish frost-tenderness and USDA zone 10-11 hardiness (Missouri Botanical Garden) and recommend midday shade in 'very hot areas' (Clemson) but give no exact Celsius heat-stress or cold-survival thresholds; UMN cites 45-50F (7-10C) dormant storage and 60F (16C) planting soil. The container recommendedMinLiters (3.8 L / ~1 gal) is derived from UMN's 6-inch minimum pot width converted to a realistic single-plant volume.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

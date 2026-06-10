@@ -1,0 +1,132 @@
+{
+  "id": "beta-vulgaris",
+  "scientificName": "Beta vulgaris",
+  "commonNames": [
+    "Beet",
+    "Beetroot",
+    "Garden beet",
+    "Table beet"
+  ],
+  "category": "root",
+  "growthHabit": "rosette",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "low",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 1.5,
+    "rainSkipThresholdMm": 12
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 28,
+    "containerLeachAdjustment": 0.5,
+    "preferredNpk": "5-10-10"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 11,
+    "idealMinLiters": 20,
+    "idealMaxLiters": 40,
+    "soilMixTags": [
+      "well-drained",
+      "fertile-loam",
+      "loose-stone-free",
+      "ph-6.0-7.0"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 4,
+    "maxSunHours": 10
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -3,
+    "heatStressC": 24,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "us-clemson-piedmont": [
+        { "startMonth": 3, "endMonth": 3 },
+        { "startMonth": 8, "endMonth": 8 }
+      ],
+      "us-clemson-central": [
+        { "startMonth": 2, "endMonth": 2 },
+        { "startMonth": 8, "endMonth": 8 }
+      ],
+      "us-clemson-coastal": [
+        { "startMonth": 12, "endMonth": 1 },
+        { "startMonth": 8, "endMonth": 8 }
+      ],
+      "uk-rhs": [
+        { "startMonth": 3, "endMonth": 7 }
+      ]
+    },
+    "productiveMonths": [5, 6, 7, 8, 9, 10],
+    "dormancyMonths": [12, 1]
+  },
+  "commonIssues": [
+    "Inconsistent watering causes roots to split or crack; keep soil evenly moist (RHS).",
+    "Hot, dry weather above ~24C can trigger bolting (premature flowering) and woody roots (RHS, UC IPM).",
+    "Pests and diseases: aphids, leafminers/beet leaf miner, flea beetles, webworms, Cercospora leaf spot, damping-off, root-knot nematodes (Clemson, RHS).",
+    "Internal black spot indicates boron deficiency; have soil tested before adding boron (Clemson).",
+    "Beets do not transplant well; direct-sow into the final container or bed (Illinois Extension, UC IPM).",
+    "Container minimum: choose round (globe) varieties and a pot at least ~25cm/10in deep (~11 L, ~3 gal) per Illinois Extension; RHS recommends 40cm wide and deep for best results. Beet seed is a cluster of 2-4 seeds, so thin seedlings to 3-4in apart."
+  ],
+  "verticalSuitability": 0.1,
+  "source": [
+    {
+      "citation": "Clemson Cooperative Extension HGIC 1322 'Carrot, Beet, Radish & Parsnip' — spacing, days to maturity (50-70), 5-10-10 fertilizer at planting and sidedress when plants reach 4 inches, full sun, uniform moisture to 6-inch depth, pests/diseases, boron/internal black spot, planting dates by SC region.",
+      "url": "https://hgic.clemson.edu/factsheet/carrot-beet-radish-parsnip/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC 1322 — SC planting windows (Piedmont Mar/Aug, Central Feb/Aug, Coastal Dec-Jan/Aug) and full-sun requirement.",
+      "url": "https://hgic.clemson.edu/factsheet/carrot-beet-radish-parsnip/",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC 1322 — beets require full sun for optimal growth and yield; common pests, diseases and disorders.",
+      "url": "https://hgic.clemson.edu/factsheet/carrot-beet-radish-parsnip/",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "RHS 'How to grow Beetroot' — sow late Mar/Apr-Jul; water seedlings regularly in dry spells and every 10-14 days during dry periods once established; inconsistent watering splits roots, excess water favors leaves over roots; sunny well-drained site; soil min 7C (45F) for germination; container minimum pot 40cm wide and deep with round-root varieties; bolting and woody roots in hot/dry weather; beet leaf miner, downy mildew.",
+      "url": "https://www.rhs.org.uk/vegetables/beetroot/grow-your-own",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "RHS 'How to grow Beetroot' — container growing: minimum pot 40cm (16in) wide and deep, peat-free multi-purpose compost, choose rounded-root varieties.",
+      "url": "https://www.rhs.org.uk/vegetables/beetroot/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "UC IPM 'Cultural Tips for Growing Beets' — germination soil temp minimum 41F (5C), optimal 50-86F (10-30C); days to maturity 42-70; needs at least 4 to 6 hours of full sunlight; plants tolerate frosts and mild freezes; high temperatures cause rapid growth and white rings; frequent light irrigation when small; California planting months by region.",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/cultural-tips-for-growing-beets/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "UC IPM 'Cultural Tips for Growing Beets' — beets tolerate frosts and mild freezes (cool-season crop); high temperatures degrade root quality, informing heatStressC ~24C as the upper comfortable limit before bolting/quality loss.",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/cultural-tips-for-growing-beets/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Illinois Extension 'Small-space containers big with new gardeners' / container guidance — beets and other root/leafy crops need at least ~10 inches of container depth (a 10-inch / ~3-gallon, ~11 L pot); most plants need 6-8 inches for root growth; beets direct-seeded as they do not transplant well.",
+      "url": "https://extension.illinois.edu/news-releases/small-space-containers-big-new-gardeners",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac 'How to Plant, Grow, and Harvest Beets' — water about 1 inch per square foot per week; cool-season crop best at ~60-65F; at least 6 hours direct sun; soil pH 6.5-7; days to maturity ~55-70.",
+      "url": "https://www.almanac.com/plant/beets",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Confidence note — coldHardyMinC set to -3C as a conservative cool-season frost-tolerance figure. Sources (UC IPM, Almanac) describe beets as cool-season crops that 'tolerate frosts and mild freezes' but give no exact lethal low temperature for the plant, so this is an estimate. heatStressC (24C) is inferred from RHS/UC IPM bolting-and-woody-root warnings in hot weather rather than a single published threshold. hotWeatherMultiplier (1.5x) and rainSkipThresholdMm (12mm) are app-tuning defaults derived from the ~1in/week and dry-spell watering guidance, not directly published numbers.",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/cultural-tips-for-growing-beets/",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

@@ -1,0 +1,93 @@
+{
+  "id": "anethum-graveolens",
+  "scientificName": "Anethum graveolens",
+  "commonNames": [
+    "Dill",
+    "Dillweed",
+    "Dill-Oil Plant"
+  ],
+  "category": "herb",
+  "growthHabit": "upright",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 4,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.6,
+    "rainSkipThresholdMm": 8
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 35,
+    "containerLeachAdjustment": -7,
+    "preferredNpk": "5-10-5"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 11,
+    "idealMinLiters": 19,
+    "idealMaxLiters": 38,
+    "soilMixTags": [
+      "well-drained",
+      "loamy",
+      "organic-matter",
+      "deep-pot-for-taproot"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 7,
+    "minSunHours": 6,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 0,
+    "heatStressC": 27,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "dormancyMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Bolts (goes to seed) quickly once temperatures rise above ~27 C (80 F); succession-sow every 2-3 weeks for continuous leaf harvest.",
+    "Powdery mildew develops when plants are overwatered or have poor air circulation; let soil dry between waterings.",
+    "Aphids cluster on stems as the plant begins to flower and seeds ripen.",
+    "Has a long taproot and transplants poorly; direct-sow and use a deep pot. Container minimum (11 L) is for a single plant in a >=25 cm / 10-12 in deep pot; larger pots reduce staking and bolting.",
+    "Tall foliage can be blown over by wind and may need staking, especially for taller (non-compact) varieties."
+  ],
+  "verticalSuitability": 0.1,
+  "source": [
+    {
+      "citation": "University of Minnesota Extension — Growing dill in home gardens. Sun: at least 6-8 hours direct sunlight outdoors; fertilizer: 5-10-5 once in late spring, container/indoor plants liquid feed at half strength every 4-6 weeks; thin seedlings to 10-12 in; sow after spring frost danger, succession every 2-3 weeks; tender frost-sensitive annual; use a fairly deep pot with drainage.",
+      "url": "https://extension.umn.edu/vegetables/growing-dill",
+      "field": "lightProfile,feedingProfile,wateringProfile,temperatureProfile,seasonality"
+    },
+    {
+      "citation": "Utah State University Extension — How to Grow Dill in Your Garden. Watering: one or two irrigations per week once established, tolerates drier soil after seed set; full sun; hardy and tolerates cold winters; hot temperatures (+95 F / ~35 C) decrease seed production; sow every 4-6 weeks; overwatering increases powdery mildew susceptibility; aphids appear as dill flowers and seeds ripen.",
+      "url": "https://extension.usu.edu/yardandgarden/research/dill-in-the-garden",
+      "field": "wateringProfile,lightProfile,temperatureProfile,commonIssues"
+    },
+    {
+      "citation": "University of Wisconsin-Madison Horticulture Extension — Dill, Anethum graveolens. Does best in full sun; tolerant of light frost; bolts/flowers in hot or dry weather; thin seedlings to 3-6 in; deep pot needed for long taproot and plants may need staking; few pests besides occasional aphids or powdery mildew; host plant for black swallowtail caterpillars; germinates in 10-14 days.",
+      "url": "https://hort.extension.wisc.edu/articles/dill-anethum-graveolens/",
+      "field": "lightProfile,temperatureProfile,containerProfile,commonIssues"
+    },
+    {
+      "citation": "Confidence note: No university-extension or RHS source gave an exact container volume for dill. recommendedMinLiters (11 L), idealMinLiters (19 L) and idealMaxLiters (38 L) are conservative estimates derived from the extension guidance to use a deep pot (>=25 cm / 10-12 in deep and equally wide) for the taproot for a single plant, scaling up for 2-3 plants. wateringProfile.baseIntervalDays (4) is interpolated from USU 'one or two irrigations per week' (3.5-7 day interval) toward the more frequent end for container use; hotWeatherMultiplier and rainSkipThresholdMm are conservative care-engine estimates, not directly sourced.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

@@ -1,0 +1,121 @@
+{
+  "id": "lactuca-sativa",
+  "scientificName": "Lactuca sativa",
+  "commonNames": [
+    "Lettuce",
+    "Garden lettuce"
+  ],
+  "category": "vegetable",
+  "growthHabit": "rosette",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 2,
+    "dryingTolerance": "low",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.6,
+    "rainSkipThresholdMm": 10
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 14,
+    "postHarvestIntervalDays": 30,
+    "containerLeachAdjustment": 0.7,
+    "preferredNpk": "high-nitrogen (e.g. 10-10-10 base with nitrogen side-dress such as 15-0-0)"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 6,
+    "idealMinLiters": 10,
+    "idealMaxLiters": 40,
+    "soilMixTags": [
+      "potting-mix",
+      "well-draining",
+      "rich-organic-matter",
+      "moisture-retentive",
+      "slightly-acidic-ph-6.0-6.5"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6,
+    "maxSunHours": 10
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -2,
+    "heatStressC": 24,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "productiveMonths": [
+      3,
+      4,
+      5,
+      6,
+      9,
+      10,
+      11
+    ]
+  },
+  "commonIssues": [
+    "Bolting (premature seed-stalk formation) and bitter flavor when temperatures exceed about 24 C / 75 F or under long, hot, high-light days.",
+    "Shallow roots dry out quickly in containers; keep soil evenly moist and water more often than in-ground plantings (every 4-5 days, more in heat).",
+    "Pests: aphids, cabbage looper, corn earworm, leafhoppers, slugs and snails, cutworms, flea beetles.",
+    "Diseases: gray mold (Botrytis), Rhizoctonia bottom rot, Sclerotinia drop, aster yellows (spread by leafhoppers).",
+    "Tolerates light frost (to roughly -2 C / 28 F with cover) but freezing temperatures stop growth; protect with row cover in cold snaps."
+  ],
+  "verticalSuitability": 0.6,
+  "source": [
+    {
+      "citation": "UMN Extension - Growing lettuce, endive and radicchio in home gardens. Optimal night low 50 F / day high 68 F; freezing stops growth; ~1 inch rainfall per week; 10-10-10 at planting plus nitrogen side-dress at 4 in tall; bolting when temps exceed ~75 F; pests include cutworms, slugs, flea beetles, aster yellows.",
+      "url": "https://extension.umn.edu/vegetables/growing-lettuce-endive-and-radicchio",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "UMN Extension - Growing lettuce, endive and radicchio in home gardens. Spring planting in April when soil workable; fall ~3 months before first frost; productive cool-season window.",
+      "url": "https://extension.umn.edu/vegetables/growing-lettuce-endive-and-radicchio",
+      "field": "seasonality"
+    },
+    {
+      "citation": "UMN Extension - Growing lettuce, endive and radicchio in home gardens. ~1 inch rainfall per week adequate; sandy soils need more frequent watering; water before harvest for crispness.",
+      "url": "https://extension.umn.edu/vegetables/growing-lettuce-endive-and-radicchio",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Clemson HGIC - Lettuce. Optimum growth 55-65 F; germination 60-80 F; light frost tolerated, ~4 degrees frost protection down to 28 F under cover; bolting/bitterness above 75 F; pre-plant 5-10-10 plus calcium-nitrate side-dress.",
+      "url": "https://hgic.clemson.edu/factsheet/lettuce/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Clemson HGIC - Lettuce. Maintain uniform moisture, moisten soil to 6 inches deep; pests aphids, cabbage looper, corn earworm, leafhoppers, slugs, snails; diseases gray mold, Rhizoctonia bottom rot, Sclerotinia drop.",
+      "url": "https://hgic.clemson.edu/factsheet/lettuce/",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "UGA Extension - Growing Lettuce in Your Garden. At least 8-10 hours of sunlight per day; slightly acidic soil pH 6.0-6.5; transplants 10-12 in apart.",
+      "url": "https://site.extension.uga.edu/laurensgarden/2021/09/growing-lettuce-in-your-garden/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "UGA Extension - Growing Lettuce in Your Garden. Irrigate every 4-5 days as needed; container/raised-bed lettuce needs more frequent irrigation.",
+      "url": "https://site.extension.uga.edu/laurensgarden/2021/09/growing-lettuce-in-your-garden/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "UGA Extension - Growing Lettuce in Your Garden. 5-10-10 at planting, then ~2 lb of 5-10-15 per 100 sq ft each month during the growing season (monthly feeding cadence).",
+      "url": "https://site.extension.uga.edu/laurensgarden/2021/09/growing-lettuce-in-your-garden/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "UC ANR Master Gardeners (Under the Solano Sun) - Growing Lettuce in Containers. Container depth 6-9 inches suits shallow-rooted lettuce; bigger container gives more options; potting mix ~70-80% peat/coir, 20-30% perlite/bark, with dolomitic lime; high-nitrogen slow-release at planting plus liquid feed; full sun in spring, afternoon shade in heat.",
+      "url": "https://ucanr.edu/blog/under-solano-sun/article/growing-lettuce-containers",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Confidence note: Container volume in liters is estimated. Sources give container depth (UC ANR: 6-9 in) and per-plant footprint (an 8-inch / 18-inch pot per the search summary) rather than a liter figure; recommendedMinLiters 6 (single plant), idealMin 10, idealMax 40 are conservative conversions from those dimensions. wateringProfile baseIntervalDays 2 is tuned for shallow-rooted container culture (sources state 'every 4-5 days' in-ground and 'more frequent' in containers); hotWeatherMultiplier 0.6 and rainSkipThresholdMm 10 are app-tuning estimates derived from the ~1 in/week guidance. verticalSuitability 0.6 reflects suitability for shallow raised beds/window boxes, not a sourced rating.",
+      "url": "https://ucanr.edu/blog/under-solano-sun/article/growing-lettuce-containers",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

@@ -1,0 +1,140 @@
+{
+  "id": "artemisia-dracunculus",
+  "scientificName": "Artemisia dracunculus",
+  "commonNames": [
+    "Tarragon",
+    "French tarragon",
+    "Estragon",
+    "Dragon sagewort"
+  ],
+  "category": "herb",
+  "growthHabit": "upright",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 7,
+    "dryingTolerance": "high",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 1.5
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 60,
+    "preferredNpk": "balanced, low-rate (e.g. 5-5-5); low feeder"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 6,
+    "idealMinLiters": 8,
+    "idealMaxLiters": 12,
+    "soilMixTags": [
+      "free-draining",
+      "loamy",
+      "neutral-to-slightly-alkaline",
+      "organic-matter"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6,
+    "maxSunHours": 12
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -29,
+    "heatStressC": 32,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "4": [
+        {
+          "startMonth": 5,
+          "endMonth": 6
+        }
+      ],
+      "5": [
+        {
+          "startMonth": 4,
+          "endMonth": 6
+        }
+      ],
+      "7": [
+        {
+          "startMonth": 4,
+          "endMonth": 5
+        }
+      ]
+    },
+    "productiveMonths": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "dormancyMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Root and crown rot in moist, poorly drained soils or over a wet winter; the single biggest killer. Use free-draining soil and never let the pot stay waterlogged.",
+    "French tarragon is tender in cold, wet winters and may not overwinter outdoors in damp climates; grow in a container and shelter it over winter, or apply a straw/leaf mulch in cold zones.",
+    "Loses vigour and flavour after 3-4 years; divide the clump every 3-4 years to keep it productive.",
+    "In a container the roots quickly become root-bound and flavour declines; repot or divide every 2-3 years. Container minimum (~6 L, a 20 cm / 8 in wide and deep pot per RHS) suits one plant for a season; a larger 8-12 L pot is better for a multi-year plant.",
+    "True French tarragon is sterile and cannot be grown from seed; it is only propagated from cuttings or root division. Seed sold as 'tarragon' is usually the coarser, less flavourful Russian tarragon.",
+    "In regions where summer highs exceed about 32 C (90 F), give afternoon/partial shade to improve survival.",
+    "Foliage is toxic to dogs, cats, and horses if eaten."
+  ],
+  "verticalSuitability": 0.1,
+  "source": [
+    {
+      "citation": "Utah State University Extension - French Tarragon in the Garden: full sun (partial shade where summer temps exceed 90 F / 32 C); water established plants once a week and let soil dry between waterings; well-drained soil, drought tolerant; low fertilizer needs, fertilize only at planting; space 24 in apart; winter hardy to zone 4; plant after last spring frost; generally insect and disease free but prone to root rot from overwatering.",
+      "url": "https://extension.usu.edu/yardandgarden/research/french-tarragon-in-the-garden",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Utah State University Extension - French Tarragon in the Garden: 'French tarragon has low fertilizer requirements' and 'only fertilize when planting'; basis for an infrequent (~60-day) light feeding interval.",
+      "url": "https://extension.usu.edu/yardandgarden/research/french-tarragon-in-the-garden",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Utah State University Extension - French Tarragon in the Garden: winter hardy to zone 4 (cold-hardy minimum approx -29 C); partial shading recommended where summer temperatures exceed 90 F (32 C), basis for heat-stress threshold; plant after last spring frost.",
+      "url": "https://extension.usu.edu/yardandgarden/research/french-tarragon-in-the-garden",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox - Artemisia dracunculus: 'Full sun (6 or more hours of direct sunlight a day)'; prefers good drainage / dry conditions; drought tolerant; USDA zones 3a-8b; height 1-3 ft, width 1-1.5 ft, clumping erect herbaceous perennial; susceptible to root or crown rot in moist, poorly drained soils; toxic to dogs, cats and horses.",
+      "url": "https://plants.ces.ncsu.edu/plants/artemisia-dracunculus/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox - Artemisia dracunculus: USDA hardiness zones 3a-8b; clumping, erect, herbaceous perennial habit (basis for growthHabit 'upright' and no support); foliage toxic to pets.",
+      "url": "https://plants.ces.ncsu.edu/plants/artemisia-dracunculus/",
+      "field": "growthHabit"
+    },
+    {
+      "citation": "University of Illinois Extension - Tarragon (French): full sun, tolerates some light shade; soil must be well-drained, will not tolerate poorly drained soils especially over winter; divide every 3-4 years; small pots can be grown where bright light is available, kept on the dry side; true French tarragon is sterile and grown only from cuttings or division.",
+      "url": "https://extension.illinois.edu/herbs/tarragon-french",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "Royal Horticultural Society (RHS) - How to grow Tarragon: grow in full sun in free-draining soil or a container; for a container use one 'at least 20cm (8in) wide and deep for one plant' with plenty of drainage holes (basis for ~6 L recommended minimum); French tarragon 50-75 cm tall, 30 cm wide; plant mid-spring to early summer; harvest shoot tips spring to autumn; French tarragon tender in wet UK winters, best containerised and sheltered over winter; avoid overwatering as it dislikes damp.",
+      "url": "https://www.rhs.org.uk/herbs/tarragon/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society (RHS) - How to grow Tarragon: harvest from spring to autumn taking young shoot tips; plant mid-spring to early summer; winter dormancy (basis for productiveMonths / plantingWindows / dormancyMonths).",
+      "url": "https://www.rhs.org.uk/herbs/tarragon/grow-your-own",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Confidence note: feedingProfile.baseIntervalDays (60) is estimated. Extension sources (USU) state tarragon is a low feeder needing fertiliser essentially only at planting, and RHS gives no feeding schedule, so no source specifies an exact recurring interval; 60 days is a conservative low-rate interval consistent with 'low fertilizer requirements'. hotWeatherMultiplier (1.5) is also an estimate - sources confirm increased water need in hot/dry spells and the once-weekly baseline but give no explicit multiplier.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

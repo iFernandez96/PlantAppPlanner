@@ -1,0 +1,121 @@
+{
+  "id": "melissa-officinalis",
+  "scientificName": "Melissa officinalis",
+  "commonNames": [
+    "Lemon balm",
+    "Balm",
+    "Sweet balm",
+    "Common balm"
+  ],
+  "category": "herb",
+  "growthHabit": "bush",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 1.5,
+    "rainSkipThresholdMm": 10
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 30,
+    "containerLeachAdjustment": 0.5,
+    "preferredNpk": "balanced low-strength (e.g. 5-5-5); herbs need low fertility for best leaf flavor"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 11,
+    "idealMinLiters": 12,
+    "idealMaxLiters": 20,
+    "soilMixTags": [
+      "well-drained",
+      "soil-based-compost",
+      "fertile",
+      "moisture-retentive"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 3,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -34,
+    "heatStressC": 30,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "3-9": [
+        {
+          "startMonth": 4,
+          "endMonth": 6
+        }
+      ]
+    },
+    "productiveMonths": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "dormancyMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Powdery mildew in humid or crowded conditions; cut affected stems back hard to stimulate fresh growth (RHS, Wisconsin Extension).",
+    "Susceptible to root rot if overwatered or left in waterlogged soil, especially over cold wet winters (Old Farmer's Almanac, RHS).",
+    "Spreads aggressively by self-seeding and runners; grow in a container to curtail spread and deadhead after flowering (RHS, Wisconsin Extension).",
+    "Occasional leaf spot, gray mold, and leafhoppers (Missouri Botanical Garden, RHS).",
+    "Container plants benefit from a sheltered spot over winter out of excessive rain (RHS)."
+  ],
+  "verticalSuitability": 0.2,
+  "source": [
+    {
+      "citation": "University of Wisconsin-Madison Division of Extension - Wisconsin Horticulture: Lemon Balm, Melissa officinalis. Full sun in fertile well-drained soil; hardy zones 3a-9b; plants ~2 ft tall; space 16-18 in apart; few pest/disease problems, occasional powdery mildew; sow indoors 4-6 weeks before last frost.",
+      "url": "https://hort.extension.wisc.edu/articles/lemon-balm-melissa-officinalis/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "University of Wisconsin-Madison Division of Extension - Wisconsin Horticulture: Lemon Balm. Hardy zones 3a to 9b (perennial); planting/start timing and spacing.",
+      "url": "https://hort.extension.wisc.edu/articles/lemon-balm-melissa-officinalis/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder: Melissa officinalis. Full sun to part shade; dry to medium well-drained soils, avoid wet/winter moisture; USDA zones 3-7 (Plant Finder); height 1.5-2 ft, spread 1.5-3 ft; low maintenance; occasional powdery mildew, leaf spot, gray mold; bloom June-August.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c857",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder: Melissa officinalis. Light = full sun to part shade, afternoon shade beneficial in hot climates; bloom June-August informs productive months.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c857",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Royal Horticultural Society (RHS): How to grow Lemon balm. Sun or partial shade; container plants kept evenly moist while established garden plants are drought-tolerant; grow in large pots at least 25cm (10in) wide and deep in peat-free soil-based compost; tolerates most soils but avoid waterlogging; powdery mildew and leafhoppers occasional; container plants moved to shelter over winter.",
+      "url": "https://www.rhs.org.uk/herbs/lemon-balm/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society (RHS): How to grow Lemon balm. Container plants need regular moisture to keep compost evenly moist; established garden plants are drought-tolerant - informs medium drying tolerance and overwatering/root-rot caution.",
+      "url": "https://www.rhs.org.uk/herbs/lemon-balm/grow-your-own",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac: Lemon Balm Planting, Growing, and Harvesting Guide. Avoid overwatering - lemon balm is sensitive to root rot; needs moist (not oversaturated) soil; works well in a small pot or patio planter; herbs generally do not need highly fertile soil (very fertile soil reduces leaf flavor); space transplants ~18 in apart.",
+      "url": "https://www.almanac.com/plant/lemon-balm",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Confidence note: No authoritative source gives an exact watering interval (days), feeding interval (days), or pot volume in liters for lemon balm. baseIntervalDays=3 and overwaterRisk=high are derived conservatively from RHS 'keep compost evenly moist' for containers combined with Almanac/MoBot root-rot and dry-to-medium guidance. feedingProfile.baseIntervalDays=30 is a conservative herb default consistent with Almanac's 'herbs do not need highly fertile soil.' containerProfile liters are converted from RHS 'at least 25cm (10in) wide and deep' (a ~25cm pot approximates 11-12 L); idealMax estimated. hotWeatherMultiplier, rainSkipThresholdMm, coldHardyMinC (zone 3 lower bound ~ -34C) and heatStressC (~30C, afternoon-shade benefit) are reasonable estimates, not directly stated.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

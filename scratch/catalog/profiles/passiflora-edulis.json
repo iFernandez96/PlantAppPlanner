@@ -1,0 +1,74 @@
+{
+  "id": "passiflora-edulis",
+  "scientificName": "Passiflora edulis",
+  "commonNames": ["Passion fruit", "Purple passion fruit", "Purple granadilla"],
+  "category": "fruit",
+  "growthHabit": "climbing",
+  "requiresSupport": true,
+  "selfFruitful": true,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.6
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 14,
+    "fruitingIntervalDays": 14,
+    "preferredNpk": "balanced during growth; switch to higher-potassium/lower-nitrogen at flowering"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 95,
+    "idealMinLiters": 95,
+    "idealMaxLiters": 150,
+    "soilMixTags": ["well-drained", "loam-based", "rich-in-organic-matter", "ph-6-7.5"]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 6,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -3,
+    "heatStressC": 32,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [6, 7, 8, 9, 10],
+    "dormancyMonths": [12, 1, 2]
+  },
+  "commonIssues": [
+    "Frost-tender: mature vines may die back to the ground after exposure to the mid-20s F (around -4 C); needs protection or overwintering below freezing.",
+    "Drought-sensitive shallow roots — drought reduces growth, flowering and fruit set and increases Fusarium susceptibility; keep soil evenly moist but never saturated.",
+    "Overwatering / poor drainage promotes Fusarium wilt, Phytophthora root/crown rot and nematode damage; productive lifespan is often only 3-4 years before replanting.",
+    "Vigorous tendril climber to ~10 m — needs a strong trellis, fence or wired wall that can withstand wind.",
+    "In containers, start in roughly a 30 cm (about 28 L) pot and pot up; the 95 L+ minimum reflects a mature fruiting vine, which is best grown in the largest practical container or in-ground.",
+    "Pests: spider mites (can defoliate), caterpillars/Lepidoptera larvae, stink bugs, aphids, snails and root-knot nematodes; viral woodiness disease deforms fruit."
+  ],
+  "verticalSuitability": 1,
+  "source": [
+    {
+      "citation": "UF/IFAS Extension, HS1406 'The Passion Fruit in Florida' — optimal 65-90 F, cold death in the mid-20s F, chilling injury below 59 F, USDA zone 9b+, full sun, small-but-frequent irrigation with drought/flood sensitivity, well-drained soil pH ~6-7.5, strong wind-resistant trellis, purple types self-compatible, peak production midsummer-fall, 3-4 year productive life.",
+      "url": "https://ask.ifas.ufl.edu/publication/HS1406",
+      "field": "temperatureProfile,lightProfile,wateringProfile,containerProfile,seasonality,requiresSupport,selfFruitful,commonIssues"
+    },
+    {
+      "citation": "UC ANR Cooperative Extension Ventura County, 'Passion Fruit' — optimal 68-82 F, purple variety frost-tender, requires a lot of water but overwatering promotes disease, frequent balanced fertilizer during the growing season, trained on strong supports like grapes on 8-12 ft centers, purple flowers self-compatible, fast-draining sandy loam pH 6.5-7, susceptible to fusarium wilt/nematodes/crown rot (replant every 3-4 years).",
+      "url": "https://ucanr.edu/county/cooperative-extension-ventura-county/passion-fruit",
+      "field": "temperatureProfile,wateringProfile,feedingProfile,requiresSupport,commonIssues"
+    },
+    {
+      "citation": "RHS 'How to grow passion flowers' growing guide — container culture starting in a 30 cm (12 in) pot, water thoroughly when surface is dry / weekly in dry spells and less in winter, feed every 4-6 weeks during the growing season (Mar-Oct) with no winter feeding, climbs via tendrils on a trellis/wired wall to ~10 m, edible types need a 10-16 C minimum.",
+      "url": "https://www.rhs.org.uk/plants/passion-flower/growing-guide",
+      "field": "containerProfile,wateringProfile,feedingProfile,verticalSuitability,temperatureProfile"
+    },
+    {
+      "citation": "Confidence note — coldHardyMinC set to -3 C as a conservative damage threshold: UF/IFAS reports mature-vine aboveground death in the mid-20s F (about -4 C) but chilling injury already below 59 F, so this single number compresses a sensitivity range. heatStressC (32 C) derived from the 90 F optimal-range ceiling combined with UC ANR's note that inland plants dislike hot dry heat. Container idealMin/MaxLiters (95-150 L) are reasoned estimates for a mature in-container vine extrapolated from the RHS 30 cm starter pot and the species' in-ground vigor; no extension source gives an exact liter figure.",
+      "url": "https://ask.ifas.ufl.edu/publication/HS1406",
+      "field": "confidence"
+    }
+  ],
+  "version": 2,
+  "lastReviewedAt": "2026-06-02"
+}

@@ -1,0 +1,119 @@
+{
+  "id": "ribes-uva-crispa",
+  "scientificName": "Ribes uva-crispa",
+  "commonNames": [
+    "Gooseberry",
+    "European gooseberry"
+  ],
+  "category": "berry",
+  "growthHabit": "bush",
+  "requiresSupport": false,
+  "selfFruitful": true,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 7,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.5,
+    "rainSkipThresholdMm": 25
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 14,
+    "fruitingIntervalDays": 14,
+    "postHarvestIntervalDays": 30,
+    "containerLeachAdjustment": 0.75,
+    "preferredNpk": "10-10-10 in spring for in-ground; high-potassium feed for containers"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 30,
+    "idealMinLiters": 45,
+    "idealMaxLiters": 60,
+    "soilMixTags": [
+      "soil-based",
+      "loam-based",
+      "well-drained",
+      "john-innes-no3"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 4,
+    "maxSunHours": 10
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -37,
+    "heatStressC": 32,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "productiveMonths": [
+      6,
+      7,
+      8
+    ],
+    "dormancyMonths": [
+      11,
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Powdery mildew (gooseberry mildew) is the most serious disease, worsened by excess nitrogen and poor air circulation; avoid over-feeding with nitrogen.",
+    "Alternate host for white pine blister rust; check local/state regulations before planting in some US regions.",
+    "Gooseberry sawfly larvae can defoliate bushes rapidly in spring.",
+    "Aphids, scale, spider mites, fruit flies and spotted wing drosophila can affect plants and fruit.",
+    "Birds strip buds and ripening fruit; netting or a fruit cage is recommended.",
+    "Performs poorly in hot, humid climates south of USDA Zone 6.",
+    "Container growing is viable but not the natural habit: use a pot at least 40 cm (16 in) wide and deep (recommendedMinLiters ~30 L, ideal 45-60 L) and keep compost evenly moist, as pots dry out far faster than in-ground bushes."
+  ],
+  "verticalSuitability": 0.3,
+  "source": [
+    {
+      "citation": "University of Minnesota Extension - Growing currants and gooseberries in the home garden (hardiness USDA Zone 3-5, full sun to partial shade, space >=3 ft apart, self-fertile with one plant, late-fall compost feeding, harvest July-August, powdery mildew and white pine blister rust)",
+      "url": "https://extension.umn.edu/fruit/growing-currants-and-gooseberries-home-garden",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension - gooseberries are self-fertile; one plant produces fruit; full sun gives more fruit",
+      "url": "https://extension.umn.edu/fruit/growing-currants-and-gooseberries-home-garden",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Penn State Extension - Home Fruit Plantings: Gooseberries and Currants (1 inch of water per week during growing season; space 3-4 ft apart; self-fertile; fertilize 6-8 oz of 10-10-10 annually in early spring; rich well-drained soil)",
+      "url": "https://extension.psu.edu/home-fruit-plantings-gooseberries-and-currants",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Penn State Extension - apply 6-8 oz of 10-10-10 annually in early spring, or composted manure; self-fertile though multiple varieties improve yield",
+      "url": "https://extension.psu.edu/home-fruit-plantings-gooseberries-and-currants",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder - Ribes 'Poorman' gooseberry (USDA Zone 4-6, full sun to part shade with afternoon shade in hot climates, medium moisture, regular even watering, do not perform well in hot humid climates south of Zone 6, alternate host for white pine blister rust)",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=250212&isprofile=0&pt=7",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society - How to grow gooseberries (container minimum 40 cm / 16 in wide and deep with drainage; John Innes No.3 soil-based compost; containers need steady even moisture all season; feed containers with fortnightly high-potassium liquid feed or granular high-K, avoid excess nitrogen to limit mildew; sunny position preferred, tolerates some shade; harvest June green to July-August ripe)",
+      "url": "https://www.rhs.org.uk/fruit/gooseberries/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society - feeding and watering: ground plants need little water once established but containers need a steady supply of moisture; avoid excess nitrogen (mildew); high-potassium feed",
+      "url": "https://www.rhs.org.uk/fruit/gooseberries/grow-your-own",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Old Farmer's Almanac - Gooseberries: cold-hardy to USDA Zone 3 (some Zone 2); established bushes need little water unless hot/dry, keep young and container plants well watered; balanced organic fertilizer at end of winter only, avoid over-feeding; net against birds",
+      "url": "https://www.almanac.com/plant/gooseberries",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Confidence note: coldHardyMinC of -37C is derived from the USDA Zone 3 hardiness rating cited by UMN Extension and the Old Farmer's Almanac (Zone 3 lower limit approx -40 to -34C); no source gave an exact Celsius minimum, so a conservative mid-range value was used. heatStressC of 32C and hotWeatherMultiplier are estimated from Missouri Botanical Garden's statement that gooseberries perform poorly in hot, humid climates south of Zone 6; no source gave an exact heat-stress temperature. containerProfile liters are converted from RHS's 40 cm minimum pot dimension (a 40 cm cube is roughly 64 L; a realistic 40 cm-wide tapered pot is ~30 L), so recommendedMinLiters is a conservative interpretation rather than a directly stated liter figure.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

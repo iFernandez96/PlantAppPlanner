@@ -1,0 +1,157 @@
+{
+  "id": "ribes-rubrum",
+  "scientificName": "Ribes rubrum",
+  "commonNames": [
+    "Red currant",
+    "Redcurrant",
+    "Common redcurrant"
+  ],
+  "category": "berry",
+  "growthHabit": "bush",
+  "requiresSupport": false,
+  "selfFruitful": true,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.6,
+    "rainSkipThresholdMm": 12
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 14,
+    "fruitingIntervalDays": 14,
+    "postHarvestIntervalDays": 30,
+    "containerLeachAdjustment": 0.75,
+    "preferredNpk": "10-10-10"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 57,
+    "idealMinLiters": 57,
+    "idealMaxLiters": 90,
+    "soilMixTags": [
+      "loam-based",
+      "rich-organic-matter",
+      "well-drained",
+      "moisture-retentive"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 4,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -34,
+    "heatStressC": 29,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "3": [
+        {
+          "startMonth": 4,
+          "endMonth": 5
+        },
+        {
+          "startMonth": 10,
+          "endMonth": 11
+        }
+      ],
+      "4": [
+        {
+          "startMonth": 4,
+          "endMonth": 5
+        },
+        {
+          "startMonth": 10,
+          "endMonth": 11
+        }
+      ],
+      "5": [
+        {
+          "startMonth": 3,
+          "endMonth": 5
+        },
+        {
+          "startMonth": 10,
+          "endMonth": 11
+        }
+      ]
+    },
+    "productiveMonths": [
+      6,
+      7,
+      8
+    ],
+    "dormancyMonths": [
+      11,
+      12,
+      1,
+      2,
+      3
+    ]
+  },
+  "commonIssues": [
+    "Prefers cool summers; air temperatures above ~29 C (85 F) can damage plants and intense sun can scorch leaves, so afternoon part-shade is helpful in hot climates.",
+    "Susceptible to powdery mildew, anthracnose and fungal leaf spot in humid conditions or with poor air circulation.",
+    "Common pests include currant aphids, imported currant worms, scale, spider mites, cane borers and fruit flies.",
+    "Currants are an alternate host for white pine blister rust; planting is restricted or banned in some U.S. jurisdictions.",
+    "Shallow-rooted, so keep soil consistently moist (about 1 to 2 inches of water per week) and mulch; container plants dry out faster and need more frequent watering.",
+    "Container minimum is a realistic home-garden pot for this 3 to 5 ft bush (RHS advises at least a 45 cm / 18 in wide pot, roughly 55 to 65 L); larger pots reduce drying stress."
+  ],
+  "verticalSuitability": 0.4,
+  "source": [
+    {
+      "citation": "Utah State University Extension - How to Grow Red Currants in Your Garden (cold hardy to zone 3 or 4; morning sun, afternoon part-shade; air temps above 85 F damage plants; 1 to 2 inches water per week; 1/4 to 1/3 lb of 10-10-10 or 12-12-12 per plant per year; harvest mid-June to mid-July; can be grown in a pot; soil pH ~6.5).",
+      "url": "https://extension.usu.edu/yardandgarden/research/red-currants-in-the-garden",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Utah State University Extension - How to Grow Red Currants in Your Garden (watering 1 to 2 inches per week until harvest; drip irrigation due to shallow roots; planting in late fall or early spring).",
+      "url": "https://extension.usu.edu/yardandgarden/research/red-currants-in-the-garden",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Utah State University Extension - How to Grow Red Currants in Your Garden (heavy nitrogen feeders; 1/4 to 1/3 lb of 10-10-10 or 12-12-12 fertilizer per plant each year).",
+      "url": "https://extension.usu.edu/yardandgarden/research/red-currants-in-the-garden",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension - Growing currants and gooseberries in the home garden (red, pink and white currants are self-fertile; full sun to partial shade, more fruit in full sun; nitrogen-rich composted manure in late fall; common pests aphids, borers, mites, fruit worms; powdery mildew; harvest July-August; plant April-May).",
+      "url": "https://extension.umn.edu/fruit/growing-currants-and-gooseberries-home-garden",
+      "field": "selfFruitful"
+    },
+    {
+      "citation": "University of Minnesota Extension - Growing currants and gooseberries in the home garden (full sun to partial shade; more fruit in full sun).",
+      "url": "https://extension.umn.edu/fruit/growing-currants-and-gooseberries-home-garden",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society - How to grow redcurrants (grow in a pot at least 45 cm / 18 in wide in John Innes No.3; container plants need consistent moisture all season; feed containers with high-potassium liquid fertiliser every fortnight in the growing season; full sun, tolerates partial shade; harvest from July; can be trained as bush, cordon, fan or standard with supports).",
+      "url": "https://www.rhs.org.uk/fruit/redcurrants/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society - How to grow redcurrants (container feeding with high-potassium liquid fertiliser every fortnight during the growing season; ground bushes with annual mulch usually need no feeding).",
+      "url": "https://www.rhs.org.uk/fruit/redcurrants/grow-your-own",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder - Ribes rubrum 'Red Lake' (USDA zones 3 to 7; full sun to part shade with afternoon shade appreciated in hot climates; medium water, avoid overhead watering; flowers April-May, red fruit ripens July; 3 to 5 ft tall; self-fertile; prefers cool summer climates; anthracnose, powdery mildew, leaf spot, currant aphid, scale, mites, fruit flies; alternate host for white pine blister rust).",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a272",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder - Ribes rubrum 'Red Lake' (USDA hardiness zones 3 to 7).",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a272",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Confidence note: coldHardyMinC set to -34 C as a conservative value for the warmer end of the cited USDA zone 3 range (zone 3b ~ -37 to -34 C); some 'Red Lake'-type cultivars are rated to full zone 3 (~-40 C), so this is intentionally conservative. heatStressC of 29 C derives from USU's '85 F damage' threshold. Container recommendedMinLiters (57 L) is computed from the RHS 45 cm-wide pot guidance at typical bush depth and is an estimate, not a directly published litre figure. wateringProfile baseIntervalDays (3) and hotWeatherMultiplier reflect 'consistent moisture / 1-2 inches per week' for shallow-rooted container culture rather than a published interval.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

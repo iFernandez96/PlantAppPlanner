@@ -1,0 +1,116 @@
+{
+  "id": "beta-vulgaris-cicla",
+  "scientificName": "Beta vulgaris cicla",
+  "commonNames": [
+    "Swiss chard",
+    "Chard",
+    "Silverbeet",
+    "Leaf beet"
+  ],
+  "category": "vegetable",
+  "growthHabit": "upright",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 4,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.6,
+    "rainSkipThresholdMm": 25
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 21,
+    "postHarvestIntervalDays": 14,
+    "containerLeachAdjustment": 0.7,
+    "preferredNpk": "low- or no-phosphorus unless a soil test indicates otherwise; a balanced or higher-nitrogen feed supports continued leafy regrowth, especially in containers"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 11,
+    "idealMinLiters": 19,
+    "idealMaxLiters": 38,
+    "soilMixTags": [
+      "moderately-fertile",
+      "compost-amended",
+      "well-draining",
+      "moisture-retentive",
+      "ph-6.0-7.0"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 4,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -3,
+    "heatStressC": 27,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "productiveMonths": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "dormancyMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Cool-season leafy green: grows best around 10-24C (50-75F). It bolts (runs to seed) when stressed by heat or by an early cold spell after transplanting, which ends leaf production; sow in spring once cold-bolting risk has passed, and again in summer for a fall crop.",
+    "Needs consistent, even soil moisture (about 25mm / 1 inch of water per week). Letting it dry out repeatedly encourages bolting and bitter leaves; in containers and hot weather it may need watering every day or two.",
+    "Frost-hardy, not frost-sensitive: tolerates light frost and can overwinter in mild climates, but new-leaf production stops in cold weather. coldHardyMinC of about -3C is a conservative light-frost figure; established plants under cover tolerate harder freezes.",
+    "Light feeder. Per UMN Extension use a low- or no-phosphorus fertilizer unless a soil test says otherwise; soil enriched with compost may need little or no extra feeding (RHS).",
+    "Common problems: Cercospora leaf spot (reddish-purple leaf spots), leaf miners (beet leaf miner), downy mildew, grey mould, and slugs and snails.",
+    "Container minimum of ~11L (3 gal) suits a single plant; a larger pot at least ~40cm (16in) wide and deep, roughly 19-38L, holds moisture better and supports several plants or sustained cut-and-come-again harvest."
+  ],
+  "verticalSuitability": 0.2,
+  "source": [
+    {
+      "citation": "University of Minnesota Extension - Growing spinach and Swiss chard in home gardens. Direct seed four to six inches apart in rows 18 to 30 inches apart; plant early to mid-May to avoid cold-induced bolting, or sow indoors ~4 weeks before transplanting and again in June for a fall crop; needs one inch of rain/water each week for best results (sandy soil more often); soil pH as low as 6.0 tolerated; use low- or no-phosphorus fertilizer unless a soil test recommends otherwise; biennial that won't flower until after winter and can be protected from freezing with floating row cover; problems include Cercospora leaf spot, leafminers, slugs, snails, and cutworms.",
+      "url": "https://extension.umn.edu/vegetables/growing-spinach-and-swiss-chard",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension - Growing spinach and Swiss chard in home gardens. Light feeder: use a low- or no-phosphorus fertilizer unless a soil test recommends otherwise; improve soil with well-rotted manure or compost; apply phosphorus and potassium only per soil test.",
+      "url": "https://extension.umn.edu/vegetables/growing-spinach-and-swiss-chard",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "RHS - How to grow chard. Position: full sun, or with some light shade in summer. Water young plants regularly until established; mature plants are fairly drought tolerant but need watering in long dry spells, and container plants need regular watering throughout growth. Chard doesn't usually need feeding - it grows well in most soils or fresh potting compost. Containers: minimum about 40cm (16in) wide and deep. Spacing 30cm apart (5cm for baby salad leaves). Hardy: survives winter outdoors without protection but stops producing new leaves once temperatures drop. Problems: beet leaf miner, downy mildews, grey mould, slugs and snails.",
+      "url": "https://www.rhs.org.uk/vegetables/chard/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "RHS - How to grow chard. Recommended position is full sun, or some light shade in summer, which for a leafy green corresponds to roughly 4-8 hours of direct sun (chard tolerates partial shade better than fruiting crops).",
+      "url": "https://www.rhs.org.uk/vegetables/chard/grow-your-own",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC - Swiss Chard. Can be sown directly in the garden in spring or late summer and takes 40 to 45 days to reach maturity; harvest outer leaves in cut-and-come-again fashion when they reach between 4 and 12 inches in length.",
+      "url": "https://hgic.clemson.edu/swiss-chard/",
+      "field": "seasonality"
+    },
+    {
+      "citation": "University of Illinois Extension - Chard. Direct seed in early to mid-spring or start indoors; sow 1/2 to 3/4 inch deep; thin to 4 to 6 inches apart (or 9 to 12 inches for large plants); maintain sufficient soil moisture to keep plants growing well; harvest outer leaves young and tender at about 8-12 inches long.",
+      "url": "https://extension.illinois.edu/gardening/chard",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Seed-germination and growth temperatures synthesized from UMN Extension (room temperature is good for germination) and horticultural guidance: chard germinates well near 16-18C (60-65F) and thrives at about 10-24C (50-75F). Modeled thermal thresholds: coldHardyMinC ~ -3C reflects 'tolerates light frost / hardy' (no per-degree extension figure is published, so this is a conservative estimate); heatStressC ~ 27C reflects that growth slows and bolting risk rises in summer heat above the ~24C upper of its preferred range. frostSensitive is set false because extension/RHS sources describe chard as frost-hardy. These exact degree thresholds are estimates, not directly extension-sourced.",
+      "url": "https://extension.umn.edu/vegetables/growing-spinach-and-swiss-chard",
+      "field": "confidence"
+    },
+    {
+      "citation": "Container sizing: RHS gives a minimum container of about 40cm (16in) wide and deep for chard; US extension services do not publish a single authoritative liter figure. recommendedMinLiters ~11L (a 3-gallon pot for one plant), idealMinLiters ~19L, and idealMaxLiters ~38L are conservative estimates reconciling the RHS 40cm minimum with typical single-plant container practice. lightProfile sun-hours (target 6, min 4, max 8) are derived from the RHS 'full sun or some light shade' qualitative guidance rather than a stated hours figure.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

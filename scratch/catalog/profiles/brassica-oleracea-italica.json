@@ -1,0 +1,129 @@
+{
+  "id": "brassica-oleracea-italica",
+  "scientificName": "Brassica oleracea (Italica Group)",
+  "commonNames": [
+    "Broccoli",
+    "Calabrese"
+  ],
+  "category": "vegetable",
+  "growthHabit": "upright",
+  "requiresSupport": true,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "low",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 1.5,
+    "rainSkipThresholdMm": 25
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 21,
+    "containerLeachAdjustment": 0.5,
+    "preferredNpk": "5-10-10"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 19,
+    "idealMinLiters": 19,
+    "idealMaxLiters": 38,
+    "soilMixTags": [
+      "rich",
+      "well-drained",
+      "high-organic-matter"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 4,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -3,
+    "heatStressC": 25,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "cool-spring": [
+        {
+          "startMonth": 3,
+          "endMonth": 4
+        }
+      ],
+      "fall": [
+        {
+          "startMonth": 7,
+          "endMonth": 9
+        }
+      ]
+    },
+    "productiveMonths": [
+      5,
+      6,
+      9,
+      10,
+      11
+    ]
+  },
+  "commonIssues": [
+    "Bolting (premature flowering) when exposed to prolonged heat above ~25-29C or, for spring crops, 10+ consecutive days of 2-10C cold after establishment.",
+    "Poor or hollow crown development in hot weather (above ~30C day / 25C night).",
+    "Head rot if developing heads stay wet; avoid overhead watering on the crown.",
+    "Cabbage-family pests (cabbage worms, aphids, flea beetles) are common.",
+    "Container minimum of ~19 L (5 gal, ~30 cm wide and deep) is the smallest practical pot; one plant per container. Larger pots give a bigger main head."
+  ],
+  "verticalSuitability": 0.1,
+  "source": [
+    {
+      "citation": "University of Minnesota Extension — Growing broccoli in home gardens. Watering: soak soil at least once a week if it does not receive 1 inch of rain; transplant starter solution high in phosphorus and low in nitrogen; side-dress when plants are 4 inches tall; spacing 8-10 inches; spring varieties 50-60 days, fall 60-85 days; tolerates first light fall frosts; crown problems in hot weather (86F day / 77F night).",
+      "url": "https://extension.umn.edu/vegetables/growing-broccoli",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Growing broccoli in home gardens. Feeding/fertilizer schedule and planting windows (spring seed early-mid April, fall seed early-late July).",
+      "url": "https://extension.umn.edu/vegetables/growing-broccoli",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Growing broccoli in home gardens. Hot weather (86F day / 77F night) causes crown development problems; some cold tolerance, continues growth after first light fall frosts.",
+      "url": "https://extension.umn.edu/vegetables/growing-broccoli",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC — Broccoli. Prefers average temperatures of 65-75F; pre-plant 10-10-10 at 2.5 lb/100 sq ft, side-dress calcium nitrate (15.5-0-0) 3-4 weeks after transplant; water to moisten soil 6 inches deep, avoid light sprinklings; spacing 18-24 in within rows 3 ft apart; 50-90 days to maturity; bolting after 10+ days of 35-50F.",
+      "url": "https://hgic.clemson.edu/factsheet/broccoli/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC — Broccoli. Optimal air temperature 65-75F; spring transplants must be protected from freezing; bolting trigger 35-50F for 10+ days.",
+      "url": "https://hgic.clemson.edu/factsheet/broccoli/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "UC IPM (UC ANR) — Cultural Tips for Growing Broccoli. Vegetables do best with full sunlight (at least 4-6 hours/day); best growth 60-65F average air temperature, germinates ~70F, struggles above 77-86F; nitrogen 0.5-1 lb/100 ft row, side-dress every 3-4 weeks once plants are 3-4 in tall; avoid wetting foliage; spacing 9-12 in in rows 3 ft apart.",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/cultural-tips-for-growing-broccoli/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "UC IPM (UC ANR) — Cultural Tips for Growing Broccoli. Best growth at 60-65F; tolerates minimum growth conditions ~41F; struggles / bolts above 77-86F.",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/cultural-tips-for-growing-broccoli/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society (RHS) — How to grow broccoli. Grows best in sun or very light shade; established plants need watering only in prolonged dry weather, water young plants in dry spells; apply high-nitrogen feed when plants are ~20 cm (8 in) tall on poor soil; plants grow 60-90 cm tall and usually need support (mound soil around base and/or insert a cane), especially in exposed sites; spacing 60-80 cm.",
+      "url": "https://www.rhs.org.uk/vegetables/broccoli/grow-your-own",
+      "field": "requiresSupport"
+    },
+    {
+      "citation": "The Old Farmer's Almanac — Growing Broccoli. Container growing: use at least a 5-gallon container at least 12 inches in diameter and 12 inches deep; space plants 18-24 inches apart. (5 gal = ~19 L.)",
+      "url": "https://www.almanac.com/plant/broccoli",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Confidence note: targetSunHours/min/max are derived from UC IPM's general vegetable guidance of 'full sun, at least 4-6 hours/day' rather than a broccoli-specific full-sun hour figure (most sources state 'full sun' qualitatively). Values set conservatively (6 target, 4 min, 8 max). hotWeatherMultiplier (1.5) and rainSkipThresholdMm (25 mm ~= 1 in/week) are app-level care heuristics inferred from the ~1 inch/week and avoid-drought guidance, not directly published numbers. coldHardyMinC=-3 reflects 'tolerates ~27-28F, damage below ~25F' synthesized from extension guidance; feeding baseIntervalDays=21 generalizes the 3-4 week side-dress interval.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

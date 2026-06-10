@@ -1,0 +1,88 @@
+{
+  "id": "petroselinum-crispum",
+  "scientificName": "Petroselinum crispum",
+  "commonNames": [
+    "Parsley",
+    "Curly parsley",
+    "Flat-leaf parsley",
+    "Italian parsley",
+    "Garden parsley"
+  ],
+  "category": "herb",
+  "growthHabit": "upright",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "low",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 1.5,
+    "rainSkipThresholdMm": 6
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 28,
+    "containerLeachAdjustment": 0.75,
+    "preferredNpk": "5-10-5"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 4,
+    "idealMinLiters": 8,
+    "idealMaxLiters": 15,
+    "soilMixTags": [
+      "well-drained",
+      "rich-in-organic-matter",
+      "ph-6.0-7.0"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 4,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -5,
+    "heatStressC": 27,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "productiveMonths": [4, 5, 6, 7, 8, 9, 10],
+    "dormancyMonths": [12, 1, 2]
+  },
+  "commonIssues": [
+    "Biennial: bolts to seed and turns bitter in its second year, so it is usually grown and replaced as an annual.",
+    "Slow, erratic germination (2 to 5 weeks); soaking seed up to 24 hours before sowing improves the low germination rate.",
+    "Container compost dries out quickly in warm weather; check moisture often and do not let it dry out completely.",
+    "Pests/diseases: carrot fly, aphids, slugs and snails (RHS); septoria leaf spot, stem rot, carrot weevil, flea beetles, leafhoppers (Missouri Botanical Garden).",
+    "Recommended container minimum (4 L) suits a single plant in a pot at least 25 cm (10 in) wide and deep; grow only one plant per 4 L, or use ~15 L for a cluster of about four plants."
+  ],
+  "verticalSuitability": 0.4,
+  "source": [
+    {
+      "citation": "University of Minnesota Extension — Growing parsley in home gardens: full sun six to eight hours/day; water deeply at least once a week; fertilize once or twice per season with 5-10-5, container plants liquid-fed every 3 to 4 weeks; final spacing 10 to 12 inches; soil pH 6.0 to 7.0; germinates in 2 to 5 weeks; biennial that can handle light frosts.",
+      "url": "https://extension.umn.edu/vegetables/growing-parsley",
+      "field": "wateringProfile,feedingProfile,lightProfile,temperatureProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac — Parsley: full sun (6+ hours); best germination soil temperature ~70F (21C), germinates as low as 50F (10C); four plants per 14-inch / 4-gallon (~15 L) container; soak seeds overnight, germination 2 to 4 weeks.",
+      "url": "https://www.almanac.com/plant/parsley",
+      "field": "lightProfile,temperatureProfile,containerProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society — How to grow parsley: full sun or partial shade; keep moist but not waterlogged, container compost dries quickly; in-ground needs no feed, containers a balanced liquid feed every few weeks; sow in a pot at least 25 cm (10 in) wide and deep; biennial that dies down over winter; pests include slugs, snails, aphids, carrot fly.",
+      "url": "https://www.rhs.org.uk/herbs/parsley/grow-your-own",
+      "field": "containerProfile,feedingProfile,wateringProfile,commonIssues"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder — Petroselinum crispum: USDA hardiness zones 2 to 11; full sun to part shade; medium water, do not allow soils to dry out; 0.75 to 1.0 ft tall; biennial usually grown as an annual; performs best in cool summer climates; pests/diseases include septoria leaf spot, stem rot, carrot weevil, flea beetles, leafhoppers.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=276060",
+      "field": "temperatureProfile,lightProfile,commonIssues"
+    },
+    {
+      "citation": "Confidence note — coldHardyMinC (-5C) and heatStressC (27C) are conservative estimates synthesized from MoBot hardiness zones 2-11 and 'best in cool summer climates' plus UMN/Almanac frost-tolerance and germination data; no single extension source states an exact leaf cold-kill or heat-stress threshold in Celsius. baseIntervalDays (3) and hotWeatherMultiplier (1.5) interpret UMN 'water deeply at least once a week' and RHS 'keep moist, dries quickly in warm weather' into the app's day-interval model.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

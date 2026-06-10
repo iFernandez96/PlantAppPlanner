@@ -1,0 +1,87 @@
+{
+  "id": "ocimum-basilicum",
+  "scientificName": "Ocimum basilicum",
+  "commonNames": [
+    "Basil",
+    "Sweet basil",
+    "Genovese basil"
+  ],
+  "category": "herb",
+  "growthHabit": "bush",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 1.5,
+    "dryingTolerance": "low",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 1.5,
+    "rainSkipThresholdMm": 15
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 14,
+    "containerLeachAdjustment": -3,
+    "preferredNpk": "balanced organic-based liquid feed (e.g. 5-10-5 or balanced all-purpose) at half strength for indoor containers; AVOID potassium-rich/tomato feed, which encourages flowering and reduces leaf flavour"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 3,
+    "idealMinLiters": 6,
+    "idealMaxLiters": 10,
+    "soilMixTags": [
+      "well-drained",
+      "soilless-potting-mix",
+      "organic-matter-rich"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 7,
+    "minSunHours": 6,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 10,
+    "heatStressC": 35,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  "commonIssues": [
+    "Tender annual — killed by frost; foliage blackens and growth stunts at cold temperatures around 10C (50F). Do not plant out until nights stay above 10C.",
+    "Hates wet roots overnight: water at the base in the morning, keep foliage dry, and never let it sit waterlogged (overwatering / poor drainage causes root rot and damping off).",
+    "Basil downy mildew — fluffy grey-purple growth on leaf undersides; favoured by wet leaves and humidity. Water at soil level and space plants for airflow.",
+    "Fusarium wilt and grey mould (Botrytis) in damp, crowded conditions.",
+    "Aphids, leafhoppers, and slugs/snails on soft new growth.",
+    "Flowering reduces leaf flavour — pinch/harvest tips regularly and remove flower buds to keep plants leafy.",
+    "Container plants dry out and run short of nutrients faster than ground-grown plants; a small (~3 L) pot needs frequent watering, so a 6-10 L (20 cm / 8 in wide and deep) pot is easier to keep evenly moist."
+  ],
+  "verticalSuitability": 0.3,
+  "source": [
+    {
+      "citation": "UMN Extension - Growing basil in home gardens. Needs at least 6-8 hours of bright light/day; water deeply every 7-10 days in beds, containers dry out faster and need more frequent watering; tender annual sown after danger of spring frost passes; cold soil/air stunts growth and can blacken leaves around 50F (10C), really leafs out once temps reach 80F; space 6-12 in apart; 5-10-5 fertiliser once or twice per season (indoor containers: liquid feed at half strength every 4-6 weeks; outdoor containers every 3-4 weeks); seeds germinate in 5-7 days; harvest by pinching just above a leaf pair to encourage branching; basil downy mildew is the main problem.",
+      "url": "https://extension.umn.edu/vegetables/growing-basil",
+      "field": "lightProfile,wateringProfile,temperatureProfile,feedingProfile,seasonality,commonIssues"
+    },
+    {
+      "citation": "RHS - How to grow basil. Seeds germinate well at about 20C (68F); only plant out in early summer once night temperatures stay above 10C; final container at least 20cm (8in) wide and deep; water to keep compost evenly moist but avoid splashing leaves and water in the morning as basil hates having wet roots overnight; for container plants apply a balanced organic-based liquid feed and AVOID potassium-rich/tomato feed (encourages flowering); warm, sunny, sheltered position; problems include aphids, damping off, grey mould, powdery/downy mildews, leafhoppers and slugs/snails.",
+      "url": "https://www.rhs.org.uk/herbs/basil/grow-your-own",
+      "field": "temperatureProfile,containerProfile,wateringProfile,feedingProfile,lightProfile,commonIssues"
+    },
+    {
+      "citation": "Clemson HGIC - Herbs. Almost all herbs (incl. basil) grow best in a site sunny at least 6 hours/day; water thoroughly then allow soil to dry out somewhat before watering again; basil is a tender annual sown after all danger of frost is past and is killed by frost; most herbs do not need highly fertile soil (excess fertility reduces flavour); harvest leaves frequently to prevent flowering, which reduces flavour; aphids common in crowded, succulent growth.",
+      "url": "https://hgic.clemson.edu/factsheet/herbs/",
+      "field": "lightProfile,wateringProfile,temperatureProfile,feedingProfile,commonIssues"
+    },
+    {
+      "citation": "Confidence note - several values are conservative interpretations rather than directly stated numbers. wateringProfile.baseIntervalDays (1.5, carried from the v1 seed) reflects a small container that dries fast and basil's low drying tolerance; UMN's '7-10 days' applies to in-ground beds, not pots. hotWeatherMultiplier (1.5) and rainSkipThresholdMm (15) are estimates consistent with 'water more often in hot weather'. containerProfile.recommendedMinLiters (3, from seed) is a usable small-pot minimum; idealMin/Max (6-10 L) derive from RHS's 20cm/8in final container. temperatureProfile.heatStressC (35) is conservative - basil is heat-loving and sources cite no firm upper damage threshold (it 'really leafs out' at ~27C/80F), so this is a low-confidence upper bound. lightProfile.targetSunHours (7) is the midpoint of the cited 6-8 hour range.",
+      "field": "confidence"
+    }
+  ],
+  "version": 2,
+  "lastReviewedAt": "2026-06-02"
+}

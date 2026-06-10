@@ -1,0 +1,94 @@
+{
+  "id": "vaccinium-corymbosum",
+  "scientificName": "Vaccinium corymbosum",
+  "commonNames": [
+    "Blueberry",
+    "Highbush blueberry",
+    "Northern highbush blueberry"
+  ],
+  "category": "berry",
+  "growthHabit": "bush",
+  "requiresSupport": false,
+  "selfFruitful": true,
+  "pollinationPartnersRequired": 1,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "low",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 1.5,
+    "rainSkipThresholdMm": 25
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 21,
+    "fruitingIntervalDays": 21,
+    "preferredNpk": "10-8-8"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 38,
+    "idealMinLiters": 57,
+    "idealMaxLiters": 75,
+    "soilMixTags": [
+      "ericaceous",
+      "acidic",
+      "high-organic-matter",
+      "free-draining",
+      "fine-bark",
+      "peat-or-coir"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6,
+    "maxSunHours": 12
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -37,
+    "heatStressC": 32,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "productiveMonths": [6, 7, 8, 9],
+    "dormancyMonths": [11, 12, 1, 2]
+  },
+  "commonIssues": [
+    "Acid-loving: needs soil pH 4.0-5.5; chlorosis (yellowing leaves) appears in alkaline soil. Use ericaceous mix and avoid hard tap water; rainwater is preferred.",
+    "Shallow-rooted and sensitive to inconsistent moisture; needs about one inch (25 mm) of water per week and more during hot, dry spells, but dislikes waterlogging.",
+    "Partially self-fertile: a single plant will crop, but planting two or more cultivars together gives larger, earlier berries and bigger yields.",
+    "Container minimum (about 38 L / 10 gal) suits compact/half-high cultivars; full-size northern highbush bushes (mature 1.5-1.8 m / 5-6 ft tall and wide) need a large 57-75 L (15-20 gal) container or half barrel for long-term growth.",
+    "Slow to crop: little fruit in the first 2-3 years, with full yields after about 5 years."
+  ],
+  "verticalSuitability": 0.1,
+  "source": [
+    {
+      "citation": "University of Minnesota Extension — Growing blueberries in the home garden (soil pH 4.0-5.5, full sun, space ~3 ft apart, plant two or more varieties for pollination, hardy to USDA zones 3-4, harvest ~July, acid/azalea fertilizer in spring, little fruit first 2-3 years).",
+      "url": "https://extension.umn.edu/fruit/growing-blueberries-home-garden",
+      "field": "lightProfile,temperatureProfile,seasonality,selfFruitful,feedingProfile,commonIssues"
+    },
+    {
+      "citation": "Royal Horticultural Society — How to grow blueberries (ericaceous compost pH 4.5-5.5, container 30 cm dia for young / 45-50 cm dia for larger plants, keep compost slightly moist with rainwater not tap water, feed every 2-3 weeks Apr-Aug, sunny position, harvest Jun-Sep, most blueberries partially self-fertile so one plant crops but cross-pollination gives larger harvests, hardy in the UK).",
+      "url": "https://www.rhs.org.uk/fruit/blueberries/grow-your-own",
+      "field": "containerProfile,wateringProfile,feedingProfile,selfFruitful,seasonality,temperatureProfile"
+    },
+    {
+      "citation": "Clemson University HGIC — Blueberry (water thoroughly two to three times per week during dry spells; azalea-type fertilizer 10-5-4 / 10-8-8 / 11-7-7 with sidedressing roughly every six weeks through the season; full sunlight; southern highbush generally self-fertile but larger yields with cross-pollination; harvest May-July; container dwarf cultivars).",
+      "url": "https://hgic.clemson.edu/factsheet/blueberry/",
+      "field": "wateringProfile,feedingProfile,preferredNpk,lightProfile,selfFruitful"
+    },
+    {
+      "citation": "Clemson University Plant Profiles — Vaccinium corymbosum 'Jubilee' / highbush blueberry (acid-loving, pH 4.5-5.5; mature plants ~5-6 ft tall and wide; full sun, part shade acceptable; 3 in mulch; needs at least one inch of water per week; shallow roots sensitive to inconsistent moisture).",
+      "url": "https://www.clemson.edu/cafls/demo/plant_profiles/vaccinium-corymbosum-highbush-blueberry-jubilee.html",
+      "field": "wateringProfile,commonIssues,containerProfile"
+    },
+    {
+      "citation": "University of Maryland Extension — Growing Blueberries in Containers (half-high cultivars do best in a 10-gallon (~38 L) or larger container; large northern highbush types need a half wine barrel or 15-20 gallon (~57-75 L) container).",
+      "url": "https://extension.umd.edu/resource/growing-blueberries-containers",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Confidence note — heatStressC (32 C) is a conservative estimate: extension sources emphasize cold-hardiness and consistent moisture rather than a precise upper heat-stress threshold, so this value is approximate and intended as a watering/shade trigger, not a hard limit. hotWeatherMultiplier and rainSkipThresholdMm are derived operational defaults from the 'one inch (25 mm) per week, more in heat' guidance rather than literal cited numbers.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

@@ -1,0 +1,104 @@
+{
+  "id": "rosa-x-hybrida",
+  "scientificName": "Rosa x hybrida",
+  "commonNames": [
+    "Rose",
+    "Hybrid Tea Rose",
+    "Garden Rose"
+  ],
+  "category": "ornamental",
+  "growthHabit": "bush",
+  "requiresSupport": false,
+  "selfFruitful": true,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 7,
+    "dryingTolerance": "low",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.7,
+    "rainSkipThresholdMm": 12
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 30,
+    "preferredNpk": "balanced granular rose fertilizer (e.g. 5-10-5)"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 19,
+    "idealMinLiters": 30,
+    "idealMaxLiters": 50,
+    "soilMixTags": [
+      "loam-based",
+      "John Innes No 3",
+      "peat-free",
+      "free-draining",
+      "compost-enriched"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 6,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -29,
+    "heatStressC": 32,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [5, 6, 7, 8, 9, 10],
+    "dormancyMonths": [12, 1, 2]
+  },
+  "commonIssues": [
+    "Black spot, powdery mildew, and rust are common fungal diseases; keep foliage dry by watering at soil level (Clemson HGIC, Missouri Botanical Garden).",
+    "Insect pests include aphids, Japanese beetles, borers, scale, and spider mites (Missouri Botanical Garden).",
+    "Rose rosette disease is a serious incurable viral threat in many regions (Missouri Botanical Garden).",
+    "Container roses must never dry out completely or they become prone to powdery mildew (RHS).",
+    "Crowns/graft union need winter protection (mulching) in colder zones; many modern roses are short-lived (6-10 years) without good care (Clemson HGIC).",
+    "Stop fertilizing about 6 weeks before the first expected frost to avoid tender new growth being frost-damaged (Clemson HGIC, RHS)."
+  ],
+  "verticalSuitability": 0.1,
+  "source": [
+    {
+      "citation": "Clemson Cooperative Extension, Home & Garden Information Center, 'Growing Roses' — full sun six to eight hours per day, deep watering to establish roots, fertilize when foliage emerges then after each flush of bloom until six weeks before frost (reduce by half in summer), 25% peat/manure to 75% native soil, 3 in mulch.",
+      "url": "https://hgic.clemson.edu/factsheet/growing-roses/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension, 'Growing Roses' — fertilize when foliage first emerges, repeat after each flush of bloom until six weeks before the earliest frost; reduce summer applications by half.",
+      "url": "https://hgic.clemson.edu/factsheet/growing-roses/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension, 'Growing Roses' — black spot, powdery mildew and other diseases; water at soil level to keep foliage dry; crowns need winter protection; many modern roses survive only 6-10 years without exceptional care.",
+      "url": "https://hgic.clemson.edu/factsheet/growing-roses/",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "RHS, 'Roses: growing in containers' — bush roses do well in a five-gallon (approx 19 L) container or larger; patio/miniature pots 23-35 cm deep, ground-cover/climbing 30-45 cm deep; use peat-free John Innes No 3; container roses must not dry out or they become prone to powdery mildew.",
+      "url": "https://www.rhs.org.uk/plants/roses/growing-in-containers",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "RHS, 'How to grow roses' growing guide — water roses about every 7 to 10 days in dry weather, slowly and deeply at soil level; avoid wetting foliage; do not feed after August to avoid frost-tender new growth.",
+      "url": "https://www.rhs.org.uk/plants/roses/growing-guide",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder, Rosa 'Mister Lincoln' (representative hybrid tea) — USDA hardiness zones 5 to 9; full sun, best flowering/disease resistance in full sun; medium moisture, water deeply and regularly in the morning; bloom May to frost; mature height 3-5 ft; susceptible to black spot, powdery mildew, rust, rose rosette, aphids, beetles, borers, scale, spider mites.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=252281",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder, Rosa 'Mister Lincoln' — bloom time May to frost in the St. Louis (zone 6) area, supporting the productive-months window May-October and winter dormancy.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=252281",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Confidence note: coldHardyMinC of -29 C is derived from the USDA zone-5 lower bound (Missouri Botanical Garden lists zones 5-9 for a representative hybrid tea), but Rosa x hybrida spans many cultivars and grafts whose true cold tolerance varies and usually requires crown winter protection; treat as a conservative cultivar-dependent estimate. heatStressC (32 C) and hotWeatherMultiplier (0.7) are conservative estimates extrapolated from 'water deeply/regularly, more in dry heat' guidance rather than a single cited threshold; rainSkipThresholdMm (12) is an operational estimate, not a sourced horticultural figure.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=252281",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

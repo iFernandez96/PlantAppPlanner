@@ -1,0 +1,161 @@
+{
+  "id": "allium-schoenoprasum",
+  "scientificName": "Allium schoenoprasum",
+  "commonNames": [
+    "Chives",
+    "Common chives",
+    "Onion chives"
+  ],
+  "category": "herb",
+  "growthHabit": "upright",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.6,
+    "rainSkipThresholdMm": 6
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 35,
+    "postHarvestIntervalDays": 35,
+    "containerLeachAdjustment": -7,
+    "preferredNpk": "5-10-5"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 8,
+    "idealMinLiters": 8,
+    "idealMaxLiters": 15,
+    "soilMixTags": [
+      "well-drained",
+      "rich-in-organic-matter",
+      "soil-based-compost"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 7,
+    "minSunHours": 4,
+    "maxSunHours": 10
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -34,
+    "heatStressC": 30,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "4": [
+        {
+          "startMonth": 4,
+          "endMonth": 6
+        }
+      ],
+      "5": [
+        {
+          "startMonth": 4,
+          "endMonth": 6
+        }
+      ],
+      "6": [
+        {
+          "startMonth": 3,
+          "endMonth": 6
+        }
+      ],
+      "7": [
+        {
+          "startMonth": 3,
+          "endMonth": 5
+        }
+      ],
+      "8": [
+        {
+          "startMonth": 3,
+          "endMonth": 5
+        }
+      ]
+    },
+    "productiveMonths": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "dormancyMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Root rot can occur in wet, poorly-drained soils; ensure the container or bed drains freely (Missouri Botanical Garden).",
+    "Aphids may cluster on leaves and reduce vigor (RHS).",
+    "Leek rust (a fungal disease) shows as bright orange raised pustules on the foliage (RHS).",
+    "Avoid over-fertilizing; chives need only a very light feed (UMN Extension).",
+    "Shallow-rooted clump-former; an 8 L pot at least 20 cm deep suits container growing, larger is fine (RHS / Old Farmer's Almanac)."
+  ],
+  "verticalSuitability": 0.2,
+  "source": [
+    {
+      "citation": "University of Minnesota Extension — Growing chives in home gardens: six to eight hours of direct light is best; tolerates light shade; water deeply so soil does not dry out around the root zone; pH 6.0-7.0; very light application of 5-10-5 fertilizer once each spring, container plants liquid-fed at half strength every four to six weeks; space plants 6 to 12 inches apart; plant after frost danger; flowers late May/June.",
+      "url": "https://extension.umn.edu/vegetables/growing-chives",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Growing chives: feeding guidance (light 5-10-5 once each spring; container plants liquid-fed at half strength every four to six weeks).",
+      "url": "https://extension.umn.edu/vegetables/growing-chives",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Growing chives: watering deeply to keep root zone from drying, with consistent moisture; drought tolerant but consistent watering needed for high yields.",
+      "url": "https://extension.umn.edu/vegetables/growing-chives",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder — Allium schoenoprasum: USDA Zones 4 to 8; height/spread 1.0-1.5 ft; full sun to part shade; medium water; bloom April-May; no serious insect or disease problems, root rot may occur in wet, poorly-drained soils; easily grown in average, medium, well-drained soils.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=j270",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder — Allium schoenoprasum: medium water needs and root rot risk in wet, poorly-drained soils (overwater risk).",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=j270",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder — Allium schoenoprasum: 'No serious insect or disease problems. Root rot may occur in wet, poorly-drained soils.'",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=j270",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "Royal Horticultural Society — How to grow Chives: grow in sun or partial shade; containers at least 20 cm (8 in) wide and deep with peat-free soil-based compost; sow indoors early spring through summer, plant outdoors in spring; harvest late spring until die-back in autumn; space clumps at least 15 cm (6 in) apart; problems include aphids and leek rust.",
+      "url": "https://www.rhs.org.uk/herbs/chives/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society — How to grow Chives: planting/sowing in spring, harvest from late spring until die-back in autumn (seasonality); established ground plants rarely need extra water except in drought, container plants need regular moisture.",
+      "url": "https://www.rhs.org.uk/herbs/chives/grow-your-own",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Royal Horticultural Society — How to grow Chives: common problems are aphids (sap-sucking insects) and leek rust (fungal disease, bright orange raised pustules).",
+      "url": "https://www.rhs.org.uk/herbs/chives/grow-your-own",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "The Old Farmer's Almanac — Chives: shallow root system; if planting in a pot choose one roughly 8 to 12 inches deep; grow best in full sun, tolerate light shade, grow well in partial sun (4 to 6 hours per day); harvest 3-4 times the first year, cut back monthly thereafter.",
+      "url": "https://www.almanac.com/plant/chives",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Confidence note — heatStressC (30 C) is an estimate. Sources (Missouri Botanical Garden Zones 4-8, RHS, UMN) describe chives as a cold-hardy perennial that prefers cool conditions and may go semi-dormant or bolt in summer heat, but none give an explicit numeric heat-stress threshold; 30 C is a conservative onset-of-heat-stress value. coldHardyMinC (-34 C) is derived from the lower limit of USDA Zone 4 (the cold end of the Missouri Botanical Garden range) rather than a directly stated temperature.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

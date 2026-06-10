@@ -1,0 +1,83 @@
+{
+  "id": "fragaria-x-ananassa",
+  "scientificName": "Fragaria x ananassa",
+  "commonNames": ["Strawberry", "Garden strawberry"],
+  "category": "berry",
+  "growthHabit": "rosette",
+  "requiresSupport": false,
+  "selfFruitful": true,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 2,
+    "dryingTolerance": "low",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 1.5
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 14,
+    "fruitingIntervalDays": 14,
+    "postHarvestIntervalDays": 21,
+    "preferredNpk": "high-potassium"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 4,
+    "idealMinLiters": 8,
+    "idealMaxLiters": 19,
+    "soilMixTags": ["loam", "well-draining", "organic-rich"]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6,
+    "maxSunHours": 10
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -6,
+    "heatStressC": 30,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "us-southeast": [{ "startMonth": 9, "endMonth": 11 }],
+      "us-temperate": [{ "startMonth": 3, "endMonth": 5 }],
+      "uk": [{ "startMonth": 8, "endMonth": 9 }]
+    },
+    "productiveMonths": [4, 5, 6, 7, 8],
+    "dormancyMonths": [12, 1, 2]
+  },
+  "commonIssues": [
+    "Botrytis (grey mould) on fruit and crown, worsened by overhead watering or soggy soil; water at the base in the morning and avoid wetting the crown",
+    "Shallow roots dry out fast, especially in containers, so containers need frequent watering",
+    "Frost during flowering blackens and kills open blooms even though dormant plants are hardy; cover with row cover or cloche when frost threatens flowers",
+    "Birds, slugs, snails, aphids, spotted wing drosophila and vine weevil; anthracnose, verticillium wilt and viruses",
+    "Below roughly -6 C (20 F) plants go dormant and benefit from a ~4 inch straw mulch for winter protection"
+  ],
+  "verticalSuitability": 0.7,
+  "source": [
+    {
+      "citation": "Clemson Cooperative Extension Home & Garden Information Center, Growing Strawberries (HGIC 1404): full sun; 1 to 1.5 inches of water per week wetting soil 6 to 8 inches deep; soil pH 6.0 to 6.5; annual hill spacing 12 inches; nitrogen side-dress about one month after planting and post-renovation feeding mid-August to mid-September; harvest March to May by region; problems anthracnose, Botrytis (gray mold), nematodes, birds.",
+      "url": "https://hgic.clemson.edu/factsheet/growing-strawberries/",
+      "field": "wateringProfile,lightProfile,feedingProfile,seasonality,commonIssues"
+    },
+    {
+      "citation": "Royal Horticultural Society, How to grow strawberries: full sun for sweetest fruit (tolerates some shade); avoid wetting the crown and water in the morning to prevent grey mould; containers dry out quickly and need regular watering; feed container plants fortnightly with a general-purpose then high-potassium liquid feed once flower buds form; plant spring, late summer or early autumn (Aug/Sep best); summer-fruiting crop early June to early August; hardy but cover flowers/early fruit if frost forecast; problems include grey mould, aphids, slugs/snails, spotted wing drosophila, vine weevil, verticillium wilt and viruses.",
+      "url": "https://www.rhs.org.uk/fruit/strawberries/grow-your-own",
+      "field": "lightProfile,wateringProfile,feedingProfile,seasonality,commonIssues,temperatureProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac, How to Grow Strawberries: requires 6 to 10 hours of direct sunlight a day; day-neutral types fruit while temperatures stay between 35 and 85 F (1 to 30 C); super-hardy but frost turns flowers to blackened mush; plants go dormant when temperatures regularly drop into the low twenties F, cut foliage to ~1 inch when air reaches 20 F (-6 C) and mulch ~4 inches deep for winter protection.",
+      "url": "https://www.almanac.com/plant/strawberries",
+      "field": "lightProfile,temperatureProfile,seasonality,commonIssues"
+    },
+    {
+      "citation": "EarthBox, Growing Strawberries in Containers: a single strawberry plant needs a pot at least 8 to 10 inches deep and roughly 12 to 18 inches wide; a 6 to 8 inch pot holds 1 plant, a 10 to 12 inch pot 2 to 3 plants, and a 5-gallon (~19 L) grow bag about 3 plants. Used to bound container minimum (~4 L single small pot), ideal min ~8 L, and ideal max ~19 L.",
+      "url": "https://earthbox.com/blog/growing-strawberries-in-containers",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Confidence note: container liters are converted from inch/gallon pot guidance (no extension source states liters directly); recommendedMinLiters=4 retains the proven seed value and reflects a single-plant ~1-gallon small pot, with idealMin/Max (8-19 L) bracketing multi-plant pots. coldHardyMinC=-6 C is set to the Almanac's 20 F foliage/dormancy threshold as a conservative active-growth floor rather than the deeper temperature dormant crowns can survive under mulch. verticalSuitability=0.7 reflects strawberries' well-documented suitability for towers/hanging baskets but is an interpretive score, not a sourced number. hotWeatherMultiplier=1.5 is an engine estimate for shallow-rooted, low-drying-tolerance plants, not a published figure.",
+      "field": "confidence"
+    }
+  ],
+  "version": 2,
+  "lastReviewedAt": "2026-06-02"
+}

@@ -1,0 +1,140 @@
+{
+  "id": "origanum-vulgare",
+  "scientificName": "Origanum vulgare",
+  "commonNames": [
+    "Oregano",
+    "Common oregano",
+    "Wild marjoram",
+    "Greek oregano"
+  ],
+  "category": "herb",
+  "growthHabit": "bush",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 7,
+    "dryingTolerance": "high",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.5,
+    "rainSkipThresholdMm": 5
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 30,
+    "containerLeachAdjustment": 0.75,
+    "preferredNpk": "balanced general-purpose"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 2,
+    "idealMinLiters": 3,
+    "idealMaxLiters": 8,
+    "soilMixTags": [
+      "free-draining",
+      "soil-based-compost",
+      "horticultural-grit",
+      "low-fertility"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 5,
+    "maxSunHours": 12
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -29,
+    "heatStressC": 35,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "4": [
+        {
+          "startMonth": 5,
+          "endMonth": 6
+        }
+      ],
+      "5": [
+        {
+          "startMonth": 5,
+          "endMonth": 6
+        }
+      ],
+      "6": [
+        {
+          "startMonth": 4,
+          "endMonth": 6
+        }
+      ],
+      "7": [
+        {
+          "startMonth": 4,
+          "endMonth": 6
+        }
+      ],
+      "8": [
+        {
+          "startMonth": 3,
+          "endMonth": 5
+        }
+      ],
+      "9": [
+        {
+          "startMonth": 3,
+          "endMonth": 5
+        }
+      ]
+    },
+    "productiveMonths": [5, 6, 7, 8, 9],
+    "dormancyMonths": [12, 1, 2]
+  },
+  "commonIssues": [
+    "Overwatering and poorly drained soil cause root rot; oregano is drought-tolerant once established and prefers to dry out between waterings.",
+    "Marginally hardy in colder regions (true oregano is only marginally hardy in zone 5); apply a winter mulch of evergreen boughs or straw after the soil freezes and remove it as growth resumes in spring.",
+    "Best flavor develops in full sun; too much shade gives weak, leggy growth and reduced essential-oil content.",
+    "Container plants need a drainage hole and gritty, free-draining mix; standing water in pots is the main cause of failure."
+  ],
+  "verticalSuitability": 0.4,
+  "source": [
+    {
+      "citation": "The Old Farmer's Almanac — Oregano: Planting, Growing, and Harvesting Oregano Plants. Oregano is a perennial in USDA Zones 4 to 9; loves full sun for strong flavor (partial shade in hot climates); harvest no more than one-third at a time, best flavor in midsummer before flowering.",
+      "url": "https://www.almanac.com/plant/oregano",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac — Oregano. Perennial in USDA Zones 4-9 (Zone 4 lower limit ~ -29 C); returns each year in well-draining soil that survives winter.",
+      "url": "https://www.almanac.com/plant/oregano",
+      "field": "seasonality"
+    },
+    {
+      "citation": "RHS — How to grow Oregano. Sun-loving Mediterranean herb needing full sun; drought-tolerant once established, container plants watered during dry spells but never waterlogged; ground plants in poor free-draining soil need no feeding.",
+      "url": "https://www.rhs.org.uk/herbs/oregano/grow-your-own",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "RHS — How to grow Oregano. For a single young plant use a pot at least 15 cm (6 in) wide and deep, filled with soil-based compost mixed with up to 25% horticultural grit for drainage.",
+      "url": "https://www.rhs.org.uk/herbs/oregano/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "RHS — How to grow Oregano. Container plants benefit from a sprinkling of general-purpose granular feed in late spring or early summer after their first year; best planted late spring/early summer.",
+      "url": "https://www.rhs.org.uk/herbs/oregano/grow-your-own",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "University of Illinois Extension — Oregano (Origanum vulgare var. hirtum). Requires a full sun location and good drainage for best growth and overwintering; grows 6 in to 2 ft tall; grows indoors in containers given at least 5-6 hours of sunlight per day; marginally hardy in zone 5; harvest before flowering leaving 4-6 pairs of leaves; winter mulch of evergreen boughs or straw after soil freezes.",
+      "url": "https://extension.illinois.edu/herbs/oregano",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "University of Illinois Extension — Oregano. Good drainage required for best growth and overwintering; true oregano marginally hardy in zone 5, many desirable types treated as tender perennials needing winter protection.",
+      "url": "https://extension.illinois.edu/herbs/oregano",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "Confidence note — baseIntervalDays (7) and hotWeatherMultiplier (0.5) are conservative estimates. Authoritative sources (RHS, Illinois Extension, Almanac) describe oregano qualitatively as drought-tolerant, watered only 'during dry spells', and preferring to dry out between waterings, but give no explicit numeric watering interval; 7 days is a conservative container default reflecting high drying tolerance, with reduced frequency-multiplier (water less) in hot established conditions per drought tolerance. feedingProfile baseIntervalDays (30) derived from the RHS 'once-a-year late-spring feed' guidance generalized to a monthly light feed for containers; ground plants typically need none.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

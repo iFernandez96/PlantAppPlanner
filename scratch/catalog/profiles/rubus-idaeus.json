@@ -1,0 +1,137 @@
+{
+  "id": "rubus-idaeus",
+  "scientificName": "Rubus idaeus",
+  "commonNames": [
+    "Raspberry",
+    "Red raspberry",
+    "European red raspberry"
+  ],
+  "category": "berry",
+  "growthHabit": "upright",
+  "requiresSupport": true,
+  "selfFruitful": true,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.6,
+    "rainSkipThresholdMm": 25
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 30,
+    "fruitingIntervalDays": 30,
+    "postHarvestIntervalDays": 30,
+    "containerLeachAdjustment": 0.75,
+    "preferredNpk": "10-10-10"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 19,
+    "idealMinLiters": 30,
+    "idealMaxLiters": 38,
+    "soilMixTags": [
+      "well-drained",
+      "slightly-acidic",
+      "rich-in-organic-matter"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6,
+    "maxSunHours": 14
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -29,
+    "heatStressC": 30,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "rhs-uk": [
+        {
+          "startMonth": 11,
+          "endMonth": 3
+        }
+      ]
+    },
+    "productiveMonths": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "dormancyMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Susceptible to fungal diseases (anthracnose, botrytis, root rot) and to cane borers and crown borers; ensure good air circulation.",
+    "Intolerant of waterlogged or wet soils; standing water causes root rot and plant death, so well-drained soil or containers are essential.",
+    "Spreads aggressively by suckers into tangled thickets if not pruned and contained.",
+    "Container culture: although a deep-rooted plant best grown in-ground, dwarf/everbearing types grow in a pot at least 40cm (16in) wide and 30cm (12in) deep; in very cold winters insulate or move the pot under cover so roots do not freeze hard.",
+    "Growing-season tissue is frost-tender: summer shoots are killed near -8C even though dormant, acclimated canes tolerate far colder; protect new spring growth from late frosts."
+  ],
+  "verticalSuitability": 0.6,
+  "source": [
+    {
+      "citation": "UMN Extension — Growing raspberries in the home garden: full sun for most fruit; 1 to 1.5 inches of water per week from flowering until harvest, roots stay in top two feet of soil; space red/yellow raspberries 2 to 3 feet apart; all raspberries require support; summer-bearing fruit early to mid summer; composted manure as nutrient source.",
+      "url": "https://extension.umn.edu/fruit/growing-raspberries-home-garden",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "UMN Extension — Growing raspberries in the home garden: hardy varieties (Boyne, Latham) rated very good to good in USDA zones 3-4.",
+      "url": "https://extension.umn.edu/fruit/growing-raspberries-home-garden",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "UMN Extension — Growing raspberries in the home garden: all types of raspberries require support to prevent canes from wind damage, bending and cracking.",
+      "url": "https://extension.umn.edu/fruit/growing-raspberries-home-garden",
+      "field": "requiresSupport"
+    },
+    {
+      "citation": "RHS — How to grow raspberries: grow in a pot at least 40cm (16in) wide and 30cm (12in) deep for compact varieties; sunny site best (light shade reduces crop); slightly acidic soil ideally pH 6-6.7; container plants fed monthly with a liquid general-purpose fertiliser through the growing season; ground plants fed granular fertiliser in early spring; plant bare-root canes Nov-Mar; summer varieties crop Jun-Sep, autumn varieties Aug-Oct.",
+      "url": "https://www.rhs.org.uk/fruit/raspberries/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "RHS — How to grow raspberries: keep container compost consistently moist throughout the growing season; water new plants well during prolonged dry spells in the first growing season.",
+      "url": "https://www.rhs.org.uk/fruit/raspberries/grow-your-own",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "RHS — How to grow raspberries: feed container raspberries with a liquid general-purpose fertiliser on a monthly basis; ground plants need granular feed in early spring at most.",
+      "url": "https://www.rhs.org.uk/fruit/raspberries/grow-your-own",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "RHS — How to grow raspberries: dormant planting window November to March in the UK climate.",
+      "url": "https://www.rhs.org.uk/fruit/raspberries/grow-your-own",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder — Rubus idaeus: USDA hardiness zones 4 to 8; full sun to part shade; medium water needs; prefers moist but well-drained, organically rich, slightly acidic soils and is intolerant of wet conditions causing root rot; mature 3-9 ft; blooms Apr-May, summer ripening; susceptible to anthracnose, botrytis, root rot, cane and crown borers; spreads into thickets if unmaintained.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=295999",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Penn State Extension — Small Fruit Cold Hardiness, Winter Injury in Brambles: in mid-summer raspberry shoots are killed at about 18F (about -8C); by mid-October acclimated plants withstand about 10F (about -12C); summer-bearing red raspberries are the most cold hardy bramble type.",
+      "url": "https://extension.psu.edu/small-fruit-cold-hardiness-winter-injury-in-brambles",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Container size conversion: RHS recommends a pot at least 40cm wide x 30cm deep; a cylinder of those dimensions holds roughly 38 L, and the Old Farmer's Almanac recommends about 8 US gallons (~30 L) of potting mix for container berries. recommendedMinLiters set conservatively to 19 L (5 US gal) as a workable minimum for dwarf/everbearing types, with 30-38 L as the ideal. Raspberries are deep-rooted and grow best in-ground; the container minimum is intentionally a large pot.",
+      "url": "https://www.rhs.org.uk/fruit/raspberries/grow-your-own",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: heatStressC (30C) and hotWeatherMultiplier are estimated. Extension sources specify 1-1.5 in/week and irrigation three or more times per week on sandy soil in dry spells but give no explicit heat-stress temperature; baseIntervalDays=3 and frostSensitive=false (dormant canes hardy to zone 3-4 but growing-season tissue tender near -8C) are conservative interpretations rather than directly stated single numbers.",
+      "url": "https://extension.umn.edu/fruit/growing-raspberries-home-garden",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

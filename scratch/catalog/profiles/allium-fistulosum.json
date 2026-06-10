@@ -1,0 +1,139 @@
+{
+  "id": "allium-fistulosum",
+  "scientificName": "Allium fistulosum",
+  "commonNames": [
+    "Green onion",
+    "Scallion",
+    "Bunching onion",
+    "Welsh onion",
+    "Japanese bunching onion"
+  ],
+  "category": "vegetable",
+  "growthHabit": "upright",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 2,
+    "dryingTolerance": "low",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 1.5,
+    "rainSkipThresholdMm": 25
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 21,
+    "containerLeachAdjustment": 0.7,
+    "preferredNpk": "balanced, nitrogen-forward (e.g. 10-10-10 to 16-16-8) for leafy top growth"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 7,
+    "idealMinLiters": 10,
+    "idealMaxLiters": 20,
+    "soilMixTags": [
+      "well-draining",
+      "fertile",
+      "organic-matter-rich",
+      "moisture-retentive"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 4,
+    "maxSunHours": 10
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -12,
+    "heatStressC": 30,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "6-9": [
+        {
+          "startMonth": 3,
+          "endMonth": 8
+        }
+      ]
+    },
+    "productiveMonths": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "dormancyMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Onion maggot bores into stems, causing plants to turn yellow and wilt (UMN Extension).",
+    "Fungal/bacterial rots: Fusarium basal rot, Botrytis neck rot, and bacterial soft rot, encouraged by overwatering and waterlogged soil (UMN Extension).",
+    "Shallow roots dry out fast; keep evenly moist and never waterlogged. Use a pot at least 6-8 inches (15-20 cm) deep with good drainage.",
+    "Weeds easily outcompete small seedlings early in the season (UMN Extension).",
+    "Perennial in USDA zones 6-9; north of zone 6 typically grown as an annual (Missouri Botanical Garden)."
+  ],
+  "verticalSuitability": 0.2,
+  "source": [
+    {
+      "citation": "University of Minnesota Extension — Growing scallions in home gardens. Full sun required; keep soil evenly moist (shallow roots); soak thoroughly at least once weekly if under 1 inch rain; sow 1/4 to 1/2 inch deep, rows 12-18 inches apart, thin to 1 inch; succession-sow every 3-4 weeks.",
+      "url": "https://extension.umn.edu/vegetables/growing-scallions-home-gardens",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Growing scallions in home gardens. Onions require full sun for best growth.",
+      "url": "https://extension.umn.edu/vegetables/growing-scallions-home-gardens",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Growing scallions in home gardens. Pests/diseases: onion maggot; Fusarium basal rot, Botrytis neck rot, bacterial soft rot; weed competition early season.",
+      "url": "https://extension.umn.edu/vegetables/growing-scallions-home-gardens",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "Oregon State University, Commercial Vegetable Production — Onions, Green (Bunching). Germination 46-86 F (8-30 C), optimum over 60 F (16 C); maintain top foot of soil at 65-70% of field capacity; nitrogen 50-70 lb/acre with side-dressing 75-100 lb N/acre; seeding March through mid-August; 60-70 day crop.",
+      "url": "https://horticulture.oregonstate.edu/oregon-vegetables/onions-green-bunching",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Oregon State University, Commercial Vegetable Production — Onions, Green (Bunching). Nitrogen-driven leafy crop; side-dress additional nitrogen during growth; seeding window March through mid-August.",
+      "url": "https://horticulture.oregonstate.edu/oregon-vegetables/onions-green-bunching",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Oregon State University, Commercial Vegetable Production — Onions, Green (Bunching). Seeding March through mid-August; 60-70 day crop used for irrigation planning.",
+      "url": "https://horticulture.oregonstate.edu/oregon-vegetables/onions-green-bunching",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder — Allium fistulosum. Winter hardy to USDA Zones 6-9; full sun to part shade; medium water; clumping evergreen perennial, grown as annual north of Zone 6.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=256068&isprofile=0",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Iowa State University Extension, Yard and Garden — The Other Onions. Allium fistulosum is hardy and one of the first plants to emerge in spring; grown primarily for green tops; sow early spring and again midsummer for fall/following-spring harvest.",
+      "url": "https://yardandgarden.extension.iastate.edu/how-to/other-onions",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Container size estimated from extension guidance that scallions have shallow roots needing a pot 6-8 inches (15-20 cm) deep with good drainage (UMN Extension watering note plus general extension container guidance); exact liter volume is not given by a single .edu page, so recommendedMinLiters (7 L) is a conservative practical estimate for a 6-inch-deep, ~25 cm-wide pot.",
+      "url": "https://extension.umn.edu/vegetables/growing-scallions-home-gardens",
+      "field": "confidence"
+    },
+    {
+      "citation": "coldHardyMinC (-12 C) is a conservative value: Missouri Botanical Garden lists USDA Zones 6-9 (Zone 6 minimum approx -23 to -18 C), but reliable garden overwintering of green tops is more conservative; RHS hardiness rating H5 (-15 to -10 C) for Welsh onion supports roughly -12 C as a safe operating floor for keeping plants productive rather than absolute survival.",
+      "url": "https://www.rhs.org.uk/plants/26473/allium-fistulosum/details",
+      "field": "confidence"
+    },
+    {
+      "citation": "feedingProfile.baseIntervalDays (21 days) estimated: Oregon State specifies total seasonal nitrogen and side-dressing for field/acre but no home-garden day interval; 3-week feeding cadence is a conservative translation for a fast leafy nitrogen-hungry crop.",
+      "url": "https://horticulture.oregonstate.edu/oregon-vegetables/onions-green-bunching",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

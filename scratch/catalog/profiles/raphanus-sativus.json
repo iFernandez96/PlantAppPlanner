@@ -1,0 +1,114 @@
+{
+  "id": "raphanus-sativus",
+  "scientificName": "Raphanus sativus",
+  "commonNames": [
+    "Radish",
+    "Garden radish",
+    "Common radish"
+  ],
+  "category": "vegetable",
+  "growthHabit": "rosette",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "low",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 1.5,
+    "rainSkipThresholdMm": 25
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 21,
+    "preferredNpk": "5-10-10",
+    "containerLeachAdjustment": 0.75
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 8,
+    "idealMinLiters": 12,
+    "idealMaxLiters": 28,
+    "soilMixTags": [
+      "well-drained",
+      "loose",
+      "sandy-loam",
+      "multipurpose-compost"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 4,
+    "maxSunHours": 10
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -2,
+    "heatStressC": 24,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "productiveMonths": [4, 5, 6, 9, 10],
+    "plantingWindowsByZone": {
+      "4": [
+        { "startMonth": 4, "endMonth": 5 },
+        { "startMonth": 8, "endMonth": 9 }
+      ]
+    }
+  },
+  "commonIssues": [
+    "Inconsistent moisture causes pithy, woody, or pungent, split roots; keep soil evenly moist (UMN, Cornell).",
+    "Bolting (going to seed) and strong flavor occur in heat; radish is a cool-season crop best in spring and fall (RHS, Clemson).",
+    "Roots fail to swell if sown too thickly or shaded; thin garden radishes to about 2 in (5 cm) apart (UMN, RHS).",
+    "Germination fails when soil is above ~35 C (95 F); optimum soil temperature is 45-85 F / 7-29 C (Clemson).",
+    "Common pests: flea beetles, cabbage maggots/cabbage root fly, aphids, wireworms; diseases include clubroot, black rot, Alternaria (UMN).",
+    "Container note: short-rooted salad radishes grow well in pots at least 30 cm (1 ft) wide and deep, or a 2-gallon (~8 L) pot for 5-6 plants; long winter/daikon types need 30 cm-plus soil depth and a larger container (RHS, Old Farmer's Almanac)."
+  ],
+  "verticalSuitability": 0.1,
+  "source": [
+    {
+      "citation": "University of Minnesota Extension — Growing radishes in home gardens (watering ~1 in/week, keep evenly moist; planting depth 1/4-1 in; spacing ~2 in for garden radishes, 4-6 in for daikon; maturity 3-5 weeks; cool/cold tolerant; pests: flea beetles, cabbage maggots, wireworms; diseases: Alternaria, black rot, clubroot).",
+      "url": "https://extension.umn.edu/vegetables/growing-radishes",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Growing radishes in home gardens (spacing, maturity 3-5 weeks, seasonality spring early April-early May and fall Aug 1-Sep 1, cold tolerance, common pests/diseases).",
+      "url": "https://extension.umn.edu/vegetables/growing-radishes",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC — Carrot, Beet, Radish & Parsnip (optimum soil temperature for germination 45-85 F = 7-29 C; optimum growing temperature 50-65 F = 10-18 C; will not germinate above 95 F = 35 C; maturity 21-30 days; planting 1/2 in deep, thin to 2-3 in; pre-plant 5-10-10 fertilizer; sandy/sandy-loam soils best; water to moisten to 6 in depth).",
+      "url": "https://hgic.clemson.edu/factsheet/carrot-beet-radish-parsnip/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC — Carrot, Beet, Radish & Parsnip (recommends 5-10-10 fertilizer pre-plant for root crops; sidedress when plants reach 4 in; vegetables do best with full sunlight, at least 4-6 hours a day).",
+      "url": "https://hgic.clemson.edu/factsheet/carrot-beet-radish-parsnip/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC — vegetables do best in full sunlight, at least 4 to 6 hours per day; radish prefers cool, moist conditions.",
+      "url": "https://hgic.clemson.edu/factsheet/carrot-beet-radish-parsnip/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society (RHS) — How to grow radishes (open, sunny site; light shade acceptable for salad radishes in midsummer; keep soil consistently moist; salad sowing 1 cm/0.5 in deep, 2.5-5 cm apart, 15 cm between rows; containers at least 30 cm/1 ft wide and deep in multipurpose compost; salad radishes ready in ~4 weeks, winter/Oriental at least 8 weeks; cool-season, bolts in heat).",
+      "url": "https://www.rhs.org.uk/vegetables/radishes/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society (RHS) — How to grow radishes (sunny/open site, light shade acceptable; cool-season crop bolting in excessive heat).",
+      "url": "https://www.rhs.org.uk/vegetables/radishes/grow-your-own",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac — Radishes: Planting, Growing, and Harvesting; Vegetable Container Size Chart (radishes recommend a 2-gallon pot, ~8 in/20-23 cm diameter, 6-8 in/15-20 cm deep, for 5-6 plants; direct-sow about 1/2 in deep; cool-season crop tolerant of cold).",
+      "url": "https://www.almanac.com/plant/radishes",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Confidence note — Light tolerance bounds (maxSunHours 10) and exact watering interval (baseIntervalDays 3) are conservative app-engine estimates derived from qualitative source guidance: sources specify 'at least 4-6 hours' full sun and '~1 inch of water per week / keep consistently moist' rather than a hard upper sun bound or a fixed day interval. coldHardyMinC (-2 C) reflects 'tolerant of cold/light frost' without a published exact lethal minimum; heatStressC (24 C) is derived from the stated 50-65 F optimum growing range and bolting-in-heat warnings, not a single published threshold.",
+      "url": "https://hgic.clemson.edu/factsheet/carrot-beet-radish-parsnip/",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

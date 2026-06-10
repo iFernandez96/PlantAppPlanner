@@ -1,0 +1,127 @@
+{
+  "id": "citrus-limon",
+  "scientificName": "Citrus limon",
+  "commonNames": [
+    "Lemon",
+    "Meyer Lemon"
+  ],
+  "category": "fruit",
+  "growthHabit": "tree",
+  "requiresSupport": false,
+  "selfFruitful": true,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.4,
+    "rainSkipThresholdMm": 10
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 30,
+    "fruitingIntervalDays": 21,
+    "postHarvestIntervalDays": 45,
+    "containerLeachAdjustment": 0.75,
+    "preferredNpk": "12-6-6"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 26,
+    "idealMinLiters": 45,
+    "idealMaxLiters": 90,
+    "soilMixTags": [
+      "well-drained",
+      "citrus-mix",
+      "acidic",
+      "added-grit-or-sharp-sand"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6,
+    "maxSunHours": 12
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 5,
+    "heatStressC": 38,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "9": [
+        {
+          "startMonth": 3,
+          "endMonth": 5
+        }
+      ],
+      "10": [
+        {
+          "startMonth": 2,
+          "endMonth": 5
+        }
+      ]
+    },
+    "productiveMonths": [
+      11,
+      12,
+      1,
+      2,
+      3
+    ]
+  },
+  "commonIssues": [
+    "Frost tender: leaves and fruit are damaged below about 0 C (32 F) and the tree suffers significant injury below roughly -4 C (25 F); in climates colder than USDA zone 8b/9a grow in a container and overwinter indoors, in a greenhouse, conservatory or glazed porch (RHS, NC State Extension).",
+    "Overwatering / waterlogging is a primary killer: lemons dislike soggy roots. Let the top 2-3 inches of soil dry, then water thoroughly; never let the root ball fully dry out or stay saturated (Clemson HGIC, UMD Extension).",
+    "Container note: a lemon is naturally a 6-10 ft tree. The recommended minimum here (~26 L, a 14 in pot) is a starting size for a small or dwarf tree; pot up gradually toward 45-90 L (18-24 in) as it grows. In-ground in zones 9-11 it needs far more root room than any container (Clemson HGIC, RHS).",
+    "Container plants leach nutrients quickly under frequent watering; use a slow-release citrus feed (e.g. 12-6-6 or 12-4-6) and feed only during active growth, stopping by early fall (UMD Extension, Clemson HGIC).",
+    "Needs high light: 6 hours minimum, 8-12 hours ideal. Insufficient light causes poor fruiting and leggy growth (UMD Extension, NC State Extension)."
+  ],
+  "verticalSuitability": 0,
+  "source": [
+    {
+      "citation": "RHS - How to grow citrus (growing guide). Lemons tolerate a winter minimum 'as low as 5C (42F)'; citrus 'won't reliably survive winters outdoors' in the UK and are grown in containers brought under cover; water regularly in summer (compost dries quickly), let surface partially dry in winter; feed with a summer citrus feed late March-October and a balanced winter feed November-mid March; add up to 20% sharp sand/grit for drainage.",
+      "url": "https://www.rhs.org.uk/plants/citrus/growing-guide",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "RHS - How to grow citrus. Feeding cadence (summer high-nitrogen citrus feed late March-October; balanced winter feed) and drainage/soil-mix guidance.",
+      "url": "https://www.rhs.org.uk/plants/citrus/growing-guide",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC - Container Citrus Production. Container diameter 18-36 inches at maturity, pot up ~2 inches wider each step; near-daily watering in hot dry periods, check top 2-3 inches, never fully dry or waterlogged; slow-release 12-6-6 or 12-4-6, 2-3 applications per growing season; optimum 65-85F, most species damaged below 25F.",
+      "url": "https://hgic.clemson.edu/factsheet/container-citrus-production/",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC - Container Citrus Production. Watering: near-daily in hot dry periods, irrigate when top 2-3 inches dry, never let root ball fully dry or stay saturated.",
+      "url": "https://hgic.clemson.edu/factsheet/container-citrus-production/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "University of Maryland Extension - Growing Dwarf Citrus. Light: at least 6 hours direct sun, optimal 8-12 hours; fertilize with 2-1-1 or 3-1-1 N-P-K at least three times per growing season (spring, early summer, late summer), only during active growth; daytime 65-75F / night 55-65F preferred; most citrus damaged below 32F; outdoor summer plants may need daily watering.",
+      "url": "https://extension.umd.edu/resource/growing-dwarf-citrus",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "University of Maryland Extension - Growing Dwarf Citrus. Feeding frequency (~3 times per growing season, active-growth only) and watering (daily in summer outdoors; indoors check top 2 inches once or twice weekly).",
+      "url": "https://extension.umd.edu/resource/growing-dwarf-citrus",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox - Citrus x limon 'Meyer'. Full sun (6+ hours) preferred for fruit production; small broadleaf evergreen tree, erect habit, 6-10 ft tall x 4-8 ft wide; USDA zones 8b-11b; cannot survive frosts, grow in containers and bring indoors below zone 8b/9a; well-drained acid-to-neutral soil, prefers drying out then a good watering.",
+      "url": "https://plants.ces.ncsu.edu/plants/citrus-x-limon-meyer/",
+      "field": "growthHabit"
+    },
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox - Citrus x limon 'Meyer'. Frost/cold: 'cannot survive frosts', container-overwinter below zone 8b/9a; light: full sun 6+ hours best.",
+      "url": "https://plants.ces.ncsu.edu/plants/citrus-x-limon-meyer/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Confidence note: heatStressC (38 C) is a conservative estimate. Clemson HGIC gives an optimum fruiting range of 65-85F (18-29 C) but does not state an explicit upper heat-stress threshold for lemon; 38 C is a conservative typical citrus heat-stress figure pending an explicit extension value. Watering baseIntervalDays (3) and hotWeatherMultiplier (0.4) are derived from qualitative 'near-daily in hot dry periods / let top 2-3 inches dry' guidance rather than a published fixed interval. Container recommendedMinLiters (26 L) is converted from the 14-16 inch starter pot referenced for small/dwarf trees; idealMin/Max (45-90 L) map to the 18-24 inch / up-to-36 inch range. productiveMonths reflect the typical northern-hemisphere winter lemon harvest and is approximate.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

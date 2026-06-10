@@ -1,0 +1,151 @@
+{
+  "id": "daucus-carota",
+  "scientificName": "Daucus carota sativus",
+  "commonNames": [
+    "Carrot",
+    "Garden carrot"
+  ],
+  "category": "root",
+  "growthHabit": "rosette",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.6,
+    "rainSkipThresholdMm": 25
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 21,
+    "containerLeachAdjustment": 0.75,
+    "preferredNpk": "5-10-10"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 7.5,
+    "idealMinLiters": 11,
+    "idealMaxLiters": 19,
+    "soilMixTags": [
+      "free-draining",
+      "sandy-loam",
+      "stone-free",
+      "low-nitrogen",
+      "loose"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6,
+    "maxSunHours": 10
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -4,
+    "heatStressC": 24,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "us-cold-zone4": [
+        {
+          "startMonth": 4,
+          "endMonth": 7
+        }
+      ],
+      "uk-rhs": [
+        {
+          "startMonth": 4,
+          "endMonth": 7
+        }
+      ],
+      "us-southeast-zone8": [
+        {
+          "startMonth": 2,
+          "endMonth": 3
+        },
+        {
+          "startMonth": 7,
+          "endMonth": 8
+        }
+      ]
+    },
+    "productiveMonths": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "dormancyMonths": []
+  },
+  "commonIssues": [
+    "Slow to germinate (up to ~3 weeks); keep the seedbed consistently moist until emergence.",
+    "Forking and misshapen roots from stony, cloddy, or heavy clay soil, or from soil drying out; use loose, stone-free, free-draining soil.",
+    "Excess nitrogen causes forked/hairy roots and lush tops at the expense of the root; use a low-nitrogen feed (e.g. 5-10-10) and avoid high-N fertilizer.",
+    "Bitter, tough, undersized roots when underwatered during dry spells; aim for about 1 inch (25 mm) of water per week.",
+    "Poor germination and weak growth in hot weather; seeds will not germinate above ~95F (35C) and plants grow poorly in heat.",
+    "Container depth matters: baby/round varieties suit pots 6-8 in (15-20 cm) deep, while full-length varieties need 12+ in (30+ cm) deep containers or should be harvested young.",
+    "Roots tolerate light frost (flavor sweetens after frost) but heavy freezing damages tops; mulch with straw to overwinter in the ground."
+  ],
+  "verticalSuitability": 0,
+  "source": [
+    {
+      "citation": "UMN Extension — Growing carrots and parsnips in home gardens: light sandy loam soil, pH 6-7; thin to 2-4 in apart; water deeply once a week on heavier soils, twice a week on sandier soils, at least 1 inch of water per week; seeds can take up to three weeks to germinate; Minnesota planting starts about April 15; avoid weed-and-feed fertilizers.",
+      "url": "https://extension.umn.edu/vegetables/growing-carrots-and-parsnips",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "UMN Extension — Growing carrots and parsnips: spacing, soil pH 6-7, and ~April-onward planting window used for seasonality (cold-zone) and soil mix tags.",
+      "url": "https://extension.umn.edu/vegetables/growing-carrots-and-parsnips",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Clemson HGIC — Carrot, Beet, Radish & Parsnip: soil germination temperature 55-75F (seeds will not germinate above 95F); harvest about 65-75 days after planting; rows 12-18 in apart, thin to 2-3 in between plants; pre-plant 5-10-10 fertilizer, sidedress with calcium nitrate / 34-0-0; loamy or sandy stone-free soil, pH 6.0-6.5; SC planting dates Feb-Mar spring and Jul-Aug fall.",
+      "url": "https://hgic.clemson.edu/factsheet/carrot-beet-radish-parsnip/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Clemson HGIC — Carrot, Beet, Radish & Parsnip: pre-plant 5-10-10 fertilizer and sidedressing schedule; basis for preferredNpk and SC fall/spring planting windows.",
+      "url": "https://hgic.clemson.edu/factsheet/carrot-beet-radish-parsnip/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "RHS — How to grow Carrots: drought resistant, seldom need watering but benefit from a good soaking every fortnight in long dry spells; container-grown carrots need regular watering as pots dry faster; main sow Apr to early July (Feb-Mar under cloches/fleece); baby carrots in 4-6 weeks, full-size about 90 days (12-16 weeks); grow well in containers with peat-free multipurpose compost, long-rooted types need deep containers; can stay in the ground over winter with straw/cardboard frost protection.",
+      "url": "https://www.rhs.org.uk/vegetables/carrots/grow-your-own",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "RHS — How to grow Carrots: container growing guidance (deep containers for long-rooted types, multipurpose compost, sow thinly under ~1 cm) and overwintering/frost tolerance used for containerProfile and frost notes.",
+      "url": "https://www.rhs.org.uk/vegetables/carrots/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Old Farmer's Almanac — Carrots: full sun, direct light at least 6 hours/day (prefers 8-10 hours); carrots are semi-hardy and withstand light frosts (flavor improves after frost) but not hard freezes, roots tolerate colder than tops; germinate best 55-65F, not exceeding 75F, will not germinate above 95F; baby/dwarf carrots need 6-8 in deep containers, standard carrots at least 12 in deep; a 1-gallon pot (6-7 in diameter, 12-18 in deep) holds 3-4 plants; apply low-nitrogen fertilizer every 3-4 weeks (excess nitrogen harms root development); keep soil moist as dry soil causes forking.",
+      "url": "https://www.almanac.com/plant/carrots",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Old Farmer's Almanac — Carrots: low-nitrogen fertilizer every 3-4 weeks for container carrots (basis for feeding interval of 21 days and low-nitrogen NPK preference) and container depth/size in gallons.",
+      "url": "https://www.almanac.com/plant/carrots",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Old Farmer's Almanac — Carrots: container depth (6-8 in baby, 12+ in standard) and 1-gallon (~3.8 L) pot for 3-4 plants; basis for recommendedMinLiters/idealMinLiters/idealMaxLiters for a small home container of carrots.",
+      "url": "https://www.almanac.com/plant/carrots",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Confidence note: baseIntervalDays (3 days) is an estimate. Sources give weekly volume (~1 inch/week, once on heavy soil and twice on sandy soil per UMN; soaking every fortnight in dry spells per RHS; keep container soil moist per Almanac) rather than an explicit fixed-day interval. A 3-day interval is a conservative midpoint for keeping the seedbed and container moist; hotWeatherMultiplier<1 and dryingTolerance=medium reflect the drought-resistant-but-forks-when-dry guidance.",
+      "url": "https://extension.umn.edu/vegetables/growing-carrots-and-parsnips",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: coldHardyMinC (-4C) and heatStressC (24C) are conservative estimates derived from qualitative guidance (semi-hardy, withstands light frost but not hard freeze; germinates best 55-65F and grows poorly in heat / will not germinate above 95F). No source gave an exact lethal-low or heat-stress temperature in Celsius for carrots.",
+      "url": "https://www.almanac.com/plant/carrots",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

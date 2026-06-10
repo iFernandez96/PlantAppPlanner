@@ -1,0 +1,106 @@
+{
+  "id": "pisum-sativum",
+  "scientificName": "Pisum sativum",
+  "commonNames": ["Pea", "Garden pea", "Green pea", "English pea"],
+  "category": "vegetable",
+  "growthHabit": "climbing",
+  "requiresSupport": true,
+  "selfFruitful": true,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 4,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 1.5,
+    "rainSkipThresholdMm": 12
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 14,
+    "fruitingIntervalDays": 14,
+    "containerLeachAdjustment": 0.75,
+    "preferredNpk": "5-10-10"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 35,
+    "idealMinLiters": 35,
+    "idealMaxLiters": 60,
+    "soilMixTags": ["well-drained", "multi-purpose-compost", "neutral-ph"]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 6,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -4,
+    "heatStressC": 29,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "default": [{ "startMonth": 3, "endMonth": 6 }],
+      "coastal-warm": [{ "startMonth": 2, "endMonth": 3 }]
+    },
+    "productiveMonths": [5, 6, 7],
+    "dormancyMonths": [11, 12, 1]
+  },
+  "commonIssues": [
+    "Heat sensitive: stops flowering and setting pods once temperatures exceed about 29C (85F); grow as a cool-season crop in spring or fall.",
+    "Young plants tolerate light frost, but open blossoms can be damaged by freezing temperatures.",
+    "Powdery mildew, white mold, and Fusarium wilt; water at the soil line and avoid wetting foliage.",
+    "Pests: aphids, cutworms, pea/bean weevils, pea moth, slugs, and snails.",
+    "Avoid excess nitrogen; peas fix their own and high N reduces pod production.",
+    "Tall varieties climb by tendrils to about 1.5-1.8m and require netting, trellis, or pea sticks installed at sowing.",
+    "Container minimum of 35L reflects RHS guidance (about a 45cm-wide pot) for dwarf and mangetout types; container plants dry quickly and yield less than in-ground."
+  ],
+  "verticalSuitability": 0.9,
+  "source": [
+    {
+      "citation": "University of Minnesota Extension, Growing peas in home gardens: full sun; ideal growing temperature 55-65F (13-18C); growth/flowering stops above 85F (29C); soak soil to at least 1 inch per week during the growing season; peas need less fertilizer than other crops (low-phosphorus blends); soil pH 6-7.5; about 60 days to maturity; tall varieties to 5 ft need trellises; problems include cutworms, aphids, powdery mildew, white mold.",
+      "url": "https://extension.umn.edu/vegetables/growing-peas",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension, Growing peas in home gardens: ideal growing temperature 55-65F (13-18C); plants stop growing/flowering above 85F (29C); young plants survive light frost.",
+      "url": "https://extension.umn.edu/vegetables/growing-peas",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension, Growing peas in home gardens: peas need less fertilizer than other crops; low-phosphorus blends suggested by soil test.",
+      "url": "https://extension.umn.edu/vegetables/growing-peas",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society (RHS), Peas / grow your own: sow outdoors March-June once soil reaches 10C (50F); minimum container pot size 45cm wide for dwarf/mangetout types; container peas need regular watering as compost dries rapidly; feed container peas with a high-potassium liquid feed (e.g. tomato feed) once a fortnight from flowering; tall varieties up to 1.8m need netting/canes; water well at flowering and again two weeks later.",
+      "url": "https://www.rhs.org.uk/vegetables/peas/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society (RHS), Peas / grow your own: feed container-grown peas with a high-potassium organic liquid fertiliser (e.g. tomato feed) once a fortnight (every 14 days) from when flowers appear; in-ground peas generally need no feeding.",
+      "url": "https://www.rhs.org.uk/vegetables/peas/grow-your-own",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC, Garden Peas: full sun for maximum flavor and sugar; cool-season crop that suffers in summer heat; frost-tolerant foliage but blossoms cannot withstand freezing; ideal pH 6.0-6.5; 5-10-10 fertilizer at 3 lb per 100 sq ft if no soil test; avoid excess nitrogen; early varieties 55-64 days; support with netting, trellis, wires, or pea brush erected at planting; powdery mildew, Fusarium wilt, aphids.",
+      "url": "https://hgic.clemson.edu/factsheet/garden-peas/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC, Garden Peas: full sun required; spring planting windows by region (Piedmont Mar 1-Apr 5; Coastal Feb 1-Mar 15).",
+      "url": "https://hgic.clemson.edu/factsheet/garden-peas/",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC, Garden Peas: support peas with netting, trellis, wires, or pea brush; peas climb by tendrils. RHS notes tall varieties reach about 1.8m. Supports high vertical/trellis suitability.",
+      "url": "https://hgic.clemson.edu/factsheet/garden-peas/",
+      "field": "verticalSuitability"
+    },
+    {
+      "citation": "Confidence note: schema requires Celsius numerics not stated verbatim by sources. heatStressC=29 converts UMN/Clemson's 85F threshold. coldHardyMinC=-4 is a conservative estimate of 'light frost' tolerance for young foliage (sources state young plants survive light frost and blossoms are frost-damaged, without a numeric low). frostSensitive=false reflects the foliage's cool-season hardiness, but blossoms are frost-sensitive (captured in commonIssues). Watering baseIntervalDays=4 and hotWeatherMultiplier estimate from UMN's '1 inch per week, soak soil' plus RHS container 'dries rapidly'; rainSkipThresholdMm=12 (~0.5in) is a conservative care-engine default. recommendedMinLiters=35 converts RHS '45cm-wide pot'; idealMaxLiters=60 is an estimate for larger/taller varieties.",
+      "url": "https://extension.umn.edu/vegetables/growing-peas",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

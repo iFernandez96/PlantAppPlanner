@@ -1,0 +1,106 @@
+{
+  "id": "thymus-vulgaris",
+  "scientificName": "Thymus vulgaris",
+  "commonNames": [
+    "Thyme",
+    "Common thyme",
+    "Garden thyme",
+    "German thyme"
+  ],
+  "category": "herb",
+  "growthHabit": "bush",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 7,
+    "dryingTolerance": "high",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.5,
+    "rainSkipThresholdMm": 5
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 60,
+    "preferredNpk": "compost / low-nitrogen; little to no feeding needed"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 2,
+    "idealMinLiters": 3,
+    "idealMaxLiters": 8,
+    "soilMixTags": [
+      "free-draining",
+      "soil-based-compost",
+      "sandy",
+      "gritty",
+      "neutral-to-alkaline"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 7,
+    "minSunHours": 6,
+    "maxSunHours": 10
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -29,
+    "heatStressC": 38,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "productiveMonths": [5, 6, 7, 8, 9],
+    "dormancyMonths": [12, 1, 2]
+  },
+  "commonIssues": [
+    "Root rot in wet or poorly drained soil; thyme dislikes excess moisture far more than cold (Missouri Botanical Garden; RHS).",
+    "Becomes overly woody and leggy after several years; cut back in early spring and summer, leaving about five inches of growth, and replace plants periodically (NC State Extension; Old Farmer's Almanac).",
+    "Container minimum (2 L) reflects RHS guidance of a pot at least 15 cm wide and 10 cm deep for one plant; thyme is shallow-rooted, so wide-but-shallow pots with excellent drainage suit it better than deep ones."
+  ],
+  "verticalSuitability": 0.3,
+  "source": [
+    {
+      "citation": "RHS - How to grow Thyme (Grow Your Own): full sun and free-draining conditions; container at least 15 cm (6 in) wide and 10 cm (4 in) deep for one plant; peat-free soil-based compost with up to 25% horticultural grit; water deeply only when soil is completely dry; most widely available varieties withstand UK frosts; damp is a greater risk than cold.",
+      "url": "https://www.rhs.org.uk/herbs/thyme/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "RHS - How to grow Thyme: watering guidance (water deeply only when soil completely dry; drought-tolerant, dislikes excess moisture / root rot).",
+      "url": "https://www.rhs.org.uk/herbs/thyme/grow-your-own",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder - Thymus vulgaris: USDA hardiness zones 5 to 9; height 0.50-1.00 ft; full sun; dry to medium, well-drained soil; drought tolerant; bloom May to July; low maintenance; susceptible to root rot if soil too moist; becomes overly woody after several years.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=f970",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder - Thymus vulgaris: prefers average, dry to medium, well-drained, sandy/rocky soils; dislikes wet conditions (root rot).",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=f970",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox - Thymus vulgaris: USDA zones 5a-9b; full sun (6 or more hours of direct sun a day); drought-tolerant and frost-tolerant; low maintenance, trim when leggy, leave five inches of growth; neutral to alkaline pH; intolerant of wet soils and shade.",
+      "url": "https://plants.ces.ncsu.edu/plants/thymus-vulgaris/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox - Thymus vulgaris: frost-tolerant, hardy to zone 5 (lower limit ~ -29 C / -20 F per USDA zone 5 minimum); intolerant of wet soils.",
+      "url": "https://plants.ces.ncsu.edu/plants/thymus-vulgaris/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac - Thyme: full sun, 6-8 hours of bright light; drought-friendly with low watering needs, let soil dry out between waterings; herbs like thyme, lavender and rosemary should not need feeding and do best in nutrient-poor, drier soils; if fertilizing, use compost in early spring; trim when leggy; cut back early spring and summer.",
+      "url": "https://www.almanac.com/plant/thyme",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac - Thyme: light/sun-hour guidance (6-8 hours bright light) and drought-friendly watering behaviour.",
+      "url": "https://www.almanac.com/plant/thyme",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Confidence note: baseIntervalDays (watering ~7) and hotWeatherMultiplier (0.5) are conservative estimates. Authoritative sources (RHS, Almanac, NC State, MBG) prescribe watering by soil-dryness rather than a fixed interval ('water deeply only when soil is completely dry'); thyme is strongly drought-tolerant, so the 7-day base and reduced hot-weather frequency encode 'let it dry out' rather than a sourced fixed cadence. feedingProfile.baseIntervalDays (60) is likewise an estimate: sources say little-to-no feeding is needed, so a long ~60-day/early-spring cadence is used to approximate 'rarely feed'. heatStressC (38) is an estimate; sources emphasize cold-hardiness and drought tolerance but do not state a numeric heat-stress threshold.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

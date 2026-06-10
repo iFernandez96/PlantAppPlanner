@@ -1,0 +1,133 @@
+{
+  "id": "salvia-rosmarinus",
+  "scientificName": "Salvia rosmarinus",
+  "commonNames": [
+    "Rosemary"
+  ],
+  "category": "herb",
+  "growthHabit": "bush",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 7,
+    "dryingTolerance": "high",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.7,
+    "rainSkipThresholdMm": 5
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 60,
+    "containerLeachAdjustment": 0.75,
+    "preferredNpk": "balanced general-purpose (e.g. 10-10-10)"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 15,
+    "idealMinLiters": 20,
+    "idealMaxLiters": 30,
+    "soilMixTags": [
+      "well-drained",
+      "soil-based",
+      "free-draining",
+      "added-grit",
+      "low-fertility"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 7,
+    "minSunHours": 6,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -8,
+    "heatStressC": 35,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "8": [
+        {
+          "startMonth": 3,
+          "endMonth": 5
+        }
+      ]
+    },
+    "productiveMonths": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "dormancyMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Overwatering and poor drainage are the biggest cause of decline and death; let the soil dry between waterings.",
+    "Root and crown rot plus botrytis (grey mould) are the most common diseases; ensure good air circulation and free-draining media.",
+    "Frost-sensitive: hardy only to about -8C (18F); protect from hard frost and cold wet winters, or overwinter container plants indoors in cold zones (not reliably hardy below zone 8 except cultivars like 'Arp').",
+    "Common pests include aphids, spider mites, mealybugs and scale; rosemary beetle and leafhoppers in some regions.",
+    "Container minimum is set to a realistic pot of at least 30cm (12in) wide and deep per RHS; smaller pots dry out fast and restrict the woody root system.",
+    "Reduce or stop watering in winter dormancy; overwatering wet cold roots is the main winter killer."
+  ],
+  "verticalSuitability": 0.1,
+  "source": [
+    {
+      "citation": "RHS - How to grow Rosemary (Grow Your Own): full sun, light free-draining soil, hardy to -8C (18F), drought tolerant once established, container minimum 30cm wide and deep with drainage, feed container plants over one year old with general-purpose granular feed in late spring/early summer, problems include root rot from waterlogging, rosemary beetle, scale and leafhoppers.",
+      "url": "https://www.rhs.org.uk/herbs/rosemary/grow-your-own",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "RHS - How to grow Rosemary: minimum container 30cm (1ft) wide and deep with drainage holes using a soil-based compost; heavy soils need up to 25% horticultural grit. A 30cm-wide/deep pot corresponds to roughly 20-30 L; recommendedMinLiters set conservatively to 15 L.",
+      "url": "https://www.rhs.org.uk/herbs/rosemary/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "RHS - How to grow Rosemary: hardy to -8C (18F); harsh frosts and cold winds cause damage and young plants may die in extreme cold; needs winter protection in colder/wetter sites.",
+      "url": "https://www.rhs.org.uk/herbs/rosemary/grow-your-own",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "RHS - How to grow Rosemary: ground plants need no feeding; container plants over one year old benefit from a sprinkling of general-purpose granular feed in late spring or early summer (about once per season), informing the ~60-day base feeding interval and low-fertility preference.",
+      "url": "https://www.rhs.org.uk/herbs/rosemary/grow-your-own",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "University of Wisconsin-Madison Horticulture Extension - Rosemary (Rosmarinus officinalis): keep soil moist with good drainage; overwatering is the biggest cause of plant decline and death; winter hardy only to approximately 20F (cultivar-dependent, 'Arp' to ~10F); root rot and botrytis are the most common diseases; pests include aphids, spider mites, mealybugs and scale; good air circulation prevents foliar disease.",
+      "url": "https://hort.extension.wisc.edu/articles/rosemary-rosemarinus-officinalis/",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "University of Illinois Extension - Rosemary: full sun; keep the soil on the dry side and let it dry between waterings; overwatering causes root rot; perennial in USDA zone 8 and above, not reliably hardy in zone 6 or colder ('Arp' potentially to zone 6); bring indoors before frost.",
+      "url": "https://extension.illinois.edu/herbs/rosemary",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "University of Illinois Extension - Rosemary: perennial in zone 8 and above, not reliably hardy in zone 6 or colder; informs the zone-8 spring (Mar-May) planting window and dormancy guidance.",
+      "url": "https://extension.illinois.edu/herbs/rosemary",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Multiple extension/horticulture sources concur rosemary needs full sun, at least 6-8 hours of direct sunlight per day for best growth in containers and the garden (e.g. University of Illinois Extension and RHS specify 'full sun'; 6-8 hours is the widely cited full-sun figure for this Mediterranean shrub).",
+      "url": "https://extension.illinois.edu/herbs/rosemary",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Texas A&M AgriLife Extension - Easy Gardening: Rosemary: plant in full sun in well-drained soil; avoid overwatering as too much water or poor drainage causes problems. Corroborates full-sun, free-draining, drought-tolerant care and high overwater risk.",
+      "url": "https://agrilifeextension.tamu.edu/asset-external/easy-gardening-rosemary/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Confidence note: exact numeric values for baseIntervalDays (7), hotWeatherMultiplier (0.7), rainSkipThresholdMm (5), heatStressC (35), feeding baseIntervalDays (60), containerLeachAdjustment (0.75), and recommendedMinLiters (15) are conservative app-model estimates derived from qualitative source guidance (full sun, 'keep on the dry side', drought-tolerant, water container plants ~weekly, 30cm pot, feed ~once per season). No single extension page gives a numeric watering interval, heat-stress temperature, or pot volume in liters; these are engineered conservatively to avoid overwatering this rot-prone species.",
+      "url": "https://hort.extension.wisc.edu/articles/rosemary-rosemarinus-officinalis/",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

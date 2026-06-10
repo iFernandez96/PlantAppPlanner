@@ -1,0 +1,162 @@
+{
+  "id": "lavandula-angustifolia",
+  "scientificName": "Lavandula angustifolia",
+  "commonNames": [
+    "English lavender",
+    "Common lavender",
+    "True lavender",
+    "Narrow-leaved lavender",
+    "Lavender"
+  ],
+  "category": "herb",
+  "growthHabit": "bush",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 7,
+    "dryingTolerance": "high",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.6,
+    "rainSkipThresholdMm": 5
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 60,
+    "containerLeachAdjustment": 0.75,
+    "preferredNpk": "low-nitrogen / minimal feeding"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 8,
+    "idealMinLiters": 10,
+    "idealMaxLiters": 18,
+    "soilMixTags": [
+      "free-draining",
+      "low-fertility",
+      "alkaline",
+      "loam-based-john-innes-no2",
+      "added-coarse-grit",
+      "gritty-sandy"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6,
+    "maxSunHours": 12
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -23,
+    "heatStressC": 38,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "5": [
+        {
+          "startMonth": 5,
+          "endMonth": 6
+        }
+      ],
+      "6": [
+        {
+          "startMonth": 4,
+          "endMonth": 6
+        }
+      ],
+      "7": [
+        {
+          "startMonth": 4,
+          "endMonth": 5
+        }
+      ],
+      "8": [
+        {
+          "startMonth": 4,
+          "endMonth": 5
+        }
+      ]
+    },
+    "productiveMonths": [
+      6,
+      7,
+      8
+    ],
+    "dormancyMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Root rot from overwatering or wet/heavy clay soils is the most common killer; ensure sharp drainage and let soil dry between waterings.",
+    "Leaf spot fungal disease in humid, crowded conditions; provide good air circulation.",
+    "Declines or is short-lived in hot, humid summers (e.g. USDA zone 8 and warmer humid regions).",
+    "In containers the root zone is less cold-hardy than in the ground; in zone 5/6 move pots to a sheltered spot or insulate over winter.",
+    "Container minimum of ~8 L reflects a young/dwarf plant; a mature English lavender is better in a 10-18 L (30-40 cm diameter) pot for vigor and winter root insulation.",
+    "Wait to plant until spring frost danger passes and soil reaches about 15 C (60 F)."
+  ],
+  "verticalSuitability": 0.1,
+  "source": [
+    {
+      "citation": "The Old Farmer's Almanac - Lavender: How to Plant, Grow, and Care for Lavender Flowers. States full sun at least 6 to 8 hours/day; hardy in Zones 5 and warmer; plant in spring after soil warms to at least 60 F (15 C) and frost danger passes; must drain well, overwatering rots roots, thrives in semiarid conditions.",
+      "url": "https://www.almanac.com/plant/lavender",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac - Lavender. Hardy in Zones 5 and warmer, overwinters in ground without protection; wait until top inch of soil is dry before watering; modest water needs after establishment; spring planting after soil >= 60 F (15 C).",
+      "url": "https://www.almanac.com/plant/lavender",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac - Lavender. Spring planting (after soil warms to ~60 F / 15 C and frost passes); hardy Zone 5+.",
+      "url": "https://www.almanac.com/plant/lavender",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder - Lavandula angustifolia 'Munstead'. USDA zone 5 to 8; full sun; water needs 'dry to medium'; average, dry to medium, well-drained, alkaline soil, light sandy soil with low fertility; height/spread 1.0-1.5 ft; bloom June-August; susceptible to leaf spot and root rot; may not survive winter if soils are not well-drained or temperatures dip below zero degrees F (-17.8 C) without snow cover.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=249422&isprofile=0&basic=munstead",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder - Lavandula angustifolia 'Munstead'. Water needs 'dry to medium'; susceptible to root rot in poorly drained conditions especially in winter.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=249422&isprofile=0&basic=munstead",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "RHS Growing Guide - How to grow lavender. English types usually hardy and left outside over winter in free-draining soil; in containers water regularly in summer (about once or twice a week in hot weather), keep fairly dry in winter; in the ground rarely needs watering after establishment; containers 30-40 cm diameter; peat-free loam-based compost such as John Innes No.2 plus up to 25% coarse grit; plants don't generally need feeding; plant in April or May, never in winter; full sun.",
+      "url": "https://www.rhs.org.uk/plants/lavender/growing-guide",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "RHS Growing Guide - How to grow lavender. Plants don't generally need feeding; container plants benefit from minimal/occasional feeding only.",
+      "url": "https://www.rhs.org.uk/plants/lavender/growing-guide",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox - Lavandula angustifolia. USDA hardiness 5a-9b; full sun (6+ hours direct sun) or partial; low water needs, drought tolerant, does not like wet feet and dies in heavy clays; neutral to alkaline pH 6.0-8.0+; evergreen perennial shrub, broadly mounded, 1-2 ft tall x 2-3 ft wide; low maintenance; problems include root rot from overwatering and leaf spot fungal disease (good air circulation helps).",
+      "url": "https://plants.ces.ncsu.edu/plants/lavandula-angustifolia/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox - Lavandula angustifolia. Evergreen perennial shrub, broadly mounded woody habit; low water; root rot and leaf spot are the common problems.",
+      "url": "https://plants.ces.ncsu.edu/plants/lavandula-angustifolia/",
+      "field": "growthHabit"
+    },
+    {
+      "citation": "Confidence note: coldHardyMinC set to -23 C as a conservative value. Sources agree on USDA zone 5 hardiness (zone 5a low ~ -28.9 C; zone 5b low ~ -26.1 C), but Missouri Botanical Garden warns plants may not survive below 0 F (-17.8 C) without snow cover and that container roots are less hardy than ground roots. -23 C is a middle, conservative ground-hardiness figure rather than the absolute zone-5a extreme.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=249422&isprofile=0&basic=munstead",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: heatStressC set to 38 C. Extension sources (Utah State, others) indicate English lavender performs best below ~105 F (40.6 C) and declines in hot, humid zone 8 summers; 38 C is a conservative onset-of-heat-stress estimate, as no single extension page gave an exact heat-stress threshold in Celsius.",
+      "url": "https://extension.usu.edu/yardandgarden/research/english-lavender-in-the-garden",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: wateringProfile baseIntervalDays of 7 reflects RHS container guidance (water about once or twice weekly in hot summer weather, much less otherwise). In-ground established plants need far less water; 7 days is a conservative container-oriented default for an app, with high dryingTolerance and high overwaterRisk encoding lavender's drought preference and root-rot risk.",
+      "url": "https://www.rhs.org.uk/plants/lavender/growing-guide",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

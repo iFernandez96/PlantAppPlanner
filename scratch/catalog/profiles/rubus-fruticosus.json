@@ -1,0 +1,133 @@
+{
+  "id": "rubus-fruticosus",
+  "scientificName": "Rubus fruticosus",
+  "commonNames": [
+    "Blackberry",
+    "Common blackberry",
+    "Bramble"
+  ],
+  "category": "berry",
+  "growthHabit": "bush",
+  "requiresSupport": true,
+  "selfFruitful": true,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 1.5,
+    "rainSkipThresholdMm": 25
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 90,
+    "fruitingIntervalDays": 90,
+    "postHarvestIntervalDays": 90,
+    "containerLeachAdjustment": 0.5,
+    "preferredNpk": "10-10-10"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 40,
+    "idealMinLiters": 75,
+    "idealMaxLiters": 114,
+    "soilMixTags": [
+      "loam-based",
+      "well-drained",
+      "acidic-to-neutral-pH-6.0-6.5"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6,
+    "maxSunHours": 12
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -10,
+    "heatStressC": 35,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "default": [
+        {
+          "startMonth": 10,
+          "endMonth": 12
+        },
+        {
+          "startMonth": 2,
+          "endMonth": 4
+        }
+      ]
+    },
+    "productiveMonths": [
+      7,
+      8,
+      9
+    ],
+    "dormancyMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Container minimum is set for compact/patio cultivars (e.g. RHS 'Little Black Prince', a 45cm-wide/deep pot, ~40-75L); standard vigorous trailing and semi-erect blackberries are deep-rooted and do far better in-ground or in a 75-114L (20-30 gallon) tub.",
+    "Cold hardiness varies sharply by type: trailing cultivars suffer cane and bud damage below about -10C, while erect and semi-erect types are hardier (USDA zones 4-5). The -10C value here is conservative for the less-hardy trailing types.",
+    "Trellising is recommended for all types to prevent cane breakage, improve airflow and reduce fruit rot.",
+    "Spotted-wing drosophila, Japanese beetles, aphids, spider mites and crown borers are common pests.",
+    "Botrytis (grey mould) fruit rot, anthracnose, cane blight, powdery mildew and orange rust are common diseases; full sun and good airflow reduce disease pressure."
+  ],
+  "verticalSuitability": 0.8,
+  "source": [
+    {
+      "citation": "Clemson Cooperative Extension Home & Garden Information Center — Blackberry: full sun required; apply about 1 inch of water per week if rainfall is insufficient, especially during establishment and fruiting; fertilize in early spring at growth start and again after harvest; optimal soil pH 6.0-6.5; V-trellis recommended; common pests and diseases.",
+      "url": "https://hgic.clemson.edu/factsheet/blackberry/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension Home & Garden Information Center — Blackberry: fertilize in early spring when growth begins and again after harvest; soil pH 6.0-6.5; V-trellis support recommended.",
+      "url": "https://hgic.clemson.edu/factsheet/blackberry/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension Home & Garden Information Center — Blackberry: blackberries require full sun for optimal health and production; partial shade leads to more disease and poor yields.",
+      "url": "https://hgic.clemson.edu/factsheet/blackberry/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension Home & Garden Information Center — Blackberry: V-trellis (8-foot T-posts) recommended to prevent cane breakage and fruit rot; common diseases (anthracnose, cane blight, powdery mildew, botrytis fruit rot, orange rust) and pests (aphids, Japanese beetles, spotted-wing drosophila, spider mites, crown borers).",
+      "url": "https://hgic.clemson.edu/factsheet/blackberry/",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "OSU Extension — A home gardener's guide to growing blackberries: all blackberry types are self-fruitful, so only one cultivar is needed for pollination and fruit; trellising benefits all types; recommended fertilizer such as 10-10-10 in early spring and after harvest.",
+      "url": "https://extension.oregonstate.edu/gardening/techniques/home-gardeners-guide-growing-blackberries",
+      "field": "selfFruitful"
+    },
+    {
+      "citation": "OSU Extension — Growing blackberries in your home garden / Blackberry cultivars: trailing blackberries are the least cold-hardy, with cane and bud damage when temperatures fall below about 13F (-10.5C); erect and semi-erect types are hardier (USDA zones 4-5).",
+      "url": "https://extension.oregonstate.edu/catalog/ec-1303-growing-blackberries-your-home-garden",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "RHS — How to grow blackberries and hybrid berries: choose a sunny, sheltered site; established plants need little extra water but container-grown plants need regular moisture all season; feed with an organic-based granular general fertiliser in early spring if needed; horizontal support wires ~45cm apart are essential; plant mid-autumn to early spring; harvest mid-summer to early autumn.",
+      "url": "https://www.rhs.org.uk/fruit/blackberries-and-hybrid-berries/grow-your-own",
+      "field": "seasonality"
+    },
+    {
+      "citation": "RHS — How to grow blackberries and hybrid berries: compact varieties (e.g. 'Little Black Prince') can be grown in a pot at least 45cm wide and deep filled with loam-based compost, reaching ~1m; container plants need regular watering.",
+      "url": "https://www.rhs.org.uk/fruit/blackberries-and-hybrid-berries/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Old Farmer's Almanac — Blackberries: Planting, Growing, and Harvesting; full sun, regular watering of about 1 inch per week, trellising recommended for support.",
+      "url": "https://www.almanac.com/plant/blackberries",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Confidence note — containerProfile: extension/RHS sources give pot guidance only for compact cultivars (RHS: 45cm pot; OSU notes standard blackberries are deep-rooted, ~20-30 gallon / 75-114L tubs). recommendedMinLiters (40L) is a conservative derived minimum for a compact patio cultivar, not a measured value. heatStressC (35C) and feeding intervals (90 days, i.e. early-spring + post-harvest) are derived from qualitative guidance ('fertilize twice a year', 'hot, dry weather') rather than published numbers.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

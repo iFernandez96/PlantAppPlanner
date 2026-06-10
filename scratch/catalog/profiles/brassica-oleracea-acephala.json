@@ -1,0 +1,106 @@
+{
+  "id": "brassica-oleracea-acephala",
+  "scientificName": "Brassica oleracea (Acephala)",
+  "commonNames": [
+    "Kale",
+    "Borecole",
+    "Leaf kale"
+  ],
+  "category": "vegetable",
+  "growthHabit": "upright",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "low",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.6,
+    "rainSkipThresholdMm": 10
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 21,
+    "containerLeachAdjustment": -7,
+    "preferredNpk": "10-3-1"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 19,
+    "idealMinLiters": 21,
+    "idealMaxLiters": 30,
+    "soilMixTags": [
+      "loamy",
+      "well-drained",
+      "rich-organic-matter",
+      "ph-6.0-7.5"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 4,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -7,
+    "heatStressC": 27,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "productiveMonths": [3, 4, 5, 9, 10, 11, 12],
+    "dormancyMonths": [7, 8]
+  },
+  "commonIssues": [
+    "Container minimum (~19 L) reflects RHS guidance of a pot at least 30 cm (12 in) wide and deep for one plant; choose a compact cultivar (e.g. 'Dwarf Green Curled') for container culture.",
+    "Bolts and turns bitter in summer heat; best grown as a cool-season spring and fall/autumn crop. Frost actually sweetens the leaves.",
+    "Susceptible to cabbage-family pests (cabbage worms, aphids, flea beetles) as a Brassica.",
+    "Keep soil consistently moist (about 1 inch / 25 mm of water per week); sandy soils need more frequent watering."
+  ],
+  "verticalSuitability": 0.1,
+  "source": [
+    {
+      "citation": "UMN Extension — Growing collards and kale in home gardens: watering '1 inch of rainfall per week is good', sandy soils need more frequent watering.",
+      "url": "https://extension.umn.edu/vegetables/growing-collards-and-kale",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "UMN Extension — Growing collards and kale: feeding when plants reach ~4 in tall, e.g. 3-1/2 cups 10-3-1 per 100 ft of row; cold tolerant and keeps producing well beyond first fall frosts; neutral soil pH 6.0 to 7.5 ideal.",
+      "url": "https://extension.umn.edu/vegetables/growing-collards-and-kale",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "UMN Extension — Growing collards and kale: neutral soil pH 6.0 to 7.5 ideal; loamy, well-drained soil with high organic matter.",
+      "url": "https://extension.umn.edu/vegetables/growing-collards-and-kale",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Clemson HGIC — 'Kale Is a Headless Cabbage': needs at least six hours of sun; germinates at soil temps 40-85 F; grows well above 50 F; leaves hardy to 20 F (about -7 C).",
+      "url": "https://hgic.clemson.edu/kale-is-a-headless-cabbage/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Clemson HGIC — 'Kale Is a Headless Cabbage': leaves hardy to 20 F (-6.7 C, rounded to -7 C); grows well when temperatures stay above 50 F.",
+      "url": "https://hgic.clemson.edu/kale-is-a-headless-cabbage/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "RHS — How to grow Kale: use a large container at least 30 cm (12 in) wide and deep for one plant; choose compact cultivars for containers; container plants need regular watering; feeding usually only needed on poor soils or in containers (nitrogen-rich feed).",
+      "url": "https://www.rhs.org.uk/vegetables/kale/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "RHS — How to grow Kale: hardy leafy vegetable cropping from September onwards through the coldest months; likes sun but copes in light shade.",
+      "url": "https://www.rhs.org.uk/vegetables/kale/grow-your-own",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Old Farmer's Almanac — Kale: cool-weather crop, plant 4-6 weeks before last spring frost and ~3 months before first fall frost; continues growing until ~20 F (-7 C); flavor improves after a light frost; can turn bitter in summer heat.",
+      "url": "https://www.almanac.com/plant/kale",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Confidence note: heatStressC (27 C / ~80 F) is a conservative estimate. Sources (RHS, Almanac) state kale turns bitter and is prone to bolting in summer heat/strong sun but give no single numeric heat-stress threshold; hotWeatherMultiplier and feeding baseIntervalDays are also derived/estimated from the qualitative '1 inch/week' and per-row fertilizer guidance rather than published container intervals.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

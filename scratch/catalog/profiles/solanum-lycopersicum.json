@@ -1,0 +1,149 @@
+{
+  "id": "solanum-lycopersicum",
+  "scientificName": "Solanum lycopersicum",
+  "commonNames": [
+    "Tomato",
+    "Garden tomato"
+  ],
+  "category": "vegetable",
+  "growthHabit": "vine",
+  "requiresSupport": true,
+  "selfFruitful": true,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 2,
+    "dryingTolerance": "low",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 2,
+    "rainSkipThresholdMm": 13
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 7,
+    "fruitingIntervalDays": 5,
+    "postHarvestIntervalDays": 14,
+    "containerLeachAdjustment": -1,
+    "preferredNpk": "low-N / high-K once fruiting (e.g. 8-32-16 to start, high-potassium tomato feed when fruits swell)"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 19,
+    "idealMinLiters": 19,
+    "idealMaxLiters": 40,
+    "soilMixTags": [
+      "well-draining",
+      "rich-compost",
+      "container-potting-mix"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6,
+    "maxSunHours": 10
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 13,
+    "heatStressC": 32,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "us-cold-zone3-5": [
+        {
+          "startMonth": 5,
+          "endMonth": 6
+        }
+      ],
+      "us-warm-zone6-8": [
+        {
+          "startMonth": 4,
+          "endMonth": 5
+        }
+      ]
+    },
+    "productiveMonths": [
+      7,
+      8,
+      9,
+      10
+    ],
+    "dormancyMonths": [
+      11,
+      12,
+      1,
+      2,
+      3
+    ]
+  },
+  "commonIssues": [
+    "Blossom-end rot from inconsistent watering and calcium uptake; keep soil evenly moist",
+    "Fruit cracking/splitting from soil-moisture fluctuations",
+    "Flower drop when night temperatures fall below ~13C (55F) or fruit set fails above ~32-35C (90F)",
+    "Early blight, Septoria leaf spot and late blight in wet conditions",
+    "Top-heavy plants blow over in undersized containers; stake or cage at planting",
+    "Container plants dry out fast and may need daily watering in peak summer heat"
+  ],
+  "verticalSuitability": 0.6,
+  "source": [
+    {
+      "citation": "Clemson Cooperative Extension HGIC - Tomatoes in Containers (container size 14-20 in / 5-gallon buckets, min 6 h full sun, daily watering in summer, balanced fertilizer weekly, cage/stake cultivars over 2 ft)",
+      "url": "https://hgic.clemson.edu/tomatoes-in-containers/",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC - Tomatoes in Containers (minimum 6 hours full sun; daily watering needed in peak summer)",
+      "url": "https://hgic.clemson.edu/tomatoes-in-containers/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension - Growing tomatoes in home gardens (1 inch water per week, soak at base to avoid blossom-end rot; full sun; frost-sensitive, harvest before first frost; stake/cage at planting; fertilize when first fruits enlarge; common issues: blossom-end rot, cracking, sunscald, early blight, Septoria)",
+      "url": "https://extension.umn.edu/vegetables/growing-tomatoes",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension - Growing tomatoes in home gardens (planting after frost danger, mid-April seed start in MN; blossom-end rot, cracking, blights)",
+      "url": "https://extension.umn.edu/vegetables/growing-tomatoes",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "University of Missouri Extension G6461 - Growing Home Garden Tomatoes (optimal ~75F; growth impaired below 50F, flower drop with night temps below 55F; 1-2 in water/week; low-N high-P medium-high-K starter 8-32-16/6-24-24 then side-dress; support recommended; Missouri planting windows late April-May)",
+      "url": "https://extension.missouri.edu/publications/g6461",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "University of Missouri Extension G6461 - Growing Home Garden Tomatoes (fertilizer low N, high P, med-high K; side-dress when first fruits one-third grown and after first harvest)",
+      "url": "https://extension.missouri.edu/publications/g6461",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "University of Missouri Extension G6461 - Growing Home Garden Tomatoes (1 to 2 inches of water per week via rainfall or irrigation)",
+      "url": "https://extension.missouri.edu/publications/g6461",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society - Tomatoes / grow your own (plant out when reliably above 16C/60F; single plant in 30-45cm pot; feed every 10-14 days with high-potassium liquid feed once fruits swell; keep evenly moist to prevent splitting; support cordons; blossom-end rot, splitting, blight)",
+      "url": "https://www.rhs.org.uk/vegetables/tomatoes/grow-your-own",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society - Tomatoes / grow your own (30-45cm / 12-18in pot per single plant; container plants need daily watering in hot weather)",
+      "url": "https://www.rhs.org.uk/vegetables/tomatoes/grow-your-own",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac - Growing Tomatoes in Containers (at least 6-8 hours direct sun; surrounding temperature ~70F+; move pots out when night temps reliably above 55F; 5-gal minimum, indeterminate 10+ gal; one plant per container)",
+      "url": "https://www.almanac.com/growing-tomatoes-in-containers",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac - Growing Tomatoes in Containers (cherry 2-3 gal, determinate 5 gal minimum, indeterminate 10+ gal; containers at least 12 in deep)",
+      "url": "https://www.almanac.com/growing-tomatoes-in-containers",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Estimated values not directly stated by a single source: hotWeatherMultiplier (2x) derived from extension guidance that container tomatoes need daily watering in peak summer vs a ~2-day base interval; rainSkipThresholdMm (~13mm ~= 0.5 in) and overwaterRisk medium (water-loving but rot-prone in poorly drained pots) are conservative app-engine estimates; heatStressC 32C from the ~90F poor-fruit-set threshold; verticalSuitability 0.6 reflects indeterminate vines train well on stakes/trellis but are heavy and not true climbers; postHarvestIntervalDays and containerLeachAdjustment are engine smoothing estimates from extension side-dressing/weekly-feed guidance.",
+      "url": "https://hgic.clemson.edu/tomatoes-in-containers/",
+      "field": "confidence"
+    }
+  ],
+  "version": 2,
+  "lastReviewedAt": "2026-06-02"
+}

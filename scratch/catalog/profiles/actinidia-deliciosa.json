@@ -1,0 +1,117 @@
+{
+  "id": "actinidia-deliciosa",
+  "scientificName": "Actinidia deliciosa",
+  "commonNames": [
+    "Kiwi",
+    "Kiwifruit",
+    "Fuzzy kiwifruit",
+    "Chinese gooseberry"
+  ],
+  "category": "vine",
+  "growthHabit": "climbing",
+  "requiresSupport": true,
+  "selfFruitful": false,
+  "pollinationPartnersRequired": 1,
+  "wateringProfile": {
+    "baseIntervalDays": 2,
+    "dryingTolerance": "low",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.5,
+    "rainSkipThresholdMm": 12
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 14,
+    "fruitingIntervalDays": 14,
+    "postHarvestIntervalDays": 30,
+    "preferredNpk": "balanced N-rich (apply ~50-60% of annual nitrogen in Mar-Apr, balance May-Jul)"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 76,
+    "idealMinLiters": 95,
+    "soilMixTags": [
+      "well-drained",
+      "sandy-loam",
+      "potting-mix-with-compost",
+      "slightly-acidic"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -12,
+    "heatStressC": 35,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [10, 11],
+    "dormancyMonths": [12, 1, 2]
+  },
+  "commonIssues": [
+    "Dioecious: a separate male vine is required to pollinate female vines for fruit; one male can pollinate several females. Vines cannot be sexed until they bloom.",
+    "Spring shoots are very frost tender; spring frost below about -1 C (30 F) damages new growth, and an early fall frost can damage unharvested fruit.",
+    "Requires 600-700 winter chilling hours below 7 C (45 F) and roughly 225-240 frost-free days to crop, so it fruits reliably only in USDA zones 7-9.",
+    "Vigorous, heavy vine that needs a permanent, strong trellis, T-bar, arbor, or pergola; never let it climb a tree or weak structure.",
+    "Container note: this is naturally a large in-ground vine (15-30 ft). The recommended minimum container is a conservative large pot (~76 L / 20 US gal); fruiting in a container is reduced versus in-ground and still demands a sturdy trellis.",
+    "High water demand; provide good drainage to avoid root rot, especially in containers where overwatering risk is higher.",
+    "Does not bear a first crop until roughly the 3rd-4th year after planting."
+  ],
+  "verticalSuitability": 0.95,
+  "source": [
+    {
+      "citation": "Oregon State University Extension Service, EM 9322 'Growing kiwifruit in your home garden': cold hardy to about 0-10 F; 225-240 frost-free days; full sun preferred; fertile well-drained sandy/clay loam, pH 5.6-6.5; 0.5-1 lb N per vine/year (two-thirds in March, one-third May/June); permanent strong T-bar (6-7 ft) or arbor (7-8 ft) trellis required; one male per female; first crop in the third year.",
+      "url": "https://extension.oregonstate.edu/catalog/em-9322-growing-kiwifruit-your-home-garden",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Oregon State University Extension Service, EM 9322: requires a permanent strong trellis (T-bar or arbor); one male vine pollinates female vines; vines are dioecious and only sexable at bloom.",
+      "url": "https://extension.oregonstate.edu/catalog/em-9322-growing-kiwifruit-your-home-garden",
+      "field": "requiresSupport"
+    },
+    {
+      "citation": "Oregon State University Extension Service, EM 9322: fertilize with 0.5-1 lb nitrogen per vine per year, applying two-thirds in March and one-third in May/June.",
+      "url": "https://extension.oregonstate.edu/catalog/em-9322-growing-kiwifruit-your-home-garden",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "North Carolina State Extension Gardener Plant Toolbox, Actinidia chinensis var. deliciosa: USDA zones 7a-9b; full sun (6+ hours direct sunlight a day) or dappled shade with reduced fruiting; needs good drainage / well-drained soil; deciduous twining/climbing woody vine 15-30 ft tall, 6-10 ft wide; sturdy trellis recommended; dioecious, needs both a male and a female to fruit; spring flowering, fruit ripens in early fall.",
+      "url": "https://plants.ces.ncsu.edu/plants/actinidia-chinensis-var-deliciosa/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "North Carolina State Extension Gardener Plant Toolbox: deciduous twining climbing/spreading woody vine reaching 15-30 ft; a sturdy trellis is recommended; can be trained on an arbor, patio overhead, wall, or fence.",
+      "url": "https://plants.ces.ncsu.edu/plants/actinidia-chinensis-var-deliciosa/",
+      "field": "growthHabit"
+    },
+    {
+      "citation": "UC ANR Small Farms Network, Kiwifruit Production in California: bearing plants irrigated three to four times per week (young vines daily or every two days for the first 3 years); requires 600-700 winter chilling hours below 45 F and 225-240 frost-free days; minimum safe winter temperature about 10-15 F; spring frost damage below 30 F; ~1 lb nitrogen per vine for full-bearing vines with 50-60% applied Mar-Apr and balance May-Jul; soil pH below 7.3; ~4 years to a commercial crop.",
+      "url": "https://ucanr.edu/statewide-program/uc-anr-small-farms-network/kiwifruit-production-california",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "UC ANR Small Farms Network: full-bearing vines take about 1 lb nitrogen per plant; apply at least 50-60% in March-April and the balance in May, June and July; young vines scale by age. Used to set feeding interval and N timing.",
+      "url": "https://ucanr.edu/statewide-program/uc-anr-small-farms-network/kiwifruit-production-california",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "UC ANR Small Farms Network: winter chilling requirement 600-700 hours below 45 F, minimum safe winter temperature about 10-15 F (~-12 to -9 C), spring frost damage below 30 F; basis for coldHardyMinC and frostSensitive.",
+      "url": "https://ucanr.edu/statewide-program/uc-anr-small-farms-network/kiwifruit-production-california",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Confidence note: baseIntervalDays=2 is derived from extension guidance to irrigate bearing vines 'three to four times per week' (OSU/UC ANR) and conservatively reflects this plant's high water demand; exact day-interval is climate dependent. hotWeatherMultiplier (0.5) and rainSkipThresholdMm (12) are reasonable estimates not given as explicit numbers in the sources.",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: heatStressC=35 is an estimate. Reviewed extension pages emphasize cold/frost tolerance and chilling requirement but do not state an explicit upper heat-stress temperature for Actinidia deliciosa; 35 C is a conservative placeholder pending an authoritative figure.",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: recommendedMinLiters=76 (~20 US gal) and idealMinLiters=95 are converted from horticulture guidance that fuzzy kiwi needs a final container of at least 20 gallons (larger for vigorous fuzzy types). This is a container-adaptation estimate; A. deliciosa is naturally a large in-ground vine and the university extension sources treat it as ground/trellis grown rather than a container crop.",
+      "field": "containerProfile"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

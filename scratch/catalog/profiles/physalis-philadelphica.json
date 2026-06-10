@@ -1,0 +1,107 @@
+{
+  "id": "physalis-philadelphica",
+  "scientificName": "Physalis philadelphica",
+  "commonNames": [
+    "Tomatillo",
+    "Mexican husk tomato",
+    "Husk tomato"
+  ],
+  "category": "fruit",
+  "growthHabit": "bush",
+  "requiresSupport": true,
+  "selfFruitful": false,
+  "pollinationPartnersRequired": 2,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 1.5,
+    "rainSkipThresholdMm": 25
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 10,
+    "fruitingIntervalDays": 14,
+    "preferredNpk": "balanced, low-to-moderate nitrogen (e.g. 5-10-10)"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 19,
+    "idealMinLiters": 19,
+    "idealMaxLiters": 38,
+    "soilMixTags": [
+      "well-drained",
+      "rich-loam",
+      "neutral-pH"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 7,
+    "minSunHours": 6,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 13,
+    "heatStressC": 32,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "5": [
+        {
+          "startMonth": 5,
+          "endMonth": 6
+        }
+      ],
+      "8": [
+        {
+          "startMonth": 4,
+          "endMonth": 5
+        }
+      ]
+    },
+    "productiveMonths": [
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "commonIssues": [
+    "Not self-fertile: grow at least two plants for cross-pollination or fruit will not set (UMN, Almanac).",
+    "Plants reach 3-4 ft and sprawl; cage, stake or trellis to keep fruit off the soil.",
+    "Wet foliage and soil splash spread disease; water at the base, not overhead.",
+    "Reduce watering frequency once fruit has set to improve fruit quality.",
+    "Flowers abort above ~32C (90F) or below ~13C (55F); protect from heat and cold snaps.",
+    "Susceptible to early/late blight, anthracnose, powdery mildew, tobacco mosaic virus; rotate away from other nightshades (tomato, pepper, potato) for ~3 years.",
+    "Pests: cutworms, tomato hornworms, Colorado potato beetles.",
+    "Container growing needs a pot at least 30 cm (12 in) deep and more frequent watering than in-ground plants."
+  ],
+  "verticalSuitability": 0.3,
+  "source": [
+    {
+      "citation": "University of Minnesota Extension — Growing tomatillos and ground cherries in home gardens (6-8 hrs sun; transplant after frost; water at base, even moisture; not self-fertile, grow more than one plant; cage/trellis support; balanced nitrogen, excess N delays fruiting; pests early/late blight, anthracnose, TMV, cutworms, hornworms, Colorado potato beetle; 12-in deep containers).",
+      "url": "https://extension.umn.edu/vegetables/growing-tomatillos-and-ground-cherries",
+      "field": "lightProfile,wateringProfile,feedingProfile,containerProfile,commonIssues,pollination,requiresSupport"
+    },
+    {
+      "citation": "The Old Farmer's Almanac — Tomatillos: How to Plant, Grow, and Care for Tomatillo (spacing ~3 ft; ~1 inch rain/water per week, water once or twice a week; withstands drought and heat; not self-fertile, grow more than one plant; trellis/cage support; flowers abort above 90F/below 55F).",
+      "url": "https://www.almanac.com/plant/tomatillos",
+      "field": "wateringProfile,temperatureProfile,pollination,requiresSupport"
+    },
+    {
+      "citation": "UC Master Gardener Program of Alameda County — Guide to Growing Tomatillos (at least 6 hours sun/day; plants grow up to 4 ft, need cage or stake support; reduce irrigation after fruit set; plant at least two of same variety for pollination; balanced fertilizer; susceptible to powdery mildew and nightshade diseases).",
+      "url": "https://ucanr.edu/site/uc-master-gardener-program-alameda-county/article/guide-growing-tomatillos",
+      "field": "lightProfile,requiresSupport,wateringProfile,feedingProfile,commonIssues"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder — Physalis ixocarpa (full sun; medium water, water regularly; 2.5-3.5 ft tall by 3-4 ft wide; USDA zones 8-10 as annual; sow after frost when night temps >=55F; subject to Solanaceae pests/diseases, avoid same site for 3 years).",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=287199",
+      "field": "lightProfile,wateringProfile,temperatureProfile,commonIssues,seasonality"
+    },
+    {
+      "citation": "Confidence note — feeding cadence (baseIntervalDays 10, fruitingIntervalDays 14, NPK) is conservative: sources specify a balanced fertilizer with low-to-moderate nitrogen and warn excess N delays fruit, but give no exact day interval. Container idealMaxLiters (38 L) is an estimate scaled to a 3-4 ft bushy plant; sources state a 12-in-deep pot minimum but no upper volume. hotWeatherMultiplier and rainSkipThresholdMm derived from the ~1 inch/week + heat-tolerance guidance, not a published per-day figure. Planting windows by zone generalized from frost-date guidance.",
+      "field": "confidence"
+    }
+  ],
+  "version": 2,
+  "lastReviewedAt": "2026-06-02"
+}
