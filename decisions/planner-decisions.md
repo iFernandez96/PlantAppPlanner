@@ -160,3 +160,9 @@ direction), B (houseplant enum), C (icon strategy), D (OpenAI key+consent), or o
 Owner picked **Garden Hearth** (evolve Verdant Glasshouse: warm kitchen-table planner; cream/green
 kept, glass calmed to warm opaque cards, Fraunces headlines only, body 17sp for novice/elderly
 readability). Full spec: `reviews/redesign-directions-wave2.md` §1. Cost M, lowest-risk direction.
+
+## PD-10 — Per-slice device checks (2026-06-10)
+Owner asked for frequent on-device checks. Standing practice for Wave 2: after EVERY verified
+UI-affecting slice, rebuild the LAN debug APK, install on the owner's phone (wifi-adb), walk the
+affected screens light+dark via a device agent, save shots to reviews/device-evidence/, and send
+the key shots to the owner. Local stack (Supabase+Fastify) stays up during the wave.

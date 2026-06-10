@@ -1,0 +1,46 @@
+# Commands executed for 0049 (in order)
+
+cd /home/israel/Documents/Development/PlantApp
+git rev-parse HEAD
+# -> 7b5ba83327b5d85c1b58d9f5b10393ca4bae5b80 (matched expected baseline)
+git status --porcelain
+# -> only "?? android/.kotlin/" (expected; left alone)
+grep -n "icons" android/gradle/libs.versions.toml
+# -> 53: compose-material-icons-extended (catalog alias confirmed before wiring)
+
+# Edits:
+#   app/build.gradle.kts — + implementation(libs.compose.material.icons.extended)
+#   MainActivity.kt — Routes.TODAY/SPACES; BottomTab + BOTTOM_TABS; Scaffold wrapper with
+#     route-gated NavigationBar (launchSingleTop/restoreState/popUpTo(LIST){saveState});
+#     NavHost body moved verbatim into private PlantAppNavGraph(nav, startDestination, modifier);
+#     + composable(TODAY)/composable(SPACES)
+#   PlaceholderScreens.kt — NEW (Today/Spaces placeholder screens with testTags)
+
+git diff --stat
+# -> app/build.gradle.kts +1, MainActivity.kt +75/-1, PlaceholderScreens.kt new
+
+cd android
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest :data:testDebugUnitTest
+# -> BUILD SUCCESSFUL in 34s; feature-inventory tests=20 f=0; data tests=15 f=0
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :app:assembleDebug
+# -> BUILD SUCCESSFUL in 21s
+
+cd /home/israel/Documents/Development/PlantApp
+grep -n "tab_today\|tab_garden\|tab_spaces" android/app/src/main/kotlin/dev/plantapp/android/MainActivity.kt
+# -> 3 matches (lines 83-85)
+grep -n "today_placeholder\|spaces_placeholder" android/app/src/main/kotlin/dev/plantapp/android/PlaceholderScreens.kt
+# -> 2 matches (lines 21, 31)
+grep -c "icons.extended" android/app/build.gradle.kts
+# -> 1
+grep -n "startDestination" android/app/src/main/kotlin/dev/plantapp/android/MainActivity.kt
+# -> start destination still flows from MainActivity line 60/61 tokenBlocking() check
+
+git add android/app/build.gradle.kts android/app/src/main/kotlin/dev/plantapp/android/MainActivity.kt android/app/src/main/kotlin/dev/plantapp/android/PlaceholderScreens.kt
+git commit -m "feat(app): bottom-tab navigation shell (Today / My Garden / Spaces) for Garden Hearth (Wave 2 W1)"
+# -> [master 130c391] 3 files changed, 135 insertions(+), 1 deletion(-)
+git push origin master
+# -> 7b5ba83..130c391  master -> master
+git rev-parse origin/master
+# -> 130c391a2fa088c3001e3e7fda62d625e0c1d29b
+git status --porcelain
+# -> only "?? android/.kotlin/"
