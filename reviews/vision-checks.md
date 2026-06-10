@@ -97,3 +97,9 @@ core-vision items)._
 - **Guardian:** PASS — HEAD a222929; current PlantRow/Content/prettify/icon/overload/tag state all verified live.
 - **Vision:** ALIGNED — names data-driven via getPlantProfiles (no hard-coding); slug-leak kill =
   beginner-first TOP constraint; 104dp/64dp per Hearth spec. Ship as-is.
+
+## 0054 — wizard error surfacing + natural confirm copy (Wave 2 W1 slice 7) (2026-06-10)
+- **Guardian:** PASS — HEAD 1019e19; error-flow gap + all old-state refs verified live; A+B
+  accepted as one user story ("wizard talks like a person").
+- **Vision:** ALIGNED — plain-language error card = Beginner mode; phrase echoes the picked
+  space (reinforces space-first model). Ship as-is.

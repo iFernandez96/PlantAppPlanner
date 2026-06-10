@@ -1,0 +1,42 @@
+# Commands executed for 0053 (in order)
+
+cd /home/israel/Documents/Development/PlantApp
+git rev-parse HEAD
+# -> a22292988b9a32c5aa04433da6e3485a189a9933 (matched expected baseline)
+git status --porcelain
+# -> only "?? android/.kotlin/" (expected; left alone)
+
+# 1) RED: added the new InventoryScreensTest test + the §1.1 Content.speciesNames field only
+#    (field needed for the test to compile; default emptyMap, zero rendering change)
+cd android
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest
+# -> FAILED: "list rows show the friendly species name, never the profile slug"
+#    java.lang.AssertionError at InventoryScreensTest.kt:60 ("Tomato" missing — slug rendered)
+#    30 tests completed, 1 failed
+
+# 2) GREEN edits:
+#    InventoryViewModels.kt — refresh() builds speciesNames map (runCatching getPlantProfiles)
+#    DisplayText.kt         — + speciesFallbackName(profileId)
+#    PlantDetailScreen.kt   — private prettify deleted; uses DisplayText.speciesFallbackName
+#    InventoryTestTags.kt   — + PLANT_ROW_PREFIX = "plant_row_"
+#    PlantListScreen.kt     — PlantRow: clickable GlassCard(onClick), 64dp species Image,
+#                             heightIn(min=104dp), primary/secondary friendly names, testTag
+
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest
+# -> BUILD SUCCESSFUL; JUnit XML aggregate tests=30 failures+errors=0
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :app:assembleDebug
+# -> BUILD SUCCESSFUL
+
+cd /home/israel/Documents/Development/PlantApp
+grep -c "prettify" .../PlantDetailScreen.kt        # -> 0
+grep -c "speciesIconRes" .../PlantListScreen.kt    # -> 1
+
+git add android/feature-inventory
+git commit -m "feat(ui): Hearth plant-list rows — species icon + friendly names, no slugs"
+# -> [master 1019e19] 7 files changed, 81 insertions(+), 19 deletions(-)
+git push origin master
+# -> a222929..1019e19  master -> master
+git rev-parse origin/master
+# -> 1019e19842bf49030a21b7149f2f60c00b736712
+git status --porcelain
+# -> only "?? android/.kotlin/"

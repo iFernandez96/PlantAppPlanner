@@ -3,7 +3,26 @@
 **From:** "do all" backlog session · **Date:** 2026-06-02 · _(history below is older; see the
 "Do all" section near the bottom + `state/current-state.md` for the live picture)_
 
-## ▶ RESUME HERE — updated 2026-06-10
+## ▶ RESUME HERE — updated 2026-06-10 (Wave 2 W1 loop RUNNING)
+**Wave 2 approved (PD-08, "show me when gated"), Gate A = Garden Hearth (PD-09), per-slice device
+checks standing (PD-10).** W1 slices landed+verified+device-checked: 0047 tokens (05fba1c) ·
+0048 opaque cards (7b5ba83) · 0049 bottom tabs (130c391) · 0050 beginner detail (cbe520b) ·
+0051 HOTFIX wizard kinds (e726070) · 0052 list refresh (a222929) · 0053 Hearth list rows
+(1019e19). **0054 PUBLISHED (wizard error card + natural confirm copy) — awaiting impl report**
+(watcher pattern: poll exchange/implementation-inbox/0054/READY.json).
+**Loop per slice:** consume report → verify vs real git → rebuild LAN APK
+(`-Pplantapp.apiBaseUrl=http://10.0.0.179:3000/ -Pplantapp.authBaseUrl=http://10.0.0.179:54321/`)
+→ `adb -s adb-R5CX11MDTZK-qTD4xe._adb-tls-connect._tcp install -r` (package
+`dev.plantapp.android`) → device agent walk light+dark → SendUserFile shots → write next prompt
+(ground in real repo!) → guardian+vision gates → publish via exchange script → commit planner.
+**W1 remaining:** 0054 device check (incl. kill-backend error-card test) · orphan-space cleanup
+decision · sign-in polish · W1-exit full device review (then owner look) → **W2 opens with
+Gates B (houseplant enum) + C (icon strategy) — ASK OWNER**. Catalog Phase 2 DONE (75/75 valid
+in scratch/catalog/profiles/). Backend stack UP (Supabase+Fastify LAN; env
+/tmp/plantapp-fastify-env.sh; Fastify bg task; Mailpit :54324). Test account reviewer@example.com
+(3 plants). FCM still owner-gated.
+
+## (older) RESUME — updated 2026-06-10 (0046/0047 era)
 **0046 ✅ DONE+VERIFIED** (impl `a5968a4`, 3 files +3, 20/20 tests, pushed; planner re-verified vs
 real git + on-device dark-mode visual proof `backdrop-14-darkfix-verify.png`).
 **WAVE 2 PLAN PROPOSED** — `plans/wave2-overhaul-plan.md` (all 4 pillars + folded polish + full
