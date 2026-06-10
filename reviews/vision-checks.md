@@ -115,3 +115,7 @@ core-vision items)._
   override) folded into the prompt before publish.
 - **Vision:** ALIGNED — session credential ≠ provider key (D-11/D-12 intact); DataStore parity
   with existing access token (encrypted-store hardening = separate future handoff). Ship as-is.
+
+## 0057 — sign-in fallback on SessionExpiredException, part 3/3 (2026-06-10)
+- **Guardian:** PASS — every claim verified live at 738fb9c (incl. :domain:test JVM task note).
+- **Vision:** ALIGNED — auth hygiene prerequisite for real-world use; no feature pull-forward.

@@ -1,0 +1,45 @@
+# Commands executed for 0056 (in order)
+
+cd /home/israel/Documents/Development/PlantApp
+git rev-parse HEAD
+# -> 1a60c3fc945dc30366c5843d0e78c75c07bcac5d (matched expected baseline)
+git status --porcelain
+# -> only "?? android/.kotlin/" (expected; left alone)
+
+# 1) RED: added ONLY data/src/test/.../SessionRefreshManagerTest.kt
+cd android
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :data:testDebugUnitTest
+# -> COMPILE-RED:
+#    e: AuthRepositoryImplTest.kt:19:13 FakeSupabaseAuthApi does not implement 'refreshToken'
+#       (0055 interface addition surfacing in :data's fake — anticipated)
+#    e: SessionRefreshManagerTest.kt: Unresolved reference 'SessionRefreshManager' / 'setSession'
+
+# 2) GREEN edits:
+#    network/PlantAppApiFactory.kt — SessionRefresher fun-interface; create(..., sessionRefresher
+#      = null); OkHttp authenticator (priorResponse guard → refreshSession() → retry w/ Bearer)
+#    data/settings/SettingsStore.kt — TokenWriter.setSession default; refreshTokenKey;
+#      setSession override (both keys, one edit); refreshTokenBlocking()
+#    data/repository/AuthRepositoryImpl.kt — verifyOtp persists the session pair
+#    data/repository/SessionRefreshManager.kt — NEW (verbatim per prompt)
+#    data/di/DataModule.kt — providePlantAppApi(+refreshManager) wires the refresher
+#    data tests — AuthRepositoryImplTest fake +refreshToken stub, canned refresh token,
+#      FakeTokenWriter records the pair, verify test asserts both
+
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :data:testDebugUnitTest :network:testDebugUnitTest :feature-inventory:testDebugUnitTest
+# -> BUILD SUCCESSFUL; aggregates: data 18/0, network 18/0, feature-inventory 33/0
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :app:assembleDebug
+# -> BUILD SUCCESSFUL
+
+cd /home/israel/Documents/Development/PlantApp
+grep -c "authenticator(" android/network/src/main/kotlin/dev/plantapp/network/PlantAppApiFactory.kt  # -> 1
+grep -c "setSession" android/data/src/main/kotlin/dev/plantapp/data/repository/AuthRepositoryImpl.kt # -> 1
+
+git add android/network/src/main/kotlin/dev/plantapp/network/PlantAppApiFactory.kt android/data
+git commit -m "feat(data): persist refresh token and auto-refresh session on 401"
+# -> [master 738fb9c] 7 files changed, 196 insertions(+), 8 deletions(-)
+git push origin master
+# -> 1a60c3f..738fb9c  master -> master
+git rev-parse origin/master
+# -> 738fb9c89d50f71a298cada94386a2672c5d5685
+git status --porcelain
+# -> only "?? android/.kotlin/"
