@@ -1,0 +1,101 @@
+{
+  "id": "aglaonema-commutatum",
+  "scientificName": "Aglaonema commutatum",
+  "commonNames": [
+    "Chinese evergreen",
+    "Philippine evergreen",
+    "Golden evergreen"
+  ],
+  "category": "other",
+  "growthHabit": "upright",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 7,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.8,
+    "rainSkipThresholdMm": 5
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 28,
+    "containerLeachAdjustment": 1,
+    "preferredNpk": "balanced (e.g. 10-10-10) at half strength"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 4,
+    "idealMinLiters": 4,
+    "idealMaxLiters": 10,
+    "soilMixTags": [
+      "soilless-mix",
+      "peaty",
+      "well-draining",
+      "extra-humus"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 3,
+    "minSunHours": 0,
+    "maxSunHours": 6
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 7,
+    "heatStressC": 32,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "dormancyMonths": [
+      10,
+      11,
+      12,
+      1,
+      2
+    ]
+  },
+  "commonIssues": [
+    "Root rot from overwatering or poor drainage — the most common failure mode",
+    "Leaf yellowing from overwatering",
+    "Leaf browning/edge burn from very dry air, drafts, or cold water",
+    "Leaf edge burn from excessive fertilizer",
+    "Leaf scorch in direct sun — keep in indirect light",
+    "Pests: mealybugs, aphids, scale, spider mites",
+    "Cold injury to foliage below ~7 C (45 F); keep above ~15 C (60 F) in winter",
+    "Contains calcium oxalate crystals — toxic to pets (dogs/cats) and irritating sap; keep out of reach",
+    "Becomes leggy with age as stems elongate"
+  ],
+  "verticalSuitability": 0.2,
+  "source": [
+    {
+      "citation": "Clemson University HGIC, 'Chinese Evergreen (Aglaonema) Care, Cultivation & Growing Guide' — low to moderate indirect light; keep soil moist but not wet, let top 1-2 in dry between waterings; optimal 68-80 F, sensitive below 50 F; soilless mix with extra humus; excessive fertilizer causes leaf edge burn; pests mealybugs/aphids/scale/mites; toxic to pets.",
+      "url": "https://hgic.clemson.edu/factsheet/chinese-evergreen-aglaonema-care-cultivation-growing-guide/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox, 'Aglaonema' — deep shade (<2 h direct sun) to partial shade (2-6 h); erect and bushy habit; keep mix moist spring-fall, reduce in winter; prefers 70-80 F daytime, intolerant of cold; calcium oxalate toxicity.",
+      "url": "https://plants.ces.ncsu.edu/plants/aglaonema/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "UF/IFAS publication FPS25/FP025, 'Aglaonema spp.: Chinese Evergreen' — grows in shade, leaf scorch in sun; let soil dry slightly a few days between waterings; foliage injury below 45 F; USDA zones 10B-11B; 1-3 ft tall/wide; suitable for containers; root rot from excess moisture.",
+      "url": "https://ask.ifas.ufl.edu/publication/FP025",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder, 'Aglaonema commutatum' — diffused sun or good indirect light; consistent moisture spring-fall, reduce early fall to late winter but never let soil fully dry; 60 F recommended winter minimum; well-drained peaty mix; 1-1.5 ft tall/wide; zones 10-12; rots if overwatered, leaves brown in dry air/drafts.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=276174",
+      "field": "seasonality"
+    },
+    {
+      "citation": "University of Illinois Extension, 'Favorite houseplants of a horticulturist' — fertilize aglaonema every four weeks with balanced houseplant fertilizer, every six weeks in winter; slow grower, rarely needs repotting; prefers slightly moist soil; brighter leaf color needs more light.",
+      "url": "https://extension.illinois.edu/blogs/flowers-fruits-and-frass/2022-01-24-favorite-houseplants-horticulturist",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Confidence note: no authoritative source states a numeric watering interval; baseIntervalDays=7 is a conservative estimate derived from Clemson's 'let top 1-2 inches dry' guidance for a slow-growing indoor aroid. Container liters (4 L min ≈ 6-8 in pot) estimated from MOBOT/UF mature size of 1-3 ft for a compact, slow-growing plant. heatStressC=32 estimated from Clemson's 68-80 F optimum upper bound. Sun-hour values translate shade/indirect-light guidance (NCSU deep shade to 2-6 h partial shade) into the schema's hours/day.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

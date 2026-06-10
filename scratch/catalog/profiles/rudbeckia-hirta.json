@@ -1,0 +1,120 @@
+{
+  "id": "rudbeckia-hirta",
+  "scientificName": "Rudbeckia hirta",
+  "commonNames": [
+    "Black-eyed Susan",
+    "Gloriosa Daisy",
+    "Brown-eyed Susan"
+  ],
+  "category": "ornamental",
+  "growthHabit": "upright",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.75,
+    "rainSkipThresholdMm": 6
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 90,
+    "containerLeachAdjustment": 0.75,
+    "preferredNpk": "12-6-6"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 11,
+    "idealMinLiters": 15,
+    "idealMaxLiters": 30,
+    "soilMixTags": [
+      "well-draining",
+      "general-potting-mix",
+      "moderate-fertility"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 4,
+    "maxSunHours": 12
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -34,
+    "heatStressC": 35,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "productiveMonths": [6, 7, 8, 9, 10],
+    "dormancyMonths": [11, 12, 1, 2, 3]
+  },
+  "commonIssues": [
+    "Powdery mildew on foliage - water at soil level, not on leaves, and give plants air circulation",
+    "Slugs and snails damage young plants",
+    "Occasional leaf spot and rust when leaves stay wet",
+    "Aphids and Japanese beetles occasionally feed on plants",
+    "Struggles in poorly drained, constantly wet soil - ensure container drainage",
+    "Short-lived perennial or biennial - often regrown each year; it self-seeds prolifically unless deadheaded",
+    "Tall cultivars (over 60 cm) in windy spots may flop and benefit from a discreet stake, though support is normally unnecessary"
+  ],
+  "verticalSuitability": 0.1,
+  "source": [
+    {
+      "citation": "Missouri Botanical Garden Plant Finder - Rudbeckia hirta: full sun; average, medium-moisture, well-drained soil; drought tolerant; struggles in wet, poorly drained soil; USDA Zones 3-7; blooms June-September; powdery mildew and slugs/snails noted; low maintenance; biennial/short-lived perennial that blooms first year from seed",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=277225",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder - Rudbeckia hirta: Zone 3 to 7 hardiness; bloom June to September; deadheading prolongs bloom and limits self-seeding",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=277225",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC - Rudbeckia factsheet: full sun (greater than 6 hours of direct sunlight), tolerates partial shade; drought and heat tolerant once established; slow-release 12-6-6 fertilizer in April when growth emerges and again at half rate in September; dwarf cultivars suit containers; powdery mildew, leaf spot, rust with wet foliage; aphids, Japanese beetles, spider mites occasional",
+      "url": "https://hgic.clemson.edu/factsheet/rudbeckia/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC - Rudbeckia factsheet: full sun defined as more than 6 hours direct sun per day; adapts to partial shade",
+      "url": "https://hgic.clemson.edu/factsheet/rudbeckia/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox - Rudbeckia hirta: USDA Zones 3a-8b; full sun (6+ hours) or partial shade (2-6 hours); moist, well-drained soil; tolerates occasionally dry conditions, moderately drought-resistant; 2-4 ft tall, 12 in spacing; blooms late spring into mid-fall with deadheading; powdery mildew, slugs, snails",
+      "url": "https://plants.ces.ncsu.edu/plants/rudbeckia-hirta/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox - Rudbeckia hirta: Zones 3a-8b hardiness; biennial or short-lived perennial blooming first year from seed; bloom continues into mid-fall with deadheading",
+      "url": "https://plants.ces.ncsu.edu/plants/rudbeckia-hirta/",
+      "field": "seasonality"
+    },
+    {
+      "citation": "RHS - Rudbeckia hirta (plant 68850): hardiness H3 (-5 to 1 C) when grown as a half-hardy annual; full sun or partial shade; moist but well-drained soil; 0.5-1 m tall, 0.1-0.5 m spread; biennial or short-lived perennial often grown as an annual; flowers summer to autumn",
+      "url": "https://www.rhs.org.uk/plants/68850/rudbeckia-hirta/details",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "RHS - Rudbeckia hirta: moist but well-drained conditions preferred; tolerates clay and loam",
+      "url": "https://www.rhs.org.uk/plants/68850/rudbeckia-hirta/details",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Confidence note: no authoritative source states an exact watering interval in days; baseIntervalDays=3 is a conservative container-growing estimate derived from 'medium moisture, water when soil begins to dry, drought tolerant once established' guidance (Missouri Botanical Garden, NC State). Adjust by soil-dryness check.",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: container size is not specified by the cited extension sources beyond 'dwarf cultivars are ideal for containers' (Clemson); recommendedMinLiters=11 (approx. 3 gal / 30 cm pot) is an estimate sized to the species' 2-4 ft height and fibrous, relatively shallow root system. Larger pots improve stability and bloom.",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: feeding interval estimated. Clemson recommends slow-release 12-6-6 twice per season (April and September); baseIntervalDays=90 approximates that schedule. The species needs only moderate fertility - excess nitrogen reduces flowering.",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: heatStressC=35 is an estimate; sources describe the plant as heat tolerant (Clemson) but give no numeric threshold. coldHardyMinC=-34 reflects USDA Zone 4 as a conservative reading of the Zone 3-7/3a-8b ratings (MoBot, NC State); plants grown as half-hardy annuals from spring transplants should still be hardened off (RHS H3).",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

@@ -1,0 +1,149 @@
+{
+  "id": "dahlia-pinnata",
+  "scientificName": "Dahlia pinnata",
+  "commonNames": [
+    "Dahlia",
+    "Garden dahlia"
+  ],
+  "category": "ornamental",
+  "growthHabit": "upright",
+  "requiresSupport": true,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "low",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.7,
+    "rainSkipThresholdMm": 12
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 28,
+    "containerLeachAdjustment": 0.5,
+    "preferredNpk": "5-10-10"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 30,
+    "idealMinLiters": 45,
+    "idealMaxLiters": 60,
+    "soilMixTags": [
+      "rich",
+      "well-draining",
+      "loam",
+      "slightly-acidic"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 5,
+    "heatStressC": 35,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "5": [
+        {
+          "startMonth": 5,
+          "endMonth": 6
+        }
+      ],
+      "6": [
+        {
+          "startMonth": 5,
+          "endMonth": 6
+        }
+      ],
+      "7": [
+        {
+          "startMonth": 4,
+          "endMonth": 5
+        }
+      ],
+      "8": [
+        {
+          "startMonth": 4,
+          "endMonth": 5
+        }
+      ],
+      "9": [
+        {
+          "startMonth": 3,
+          "endMonth": 5
+        }
+      ]
+    },
+    "productiveMonths": [
+      7,
+      8,
+      9,
+      10
+    ],
+    "dormancyMonths": [
+      11,
+      12,
+      1,
+      2,
+      3
+    ]
+  },
+  "commonIssues": [
+    "Frost-tender: foliage is killed by first frost; in zones colder than 7, lift tubers after frost and store at roughly 0-10 C in slightly damp peat or sand",
+    "Tuber rot in cold, wet, or poorly drained soil — avoid overwatering before sprouts emerge",
+    "Powdery mildew on foliage; water the soil at the base, not the leaves",
+    "Slugs and snails on young shoots; aphids, spider mites, earwigs, caterpillars, and leafhoppers",
+    "Viruses and crown gall (discard infected plants)",
+    "Tall varieties topple without staking — set stakes at planting time to avoid injuring tubers later",
+    "High-nitrogen fertilizer produces leaves at the expense of blooms — use low-nitrogen feed such as 5-10-10",
+    "Container plants dry out much faster than in-ground plants and need more frequent watering and feeding"
+  ],
+  "verticalSuitability": 0.1,
+  "source": [
+    {
+      "citation": "Royal Horticultural Society — How to grow dahlias (RHS Growing Guide): warm sheltered sunny spot; regular watering of containers through the season; potassium-rich liquid feed fortnightly early July to early September in pots; ~50 cm wide container for one standard dahlia; keep indoors until temperatures are consistently above 5 C; stake standard and giant types; flowers summer to first frosts; lift and store tubers frost-free by late November; pests include slugs, snails, aphids, earwigs, capsid bugs, powdery mildew, viruses",
+      "url": "https://www.rhs.org.uk/plants/dahlia/growing-guide",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "RHS Growing Guide — fortnightly potassium-rich (tomato-type) liquid feed for container dahlias July-September; 50 cm (20 in) wide pot for one standard dahlia",
+      "url": "https://www.rhs.org.uk/plants/dahlia/growing-guide",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder — Dahlia (group), Kemper Code a445: winter-hardy USDA zones 7-10; full sun, light filtered shade tolerated in hot summer climates; medium, consistent moisture in organically rich well-drained soil; blooms July-September; lift tuberous roots after first frost and store cool in damp peat; problems include viruses, crown gall, root rot, wilts, powdery mildew, aphids, caterpillars, spider mites, leafhoppers; smaller varieties do well in containers",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a445",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder — Dahlia (group): bloom July through September; plant tubers in spring; full sun",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a445",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Penn State Extension — The Dirt on Dahlias: heavy feeders, monthly low-nitrogen fertilizer such as 5-10-10 or 5-20-20; full sun; keep soil moist but not saturated; killed by frost; store tubers at 32-50 F (0-10 C); stake taller varieties; blooms mid-summer to first frost",
+      "url": "https://extension.psu.edu/the-dirt-on-dahlias",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Utah State University Extension — Growing Dahlias (fact sheet PDF): select a site with at least 6 hours of sun a day; water often enough to prevent the soil from drying out, soaking soil at the base rather than wetting foliage to prevent mildew; top-dress with 5-10-10 after sprouts emerge; plant after danger of spring frost; stake all but dwarf varieties at planting time; blooms July until killed by autumn frost",
+      "url": "https://extension.usu.edu/yardandgarden/files/Dahlias.pdf",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Confidence note: sources specify 'water often enough to keep soil moist, never dry' rather than an exact interval; baseIntervalDays=3 (about twice weekly, shortened by hotWeatherMultiplier in heat) is a conservative interpretation of USU/RHS/MOBOT guidance for an actively growing dahlia",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: container liters converted from RHS '50 cm wide pot per standard dahlia' (~45-55 L); recommendedMinLiters=30 reflects compact/bedding varieties RHS rates suitable for pots — exact liter figures are estimates, not published values",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: heatStressC=35 is an estimate derived from Missouri Botanical Garden's advice that dahlias appreciate light filtered shade in hot summer climates; no source publishes an exact heat-stress threshold. Planting windows by zone are derived from 'plant after last spring frost' (MOBOT/Penn State/USU) mapped to typical zone frost dates",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

@@ -22,10 +22,10 @@
     "baseIntervalDays": 14,
     "fruitingIntervalDays": 14,
     "containerLeachAdjustment": 0.5,
-    "preferredNpk": "high-potassium (e.g. tomato-type) once flower buds form; slow-release all-purpose at several-true-leaves stage"
+    "preferredNpk": "balanced low-nitrogen (e.g. 10-10-10), worked in at planting; avoid high-nitrogen feeds that promote leaves over flowers. RHS option: potassium-rich tomato-type feed once flower buds form."
   },
   "containerProfile": {
-    "recommendedMinLiters": 11,
+    "recommendedMinLiters": 19,
     "idealMinLiters": 19,
     "idealMaxLiters": 38,
     "soilMixTags": [
@@ -63,65 +63,71 @@
     "dormancyMonths": [11, 12, 1, 2]
   },
   "commonIssues": [
-    "Direct-sow only after the last spring frost once soil has warmed to at least 10C (50F); seedlings and plants are frost-sensitive.",
-    "Container plants dry out fast and may need daily watering in hot weather; check the top 5cm (2in) of soil and water when dry. In-ground plants are more drought-tolerant and need deep watering roughly weekly, especially 20 days before and after flowering.",
-    "recommendedMinLiters (11 L) targets dwarf cultivars (30-60cm). Tall and giant cultivars (2-4m+) are really in-ground plants; a container under ~38 L will stunt them and they can become top-heavy.",
-    "Giant cultivars (over ~2.4m / 8ft) typically need staking or a sturdy cane for support against wind and heavy seed heads; dwarf and semi-dwarf cultivars usually do not.",
-    "Long taproot prefers a deep bed (loosen soil ~60cm deep); transplant-shock prone, so direct sowing is preferred."
+    "Direct-sow only after the last spring frost once soil has warmed to at least 10C (50F); seedlings and plants are frost-sensitive. Sunflowers dislike root disturbance, so direct sowing is preferred over transplanting.",
+    "Container plants dry out fast and need watering more frequently than in-ground plantings, potentially daily in hot weather; check the top 5cm (2in) of soil and water when dry. Established in-ground plants are drought-tolerant and need deep watering roughly weekly with several gallons, especially 20 days before and after flowering.",
+    "recommendedMinLiters (19 L, a 5-gallon bucket) targets dwarf/container cultivars of max ~1m (3ft). Tall and giant cultivars (2-5m+) are really in-ground plants; an undersized container restricts roots, stunts growth and makes them top-heavy and prone to lodging (falling over).",
+    "Tall and giant cultivars (over ~2.4m / 8ft) typically need staking or a sturdy cane against wind and heavy seed heads; dwarf and semi-dwarf cultivars usually do not. Plant in a spot sheltered from strong winds.",
+    "Long taproot prefers a deep, loosened bed (dig/till ~60cm deep). Avoid high-nitrogen fertilizer, which encourages foliage over flowers and can weaken stems.",
+    "Generally low-maintenance; watch for slugs/snails on young plants, birds and squirrels on ripening seed heads, and occasional powdery/downy mildew or Sclerotinia rot in damp, crowded conditions."
   ],
   "verticalSuitability": 0.1,
   "source": [
     {
-      "citation": "Clemson Cooperative Extension HGIC - Let's Grow Sunflowers: 6 to 8 hours of direct sunlight preferable; sow after frost danger passes and soil warmed above 50F (10C); well-draining soil pH 6.0-7.5; slow-release fertilizer, heavy feeders; large plants may need support for wind/top-heaviness.",
+      "citation": "Clemson Cooperative Extension HGIC - Let's Grow Sunflowers: locations receiving 6 to 8 hours of direct sunlight are preferable; well-draining soil with pH 6-7.5; sow once soils warm above 50F (10C) and frost danger passes; heavy feeders benefit from regular slow-release fertilizer; large plants may need support for wind and top-heaviness from seed production.",
       "url": "https://hgic.clemson.edu/lets-grow-sunflowers/",
       "field": "lightProfile"
     },
     {
-      "citation": "Clemson Cooperative Extension HGIC - Let's Grow Sunflowers: germination after soil warms above 50F (10C); pH 6.0-7.5; slow-release fertilizer for heavy feeders.",
+      "citation": "Clemson Cooperative Extension HGIC - Let's Grow Sunflowers: seeds planted once soils warm above 50F (10C) and frost danger passes; frost-sensitive warm-season annual.",
       "url": "https://hgic.clemson.edu/lets-grow-sunflowers/",
       "field": "temperatureProfile"
     },
     {
-      "citation": "RHS Growing Guide - Helianthus (sunflowers): full sun; annuals are thirsty and want consistently moist soil; container plants dry out faster, water when compost feels dry, even daily in hot weather; feed with potassium-rich tomato fertiliser to encourage flowering; sow indoors late March, outdoors mid-April to May; transplant only after frost risk passes; giant types (over 2.4m) need sturdy cane support.",
+      "citation": "RHS Growing Guide - Helianthus (sunflowers): full sun; annual sunflowers are thirsty plants needing consistently moist soil and mustn't dry out; container plants need watering whenever the compost feels dry, potentially daily in hot weather; feed annuals with potassium-rich tomato fertiliser to encourage flowering.",
       "url": "https://www.rhs.org.uk/plants/helianthus/growing-guide",
       "field": "wateringProfile"
     },
     {
-      "citation": "RHS Growing Guide - Helianthus (sunflowers): potassium-rich tomato fertiliser to encourage flowering for annual types; dwarf varieties (30-60cm) suit patio containers.",
+      "citation": "RHS Growing Guide - Helianthus (sunflowers): potassium-rich tomato fertiliser encourages flowering for annual types; sow indoors from late March, direct outdoors mid-April through May; transplant only once soil is warming and there is no frost risk after hardening off.",
       "url": "https://www.rhs.org.uk/plants/helianthus/growing-guide",
       "field": "feedingProfile"
     },
     {
-      "citation": "RHS Growing Guide - Helianthus (sunflowers): giant varieties (over 2.4m/8ft) need support; dwarf types generally do not; frost sensitivity - transplant only once soil warming and no frost risk.",
+      "citation": "RHS Growing Guide - Helianthus (sunflowers): annual sunflowers cannot tolerate frost; most annuals need sturdy bamboo cane support and giant cultivars over 2.4m (8ft) need extra securing (e.g. against a wall); dwarf types are ~30cm (1ft) tall.",
       "url": "https://www.rhs.org.uk/plants/helianthus/growing-guide",
       "field": "requiresSupport"
     },
     {
-      "citation": "University of Minnesota Extension - Sunflowers: enjoy full sun; well-drained soil pH 6.0-6.8; direct seed after all danger of frost passes; water regularly 20 days before and after flowering; once established water deeply but infrequently, about once a week with several gallons; all-purpose slow-release side dressing at several-true-leaves; giant (8ft+) varieties may need staking, semi-dwarf (3-8ft) usually do not.",
+      "citation": "University of Minnesota Extension - Sunflowers: enjoy full sun; do best in slightly acidic soil pH 6.0-6.8, well-drained; direct seed after all danger of frost passes; can withstand some drought but water regularly 20 days before and after flowering; side dressing of all-purpose slow-release fertilizer when plants have several true leaves; giant (8ft+) cultivars sometimes require staking.",
       "url": "https://extension.umn.edu/flowers/sunflowers",
       "field": "wateringProfile"
     },
     {
-      "citation": "University of Minnesota Extension - Sunflowers: planting in northern US/Canada falls April to mid-June; spacing 6in to 2ft by size; full sun.",
+      "citation": "University of Minnesota Extension - Sunflowers: full sun; seeds germinate in 7-10 days; spacing 6in (2-5ft varieties) up to 2ft (giant cultivars); soil test recommended before planting.",
       "url": "https://extension.umn.edu/flowers/sunflowers",
       "field": "seasonality"
     },
     {
-      "citation": "Old Farmer's Almanac - Sunflowers: sow directly after last spring frost once soils warm to at least 50F (10C); northern US/Canada April to mid-June, South mid-March to early April; thrive in slightly acidic to alkaline soil pH 6.0-7.5; containers should hold several gallons of potting mix, 12-14in diameter pot is adequate; check soil 2in down and water when dry.",
-      "url": "https://www.almanac.com/plant/sunflowers",
+      "citation": "Oregon State University Extension EM 9866 'Grow your own sunflowers': for containers choose dwarf cultivars max 3ft tall (less likely to become top-heavy); use a large container - a 5-gallon bucket (~19 L) with drainage holes or similar provides enough root space; well-draining potting mix; irrigate containers more frequently than in-ground; full sun 6-8+ hours; well-drained soil pH 6.0-7.5.",
+      "url": "https://extension.oregonstate.edu/catalog/em-9866-grow-your-own-sunflowers",
       "field": "containerProfile"
     },
     {
-      "citation": "Old Farmer's Almanac - Sunflowers: planting windows by region after last frost (North April to mid-June; South mid-March to early April).",
+      "citation": "Oregon State University Extension EM 9866 'Grow your own sunflowers': use a balanced fertilizer (e.g. NPK 10-10-10) and avoid high-nitrogen fertilizers that promote leaf growth over flower formation; slow-release or split quick-release (half at planting, half at two sets of leaves); direct sow April-June after last frost when soil reaches at least 50F (10C); high winds can topple tall cultivars and staking helps.",
+      "url": "https://extension.oregonstate.edu/catalog/em-9866-grow-your-own-sunflowers",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Old Farmer's Almanac - Sunflowers: sow directly after danger of spring frost passes, once soils warm to at least 50F (10C); northern US/Canada April to mid-June, South mid-March or early April; full sun 6-8 hours; thrive in slightly acidic to alkaline soil pH 6.0-7.5; once established water deeply but infrequently, about once a week with several gallons; tall species and cultivars require support (bamboo stakes); feed sparingly to avoid weak stems.",
       "url": "https://www.almanac.com/plant/sunflowers",
       "field": "seasonality"
     },
     {
-      "citation": "Confidence note: baseIntervalDays (3) is a conservative container-oriented estimate. Sources give qualitative watering guidance (RHS: water containers when compost dry, even daily in heat; UMN: in-ground roughly weekly with several gallons) rather than a single fixed interval; 3 days with a 2x hot-weather multiplier brackets both container and in-ground regimes. heatStressC (35C) and maxSunHours (14) are reasonable horticultural estimates, not directly cited figures.",
+      "citation": "Confidence note: wateringProfile.baseIntervalDays (3) is a conservative container-oriented estimate. Sources give qualitative watering guidance (RHS: water containers when compost dry, potentially daily in heat; UMN/Almanac: established in-ground deep watering ~weekly with several gallons) rather than a single fixed day interval; a 3-day base with a 2x hot-weather multiplier brackets both container and in-ground regimes. heatStressC (35C), maxSunHours (14) and rainSkipThresholdMm (10) are reasonable horticultural/care-engine estimates, not directly cited figures.",
       "field": "confidence"
     },
     {
-      "citation": "Confidence note: container volumes (recommendedMinLiters 11, ideal 19-38) are converted from the Almanac's 'several gallons / 12-14in pot' guidance for dwarf cultivars; tall/giant cultivars are effectively in-ground plants and any single container minimum is an approximation (see commonIssues).",
+      "citation": "Confidence note: container volumes (recommendedMinLiters 19 = a 5-gallon bucket per OSU Extension, ideal 19-38 L) target dwarf/container cultivars (max ~3ft). Tall and giant cultivars are effectively in-ground plants and any single container minimum is an approximation; idealMaxLiters (38 L) is an estimate scaled for larger semi-dwarf types (see commonIssues).",
       "field": "containerProfile"
     }
   ],

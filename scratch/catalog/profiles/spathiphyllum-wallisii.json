@@ -1,0 +1,110 @@
+{
+  "id": "spathiphyllum-wallisii",
+  "scientificName": "Spathiphyllum wallisii",
+  "commonNames": [
+    "Peace lily",
+    "Wallis peace lily",
+    "Spath",
+    "White sails"
+  ],
+  "category": "other",
+  "growthHabit": "upright",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 7,
+    "dryingTolerance": "low",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.8
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 42,
+    "containerLeachAdjustment": 1,
+    "preferredNpk": "balanced liquid houseplant fertilizer (e.g. 20-20-20) at quarter strength every 6-8 weeks in spring and summer (Clemson HGIC); RHS suggests a general balanced liquid feed every few weeks April-October; low fertility needs — overfeeding burns leaf tips and roots"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 2,
+    "idealMinLiters": 3,
+    "idealMaxLiters": 12,
+    "soilMixTags": [
+      "well-drained",
+      "moisture-retentive",
+      "peat-free-multipurpose",
+      "perlite-3-to-1",
+      "quality-potting-mix"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 1,
+    "minSunHours": 0,
+    "maxSunHours": 3
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 4,
+    "heatStressC": 30,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [4, 5, 6, 7, 8, 9, 10],
+    "dormancyMonths": [11, 12, 1, 2]
+  },
+  "commonIssues": [
+    "Root rot from soggy soil or sitting in a saucer of standing water — keep moist but never waterlogged and use a pot with drainage",
+    "Dramatic drooping/wilting when the compost dries out fully — recovers within hours of a good soak, but repeated wilting yellows leaves",
+    "Brown leaf tips from over-fertilizing or excessive drying; brown leaf edges from very dry air — mist or stand on a tray of damp gravel, away from radiators and cold draughts",
+    "Failure to flower when light is too low or the plant is under about a year old — survives in shade but rarely blooms there",
+    "Direct summer sun scorches the foliage — bright indirect light only",
+    "Pests: mealybugs, scale, spider mites, fungus gnats (generally pest-light)",
+    "Contains calcium oxalate crystals — toxic to pets and children if chewed (mouth/throat burning); wear gloves when handling",
+    "Cold damage below about 4 C (40 F); growth slows below 12 C (55 F) — indoor/frost-free growing only",
+    "Prefers being slightly pot-bound; overpotting keeps the mix too wet — repot only 1-2 inches (2.5-5 cm) larger"
+  ],
+  "verticalSuitability": 0.2,
+  "source": [
+    {
+      "citation": "Clemson University HGIC — Peace Lily factsheet: tolerates low light, grows best in bright indirect light, no direct sun; keep soil moist but not soggy, dry slightly between waterings, never leave in standing water (root rot); balanced 20-20-20 liquid fertilizer at quarter strength every 6-8 weeks in spring/summer, overfertilizing burns tips; prefers 68-85 F days, ~10 F cooler nights, avoid below 60 F; likes being slightly pot-bound, repot only 1-2 in larger; pests: fungus gnats, mealybugs, spider mites, scale; calcium oxalate toxicity to pets and children; most varieties 1-4 ft",
+      "url": "https://hgic.clemson.edu/factsheet/peace-lily/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Clemson University HGIC — Peace Lily factsheet: warm daytime 68-85 F (20-29 C), nights ~10 F cooler, avoid temperatures below 60 F to prevent cold damage; keep away from heat/AC vents",
+      "url": "https://hgic.clemson.edu/factsheet/peace-lily/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder — Spathiphyllum (group), kempercode b568: zones 11-12; part shade to full shade, bright filtered light preferred, no direct sun; medium moisture, let soil dry between waterings but do not allow to wilt; 55-40 F slows growth and prolonged exposure below 40 F damages the plant; low fertility needs, fertilize at one-quarter strength; keep somewhat potbound; mealybugs and scale occasionally; 1-6 ft tall",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b568",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "RHS — How to grow peace lilies: water April-October once the top few centimetres of compost are dry, reduce in winter; feed with a general liquid fertiliser every few weeks during the growing season; bright indirect light near a window, not direct summer sun; minimum 12 C (55 F), ideal 12-24 C (55-75 F); moderate humidity — damp gravel tray, mist leaves; pot only slightly larger (avoid overpotting), peat-free multi-purpose compost with perlite 3:1; new plants can stay in original pot 1-2 years; poisonous arum — gloves, keep from children and pets",
+      "url": "https://www.rhs.org.uk/plants/peace-lilies/how-to-grow-peace-lilies",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "RHS — How to grow peace lilies: peat-free multi-purpose compost mixed 3:1 with perlite; repot into a pot only slightly larger; container guidance backs containerProfile pot-size and soil tags",
+      "url": "https://www.rhs.org.uk/plants/peace-lilies/how-to-grow-peace-lilies",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "RHS — Spathiphyllum wallisii plant profile: herbaceous perennial houseplant from tropical Central America/Colombia; indirect or filtered light, partial shade under glass (deep shade reduces flowering); water and mist freely in growth, high humidity, balanced liquid fertiliser monthly; frost-free only; poisonous",
+      "url": "https://www.rhs.org.uk/plants/17623/spathiphyllum-wallisii/details",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Confidence note: baseIntervalDays=7 converts 'water once the top few centimetres are dry' (RHS) / 'moist but dries slightly between waterings' (Clemson) into a typical indoor weekly cadence — not stated as a number by any source; hotWeatherMultiplier=0.8 is a conservative planner estimate",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: lightProfile is expressed as DIRECT sun hours (target 1, max 3) translated from 'bright indirect light, no direct sun' guidance — sources give qualitative light levels, not sun-hours; treat as bright-indirect placement, not outdoor sun exposure",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: recommendedMinLiters=2 (~15 cm pot) and ideal 3-12 L are planner conversions from 'keep slightly pot-bound, repot 1-2 in larger' (Clemson/MoBot/RHS) and typical 1-4 ft mature size — no source states liters. heatStressC=30 derived from Clemson's 85 F upper preferred bound; coldHardyMinC=4 from MoBot's damage threshold below 40 F. Seasonality months derived from RHS April-October growing season for an indoor plant",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

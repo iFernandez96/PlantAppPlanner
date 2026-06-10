@@ -1,0 +1,105 @@
+{
+  "id": "epipremnum-aureum",
+  "scientificName": "Epipremnum aureum",
+  "commonNames": [
+    "Pothos",
+    "Golden Pothos",
+    "Devil's Ivy",
+    "Hunter's Robe"
+  ],
+  "category": "other",
+  "growthHabit": "vine",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 7,
+    "dryingTolerance": "high",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.75,
+    "rainSkipThresholdMm": 5
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 60,
+    "containerLeachAdjustment": 1,
+    "preferredNpk": "balanced (e.g. 20-20-20) houseplant fertilizer"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 2,
+    "idealMinLiters": 3,
+    "idealMaxLiters": 8,
+    "soilMixTags": [
+      "well-draining",
+      "airy",
+      "soilless-potting-mix",
+      "peaty"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 2,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 10,
+    "heatStressC": 32,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "dormancyMonths": [11, 12, 1, 2]
+  },
+  "commonIssues": [
+    "Root rot from overwatering — better kept too dry than too wet (Penn State); brown or nonexistent roots indicate excess moisture",
+    "Yellowing or pale/scorched leaves from too much direct sun; grow in bright indirect or filtered light",
+    "Loss of variegation in low light (variegated cultivars)",
+    "Mealybugs, scale insects, and spider mites; treat with insecticidal soap",
+    "Leaf tip/margin blackening from over- or underwatering or excess fertilizer",
+    "All parts mildly toxic if ingested (calcium oxalate) — keep away from children and pets",
+    "Light values represent bright indirect light, not direct sun; avoid prolonged direct sunlight",
+    "Provide a moss pole or trellis if larger climbing foliage is desired; otherwise trails well from hanging baskets"
+  ],
+  "verticalSuitability": 1,
+  "source": [
+    {
+      "citation": "Clemson Cooperative Extension HGIC, 'How to Grow Pothos Indoors (Epipremnum spp.)': allow soil to dry completely before watering; airy, well-draining soil mix; root rot from overwatering",
+      "url": "https://hgic.clemson.edu/factsheet/how-to-grow-pothos-indoors-epipremnum-spp-care-cultivars-and-common-problems/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC: temperatures 60-70F nights and 70-85F days (15.5-29.5C); avoid AC/heat vents and cold windowsills",
+      "url": "https://hgic.clemson.edu/factsheet/how-to-grow-pothos-indoors-epipremnum-spp-care-cultivars-and-common-problems/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC: fertilize with houseplant fertilizer every other month (~60 days) during spring and summer; bright indirect light, tolerates low light",
+      "url": "https://hgic.clemson.edu/factsheet/how-to-grow-pothos-indoors-epipremnum-spp-care-cultivars-and-common-problems/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "University of Wisconsin-Madison Horticulture Extension, 'Pothos, Epipremnum aureum': filtered light, does not tolerate much direct sunlight; 70-90F (heat stress used ~32C); fertilize every other month except winter; hardy only in zones 10-12",
+      "url": "https://hort.extension.wisc.edu/articles/pothos-epipremmum-aureum/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Penn State Extension, 'Pothos as a Houseplant': water when soil is dry, better kept too dry than too wet; 60-80F range; well-draining soilless potting mix; all parts poisonous (non-lethal) to humans and pets",
+      "url": "https://extension.psu.edu/pothos-as-a-houseplant",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "South Dakota State University Extension, 'Pothos (Devil's Ivy): House Plant How-To': tolerates down to ~50F (10C); bright indirect light, low-light areas do fine; bi-monthly balanced fertilizer, none in winter dormancy",
+      "url": "https://extension.sdstate.edu/pothos-devils-ivy-golden-pothos-house-plant-how",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder, Epipremnum aureum 'Neon': zones 10-12, part shade / bright indirect light, medium water; peaty potting mix; roots may rot in poorly drained soils; scale, mealybugs, mites; stems to 20 ft",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=369734",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Confidence note: sources say 'water when soil is dry' without a fixed interval — 7 days is a conservative indoor estimate. No extension source specifies pot volume — 2 L minimum (~15 cm / 6-inch pot) is an estimate from standard houseplant practice and MoBot repotting guidance. Light hours are an indoor bright-indirect equivalent, not measured direct-sun hours; extensions describe light qualitatively (bright indirect, tolerates low light).",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

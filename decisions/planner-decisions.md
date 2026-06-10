@@ -149,3 +149,14 @@ place → `.tmp`+`mv` pointer update. Scripts: `scripts/exchange-*.sh`. Spec:
 `exchange/README.md`. The current Option B prompt is published as
 `exchange/planner-outbox/0001-option-b/`; `prompts/next-implementation-prompt.md`
 remains the human-readable mirror.
+
+## PD-08 — Wave 2 overhaul approved (2026-06-10)
+Owner approved `plans/wave2-overhaul-plan.md` as written (all 4 pillars + folded polish + full
+redesign pass, stages W0–W5, ~45–60 handoffs). Standing instruction: **"Show me when gated"** —
+planner runs the wave continuously and surfaces to the owner ONLY at decision gates A (redesign
+direction), B (houseplant enum), C (icon strategy), D (OpenAI key+consent), or on BLOCKED/regression.
+
+## PD-09 — Gate A: Wave 2 redesign direction = GARDEN HEARTH (2026-06-10)
+Owner picked **Garden Hearth** (evolve Verdant Glasshouse: warm kitchen-table planner; cream/green
+kept, glass calmed to warm opaque cards, Fraunces headlines only, body 17sp for novice/elderly
+readability). Full spec: `reviews/redesign-directions-wave2.md` §1. Cost M, lowest-risk direction.

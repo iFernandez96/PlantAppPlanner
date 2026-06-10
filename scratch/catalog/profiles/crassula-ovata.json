@@ -1,0 +1,111 @@
+{
+  "id": "crassula-ovata",
+  "scientificName": "Crassula ovata",
+  "commonNames": [
+    "Jade plant",
+    "Jade tree",
+    "Money plant",
+    "Friendship plant"
+  ],
+  "category": "succulent",
+  "growthHabit": "bush",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 14,
+    "dryingTolerance": "high",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.75
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 60,
+    "preferredNpk": "10-10-10 (balanced liquid houseplant fertilizer, diluted)"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 2,
+    "idealMinLiters": 3,
+    "idealMaxLiters": 10,
+    "soilMixTags": [
+      "cactus-mix",
+      "succulent-mix",
+      "well-draining",
+      "coarse-sand",
+      "perlite"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 5,
+    "minSunHours": 4,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 1,
+    "heatStressC": 32,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [3, 4, 5, 6, 7, 8, 9],
+    "dormancyMonths": [11, 12, 1, 2]
+  },
+  "commonIssues": [
+    "Root and stem rot from overwatering or poorly drained soil — the most common killer; always let soil dry between waterings",
+    "Mealybugs (remove with rubbing-alcohol-soaked cotton swab); also watch for spider mites, scale, and aphids",
+    "Leaf drop, spotting, and dwarfing from extreme drought — despite being a succulent it still needs regular water in the growing season",
+    "Leggy, drooping, deep-green growth when light is insufficient (needs 4+ hours of direct sun)",
+    "Mature plants become top-heavy and tip over — use a heavy pot; insecticide sprays can scorch succulent leaves",
+    "Freezing temperatures kill the plant; bring indoors before first frost (tolerates only the lightest frost)"
+  ],
+  "verticalSuitability": 0.1,
+  "source": [
+    {
+      "citation": "Clemson Cooperative Extension HGIC, 'Jade Plant' factsheet — needs four or more hours/day of direct sun (south window); keep soil moist in spring/summer, dry between waterings in winter; ideal 18-24 C day, 10-13 C night; fertilize every 3-4 months; cactus mix or soil/peat/coarse sand; mealybugs, spider mites, root rot.",
+      "url": "https://hgic.clemson.edu/factsheet/jade-plant/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC, 'Jade Plant' — daytime 65-75 F (18-24 C), night 50-55 F (10-13 C); liquid houseplant fertilizer every 3-4 months.",
+      "url": "https://hgic.clemson.edu/factsheet/jade-plant/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "University of Wisconsin-Madison Extension Horticulture, 'Jade Plant, Crassula ovata' — four or more hours of direct sun; water liberally in active growth letting soil dry between deep waterings, keep mostly dry in winter; fertilize every two months during active growth; high-porosity succulent/cactus mix; survives light frost but freezing kills it; grows well in restricted container root space; mealybugs and spider mites.",
+      "url": "https://hort.extension.wisc.edu/articles/jade-plant-crassula-ovata/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "University of Wisconsin-Madison Extension Horticulture, 'Jade Plant, Crassula ovata' — well-drained high-porosity succulent/cacti potting mix with extra perlite or sharp sand; repot every 2-3 years; tolerates being root-bound for years.",
+      "url": "https://hort.extension.wisc.edu/articles/jade-plant-crassula-ovata/",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder, Crassula ovata — USDA zones 11-12; allow soils to dry between waterings (indoors typically every 2-3 weeks); intolerant of moist poorly drained soils; bright light with some afternoon shade; well-drained loamy potting mix; appreciates reduced-watering rest from fall to late winter; aphids, scale, spider mites, mealybugs.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=279445",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "RHS Plant Profile, Crassula ovata (jade plant) — hardiness H2 (minimum 1-5 C, does not survive freezing); full sun, sheltered, south/west-facing; bushy succulent evergreen sub-shrub to 1.5-2.5 m; water to keep lightly moist in growth, very sparingly in winter dormancy; general liquid fertilizer monthly spring-summer; pots of cactus compost.",
+      "url": "https://www.rhs.org.uk/plants/4739/crassula-ovata/details",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac, 'Jade Plant Care Guide' — at least 6 hours of bright light daily (young plants indirect, established plants tolerate direct sun); room temperature 18-24 C, cooler at night/winter down to 13 C; let soil dry thoroughly between waterings; very susceptible to rot.",
+      "url": "https://www.almanac.com/plant/jade-plants",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Confidence note: container volumes are estimates — no extension source gives pot liters; 2 L (~15 cm pot) minimum chosen because UW-Madison Extension notes jade grows well in restricted container root space and tolerates being root-bound, with heavier/larger pots (up to ~10 L) for mature top-heavy specimens per Clemson HGIC.",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: baseIntervalDays 14 is a conservative midpoint of the 'every 2-3 weeks indoors, soil dry between waterings' guidance (Missouri Botanical Garden / extension consensus); hotWeatherMultiplier 0.75 and heatStressC 32 are estimates from the general guidance to water more liberally in active warm-season growth and to shade from intense afternoon sun.",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: seasonality months derive from Missouri Botanical Garden's 'resting period with reduced watering from fall to late winter' and RHS/extension spring-summer active-growth feeding guidance, mapped to Northern Hemisphere months.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

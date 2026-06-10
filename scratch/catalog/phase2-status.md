@@ -15,6 +15,9 @@
   `/tmp/claude-1000/-home-israel-Documents-Development-PlantAppPlanner/d896226f-66ac-40c6-aef5-1464ebd48a1c/tasks/wtx1t8w0e.output`
 - **Cost of run 1: ~1.90M subagent tokens, 645 tool uses, ~7.6 min wall-clock.**
 
+## RUN 2 (resume, 2026-06-10): 75/75 COMPLETE — all schema-valid (validate.py 75/75), 6–12 citations each.
+Run 2 cost: ~1.36M subagent tokens. Phase 2 DONE; next catalog step = owner sample review + Gates B/C (in W2).
+
 ## Missing 21 (tail of the queue — agents cut off by the session limit, resets 5:30pm)
 
 ornamentals (8): dahlia-pinnata, impatiens-walleriana, begonia-semperflorens, rudbeckia-hirta,

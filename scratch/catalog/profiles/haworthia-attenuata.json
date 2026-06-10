@@ -1,0 +1,90 @@
+{
+  "id": "haworthia-attenuata",
+  "scientificName": "Haworthia attenuata",
+  "commonNames": [
+    "Haworthia",
+    "Zebra Plant",
+    "Zebra Haworthia",
+    "Zebra Cactus"
+  ],
+  "category": "succulent",
+  "growthHabit": "rosette",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 14,
+    "dryingTolerance": "high",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.75
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 90,
+    "preferredNpk": "half-strength low-nitrogen succulent fertilizer, growing season only (RHS: once or twice per season)"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 0.5,
+    "idealMinLiters": 0.5,
+    "idealMaxLiters": 2,
+    "soilMixTags": [
+      "cactus-succulent-mix",
+      "well-draining",
+      "added-perlite-or-grit",
+      "shallow-pot-preferred"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 5,
+    "minSunHours": 3,
+    "maxSunHours": 6
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 4,
+    "heatStressC": 38,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "dormancyMonths": [11, 12, 1, 2]
+  },
+  "commonIssues": [
+    "Root rot from overwatering — let soil dry fully between waterings and keep almost dry in winter",
+    "Leaf scorch from hot direct sun — prefers bright light with protection from intense midday sun",
+    "Fading of the white leaf banding/pattern under inadequate light",
+    "Mealybugs and scale insects",
+    "Leaf spot and fungal disease if foliage stays wet or soil is kept soggy"
+  ],
+  "verticalSuitability": 0.2,
+  "source": [
+    {
+      "citation": "North Carolina Extension Gardener Plant Toolbox — Haworthiopsis attenuata (Zebra Haworthia): allow soil to dry between waterings; bright indirect light; well-draining cactus/succulent mix; USDA zones 9-11; thrives 60-80 F, avoid below 50 F; rosette clumping habit; root rot, leaf spot, scale, mealybugs",
+      "url": "https://plants.ces.ncsu.edu/plants/haworthiopsis-attenuata/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "University of Wisconsin-Madison Horticulture Extension — 'Haworthias: Super Succulents for Small Spaces': water weekly in summer, less in winter, soil dry between waterings; a few hours of direct light in east/west window plus bright indirect; clusters fit 4-5 inch pots, shallow pots preferred, do not oversize; optimal 75-90 F, tolerates low 40s to low 100s F, no frost; potting soil cut 1:1 with perlite/grit/pumice",
+      "url": "https://hort.extension.wisc.edu/articles/haworthias-super-succulents-for-small-spaces/",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "RHS — Haworthia attenuata (zebra plant): grow in cactus compost in full light with protection from hot sun; water moderately in growth, keep almost dry in winter (dormant period); half-strength low-nitrogen fertiliser once or twice in the growing season; hardiness H2 (tolerates 1-5 C, will not survive freezing); mealybugs; overwatering is the primary risk",
+      "url": "https://www.rhs.org.uk/plants/8268/haworthia-attenuata/details",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "University of Wisconsin-Madison Horticulture Extension — light guidance (a few hours direct sun daily plus bright indirect; tolerates lower light than most succulents) used to set target/min/max sun hours",
+      "url": "https://hort.extension.wisc.edu/articles/haworthias-super-succulents-for-small-spaces/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "RHS hardiness H2 (1-5 C minimum) and UW-Madison tolerance range (low 40s F to low 100s F) used for coldHardyMinC=4 and heatStressC=38; frost-sensitive per both sources and NC State (zones 9-11, not frost tolerant)",
+      "url": "https://www.rhs.org.uk/plants/8268/haworthia-attenuata/details",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Confidence note: sources give qualitative guidance, not exact numbers. baseIntervalDays=14 is a conservative reading of UW-Madison 'weekly in summer, less in winter' combined with universal 'let soil dry fully / overwatering is the primary risk' warnings. feedingProfile.baseIntervalDays=90 converts RHS 'once or twice per growing season'. Container liters converted from UW-Madison 4-5 inch pot guidance (~0.5-2 L). Sun hours estimated from qualitative 'few hours direct + bright indirect'. Treat these four fields as estimated.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

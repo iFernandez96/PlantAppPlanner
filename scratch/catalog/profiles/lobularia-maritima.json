@@ -1,0 +1,139 @@
+{
+  "id": "lobularia-maritima",
+  "scientificName": "Lobularia maritima",
+  "commonNames": [
+    "Sweet alyssum",
+    "Alyssum",
+    "Sweet alison"
+  ],
+  "category": "ornamental",
+  "growthHabit": "trailing",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 2,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.5,
+    "rainSkipThresholdMm": 6
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 30,
+    "containerLeachAdjustment": 0.75,
+    "preferredNpk": "balanced all-purpose (e.g. 10-10-10), applied sparingly"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 2,
+    "idealMinLiters": 4,
+    "idealMaxLiters": 10,
+    "soilMixTags": [
+      "well-drained",
+      "light",
+      "moderately-fertile",
+      "tolerates-alkaline"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 4,
+    "maxSunHours": 10
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -5,
+    "heatStressC": 29,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "5": [
+        {
+          "startMonth": 4,
+          "endMonth": 5
+        }
+      ],
+      "7": [
+        {
+          "startMonth": 3,
+          "endMonth": 4
+        }
+      ],
+      "9": [
+        {
+          "startMonth": 2,
+          "endMonth": 3
+        },
+        {
+          "startMonth": 9,
+          "endMonth": 10
+        }
+      ]
+    },
+    "productiveMonths": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "commonIssues": [
+    "Flowering slows or stops in hot summer weather; plants look ragged but usually revive in cooler fall temperatures (shear to encourage rebloom)",
+    "Stems can rot in overly wet or crowded conditions; avoid overwatering and ensure good drainage",
+    "Damping off occasionally affects seedlings",
+    "Susceptible to downy mildew, clubroot, white blister, slugs, and flea beetles",
+    "Heavy fertilization promotes foliage at the expense of flowers; feed sparingly",
+    "Deadhead or clip over after the first flush of bloom to encourage further flowering"
+  ],
+  "verticalSuitability": 0.8,
+  "source": [
+    {
+      "citation": "University of Wisconsin-Madison Extension Horticulture, 'Sweet Alyssum, Lobularia maritima' — full sun in cool climates, part shade in hot climates; tolerates short dry periods but best with consistent moisture; avoid overwatering (rot in wet/crowded conditions); fertilize sparingly; mat-forming 3-9 in. tall; ideal for containers and hanging baskets; flowering slows in heat and revives in fall.",
+      "url": "https://hort.extension.wisc.edu/articles/sweet-alyssum-lobularia-maritima/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "University of Wisconsin-Madison Extension Horticulture, 'Sweet Alyssum, Lobularia maritima' — full sun (cool climates) to partial shade (hot climates); basis for 6 h target / 4 h minimum sun.",
+      "url": "https://hort.extension.wisc.edu/articles/sweet-alyssum-lobularia-maritima/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder, 'Lobularia maritima' (Kemper Code a103) — full sun to part shade; water dry to medium, tolerates drought and dry soil; zones 5-9 (grown as annual); blooms spring to frost in cool-summer climates; declines in summer heat, revives in fall; 0.25-0.75 ft tall, 0.5-1 ft wide; suitable for mixed containers; no serious insect or disease problems.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a103",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder, 'Lobularia maritima' — dry-to-medium water needs and drought tolerance; basis for medium dryingTolerance.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a103",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension Home & Garden Information Center, 'Sweet Alyssum' — sunny location with some afternoon shade; fertilize monthly with all-purpose fertilizer through the growing season (basis for 30-day feeding interval); excels in pots, hanging baskets and window boxes; plant several weeks before the last spring frost; September sowing flowers fall through winter in mild climates.",
+      "url": "https://hgic.clemson.edu/sweet-alyssum/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC, 'Sweet Alyssum' — container, hanging-basket and window-box suitability; cascading habit over edges (basis for trailing growthHabit and verticalSuitability 0.8).",
+      "url": "https://hgic.clemson.edu/sweet-alyssum/",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society, 'Lobularia maritima' — hardiness H3 (minimum -5 to 1 C; basis for coldHardyMinC -5); full sun; light, moderately fertile, well-drained soil, any pH; up to 10 cm tall, 10-50 cm spread; suitable for patios and containers; pests/diseases: downy mildew, clubroot, white blister, slugs, flea beetles; clip over after first flush to encourage further flowering.",
+      "url": "https://www.rhs.org.uk/plants/124133/lobularia-maritima/details",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society, 'Lobularia maritima' — light, moderately fertile, well-drained soil across chalk/clay/loam/sand; basis for soilMixTags.",
+      "url": "https://www.rhs.org.uk/plants/124133/lobularia-maritima/details",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Confidence note: sources give qualitative guidance ('consistent moisture', 'dry to medium', 'fertilize monthly', 'declines in summer heat'). Numeric conversions are conservative estimates: baseIntervalDays 2 (container annual needing consistent moisture), hotWeatherMultiplier 0.5, rainSkipThresholdMm 6, container liters 2/4-10 (small shallow-rooted 8-23 cm plant; standard 15-25 cm pot or basket), heatStressC 29 (flowering decline reported in hot summers), maxSunHours 10. No source states these exact numbers.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

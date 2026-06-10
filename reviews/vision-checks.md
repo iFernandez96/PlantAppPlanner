@@ -59,3 +59,9 @@ core-vision items)._
   verified against live repo; no installs/destructive git; exchange boundary respected.
 - **Vision:** ALIGNED — 3-line Compose styling fix on accepted 0045 work; serves beginner-first
   UX (invisible dark-mode text); no engine/AI/privacy/slice-order implications. Ship as-is.
+
+## 0047 — Garden Hearth design tokens (Wave 2 W1 slice 1) (2026-06-10)
+- **Guardian:** PASS — all 10 sections; every old value line-verified vs live repo; HEAD a5968a4
+  confirmed; gradle cmds = standard impl verification, no new deps.
+- **Vision:** ALIGNED — token-only entry slice authorized by PD-08/PD-09; type bump serves
+  beginner readability; all values 1:1 with Garden Hearth spec. Ship as-is.

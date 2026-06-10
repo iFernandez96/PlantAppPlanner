@@ -2,8 +2,8 @@
   "id": "tagetes-patula",
   "scientificName": "Tagetes patula",
   "commonNames": [
-    "French Marigold",
-    "Marigold"
+    "Marigold",
+    "French Marigold"
   ],
   "category": "ornamental",
   "growthHabit": "bush",
@@ -12,34 +12,34 @@
   "pollinationPartnersRequired": 0,
   "wateringProfile": {
     "baseIntervalDays": 3,
-    "dryingTolerance": "medium",
+    "dryingTolerance": "high",
     "overwaterRisk": "high",
-    "hotWeatherMultiplier": 1.5,
+    "hotWeatherMultiplier": 0.7,
     "rainSkipThresholdMm": 10
   },
   "feedingProfile": {
-    "baseIntervalDays": 30,
-    "containerLeachAdjustment": 0.5,
-    "preferredNpk": "balanced (e.g. 10-10-10), avoid high nitrogen which reduces blooms"
+    "baseIntervalDays": 45,
+    "containerLeachAdjustment": -15,
+    "preferredNpk": "10-10-10"
   },
   "containerProfile": {
-    "recommendedMinLiters": 3,
-    "idealMinLiters": 5,
-    "idealMaxLiters": 11,
+    "recommendedMinLiters": 4,
+    "idealMinLiters": 7.5,
+    "idealMaxLiters": 20,
     "soilMixTags": [
       "well-drained",
-      "evenly-moist",
-      "average-fertility",
-      "acid-to-neutral-ph"
+      "loamy",
+      "moderately-fertile",
+      "ph-6-to-7"
     ]
   },
   "lightProfile": {
-    "targetSunHours": 7,
+    "targetSunHours": 8,
     "minSunHours": 6,
     "maxSunHours": 12
   },
   "temperatureProfile": {
-    "coldHardyMinC": 4,
+    "coldHardyMinC": 1,
     "heatStressC": 35,
     "frostSensitive": true
   },
@@ -58,53 +58,37 @@
     ]
   },
   "commonIssues": [
-    "Tender summer annual; killed by frost and not winter-hardy outside USDA zones where frost occurs. Treat as a single-season planting.",
-    "Susceptible to powdery mildew, Botrytis, leaf spot and root rots, especially in wet or poorly drained conditions.",
-    "Watch for spider mites and thrips, particularly in hot, dry weather.",
-    "Overwatering or poorly drained soil causes root rot; let the top 1-2 inches of soil dry between waterings.",
-    "Regular deadheading keeps plants blooming from early summer until frost.",
-    "Cell sap plus sunlight can cause contact dermatitis on broken skin."
+    "Tolerates drought better than wet feet; soggy or poorly drained soil leads to stem and root rots — let the soil dry somewhat between deep waterings.",
+    "Over-fertilizing produces lush foliage at the expense of blooms; marigolds are low feeders — mix a balanced fertilizer in at planting and feed only sparingly afterward.",
+    "Spider mites can flare up in hot, dry weather; aphids, slugs, leafminers, whiteflies, and thrips are occasional pests.",
+    "Spent, rain-soaked flowers can develop gray mold (Botrytis); deadhead regularly to prolong flowering and reduce disease.",
+    "Tender warm-season annual: killed by frost; plant out only after the last spring frost once soil has warmed to about 18 C (65 F).",
+    "Compact bushy habit (15-45 cm) needs no staking; pinch young plant tips for bushier growth."
   ],
-  "verticalSuitability": 0.2,
+  "verticalSuitability": 0.3,
   "source": [
     {
-      "citation": "NC State Extension Gardener Plant Toolbox - Tagetes patula (French Marigold): full sun 6+ hours of direct sun (partial shade 2-6 hours); average, well-drained, evenly moist soil, acid to neutral pH below 8.0; summer annual, not frost-hardy; 6-12 in tall, 6-18 in wide, clumping bushy habit, medium growth rate, low maintenance; excellent for containers, patios and edging; blooms spring into fall with deadheading.",
-      "url": "https://plants.ces.ncsu.edu/plants/tagetes-patula/",
-      "field": "lightProfile"
+      "citation": "University of Minnesota Extension — Marigolds. Need full sun all day for season-long bloom; tolerate drought better than being overly wet, so soil must be well-draining; pH 6-7; general-purpose fertilizer with equal N-P-K incorporated at planting only — extra feeding reduces bloom (low feeders); plant after soil reaches 65 F / frost danger passes; bloom up until frost; deadheading optional but encourages bloom; pinch young plants for bushiness.",
+      "url": "https://extension.umn.edu/flowers/marigolds",
+      "field": "lightProfile,wateringProfile,feedingProfile,temperatureProfile,commonIssues"
     },
     {
-      "citation": "NC State Extension Gardener Plant Toolbox - Tagetes patula: susceptible to powdery mildew, Botrytis, leaf spot and root rots; spider mites and thrips may infest plants; contact dermatitis possible from cell sap plus sunlight on broken skin.",
-      "url": "https://plants.ces.ncsu.edu/plants/tagetes-patula/",
-      "field": "commonIssues"
+      "citation": "Clemson Cooperative Extension HGIC — How to Grow and Care for Marigolds in South Carolina. Full sun (6+ hours daily); about 1 inch of water per week once established, watered deeply once weekly with soil allowed to dry somewhat between waterings; well-drained loamy soil pH 5.5-7.0; French types 6 in - 3 ft tall, spaced 8-10 in apart; suitable for containers; plant after last spring frost; blooms early summer until hard frost; pests include spider mites, slugs, leafminers, aphids, whiteflies, thrips; fungal stem/root rots and gray mold; deadhead for continued bloom.",
+      "url": "https://hgic.clemson.edu/factsheet/marigold/",
+      "field": "lightProfile,wateringProfile,containerProfile,seasonality,commonIssues"
     },
     {
-      "citation": "NC State Extension Gardener Plant Toolbox - Tagetes patula: summer annual, not frost-hardy (frost sensitive).",
-      "url": "https://plants.ces.ncsu.edu/plants/tagetes-patula/",
-      "field": "temperatureProfile"
+      "citation": "University of Wisconsin-Madison Horticulture Extension — Marigolds. Full sun (6-8 hours direct); moderate water with even moisture but no waterlogging; well-drained soil pH 6-7; low feeders not requiring heavy fertilization; direct-seed once soil exceeds 65 F (~18 C) or transplant after frost danger; deadhead spent blooms; French marigold roots release alpha-terthienyl, toxic to root-knot nematodes.",
+      "url": "https://hort.extension.wisc.edu/articles/marigolds/",
+      "field": "lightProfile,wateringProfile,feedingProfile,temperatureProfile"
     },
     {
-      "citation": "Missouri Botanical Garden Plant Finder - Tagetes patula (French Marigold): water requirement Medium; full sun, with some light afternoon shade in hot summer climates; bloom time June to frost; height 0.50-1.00 ft (6-12 in), spread 0.50-0.75 ft; annual; low maintenance; suggested use beds, edgings, containers, good cut flowers; susceptible to powdery mildew, Botrytis, leaf spot and rots, spider mites and thrips.",
-      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a611",
-      "field": "wateringProfile"
+      "citation": "RHS — Tagetes patula (French marigold). Hardiness H2 (tolerates low temperatures of about 1-5 C but not freezing — frost tender); full sun; moderately fertile, moist but well-drained to well-drained soil (clay, loam, or sand); height and spread 0.1-0.5 m in one year; suitable for patios and containers; water freely in dry spells; deadhead regularly to prolong flowering; generally pest- and disease-free.",
+      "url": "https://www.rhs.org.uk/plants/105531/tagetes-patula/details",
+      "field": "temperatureProfile,containerProfile,wateringProfile,lightProfile"
     },
     {
-      "citation": "Missouri Botanical Garden Plant Finder - Tagetes patula: bloom time stated as 'June to frost', supporting productive months June-October in temperate growing regions.",
-      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a611",
-      "field": "seasonality"
-    },
-    {
-      "citation": "The Old Farmer's Almanac - How to Plant and Grow Marigolds: provide about 1 inch of water per week and let the soil dry out a bit between waterings; do not overwater (excess moisture can cause root rot); sow outdoors after the last frost or start indoors 6-8 weeks prior; French marigolds stay under 2 feet and are well suited to containers. (Page returns HTTP 403 to automated fetch; values taken from indexed search snippet, 2026-06-02.)",
-      "url": "https://www.almanac.com/plant/marigolds",
-      "field": "wateringProfile"
-    },
-    {
-      "citation": "Container sizing for French marigold: dwarf French marigolds grow well in a 6-inch (approx 2-3 L) pot; a 10-12 inch pot (approx 5-11 L) holds several plants. The container minimums here reflect a single compact French marigold plant; values estimated from horticultural guidance rather than a single .edu container-volume citation.",
-      "url": "https://plants.ces.ncsu.edu/plants/tagetes-patula/",
-      "field": "containerProfile"
-    },
-    {
-      "citation": "Confidence note: baseIntervalDays (3) is derived from extension guidance to water when the top 1-2 inches of soil dry and to supply ~1 inch/week, not a directly published interval; hotWeatherMultiplier, rainSkipThresholdMm, feeding interval, container liters, and temperature thresholds (coldHardyMinC, heatStressC) are conservative estimates converted from qualitative extension guidance (full sun, medium water, frost-sensitive annual). No single authoritative source publishes these exact numeric values.",
-      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a611",
+      "citation": "Confidence note: No extension/RHS source gives exact container volumes for Tagetes patula; recommendedMinLiters (4 L, roughly a 6-8 in pot for one compact plant), idealMinLiters (7.5 L) and idealMaxLiters (20 L, multi-plant trough) are conservative estimates anchored to RHS/Clemson 'suitable for containers' and the plant's 15-45 cm size. wateringProfile.baseIntervalDays (3) interprets Clemson's 'about 1 inch per week, deeply once weekly, dry somewhat between' for smaller container volumes; hotWeatherMultiplier and rainSkipThresholdMm are care-engine estimates. feedingProfile.baseIntervalDays (45) is a deliberately sparse container-feeding cadence consistent with UMN/UW 'low feeder, fertilize at planting only' guidance, not an explicitly published interval. heatStressC (35) is a conservative estimate — French marigolds bloom through summer heat and no source states an explicit heat-stress threshold.",
       "field": "confidence"
     }
   ],

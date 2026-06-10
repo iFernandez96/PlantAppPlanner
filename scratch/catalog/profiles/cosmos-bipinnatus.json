@@ -1,0 +1,81 @@
+{
+  "id": "cosmos-bipinnatus",
+  "scientificName": "Cosmos bipinnatus",
+  "commonNames": [
+    "Cosmos",
+    "Garden Cosmos",
+    "Mexican Aster",
+    "Cut Leaf Cosmos",
+    "Cosmea"
+  ],
+  "category": "ornamental",
+  "growthHabit": "bush",
+  "requiresSupport": true,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 7,
+    "dryingTolerance": "high",
+    "overwaterRisk": "high"
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 90,
+    "preferredNpk": "none / low-nitrogen only"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 11,
+    "idealMinLiters": 15,
+    "soilMixTags": [
+      "well-drained",
+      "low-fertility",
+      "neutral-to-alkaline-ph"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 8,
+    "minSunHours": 6
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 1,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "commonIssues": [
+    "Rich/over-fertilized soil produces leggy, weak-stemmed plants with abundant foliage but few flowers; do not fertilize and use lean soil (USU Extension).",
+    "Overwatering reduces blooming; let soil dry between waterings (USU Extension).",
+    "Taller cultivars (up to 1.5-2.5 m) flop and need staking or cane-and-twine support; dwarf cultivars usually do not (RHS).",
+    "Powdery mildew, stem canker, gray mold and southern blight can occur, especially in crowded or sheltered plantings; ensure free air movement (NC State Extension, RHS).",
+    "Container note: extension sources do not specify a pot volume. ~11 L (3 gal) suits dwarf/medium cultivars; tall 2+ m cultivars need a larger, well-anchored container and staking."
+  ],
+  "verticalSuitability": 0.1,
+  "source": [
+    {
+      "citation": "RHS — Cosmos bipinnatus (cosmea). Full sun; moderately fertile, moist but well-drained soil; ultimate height 1.5-2.5 m; H3 hardiness (-5 to 1 C); flowers late summer into autumn until frost; taller cultivars need cane-and-twine support; mildew a risk without free air movement.",
+      "url": "https://www.rhs.org.uk/plants/30717/cosmos-bipinnatus/details",
+      "field": "lightProfile,temperatureProfile,requiresSupport,seasonality,commonIssues"
+    },
+    {
+      "citation": "Utah State University Extension — Cosmos in the Garden. Full sun, at least 8 hours of light; water deeply about once weekly once established and thrives in drier soil (blooming reduced if overwatered); do NOT fertilize (rich soil yields weak-stemmed, late, sparse-flowering plants); neutral to slightly alkaline pH; germinates best 70-75 F (21-24 C); spacing 1-2 ft.",
+      "url": "https://extension.usu.edu/yardandgarden/research/cosmos-in-the-garden",
+      "field": "lightProfile,wateringProfile,feedingProfile,containerProfile"
+    },
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox — Cosmos bipinnatus. Full sun (6+ hours) to partial shade; well-drained clay/loam/sand, neutral-to-alkaline pH; drought tolerant, minimal water once established; annual, sow after frost when soil >=65 F (18 C); height 2-4 ft; suitable for containers; diseases include powdery mildew, stem canker, gray mold, southern blight; pests include aphids and aster leafhopper.",
+      "url": "https://plants.ces.ncsu.edu/plants/cosmos-bipinnatus/",
+      "field": "lightProfile,wateringProfile,temperatureProfile,containerProfile,commonIssues"
+    },
+    {
+      "citation": "Confidence note: No extension/RHS source specifies a container volume for Cosmos bipinnatus, nor an explicit feeding interval (sources advise NO fertilizer). recommendedMinLiters (11), idealMinLiters (15) and feedingProfile.baseIntervalDays (90, i.e. effectively none) are conservative estimates derived from the plant's 2-4 ft size, 1-2 ft spacing and lean-soil preference. coldHardyMinC (1 C) is taken from RHS H3 rating; the plant is a frost-sensitive annual regardless.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

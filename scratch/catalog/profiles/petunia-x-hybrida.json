@@ -4,139 +4,108 @@
   "commonNames": [
     "Petunia",
     "Garden petunia",
-    "Common garden petunia"
+    "Hybrid petunia"
   ],
   "category": "ornamental",
-  "growthHabit": "trailing",
+  "growthHabit": "bush",
   "requiresSupport": false,
   "selfFruitful": null,
   "pollinationPartnersRequired": 0,
   "wateringProfile": {
     "baseIntervalDays": 1,
     "dryingTolerance": "medium",
-    "overwaterRisk": "high",
+    "overwaterRisk": "medium",
     "hotWeatherMultiplier": 0.5,
-    "rainSkipThresholdMm": 13
+    "rainSkipThresholdMm": 10
   },
   "feedingProfile": {
     "baseIntervalDays": 14,
-    "containerLeachAdjustment": -3,
-    "preferredNpk": "10-10-10"
+    "containerLeachAdjustment": 0.5,
+    "preferredNpk": "balanced (e.g. 10-10-10) or bloom-booster higher-phosphorus liquid feed; slow-release fertilizer mixed into the potting mix at planting"
   },
   "containerProfile": {
-    "recommendedMinLiters": 5,
-    "idealMinLiters": 8,
-    "idealMaxLiters": 12,
+    "recommendedMinLiters": 8,
+    "idealMinLiters": 11,
+    "idealMaxLiters": 20,
     "soilMixTags": [
-      "well-draining",
-      "potting-mix",
-      "peat-based",
-      "moisture-retentive"
+      "well-drained",
+      "quality-potting-mix",
+      "medium-fertility",
+      "ph-6.0-7.0"
     ]
   },
   "lightProfile": {
-    "targetSunHours": 7,
-    "minSunHours": 6,
-    "maxSunHours": 14
+    "targetSunHours": 8,
+    "minSunHours": 5
   },
   "temperatureProfile": {
-    "coldHardyMinC": 15,
+    "coldHardyMinC": 0,
     "heatStressC": 32,
     "frostSensitive": true
   },
   "seasonality": {
-    "plantingWindowsByZone": {
-      "5": [
-        {
-          "startMonth": 5,
-          "endMonth": 6
-        }
-      ],
-      "9": [
-        {
-          "startMonth": 3,
-          "endMonth": 4
-        }
-      ],
-      "10": [
-        {
-          "startMonth": 10,
-          "endMonth": 11
-        }
-      ]
-    },
-    "productiveMonths": [
-      5,
-      6,
-      7,
-      8,
-      9,
-      10
-    ]
+    "productiveMonths": [5, 6, 7, 8, 9, 10]
   },
   "commonIssues": [
-    "Frost-tender annual in most climates (perennial only in USDA zones 10-11); plant outdoors only after the last spring frost and soil reaches about 16C (60F).",
-    "Needs full sun (6+ hours); becomes spindly with few flowers in shade.",
-    "Container and hanging-basket plants dry out fast and may need daily watering in hot weather, but require well-drained mix as roots are prone to rot if waterlogged.",
-    "Container minimum (5 L) reflects typical commercial 1.25-1.5 gal hanging baskets; larger pots (8-12 L) hold more soil, dry slower, and support fuller trailing displays.",
-    "Aphids, slugs/snails, flea beetles, and caterpillars can occur; petal blight, gray mold (botrytis), root/stem rot, and tobacco mosaic virus are possible in wet or humid conditions.",
-    "Deadhead spent blooms to keep flowering through the season."
+    "Frost-tender annual in most climates (perennial only in USDA zones 10-11): plant out only after the last spring frost, once soil has warmed to about 15-16 C (60 F).",
+    "Too little sun makes plants spindly with few flowers; petunias need at least 5-6 hours of direct sun and bloom best in full sun all day.",
+    "Plants get leggy by midsummer; cut shoots back by about half, then feed and water to force fresh growth and bloom.",
+    "Deadhead spent flowers regularly (especially large-flowered types) to keep new buds forming.",
+    "Containers and hanging baskets dry out fast in summer and may need water daily, sometimes twice a day in heat; in-ground plants need far less (a deep weekly soak).",
+    "Avoid soggy soil and frequent shallow watering: poor drainage invites root rot and gray mold, and shallow watering encourages shallow roots.",
+    "Petal blight and fungal problems appear in rainy/very humid weather, especially on grandiflora types; avoid wetting the foliage.",
+    "Watch for aphids and slugs/snails; knock aphids off with water and handpick or trap slugs.",
+    "Spreading/trailing (e.g. Wave-type) petunias are heavier feeders and drinkers than standard types: feed weekly and water more often."
   ],
-  "verticalSuitability": 0.9,
+  "verticalSuitability": 0.85,
   "source": [
     {
-      "citation": "University of Minnesota Extension — Growing petunias. Full sun (5-6+ hours); thorough watering once a week in ground, containers/hanging baskets as often as daily; containers fed every 2 weeks with liquid fertilizer from early/mid-July; transplant after frost danger and soil ~60F (16C); spreading types trail 2-3 ft.",
-      "url": "https://extension.umn.edu/flowers/growing-petunias",
-      "field": "wateringProfile"
-    },
-    {
-      "citation": "University of Minnesota Extension — Growing petunias. Balanced garden fertilizer 8-8-8/10-10-10/12-12-12; containers fed every 2 weeks; spreading/container types need more frequent feeding.",
-      "url": "https://extension.umn.edu/flowers/growing-petunias",
-      "field": "feedingProfile"
-    },
-    {
-      "citation": "University of Minnesota Extension — Growing petunias. Petunias need at least 5-6 hours of good sunlight and perform better in full sun all day.",
+      "citation": "University of Minnesota Extension, 'Growing petunias': at least 5-6 hours of good sunlight, best in full sun all day; in-ground plants need a thorough weekly watering soaking soil 6-8 inches deep, while container plantings may need daily watering; garden beds get balanced fertilizer (8-8-8, 10-10-10, or 12-12-12) at planting then liquid feed every ~3 weeks from July; containers get timed-release fertilizer at planting then flowering-plant liquid feed every 2 weeks (weekly for spreading types); transplant after frost danger when soil is about 60 F; start seed indoors 10-12 weeks before planting out.",
       "url": "https://extension.umn.edu/flowers/growing-petunias",
       "field": "lightProfile"
     },
     {
-      "citation": "University of Minnesota Extension — Growing petunias. Transplant only after frost danger passes and soil warms to about 60F (16C); seedling growing temps ~65F day / 55-65F night.",
+      "citation": "University of Minnesota Extension, 'Growing petunias': container petunias may need daily watering in summer depending on pot size and soil volume; in-ground plants need a thorough weekly soak 6-8 inches deep; spreading types need frequent watering.",
       "url": "https://extension.umn.edu/flowers/growing-petunias",
-      "field": "temperatureProfile"
-    },
-    {
-      "citation": "University of Florida IFAS Gardening Solutions — Petunias. At least 1-2 inches of water every 7-10 days once established; avoid frequent shallow watering; fertilize monthly with balanced or controlled-release fertilizer; well-drained soil kept moist; aphids, caterpillars, petal blight in humid weather.",
-      "url": "https://gardeningsolutions.ifas.ufl.edu/plants/ornamentals/petunias/",
       "field": "wateringProfile"
     },
     {
-      "citation": "Clemson Cooperative Extension HGIC — Petunia. Plant in full sun (spindly with few flowers in shade); 1-2 inches water every 7-10 days once established; fertilize monthly with balanced fertilizer; soil pH 6.0-7.0; aphids, slugs, petal blight, viruses.",
-      "url": "https://hgic.clemson.edu/factsheet/petunia/",
+      "citation": "University of Minnesota Extension, 'Growing petunias': feed container petunias every 2 weeks with a flowering-plant liquid fertilizer (weekly for spreading types); timed-release fertilizer incorporated at planting; balanced 8-8-8 / 10-10-10 / 12-12-12 for beds.",
+      "url": "https://extension.umn.edu/flowers/growing-petunias",
       "field": "feedingProfile"
     },
     {
-      "citation": "Clemson Cooperative Extension HGIC — Petunia. Full sunlight required; bloom from spring until frost; plant as soon as spring frost danger is past.",
+      "citation": "Clemson University Home & Garden Information Center, 'Petunia' (HGIC): full sunlight required, plants become spindly with few flowers in shade; 1-2 inches of water every 7-10 days once established in ground, avoid frequent light watering; fertilize monthly with a balanced fertilizer; well-drained light soil of medium fertility, pH 6.0-7.0; heights 6-18 in, spread 18 in to 4 ft; excellent for containers and hanging baskets; aphids, slugs, and petal blight in rainy/humid weather are the main problems.",
       "url": "https://hgic.clemson.edu/factsheet/petunia/",
-      "field": "commonIssues"
+      "field": "wateringProfile"
     },
     {
-      "citation": "NC State Extension Gardener Plant Toolbox — Petunia x hybrida. USDA hardiness zones 10a-11b (perennial; grown as annual elsewhere); full sun 6+ hours or partial shade 2-6 hours; height 6-18 in, width 1-3 ft; spreading/trailing habit; problems include aphids, flea beetles, slugs/snails, root rot, gray mold, tobacco mosaic virus.",
-      "url": "https://plants.ces.ncsu.edu/plants/petunia-x-hybrida/",
-      "field": "temperatureProfile"
-    },
-    {
-      "citation": "NC State Extension Gardener Plant Toolbox — Petunia x hybrida. Spreading/trailing/horizontal growth habit (width 1-3 ft), widely grown in hanging baskets and as a trailing groundcover — supports high vertical/hanging suitability.",
-      "url": "https://plants.ces.ncsu.edu/plants/petunia-x-hybrida/",
-      "field": "verticalSuitability"
-    },
-    {
-      "citation": "Container size estimated, not given as liters by extension sources. Commercial petunia hanging baskets are typically 1.25-1.5 gal (~5-6 L); a 12-in/#10 hanging basket holds ~5.7 L. recommendedMinLiters set to 5 L (realistic commercial minimum), idealMin/Max 8-12 L for fuller trailing displays and slower drying. Sources: Proven Winners petunia hanging-basket guidance and standard nursery container sizing.",
-      "url": "https://www.provenwinners.com/learn/petunia-hanging-baskets",
+      "citation": "Clemson University HGIC 'Petunia': soil pH 6.0-7.0, well-drained light soil of medium fertility; excellent for containers and hanging baskets.",
+      "url": "https://hgic.clemson.edu/factsheet/petunia/",
       "field": "containerProfile"
     },
     {
-      "citation": "Low-confidence fields. containerProfile liters are converted from typical commercial basket sizes (extension sources specify basket diameter / plant counts, not soil volume). heatStressC (32C) and coldHardyMinC (15C) are conservative estimates derived from UMN transplant guidance (soil ~16C/60F) and general extension notes that petunias prefer ~18-27C and are frost-tender; extension pages do not state an exact heat-stress threshold. hotWeatherMultiplier and rainSkipThresholdMm are app-tuned conservative defaults consistent with 'water as often as daily in heat' and 1-2 in/week guidance.",
-      "url": "https://extension.umn.edu/flowers/growing-petunias",
+      "citation": "The Old Farmer's Almanac, 'Petunias: How to Plant, Grow, and Care for Petunias': annual in most areas, tender perennial only in zones 9-11; plant out after last spring frost and protect young plants from late frosts; full sun or plants become spindly; thorough weekly watering suffices in ground, but spreading types and container plants need more frequent watering; fertilize monthly with balanced fertilizer (biweekly for double-flowered cultivars); prune leggy plants back by half in midsummer; aphids and slugs are the main pests; fungal disease develops with excess moisture and poor airflow.",
+      "url": "https://www.almanac.com/plant/petunias",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac, 'Petunias': blooms from spring until frost; treated as annuals, tender perennial in zones 9-11; frost-sensitive — plant after last spring frost; height 6-18 in, spread 18 in to 4 ft; spreading/trailing types ideal for window boxes and hanging baskets.",
+      "url": "https://www.almanac.com/plant/petunias",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder, 'Petunia (group)': winter hardy USDA zones 10-11, grown as an annual elsewhere; full sun to part shade; medium water; height 0.75-1 ft, spread 1-3 ft; blooms May to frost; average, medium-moisture, well-drained soil; cut back plants that decline in summer heat; susceptible to root rot, gray mold, late blight, tobacco mosaic virus; aphids, flea beetles, slugs and snails.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a601",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society (RHS), Petunia genus page: grow in light, well-drained soil in full sun with shelter from drying winds; plant out after frosts have passed; sow seed at 13-18 C in early spring; flowers late spring to autumn.",
+      "url": "https://www.rhs.org.uk/plants/190790/petunia/details",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Confidence note: container minimum liters (8 L recommended / 11-20 L ideal) estimated from common horticultural practice (a ~10-12 inch pot per petunia; 12 inch pot is roughly 11 L) because the extension sources reviewed give container guidance qualitatively rather than in volume units. heatStressC (32 C) is a conservative estimate derived from Missouri Botanical Garden's note that plants decline in summer heat and should be cut back; no reviewed source gives an exact heat-stress threshold. wateringProfile.baseIntervalDays of 1 reflects UMN/Almanac guidance that container petunias may need daily water in summer; in-ground plants need only a deep weekly soak.",
       "field": "confidence"
     }
   ],

@@ -1,0 +1,91 @@
+{
+  "id": "chlorophytum-comosum",
+  "scientificName": "Chlorophytum comosum",
+  "commonNames": [
+    "Spider plant",
+    "Airplane plant",
+    "Ribbon plant",
+    "Spider ivy"
+  ],
+  "category": "other",
+  "growthHabit": "rosette",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 7,
+    "dryingTolerance": "high",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.75
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 90,
+    "containerLeachAdjustment": 1,
+    "preferredNpk": "balanced water-soluble houseplant fertilizer (e.g. 10-10-10), standard strength every 3-4 months or half strength more often"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 2,
+    "idealMinLiters": 3,
+    "idealMaxLiters": 8,
+    "soilMixTags": [
+      "general-purpose-potting-mix",
+      "well-draining"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 3,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 7,
+    "heatStressC": 32,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [3, 4, 5, 6, 7, 8, 9],
+    "dormancyMonths": [11, 12, 1]
+  },
+  "commonIssues": [
+    "Brown leaf tips from low humidity, dry soil, fertilizer/salt buildup, or fluoride and chlorine in tap water; use distilled or rain water if tips brown.",
+    "Root rot from overwatering or poorly draining soil; let the top of the soil dry slightly between thorough waterings.",
+    "Over-fertilizing reduces plantlet ('spiderette') formation and can scorch leaf tips.",
+    "Direct midday sun can scorch leaves; prefers bright, indirect light.",
+    "Occasional pests: spider mites, scale, mealybugs, whiteflies, aphids.",
+    "Fleshy tuberous roots fill pots quickly; divide and repot before roots crack the container. Grows and produces plantlets best when slightly pot-bound, so the small recommended pot size is intentional."
+  ],
+  "verticalSuitability": 0.9,
+  "source": [
+    {
+      "citation": "Clemson Cooperative Extension Home & Garden Information Center, 'Spider Plant (Chlorophytum comosum)' — bright indirect light, tolerates some direct light (avoid midday sun); allow soil to dry slightly between waterings; day 65-75F (18-24C), night 50-55F (10-13C); fertilize during active growth; excellent hanging baskets; tip burn from salts/fluoride/low humidity; root rot from overwatering.",
+      "url": "https://hgic.clemson.edu/factsheet/spider-plant/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Clemson HGIC spider plant factsheet — light and temperature guidance (bright indirect light; 65-75F day / 50-55F night ideal).",
+      "url": "https://hgic.clemson.edu/factsheet/spider-plant/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder, Chlorophytum comosum — USDA zones 9-11; keep above 45F (~7C) minimum; 55-70F preferred; medium water, keep moderately moist in active growth; avoid over-fertilizing (reduces plantlets); excellent for hanging baskets; tip browning from fluoride/salts; tolerates artificial light.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b547",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "University of Wisconsin-Madison Extension Horticulture, 'Spider plant, Chlorophytum comosum' — fertilize every 3-4 months at standard strength (or half strength more often); allow soil to dry slightly between thorough waterings; fleshy water-storing roots tolerate inconsistent watering; grows best slightly pot-bound; medium to bright light indoors.",
+      "url": "https://hort.extension.wisc.edu/articles/spider-plant-chlorophytum-comosum/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "UW-Madison Extension spider plant article — pot-bound preference and rapid root growth used to set small container sizes; trailing plantlet stems make hanging baskets ideal (verticalSuitability).",
+      "url": "https://hort.extension.wisc.edu/articles/spider-plant-chlorophytum-comosum/",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Confidence note: sources give qualitative guidance ('dry slightly between waterings', 'bright indirect light', no pot volumes). baseIntervalDays=7, targetSunHours=6 (bright indirect, hours of bright light not direct sun), container liters (2-8 L ~ 6-10 inch pot/basket), heatStressC=32, hotWeatherMultiplier=0.75, and seasonality months (plantlets form under fall short days; growth slows in winter) are conservative estimates derived from those qualitative statements, not explicit numbers in the cited pages.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

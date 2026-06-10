@@ -20,13 +20,13 @@
   },
   "feedingProfile": {
     "baseIntervalDays": 30,
-    "containerLeachAdjustment": 0.5,
-    "preferredNpk": "5-10-5"
+    "containerLeachAdjustment": 0.75,
+    "preferredNpk": "balanced (e.g. 10-10-10) at planting, then monthly higher-phosphorus or high-potassium bloom feed"
   },
   "containerProfile": {
-    "recommendedMinLiters": 3,
-    "idealMinLiters": 7,
-    "idealMaxLiters": 19,
+    "recommendedMinLiters": 4,
+    "idealMinLiters": 8,
+    "idealMaxLiters": 20,
     "soilMixTags": [
       "well-drained",
       "organic-matter-rich",
@@ -36,11 +36,11 @@
   "lightProfile": {
     "targetSunHours": 8,
     "minSunHours": 6,
-    "maxSunHours": 14
+    "maxSunHours": 12
   },
   "temperatureProfile": {
-    "coldHardyMinC": 10,
-    "heatStressC": 35,
+    "coldHardyMinC": 5,
+    "heatStressC": 38,
     "frostSensitive": true
   },
   "seasonality": {
@@ -58,86 +58,71 @@
         }
       ]
     },
-    "productiveMonths": [
-      6,
-      7,
-      8,
-      9,
-      10
-    ],
-    "dormancyMonths": [
-      12,
-      1,
-      2
-    ]
+    "productiveMonths": [6, 7, 8, 9, 10]
   },
   "commonIssues": [
-    "Highly susceptible to powdery mildew; water at the base, never overhead, and ensure good air circulation (UMN, Clemson, Missouri Botanical Garden).",
-    "Also prone to Alternaria and bacterial leaf spot, root rots, blight and Botrytis; choose disease-resistant cultivars in hot, humid climates (Missouri Botanical Garden).",
-    "Overwatering and wet foliage promote fungal disease; only water when the top 1 to 2 inches of soil are dry (UMN).",
-    "Frost-tender annual: do not direct-sow until soil reaches ~70F and all frost danger has passed; killed by frost (UMN, Clemson).",
-    "Container minimum (3 L) is sized for a single dwarf-to-mid plant in a 6-inch/15-20 cm-deep pot; group plantings or tall cultivars need larger pots (Old Farmer's Almanac)."
+    "Highly susceptible to powdery mildew; water at the base, never overhead, and ensure good air circulation (UMN, Clemson).",
+    "Also prone to Alternaria blight, bacterial leaf spot, root rots, Botrytis and damping-off in cold wet conditions; slugs damage young plants (Missouri Botanical Garden, RHS).",
+    "Overwatering and wet foliage promote fungal disease; only water when the top 2.5-5 cm of soil are dry (UMN, Clemson).",
+    "Frost-tender warm-season annual: do not plant out until soil reaches ~21C and all frost danger has passed; killed by frost (UMN, Clemson, RHS).",
+    "Tall cultivars (60-120 cm) benefit from netting or support secured at ~30-40 cm above ground; dwarf cultivars are best for containers — extension guidance notes zinnias perform better in beds than containers (RHS, UMN).",
+    "Deadhead spent blooms to extend flowering and pinch young plants for a bushier habit (Clemson, Missouri Botanical Garden)."
   ],
   "verticalSuitability": 0.1,
   "source": [
     {
-      "citation": "University of Minnesota Extension — Zinnia. Full sun 8+ hours; water only when the top 1-2 inches of soil are dry; well-drained soil; general-purpose fertilizer at planting then monthly with higher phosphorus; direct-sow at soil temp >=70F (transplants at 60F), germination in 4-8 days at 70-75F; highly susceptible to powdery mildew; pH 5.5-7.5.",
+      "citation": "University of Minnesota Extension — Zinnia. Full sun 8+ hours/day in a very warm location; water only when the top 1-2 inches of soil are dry; performs better in garden beds than containers.",
       "url": "https://extension.umn.edu/flowers/zinnia",
       "field": "lightProfile"
     },
     {
-      "citation": "University of Minnesota Extension — Zinnia. 'Only water when the top 1 to 2 inches of soil are dry' and avoid overwatering, which promotes fungal disease; well-drained soil.",
+      "citation": "University of Minnesota Extension — Zinnia. 'Only water when the top 1 to 2 inches of soil are dry'; avoid overwatering and wet foliage, which promote fungal disease (powdery mildew).",
       "url": "https://extension.umn.edu/flowers/zinnia",
       "field": "wateringProfile"
     },
     {
-      "citation": "University of Minnesota Extension — Zinnia. General-purpose fertilizer (equal N-P-K) at planting, then monthly applications with higher phosphorus to encourage blooming.",
+      "citation": "University of Minnesota Extension — Zinnia. General-purpose fertilizer (equal N-P-K) at planting, then monthly applications of a higher-phosphorus formula to promote new blooms (basis for baseIntervalDays=30 and preferredNpk).",
       "url": "https://extension.umn.edu/flowers/zinnia",
       "field": "feedingProfile"
     },
     {
-      "citation": "University of Minnesota Extension — Zinnia. Direct seeding requires soil temp >=70F; transplants at soil 60F; performs best in a very warm location; frost-tender annual planted after last frost.",
+      "citation": "University of Minnesota Extension — Zinnia. Direct seeding requires soil temperature of at least 70F (21C); transplants acceptable at 60F (16C); germination 70-75F; frost-tender annual planted after last frost.",
       "url": "https://extension.umn.edu/flowers/zinnia",
       "field": "temperatureProfile"
     },
     {
-      "citation": "Clemson Cooperative Extension HGIC — How to Grow Zinnias. Full sun (6+ hours); water at the base, 1 inch per week, avoid overhead watering; sow when soil/air ~70F after last frost; spacing 8-9 in (dwarf) to 12 in (tall); susceptible to powdery mildew, Alternaria leaf spot, bacterial leaf spot; height 6 in to 4 ft.",
+      "citation": "Clemson Cooperative Extension HGIC — How to Grow Zinnias: The Best Varieties & Care Tips. Full sun (6+ hours); about 1 inch (25 mm) of water per week applied at the base, watering when the top 1-2 inches of soil feel dry; sow after last frost with soil/air around 70F; spacing 8-24 inches; powdery mildew, Alternaria and bacterial leaf spot.",
       "url": "https://hgic.clemson.edu/factsheet/how-to-grow-zinnias-the-best-varieties-care-tips/",
       "field": "wateringProfile"
     },
     {
-      "citation": "Clemson Cooperative Extension HGIC — How to Grow Zinnias. Full sun (6+ hours of direct sunlight).",
+      "citation": "Clemson Cooperative Extension HGIC — How to Grow Zinnias. Full sun, minimum 6 hours of direct sun (basis for minSunHours=6); deadheading extends the bloom season; suitable for containers using dwarf cultivars.",
       "url": "https://hgic.clemson.edu/factsheet/how-to-grow-zinnias-the-best-varieties-care-tips/",
       "field": "lightProfile"
     },
     {
-      "citation": "Missouri Botanical Garden Plant Finder — Zinnia elegans. Full sun; medium moisture, humusy, evenly moist, well-drained soils; bushy/leafy upright annual; height 1-4 ft; bloom June to frost; USDA zones 2-11; susceptible to powdery mildew, leaf spots, root rots, blight and Botrytis; not frost-hardy, plant after last frost.",
+      "citation": "Missouri Botanical Garden Plant Finder — Zinnia elegans (Kemper Code a618). Annual grown in USDA zones 2-11; full sun; medium water; humusy, evenly moist, well-drained soils; height 1-4 ft, spread 0.75-1 ft, upright bushy habit; blooms June to frost; plant after last frost date; susceptible to powdery mildew, leaf spots, root rots, blight, Botrytis and Japanese beetles; pinch young plants for compact bushy form.",
       "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a618",
       "field": "seasonality"
     },
     {
-      "citation": "Missouri Botanical Garden Plant Finder — Zinnia elegans. Growth: bushy, leafy annual with upright, hairy, branching stems; spread 0.75-1.0 ft; not a climber/trailer (low vertical suitability).",
+      "citation": "Missouri Botanical Garden Plant Finder — Zinnia elegans. Upright, branching annual, not a climber or trailer (basis for growthHabit=upright and low verticalSuitability); disease-resistant cultivars recommended in hot, humid climates.",
       "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a618",
       "field": "growthHabit"
     },
     {
-      "citation": "Missouri Botanical Garden Plant Finder — Zinnia elegans. Susceptible to powdery mildew, leaf spots, root rots, blight and Botrytis; disease-resistant cultivars recommended for hot, humid climates; good air circulation and deadheading help.",
-      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a618",
-      "field": "commonIssues"
+      "citation": "RHS Growing Guide — How to grow zinnia. Half-hardy annual that won't tolerate cold; plant out only after all frost danger (normally June in the UK); sow at 20C and grow on at 15-18C; keep watered in hot dry weather without wetting foliage; container plants benefit from a high-potassium feed (e.g. tomato feed) while flowering, in-ground plants need no supplemental feeding; tall varieties supported by netting secured ~30-40 cm above ground; alternaria blight, botrytis, damping-off and slugs are the main problems.",
+      "url": "https://www.rhs.org.uk/plants/zinnia/growing-guide",
+      "field": "temperatureProfile"
     },
     {
-      "citation": "The Old Farmer's Almanac — Zinnias. Container guidance: one zinnia in a 6-inch pot, three in a 10-inch pot, up to five in a 14-inch pot; pot depth minimum 15-20 cm (6-8 in); container feeding with water-soluble 5-10-5; seedlings can be fed 5-10-5 liquid fertilizer.",
-      "url": "https://www.almanac.com/plant/zinnias",
-      "field": "containerProfile"
-    },
-    {
-      "citation": "The Old Farmer's Almanac — Zinnias. Feeding: 5-10-5 fertilizer at seedling stage and again mid-season; container plants fed weekly with diluted 5-10-5 (basis for preferredNpk and containerLeachAdjustment).",
-      "url": "https://www.almanac.com/plant/zinnias",
+      "citation": "RHS Growing Guide — How to grow zinnia. Container-grown zinnias fed during flowering with high-potassium feed; supports containerLeachAdjustment and the bloom-feed half of preferredNpk; support guidance for tall cultivars (requiresSupport stays false because typical/dwarf container cultivars are self-supporting).",
+      "url": "https://www.rhs.org.uk/plants/zinnia/growing-guide",
       "field": "feedingProfile"
     },
     {
-      "citation": "Estimated/conservative values. baseIntervalDays=3 derives from UMN/Clemson '1 inch per week, water when top 1-2 in dry' translated to a typical 3-day check interval; hotWeatherMultiplier=1.5 and rainSkipThresholdMm=12 are conservative defaults not given verbatim by sources. coldHardyMinC=10 and heatStressC=35 are inferred warm-season-annual bounds (sources state >=70F/21C preferred, frost-killed) rather than published thresholds. Container liters converted from imperial pot sizes (6-14 in pots ~ 3-19 L). Planting windows by zone are illustrative (zone 5 ~May-Jun, zone 7 ~Apr-Jun) consistent with after-last-frost guidance.",
-      "url": "https://extension.umn.edu/flowers/zinnia",
+      "citation": "Estimated/conservative values not stated verbatim by any source: baseIntervalDays=3 translates Clemson/UMN '~1 inch per week, water when top 1-2 in of soil are dry' into a practical check interval (containers dry faster than beds); hotWeatherMultiplier=1.5 and rainSkipThresholdMm=12 (~0.5 in) are conservative defaults derived from the 1-inch/week guidance; coldHardyMinC=5 and heatStressC=38 are inferred warm-season-annual bounds (sources state >=21C soil preferred, frost-killed, very heat tolerant) rather than published thresholds; container volumes (4 L min ~ a 20 cm pot for one dwarf plant, 8-20 L ideal) are converted from common pot sizes — extension sources confirm container suitability for dwarf cultivars but publish no explicit volume; plantingWindowsByZone are illustrative after-last-frost windows (zone 5 ~May-Jun, zone 7 ~Apr-Jun).",
+      "url": "https://hgic.clemson.edu/factsheet/how-to-grow-zinnias-the-best-varieties-care-tips/",
       "field": "confidence"
     }
   ],

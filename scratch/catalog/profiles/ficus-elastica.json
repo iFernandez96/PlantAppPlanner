@@ -1,0 +1,99 @@
+{
+  "id": "ficus-elastica",
+  "scientificName": "Ficus elastica",
+  "commonNames": [
+    "Rubber plant",
+    "Rubber tree",
+    "India rubber fig",
+    "India rubber tree"
+  ],
+  "category": "other",
+  "growthHabit": "tree",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 7,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.75,
+    "rainSkipThresholdMm": 5
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 30,
+    "containerLeachAdjustment": 0.9,
+    "preferredNpk": "high-nitrogen balanced houseplant fertilizer (e.g. 24-8-16 or 10-10-10), spring through summer only"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 10,
+    "idealMinLiters": 15,
+    "idealMaxLiters": 50,
+    "soilMixTags": [
+      "well-drained",
+      "houseplant-mix",
+      "loam-based",
+      "soil-based-potting-mix"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 3,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 10,
+    "heatStressC": 30,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [3, 4, 5, 6, 7, 8, 9],
+    "dormancyMonths": [11, 12, 1, 2]
+  },
+  "commonIssues": [
+    "Root rot and leaf yellowing from overwatering or poor drainage — let soil dry slightly between waterings and never leave the pot standing in water",
+    "Sudden leaf drop from cold drafts, low light, overwatering, or temperatures below about 10-13 C",
+    "Pests: scale, mealybugs, aphids, thrips, and spider mites",
+    "Milky latex sap can irritate skin and is mildly toxic if ingested — keep away from pets and children, wash hands after pruning",
+    "In the wild this is a 15-30 m tree (hardy only in USDA zones 10-12); grown as a 1-3 m container houseplant elsewhere — the 10 L container minimum is for a young indoor plant, size up every 2-3 years as it grows",
+    "Reduce watering from fall to late winter; resume regular watering and feeding in spring"
+  ],
+  "verticalSuitability": 0.05,
+  "source": [
+    {
+      "citation": "Clemson University Home & Garden Information Center, 'Rubber Plant' factsheet — water thoroughly, let soil dry slightly between waterings; ensure drainage; root rot/yellowing from excess moisture",
+      "url": "https://hgic.clemson.edu/factsheet/rubber-plant/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Clemson HGIC 'Rubber Plant' — ideal temperatures 75-80 F (24-27 C) day, 60-65 F (16-18 C) night; avoid below 55 F (13 C), sudden drops, and cold drafts",
+      "url": "https://hgic.clemson.edu/factsheet/rubber-plant/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Clemson HGIC 'Rubber Plant' — prefers bright light, adaptable to low light, grows best with morning light from an east window; fertilize every two weeks with water-soluble houseplant fertilizer during spring/summer active growth",
+      "url": "https://hgic.clemson.edu/factsheet/rubber-plant/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder, Ficus elastica — USDA zones 10-12; 50-100 ft in habitat, 2-10 ft as houseplant; part shade / bright indirect light; medium water, water regularly in growing season, reduce fall to late winter; soil-based potting mix; pests: scale, aphids, mealybugs, thrips, spider mites",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b597",
+      "field": "seasonality"
+    },
+    {
+      "citation": "RHS, Ficus elastica (rubber plant) plant profile — hardiness H1b (grow outside only in summer, 10-15 C minimum); bright but filtered/indirect light; water moderately in growth, sparingly in winter; high-nitrogen fertiliser monthly; repot every 2-3 years",
+      "url": "https://www.rhs.org.uk/plants/95720/ficus-elastica/details",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "RHS Growing Guide, 'How to grow ornamental figs' — keep above 10-13 C (50-55 F); bright indirect light, tolerates a few hours of morning/evening sun; let compost dry slightly between waterings; loam-based compost (John Innes No 3) with fine bark; move to a slightly larger container every couple of years",
+      "url": "https://www.rhs.org.uk/plants/ornamental-figs/growing-guide",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Confidence note: sources give qualitative watering guidance ('let soil dry slightly between waterings', 'water moderately') with no day interval; 7 days is a conservative indoor estimate derived from that guidance. Light is specified as 'bright indirect' rather than sun-hours; 6 h target / 3-8 h range is an estimate mapping 'bright light, adaptable to low light, some morning sun'. No authoritative source states a pot volume; 10 L minimum (≈25 cm pot) is an estimate consistent with RHS 'slightly larger container every couple of years' repotting practice. heatStressC 30 is an estimate above the Clemson 24-27 C ideal day range.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

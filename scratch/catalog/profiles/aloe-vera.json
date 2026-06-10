@@ -1,0 +1,109 @@
+{
+  "id": "aloe-vera",
+  "scientificName": "Aloe vera",
+  "commonNames": [
+    "Aloe vera",
+    "Aloe",
+    "Barbados Aloe",
+    "Medicinal Aloe",
+    "True Aloe"
+  ],
+  "category": "succulent",
+  "growthHabit": "rosette",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 14,
+    "dryingTolerance": "high",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.75,
+    "rainSkipThresholdMm": 3
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 60,
+    "containerLeachAdjustment": 0,
+    "preferredNpk": "higher-phosphorus houseplant fertilizer (e.g. 10-15-10) diluted to half strength, growing season only"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 3,
+    "idealMinLiters": 4,
+    "idealMaxLiters": 10,
+    "soilMixTags": [
+      "cactus-succulent-mix",
+      "sandy",
+      "sharp-drainage",
+      "unglazed-clay-pot",
+      "drainage-holes-required"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 4,
+    "maxSunHours": 10
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 4,
+    "heatStressC": 38,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [3, 4, 5, 6, 7, 8, 9],
+    "dormancyMonths": [11, 12, 1, 2]
+  },
+  "commonIssues": [
+    "Root rot from overwatering or poor drainage — the number-one killer; let soil dry completely between waterings and use a pot with drainage holes",
+    "Reduce watering to a minimum in winter (dormant period); soil should be barely moist",
+    "Mealybugs, scale, and aphids",
+    "Sunburn when moved from low light to bright direct sun too quickly — transition gradually",
+    "Not frost tolerant; bring indoors before night temperatures dip below 10C (50F)",
+    "Outdoor summer plants should be protected from rain to avoid waterlogged soil",
+    "An oversized pot holds excess moisture and promotes root rot — pot up only 2.5-4 cm (1-1.5 in) wider than the root ball",
+    "Mildly toxic to cats, dogs, and horses if ingested",
+    "Indoor plants rarely flower; mature plants (3+ years) in bright light may bloom"
+  ],
+  "verticalSuitability": 0.2,
+  "source": [
+    {
+      "citation": "Missouri Botanical Garden Plant Finder — Aloe vera: water very moderately spring–fall, minimum watering in winter; full sun, adapts to part shade; winter minimum 40F (4C); bring indoors before nights drop below 50F; protect outdoor plants from rain; hardy zones 10-12; sandy well-drained potting loam",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b628",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder — Aloe vera: winter minimum 40F (~4C); not frost hardy below zone 10; bring indoors before night temps dip below 50F",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b628",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox — Aloe vera: full sun (6 or more hours of direct sunlight a day) to partial shade; allow soil to completely dry between waterings; water less in winter; very well-drained succulent soil; clay pot with several drainage holes; zones 10a-12b; rosette habit spreading by offsets; mealybugs, aphids, scale; toxic to cats/dogs/horses (low severity)",
+      "url": "https://plants.ces.ncsu.edu/plants/aloe-vera/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox — Aloe vera: allow soil to completely dry between waterings; overwatering causes root rot; clay pot with drainage holes recommended",
+      "url": "https://plants.ces.ncsu.edu/plants/aloe-vera/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Penn State Extension, 'Aloe, a Hardy Houseplant' — water thoroughly when soil surface is dry during growing season (spring–early fall); keep barely moist during fall–winter dormancy; err on the side of underwatering (root-rot prone); repot every ~2 years into a pot only 1-1.5 in larger than the root ball; coarse cactus/succulent mix; not frost tolerant",
+      "url": "https://extension.psu.edu/aloe-a-hardy-houseplant",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "UF/IFAS Gardening Solutions — Aloe Vera: water only when top inch of soil is dry, water well, never let plant sit in water; do not increase pot by more than two sizes (oversized pots hold excess moisture and cause root rot); zones 8-11 outdoors; sunburn when moved to bright light too quickly",
+      "url": "https://gardeningsolutions.ifas.ufl.edu/plants/ornamentals/aloe-vera/",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension, 'Cacti and succulents' — allow soil to dry completely between waterings; water minimally in winter; fertilize succulents three to four times during the brighter months with a half-strength houseplant fertilizer higher in phosphorus than nitrogen; bright sunny window; pots must have drainage holes; one part potting soil to one part coarse sand",
+      "url": "https://extension.umn.edu/houseplants/cacti-and-succulents",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Confidence note: extension sources give moisture-based rules ('water when soil is completely dry'), not fixed day counts; baseIntervalDays=14 is a conservative planner estimate of that drying cycle for a typical indoor pot. feedingProfile.baseIntervalDays=60 is derived from UMN's '3-4 times during the brighter months'. heatStressC=38 and container liters (3-10 L ≈ 15-25 cm pots, per PSU/UF pot-sizing guidance for a 1-2 ft rosette) are reasoned conversions, not directly published figures.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

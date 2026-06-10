@@ -1,0 +1,122 @@
+{
+  "id": "salvia-splendens",
+  "scientificName": "Salvia splendens",
+  "commonNames": [
+    "Salvia (scarlet)",
+    "Scarlet Sage",
+    "Bedding Sage",
+    "Salvia"
+  ],
+  "category": "ornamental",
+  "growthHabit": "upright",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "low",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.7,
+    "rainSkipThresholdMm": 13
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 30,
+    "containerLeachAdjustment": 0.8,
+    "preferredNpk": "balanced slow-release formulated for annuals"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 7.5,
+    "idealMinLiters": 10,
+    "idealMaxLiters": 20,
+    "soilMixTags": [
+      "well-drained",
+      "loam",
+      "high-organic-matter",
+      "compost-enriched"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 4,
+    "maxSunHours": 10
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 0,
+    "heatStressC": 35,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "plantingWindowsByZone": {
+      "5": [{ "startMonth": 5, "endMonth": 6 }],
+      "6": [{ "startMonth": 5, "endMonth": 6 }],
+      "7": [{ "startMonth": 4, "endMonth": 6 }],
+      "8": [{ "startMonth": 4, "endMonth": 5 }],
+      "9": [{ "startMonth": 3, "endMonth": 5 }],
+      "10": [{ "startMonth": 2, "endMonth": 5 }]
+    },
+    "productiveMonths": [6, 7, 8, 9, 10]
+  },
+  "commonIssues": [
+    "Frost-tender: plant out only after all danger of frost has passed; killed by first hard frost outside zones 10-11",
+    "Not drought-tolerant — wilts quickly in dry soil, especially in containers",
+    "Avoid excessive irrigation and poorly drained soil: stem and root rots, damping-off of seedlings",
+    "Powdery mildew and Botrytis blight in humid, crowded plantings",
+    "Aphids, spider mites, and whiteflies are the most common pests",
+    "Many bedding cultivars produce little nectar and are poor pollinator resources despite attracting hummingbirds/butterflies",
+    "Appreciates light afternoon shade in very hot summer climates"
+  ],
+  "verticalSuitability": 0.1,
+  "source": [
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox — Salvia splendens (Scarlet Sage): full sun (6+ hrs) to partial shade (2-6 hrs); not drought-tolerant; well-drained loam high in organic matter; hardy USDA 10a-11b, grown as annual elsewhere; suited to containers; aphids, spider mites, whiteflies, powdery mildew, botrytis, southern blight.",
+      "url": "https://plants.ces.ncsu.edu/plants/salvia-splendens/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox — Salvia splendens: 'It is not drought-tolerant, but it needs warmth'; regular watering, consistently moist, well-drained soil.",
+      "url": "https://plants.ces.ncsu.edu/plants/salvia-splendens/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder — Salvia splendens: medium water; average, evenly moist, well-drained soils in full sun to part shade; winter hardy USDA zones 10-11, grown as warm-weather annual; set out after last frost date; 1-2 ft tall, compact cultivars 8-15 in for edging and containers.",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a606",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder — Salvia splendens: hardy zones 10-11 only, treated as annual in St. Louis; start seed indoors 6-8 weeks before last frost, plant out after last frost (basis for frostSensitive, coldHardyMinC ~0 C, and spring planting windows).",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a606",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Old Farmer's Almanac — Salvia growing guide: full sun 6-8 hours/day; water during summer if rainfall is less than 1 inch (25 mm) per week; salvia does not like excessive summer irrigation; garden plants need little feeding, feed container plants in spring; mix in compost at planting.",
+      "url": "https://www.almanac.com/plant/salvia",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Old Farmer's Almanac — Salvia growing guide: 6-8 hours of sun per day and well-draining soil (basis for targetSunHours).",
+      "url": "https://www.almanac.com/plant/salvia",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC — Salvia factsheet: plant in spring after danger of frost is passed; apply a slow-release fertilizer formulated for annuals at planting; ideal in full sun, tolerates partial shade; problems include damping-off, stem/root rots, powdery mildew, Botrytis, aphids, spider mites, whiteflies.",
+      "url": "https://hgic.clemson.edu/factsheet/salvia/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "NC State Extension Plant Toolbox — bloom 'summer to frost' (basis for productiveMonths June-October).",
+      "url": "https://plants.ces.ncsu.edu/plants/salvia-splendens/",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Container minimum derived from extension size data (NC State/MOBOT: 1-2 ft tall, 8-18 in spread, compact cultivars recommended for containers): a 20-25 cm (8-10 in) pot of ~7.5-10 L per plant is a conservative working minimum; extension sources confirm container suitability but publish no exact pot volume.",
+      "url": "https://plants.ces.ncsu.edu/plants/salvia-splendens/",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Confidence note: containerProfile liters, feedingProfile.baseIntervalDays (monthly container feeding inferred from Clemson slow-release-at-planting + Almanac spring container feeding), watering baseIntervalDays (3 days derived from ~1 inch/week guidance plus 'not drought-tolerant' container context), and heatStressC (35 C estimate; sources say 'heat-tolerant' without a threshold) are conservative derivations, not directly published numbers.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

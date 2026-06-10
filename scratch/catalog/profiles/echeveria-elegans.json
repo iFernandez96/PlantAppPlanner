@@ -1,0 +1,109 @@
+{
+  "id": "echeveria-elegans",
+  "scientificName": "Echeveria elegans",
+  "commonNames": [
+    "Echeveria",
+    "Mexican Snowball",
+    "Mexican Snow Ball",
+    "Mexican Gem",
+    "White Mexican Rose",
+    "Mexican Hens and Chicks"
+  ],
+  "category": "succulent",
+  "growthHabit": "rosette",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 14,
+    "dryingTolerance": "high",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.7,
+    "rainSkipThresholdMm": 5
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 60,
+    "preferredNpk": "balanced liquid fertiliser, diluted; RHS advises applying only 2-3 times across the growing season"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 1,
+    "idealMinLiters": 1,
+    "idealMaxLiters": 4,
+    "soilMixTags": [
+      "well-drained",
+      "gritty",
+      "cactus-succulent-mix",
+      "loam-based-with-added-grit",
+      "shallow-container"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 4,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 1,
+    "heatStressC": 38,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [2, 3, 4, 5, 6],
+    "dormancyMonths": [11, 12, 1]
+  },
+  "commonIssues": [
+    "Overwatering is the most common and most serious problem — the species prefers dry, well-drained conditions and rots readily in soggy soil; let the mix dry out fully between waterings and use a shallow pot with drainage holes",
+    "Frost-sensitive (RHS hardiness H2, ~1-5 C minimum): does not survive being frozen, so overwinter indoors or under glass in cold climates; NCSU/MoBot list it as hardy only in USDA zones 9a-11b",
+    "Withhold water almost entirely during winter dormancy to avoid rot in cool, low-light conditions",
+    "Monitor for mealybugs, aphids, and vine weevils",
+    "Grown as a small shallow-container or houseplant succulent; the recommendedMinLiters of ~1 L reflects its compact rosette (height to ~10 cm) rather than a large pot — clumping offsets ('pups') can be divided into more pots over time",
+    "Etiolation (stretching, loss of tight rosette form) in too little light — give bright light or full sun"
+  ],
+  "verticalSuitability": 0.5,
+  "source": [
+    {
+      "citation": "North Carolina State Extension Gardener Plant Toolbox — Echeveria elegans (Mexican Snowball / White Mexican Rose): full sun (6+ h) to partial shade (2-6 h); prefers dry, well-drained soil with overwatering the most common problem; USDA hardiness 9a-11b; rosette-shaped clumps, slow growth, leaves 1-3 in; blooms winter to spring; propagate by division, leaf cuttings, offsets; pests mealybugs, aphids, vine weevils; no significant diseases; grown as a houseplant in shallow containers",
+      "url": "https://plants.ces.ncsu.edu/plants/echeveria-elegans/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "North Carolina State Extension Gardener Plant Toolbox — Echeveria elegans: prefers dry conditions, well-drained soil, most common issue is overwatering; USDA zones 9a-11b; pests mealybugs, aphids, vine weevils",
+      "url": "https://plants.ces.ncsu.edu/plants/echeveria-elegans/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "North Carolina State Extension Gardener Plant Toolbox — Echeveria elegans: USDA hardiness zones 9a-11b; thrives in subtropical climates such as Southern California",
+      "url": "https://plants.ces.ncsu.edu/plants/echeveria-elegans/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "RHS — Echeveria elegans (Mexican snow ball): hardiness H2 (tolerant of low temperatures but not surviving being frozen, 1 to 5 C); full sun, south- or west-facing sheltered position; loam-based medium with added grit, well-drained, pH acid/alkaline/neutral; water moderately in growth and not at all when dormant; ultimate height ~10 cm, spread 0.1-0.5 m, maturity 2-5 years; no pruning; container/patio cultivation; propagate by seed, root/stem/leaf cuttings; mealybugs, aphids, vine weevils",
+      "url": "https://www.rhs.org.uk/plants/6226/echeveria-elegans/details",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "RHS — Echeveria elegans: grow in loam-based potting medium with added grit; water moderately when in growth and not at all when dormant; apply a balanced liquid fertiliser 2 or 3 times in the growing season; well-suited to containers/patios",
+      "url": "https://www.rhs.org.uk/plants/6226/echeveria-elegans/details",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "RHS — Echeveria elegans: loam-based, grit-added, well-drained growing medium; ultimate height ~10 cm and spread 0.1-0.5 m support a small, shallow container",
+      "url": "https://www.rhs.org.uk/plants/6226/echeveria-elegans/details",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Confidence note: wateringProfile.baseIntervalDays=14 is a conservative 'soak-and-dry' estimate for a succulent — neither NCSU nor RHS gives an interval in days (RHS only says 'water moderately in growth, not at all when dormant'; NCSU says it prefers dry conditions and overwatering is the main risk). hotWeatherMultiplier=0.7 and rainSkipThresholdMm=5 are planner estimates, not stated by any source",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: feedingProfile.baseIntervalDays=60 is derived from RHS's 'balanced liquid fertiliser 2 or 3 times in the growing season' (≈3 feeds over a ~6-month growing season). containerProfile liters (recommendedMin 1 L, ideal 1-4 L) are converted from RHS's ~10 cm height / 0.1-0.5 m spread and NCSU's 'shallow container' guidance rather than an explicit pot volume",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: temperatureProfile.coldHardyMinC=1 takes the conservative warm end of RHS hardiness H2 (1-5 C, 'not surviving being frozen') to protect the plant, even though NCSU/MoBot list USDA 9a-11b (9a ≈ -6.7 C); frostSensitive=true. heatStressC=38 is an estimate (no source states an upper heat limit); productiveMonths/dormancyMonths approximate NCSU's winter-to-spring bloom and RHS's winter dormancy note",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

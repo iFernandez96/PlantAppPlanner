@@ -1,0 +1,112 @@
+{
+  "id": "zamioculcas-zamiifolia",
+  "scientificName": "Zamioculcas zamiifolia",
+  "commonNames": [
+    "ZZ plant",
+    "Zanzibar gem",
+    "Aroid palm",
+    "Eternity plant"
+  ],
+  "category": "other",
+  "growthHabit": "upright",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 14,
+    "dryingTolerance": "high",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.9
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 90,
+    "preferredNpk": "balanced (e.g. 10-10-10) at half strength, growing season only"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 3,
+    "idealMinLiters": 4,
+    "idealMaxLiters": 15,
+    "soilMixTags": [
+      "well-draining",
+      "peat-or-coir-based",
+      "perlite",
+      "sand",
+      "cactus-succulent-mix"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 2,
+    "minSunHours": 0,
+    "maxSunHours": 4
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 15,
+    "heatStressC": 35,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "dormancyMonths": [11, 12, 1, 2]
+  },
+  "commonIssues": [
+    "Overwatering is the main killer — rhizomes and roots rot quickly in wet soil; always let the potting mix dry completely before watering",
+    "Direct sun can scorch/scald the glossy leaflets; keep out of full sunlight",
+    "Yellowing lower leaves usually signal overwatering, not drought",
+    "Watch for scale insects (otherwise few pest or disease problems)",
+    "All parts contain calcium oxalate — toxic to cats, dogs, and people if chewed; wash hands after handling",
+    "Black spots on stems are normal for this species, not disease",
+    "Very slow grower; repot only every 2-3 years in spring, going up one pot size"
+  ],
+  "verticalSuitability": 0.1,
+  "source": [
+    {
+      "citation": "Clemson University HGIC, 'ZZ Plant (Zamioculcas zamiifolia): Indoor Care, Growing Tips & Plant Guide' — water 1-2 times a month only after the potting medium has completely dried; overwatering causes root rot",
+      "url": "https://hgic.clemson.edu/factsheet/zz-plant-zamioculcas-zamiifolia-indoor-care-growing-tips-plant-guide/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "NC State Extension Plant Toolbox, Zamioculcas zamiifolia — water twice monthly in summer (only if soil has dried out completely) and once a month in winter when not actively growing",
+      "url": "https://plants.ces.ncsu.edu/plants/zamioculcas-zamiifolia/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Clemson University HGIC — fertilize only once or twice during the growing season with a balanced fertilizer; ~90-day interval encodes this growing-season-only cadence",
+      "url": "https://hgic.clemson.edu/factsheet/zz-plant-zamioculcas-zamiifolia-indoor-care-growing-tips-plant-guide/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "NC State Extension Plant Toolbox — deep shade (less than 2 hours direct sun) to partial shade (2-6 hours); thrives in bright indirect light; direct rays can scald leaves",
+      "url": "https://plants.ces.ncsu.edu/plants/zamioculcas-zamiifolia/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder, Zamioculcas zamiifolia (Kemper code d179) — part shade to full shade; bright indirect light; USDA Zones 9-10; bring indoors when temperatures dip below 60 F (~15.5 C); 2-3 ft tall and wide",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=d179",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Clemson University HGIC — sensitive to cold, keep above 60 F (~15.5 C); coldHardyMinC 15 is the conservative keep-above threshold for container culture, not the absolute survival minimum",
+      "url": "https://hgic.clemson.edu/factsheet/zz-plant-zamioculcas-zamiifolia-indoor-care-growing-tips-plant-guide/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Clemson University HGIC — soil mix of 50% peat moss or coir-based potting soil, 25% perlite, 25% sand; good drainage essential, never leave standing water",
+      "url": "https://hgic.clemson.edu/factsheet/zz-plant-zamioculcas-zamiifolia-indoor-care-growing-tips-plant-guide/",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "NC State Extension Plant Toolbox — slow growth rate, 2-4 ft tall and wide; medium toxicity to cats and dogs (calcium oxalate); watch for scale insects",
+      "url": "https://plants.ces.ncsu.edu/plants/zamioculcas-zamiifolia/",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "Confidence note: container liters (3 L minimum ≈ 6-inch nursery pot; ideal 4-15 L ≈ 7-12-inch pots) are estimated from the plant's slow growth, mature 2-3 ft size (MoBot/NCSU), and common nursery pot sizes — no extension source states an explicit pot volume",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: heatStressC 35 and hotWeatherMultiplier 0.9 are conservative estimates — extension sources document cold limits (keep above 60 F) but give no explicit upper heat-stress temperature; ZZ tolerates warm indoor conditions well",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

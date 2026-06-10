@@ -1,0 +1,102 @@
+{
+  "id": "begonia-semperflorens",
+  "scientificName": "Begonia semperflorens",
+  "commonNames": [
+    "Begonia",
+    "Wax Begonia",
+    "Fibrous Begonia",
+    "Bedding Begonia",
+    "Wax Leaf Begonia"
+  ],
+  "category": "ornamental",
+  "growthHabit": "bush",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.7,
+    "rainSkipThresholdMm": 10
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 30,
+    "preferredNpk": "balanced (e.g. 10-10-10) at planting, then bloom formula higher in phosphorus than nitrogen; in containers RHS advises weekly high-potassium liquid feed in summer"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 2,
+    "idealMinLiters": 3,
+    "idealMaxLiters": 10,
+    "soilMixTags": [
+      "well-drained",
+      "high-organic-matter",
+      "quality-potting-mix",
+      "slightly-acidic-ph-5.5-6.5"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 4,
+    "minSunHours": 2,
+    "maxSunHours": 8
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 0,
+    "heatStressC": 35,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [5, 6, 7, 8, 9, 10]
+  },
+  "commonIssues": [
+    "Root rot from overwatering or soggy soil — begonias are highly susceptible; ensure drainage holes and let soil dry slightly between waterings",
+    "Powdery mildew and Botrytis blight — water at the base of the plant early in the day and keep good air circulation",
+    "Mealybugs, thrips, spider mites, slugs and snails; may be sensitive to insecticidal soaps",
+    "Leaf scorch on green-leaved cultivars in hot afternoon sun — bronze-leaved cultivars tolerate full sun better",
+    "Tender annual: plant out only after frost danger passes and soil reaches at least 15-16 C (60 F); cold soil causes stunting",
+    "Toxic to cats and dogs"
+  ],
+  "verticalSuitability": 0.6,
+  "source": [
+    {
+      "citation": "North Carolina State Extension Gardener Plant Toolbox — Begonia, Wax Types: full sun (6+ h) to deep shade (<2 h) tolerated, bronze-leaved best in sun; mounded fibrous-rooted habit 6-12 in; hardy zones 9-11; tolerant of hot summers and mild drought; mealybugs, thrips, rot, fungal diseases; excellent in containers and hanging baskets",
+      "url": "https://plants.ces.ncsu.edu/plants/begonia-wax-types/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Begonia: prefer shade, morning sun only; ~1 inch of water per week, let soil dry slightly, highly susceptible to root rot; fertilize monthly with higher-phosphorus bloom formula after balanced fertilizer at planting; transplant out once soil reaches 60 F; toxic to cats and dogs",
+      "url": "https://extension.umn.edu/flowers/begonia",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Begonia: fertilize monthly after planting with formula higher in phosphorus than nitrogen to promote blooms; balanced NPK worked in at planting",
+      "url": "https://extension.umn.edu/flowers/begonia",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Clemson University HGIC — Begonia factsheet: green-leaved cultivars best in morning sun/afternoon shade, bronze-leaved take full sun; keep soil moist but well drained; not heavy feeders (slow-release annual fertilizer); plant after frost danger; pests include spider mites, mealybugs, thrips, slugs; diseases include Botrytis, stem rot, powdery mildew",
+      "url": "https://hgic.clemson.edu/factsheet/begonia/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "RHS — Begonias Outdoors (Summer Colour): sun or partial shade; water regularly in dry periods, avoid wetting foliage; feed weekly with high-potassium feed in containers through September; tender — plant out after frost danger; semperflorens potted on into 13 cm (5 in) pots",
+      "url": "https://www.rhs.org.uk/plants/begonias/outdoors",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Illinois Extension — Wax Begonia, Fibrous Begonia: tender annual, wait for warm soil and air (cold soil stunts); full sun to shade once established with moisture; 6-12 in mature height; constant bloom May through October; moist, well-drained, high-organic-matter soil",
+      "url": "https://extension.illinois.edu/flowers/wax-begonia-fibrous-begonia",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Confidence note: baseIntervalDays=3 is derived from UMN's ~1 inch/week with soil allowed to dry slightly, tightened for containers; hotWeatherMultiplier and rainSkipThresholdMm are conservative planner estimates, not stated by any source",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: recommendedMinLiters=2 converts RHS's final 13 cm (5 in) pot per plant (~1 L) upward to a conservative single-plant container; ideal 3-10 L for fuller plants/mixed containers is an estimate. heatStressC=35 estimated from NCSU 'tolerant of hot summer temperatures' plus RHS note of foliage scorch in intense heat",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

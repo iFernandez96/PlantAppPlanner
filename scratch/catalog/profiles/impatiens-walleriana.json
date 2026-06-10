@@ -1,0 +1,122 @@
+{
+  "id": "impatiens-walleriana",
+  "scientificName": "Impatiens walleriana",
+  "commonNames": [
+    "Impatiens",
+    "Busy Lizzie",
+    "Bizzy Lizzy",
+    "Common Impatiens",
+    "Garden Impatiens",
+    "Patience Plant",
+    "Sultana"
+  ],
+  "category": "ornamental",
+  "growthHabit": "bush",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "low",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.5
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 30,
+    "containerLeachAdjustment": 0.5,
+    "preferredNpk": "low-nitrogen, higher-phosphorus (e.g. 5-10-5) to favor blooms over foliage"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 3,
+    "idealMinLiters": 4,
+    "idealMaxLiters": 10,
+    "soilMixTags": [
+      "soilless-mix",
+      "well-drained",
+      "organic-rich",
+      "slightly-acidic"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 3,
+    "minSunHours": 0,
+    "maxSunHours": 4
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 5,
+    "heatStressC": 32,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [6, 7, 8, 9, 10],
+    "dormancyMonths": [12, 1, 2]
+  },
+  "commonIssues": [
+    "Very susceptible to impatiens downy mildew (Plasmopara obducens); there is no cure once established, so remove and discard infected plants and choose resistant cultivars (UMN, Clemson, NC State).",
+    "Wilts quickly in hot, dry weather and in containers; needs extra water during heat. Container plants and hanging baskets may need daily watering (UMN, Clemson).",
+    "Overwatering or waterlogged soil causes rot, damping-off, and root disease; ensure drainage holes (UMN, Clemson).",
+    "Very cold sensitive; do not plant outdoors until soil reaches ~60 degrees F (~15.6 C) and all frost danger has passed (UMN, Clemson).",
+    "Becomes leggy by late summer; pinch or trim back the top one-third to encourage new blooms (Old Farmer's Almanac).",
+    "Container minimum liters are an app estimate: extension sources specify pot/hanging-basket use with good drainage but not a liter volume."
+  ],
+  "verticalSuitability": 0.7,
+  "source": [
+    {
+      "citation": "University of Minnesota Extension — Impatiens. Best in part to full shade; sites with 2-4 hours filtered sun or morning sun/afternoon shade are ideal; too much sun scorches leaves.",
+      "url": "https://extension.umn.edu/flowers/impatiens",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Impatiens. Walleriana cultivars grown in shade; very sensitive to cold, do not plant until soil is 60 F (15.6 C) or warmer.",
+      "url": "https://extension.umn.edu/flowers/impatiens",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Impatiens. In garden beds water only when the top 1-2 inches of soil is dry; container plants need daily watering with drainage holes; drooping leaves indicate insufficient moisture.",
+      "url": "https://extension.umn.edu/flowers/impatiens",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Impatiens. Apply balanced granular fertilizer at planting, then fertilize monthly with a product higher in phosphorus than nitrogen to promote flowers over foliage.",
+      "url": "https://extension.umn.edu/flowers/impatiens",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "University of Minnesota Extension — Impatiens. Very susceptible to downy mildew; remove heavily infected plants; no cure once established.",
+      "url": "https://extension.umn.edu/flowers/impatiens",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC — Impatiens. Older types thrive in filtered/partial shade and must be protected from hot afternoon sun; require rich, moist, mulched soil kept consistently moist but not waterlogged; avoid overhead watering.",
+      "url": "https://hgic.clemson.edu/factsheet/impatiens/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC — Impatiens. Fertilize monthly with a water-soluble fertilizer; use a soilless growing mix with good drainage for containers, which need more frequent watering and feeding than garden plants.",
+      "url": "https://hgic.clemson.edu/factsheet/impatiens/",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Clemson Cooperative Extension HGIC — Impatiens. Tender annuals; plant after the final frost date. Primary disease concern is downy mildew, plus damping-off, fungal blights, rots, and viruses.",
+      "url": "https://hgic.clemson.edu/factsheet/impatiens/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "NC State Extension Gardener Plant Toolbox — Impatiens walleriana. Mounding/bushy tender annual (commonly 6-30 in tall), prized for shade beds, containers, and hanging baskets; requires moist, well-drained, organic-rich, slightly acidic soil.",
+      "url": "https://plants.ces.ncsu.edu/plants/impatiens-walleriana/",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "The Old Farmer's Almanac — How to Grow Impatiens. By late summer plants get leggy; trim off the top one-third to promote new blooms and improve appearance.",
+      "url": "https://www.almanac.com/plant/impatiens",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "Confidence note: heatStressC (32 C) and coldHardyMinC (5 C) are conservative app estimates. Extension sources state impatiens wilt in hot, dry spells and are very cold-sensitive (plant only when soil >= 60 F / 15.6 C, after last frost) but do not publish exact threshold temperatures in Celsius. Container recommendedMinLiters (3 L) is also an estimate — sources confirm pot/basket suitability with good drainage but give no volume.",
+      "url": "https://extension.umn.edu/flowers/impatiens",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

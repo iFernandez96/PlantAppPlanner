@@ -1,0 +1,103 @@
+{
+  "id": "monstera-deliciosa",
+  "scientificName": "Monstera deliciosa",
+  "commonNames": [
+    "Monstera",
+    "Swiss Cheese Plant",
+    "Split-leaf Philodendron",
+    "Ceriman",
+    "Mexican Breadfruit"
+  ],
+  "category": "other",
+  "growthHabit": "climbing",
+  "requiresSupport": true,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 7,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.8
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 30,
+    "containerLeachAdjustment": 1.0,
+    "preferredNpk": "balanced 20-20-20 liquid at half strength (salt-sensitive)"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 10,
+    "idealMinLiters": 10,
+    "idealMaxLiters": 40,
+    "soilMixTags": [
+      "well-draining",
+      "high-organic-matter",
+      "peaty-soil-based",
+      "slightly-acidic-to-neutral",
+      "orchid-bark-amendment"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 4,
+    "minSunHours": 2,
+    "maxSunHours": 6
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 10,
+    "heatStressC": 35,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [4, 5, 6, 7, 8, 9],
+    "dormancyMonths": [11, 12, 1, 2]
+  },
+  "commonIssues": [
+    "Root and stem rot from overwatering or pots standing in water (UConn, RHS); always let the upper soil dry before watering",
+    "Leaves fail to develop characteristic splits/holes (fenestration) in inadequate light (Wisconsin Horticulture, RHS)",
+    "Large leaves sunburn easily when moved into stronger direct sun (UConn)",
+    "Brown leaf edges from dry indoor air; prefers medium-to-high humidity (Wisconsin Horticulture, RHS)",
+    "Pests: mealybugs, spider mites, scale, aphids, thrips (Wisconsin Horticulture, Missouri Botanical Garden)",
+    "Salt burn: easily damaged by high soil salts, so fertilize at reduced strength (UConn)",
+    "All parts except fully ripe fruit contain calcium oxalate and are toxic to people and pets (Wisconsin Horticulture, NC State)",
+    "Grown indoors as a foliage plant; flowering and fruiting are rare in home environments (Missouri Botanical Garden, NC State)",
+    "Top-heavy vine: needs a moss pole, bark slab, or sturdy stake to prevent stem breakage (UConn, Wisconsin Horticulture, Missouri Botanical Garden)"
+  ],
+  "verticalSuitability": 0.9,
+  "source": [
+    {
+      "citation": "University of Connecticut Home & Garden Education Center, 'Monstera deliciosa' factsheet — partial shade with 3-6 hours direct sun daily; allow top 2-3 inches of soil to dry between waterings; hardy zones 10a-12b, tolerates outdoor placement above 45F; fertilize during active growth (May-September), easily burned by high soil salts; well-draining mix with high organic matter; repot gradually, tolerates pot-bound better than over-potting; moss pole support",
+      "url": "https://homegarden.cahnr.uconn.edu/factsheets/monstera-deliciosa/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "UConn Home & Garden Education Center — watering: allow top 2-3 in of soil to dry between waterings (roughly weekly indoors); susceptible to root disease in cool months, needs consistent drainage",
+      "url": "https://homegarden.cahnr.uconn.edu/factsheets/monstera-deliciosa/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "University of Wisconsin-Madison Extension, Wisconsin Horticulture, 'Swiss-Cheese Plant, Monstera deliciosa' — does not grow below 50F (10C), frost kills; bright light in summer, direct sun in winter; water thoroughly and allow soil to dry slightly between waterings, less in winter; fertilize regularly spring to fall; needs ample root room and support (tree bark or moss-covered pole); pests: aphids, mealybugs, scale, spider mites",
+      "url": "https://hort.extension.wisc.edu/articles/monstera-deliciosa/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Royal Horticultural Society, 'How to grow Swiss cheese plants' — keep at 18-25C year-round; indirect light by an east/west window; let compost nearly dry then water thoroughly, never leave standing in water; feed balanced liquid fertilizer April-September; repot into only slightly larger pots; mix of 1 part ericaceous peat-free compost to 2 parts orchid compost; train onto a moss pole",
+      "url": "https://www.rhs.org.uk/plants/swiss-cheese-plants/how-to-grow-swiss-cheese-plants",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder, 'Monstera deliciosa' — USDA zones 10-12; bright indoor light, no strong direct sun; medium water, regular in growing season, reduced fall through late winter; peaty soil-based potting mix; 6-8 ft indoors (30-70 ft in habitat); needs pole/trellis support; indoor plants rarely flower and fruit; pests include aphids, mealybugs, thrips, scale, spider mites",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b605",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "North Carolina State Extension Gardener Plant Toolbox, 'Monstera deliciosa' — tolerates dappled sunlight or partial shade (2-6 hours direct sun); water thoroughly then allow top quarter-to-third of soil to dry; zones 10a-12b, houseplant elsewhere; climbing vine 6-8 ft indoors; rarely fruits indoors; toxic (calcium oxalate); medium maintenance, sturdy support required",
+      "url": "https://plants.ces.ncsu.edu/plants/monstera-deliciosa/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Confidence note: sources give watering as a soil-dryness test (top 2-3 in dry), not a fixed interval; 7-day base interval is a conservative indoor estimate. Container liters are estimated (10 L = ~25 cm pot for an established plant; sources advise gradual up-potting in only slightly larger pots, no explicit volumes). heatStressC 35C and hotWeatherMultiplier 0.8 are conservative estimates from the 18-29C preferred range; feeding interval 30 days estimated from 'fertilize regularly/monthly during the April-September growing season'.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

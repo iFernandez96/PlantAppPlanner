@@ -1,0 +1,95 @@
+{
+  "id": "philodendron-hederaceum",
+  "scientificName": "Philodendron hederaceum",
+  "commonNames": [
+    "Heartleaf philodendron",
+    "Heart leaf philodendron",
+    "Sweetheart plant",
+    "Parlor ivy"
+  ],
+  "category": "other",
+  "growthHabit": "vine",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 7,
+    "dryingTolerance": "medium",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.8
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 30,
+    "containerLeachAdjustment": 1,
+    "preferredNpk": "balanced (e.g. 10-10-10 or 20-20-20) houseplant fertilizer, applied lightly"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 2,
+    "idealMinLiters": 2,
+    "idealMaxLiters": 10,
+    "soilMixTags": [
+      "well-draining",
+      "lightweight-potting-mix",
+      "soil-based-potting-mix",
+      "moisture-retentive-but-not-soggy"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 4,
+    "minSunHours": 0,
+    "maxSunHours": 6
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 10,
+    "heatStressC": 35,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "productiveMonths": [3, 4, 5, 6, 7, 8, 9],
+    "dormancyMonths": [11, 12, 1, 2]
+  },
+  "commonIssues": [
+    "Root rot in overly moist or poorly drained soil — do not let the pot sit in water",
+    "Yellowing leaves from too much water or too little light",
+    "Brown, curled leaf tips from over-fertilizing",
+    "Spindly, stretched stems when light is too dark",
+    "Watch for aphids, spider mites, mealybugs, and scale",
+    "Leaf spots may occur",
+    "Toxic to humans and pets (calcium oxalate crystals) — keep out of reach",
+    "Avoid direct sunlight, which can burn the leaves; grow in bright indirect light"
+  ],
+  "verticalSuitability": 0.9,
+  "source": [
+    {
+      "citation": "North Carolina Extension Gardener Plant Toolbox — Philodendron hederaceum: prefers medium light, tolerates low light (deep shade <2h direct sun to partial shade 2-6h); keep soil slightly moist with good drainage, slow watering in winter; USDA zones 11a-12b; trailing or climbing tropical evergreen vine; toxic (calcium oxalate)",
+      "url": "https://plants.ces.ncsu.edu/plants/philodendron-hederaceum/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "Missouri Botanical Garden Plant Finder — Philodendron hederaceum: winter hardy USDA zones 11-12; part shade, bright indirect light indoors, avoid direct sun; medium water, reduce fall to late winter; soil-based potting mix; root rot in overly moist soils; aphids, spider mites, mealybugs, scale; easy culture, trains on trellis or trails from hanging basket",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b611",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "UF/IFAS Gardening Solutions — Heartleaf Philodendron: water when top inch of soil is dry; bright diffuse light, avoid direct sun; temperatures below 50°F (10°C) are too cool; fertilize every 3-4 months (light feeder; excess fertilizer browns/curls leaf tips); lightweight well-drained potting media; suits hanging baskets and containers",
+      "url": "https://gardeningsolutions.ifas.ufl.edu/plants/houseplants/heartleaf-philodendron/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Iowa State University Extension, Growing Philodendrons at Home — water when top of soil is dry, evenly moist but not wet; fertilize lightly once or twice a month during spring/summer active growth with balanced all-purpose fertilizer; home temperatures 65-80°F (18-27°C) well tolerated; grows best slightly pot-bound, repot one size up when overcrowded",
+      "url": "https://yardandgarden.extension.iastate.edu/how-to/growing-philodendrons-home",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Iowa State University Extension, Growing Philodendrons at Home — pot-size guidance: container large enough to support the top growth without toppling; does well slightly pot-bound; repot one size larger when overcrowded",
+      "url": "https://yardandgarden.extension.iastate.edu/how-to/growing-philodendrons-home",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "Confidence note: sources give qualitative triggers, not fixed numbers. baseIntervalDays=7 derives 'water when the top inch of soil is dry' (UF/IFAS, Iowa State) to a typical indoor cadence. recommendedMinLiters=2 maps the standard 15 cm (6 in) starter pot / hanging basket implied by extension guidance to liters; no source states liters. heatStressC=35 is a conservative estimate above the 18-27°C comfortable range (Iowa State); feeding interval of 30 days follows Iowa State (monthly in growing season) over UF/IFAS's every-3-4-months — both are within the lightly-fed guidance.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

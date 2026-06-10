@@ -10,7 +10,7 @@
   "wateringProfile": {
     "baseIntervalDays": 3,
     "dryingTolerance": "medium",
-    "overwaterRisk": "medium",
+    "overwaterRisk": "high",
     "hotWeatherMultiplier": 0.6
   },
   "feedingProfile": {

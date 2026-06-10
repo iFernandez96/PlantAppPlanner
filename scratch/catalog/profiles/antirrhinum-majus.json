@@ -1,0 +1,103 @@
+{
+  "id": "antirrhinum-majus",
+  "scientificName": "Antirrhinum majus",
+  "commonNames": [
+    "Snapdragon",
+    "Common Snapdragon",
+    "Garden Snapdragon"
+  ],
+  "category": "ornamental",
+  "growthHabit": "upright",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 3,
+    "dryingTolerance": "low",
+    "overwaterRisk": "medium",
+    "hotWeatherMultiplier": 0.5,
+    "rainSkipThresholdMm": 12
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 14,
+    "containerLeachAdjustment": 0.75,
+    "preferredNpk": "balanced all-purpose (e.g. 10-10-10)"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 4,
+    "idealMinLiters": 6,
+    "idealMaxLiters": 12,
+    "soilMixTags": [
+      "well-drained",
+      "rich-organic-matter",
+      "moist"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 6,
+    "minSunHours": 4,
+    "maxSunHours": 10
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": -5,
+    "heatStressC": 27,
+    "frostSensitive": false
+  },
+  "seasonality": {
+    "productiveMonths": [4, 5, 6, 7, 8, 9, 10],
+    "dormancyMonths": [12, 1, 2]
+  },
+  "commonIssues": [
+    "Antirrhinum rust is a significant disease — avoid overhead watering and remove infected foliage",
+    "Powdery mildew, downy mildew, fungal leaf spots, wilts, and root rots in poorly drained or humid conditions",
+    "Aphids, whiteflies, and leafminers",
+    "Bloom stalls and plants languish in summer heat — performs best in cool seasons (spring/fall)",
+    "Tall cut-flower cultivars need staking or netting; dwarf bedding types do not",
+    "Deadhead spent spikes to prolong flowering and prevent the plant from setting seed and dying back",
+    "A tender short-lived perennial usually grown as a hardy annual; tolerates light frost but is killed by very hard freezes"
+  ],
+  "verticalSuitability": 0.2,
+  "source": [
+    {
+      "citation": "North Carolina State Extension Gardener Plant Toolbox — Antirrhinum majus: full sun (6+ hours) to partial shade (2–6 hours); moist, rich, well-drained soil; good container plant; tall plants may need staking; low drought tolerance, languishes in summer heat; zones 7a–10b; significant rust susceptibility.",
+      "url": "https://plants.ces.ncsu.edu/plants/antirrhinum-majus/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "NC State Plant Toolbox — 'low drought tolerance' and need for consistently moist, well-drained soil informs the short watering interval and low drying tolerance.",
+      "url": "https://plants.ces.ncsu.edu/plants/antirrhinum-majus/",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "Clemson HGIC, 'Snapdragons for Fall Blooms' — plant in full to part sun; water on a regular basis; fertilize with an all-purpose fertilizer after cutting back; taller varieties require support; perennial only in zones 9+; deadhead and cut tall types back to 6 inches after flowering.",
+      "url": "https://hgic.clemson.edu/snapdragons-for-fall-blooms/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "University of Illinois Extension, Flowers: Snapdragon — hardy annual, very cold tolerant, performs in cool seasons until a very hard frost kills it; full sun to light shade; moist well-drained soil; blooms May–October; tall cultivars may need staking.",
+      "url": "https://extension.illinois.edu/flowers/snapdragon",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "University of Illinois Extension, Container Gardens: Fertilizing — reapplying fertilizer every two weeks provides adequate nutrition for most containers (basis for the 14-day feeding interval).",
+      "url": "https://extension.illinois.edu/container-gardens/fertilizing",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Mississippi State University Extension, 'Snapdragon (Antirrhinum majus) for the Farmer Florist' — full sun to partial shade; space 4–12 in; ideal night temps above 60F (16C); drip irrigation preferred since overhead watering increases disease; major diseases rust, botrytis, powdery/downy mildew, root rots; pests aphids, whiteflies, leafminers.",
+      "url": "https://extension.msstate.edu/publications/snapdragon-antirrhinum-majus-for-the-farmer-florist",
+      "field": "commonIssues"
+    },
+    {
+      "citation": "RHS, Antirrhinum majus — full sun, well-drained soil; hardiness H2 (1–5C minimum for reliable overwintering of tender stock); flowers late spring to autumn; susceptible to antirrhinum rust, powdery mildews, aphids; deadheading prolongs flowering.",
+      "url": "https://www.rhs.org.uk/plants/69565/antirrhinum-majus/details",
+      "field": "seasonality"
+    },
+    {
+      "citation": "Confidence note: no single extension page gives an exact container-watering interval or minimum pot volume for snapdragons. baseIntervalDays=3 is a conservative reading of 'regular, consistent moisture / ~1 inch per week, more in containers' guidance; recommendedMinLiters=4 corresponds to a standard 8-inch (20 cm) pot commonly used for bedding annuals; coldHardyMinC=-5 is a conservative light-frost tolerance consistent with 'very cold tolerant hardy annual killed by very hard frost' (Illinois) and RHS H2; heatStressC=27 reflects 'languishes in summer heat' (NCSU) without a published exact threshold.",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}

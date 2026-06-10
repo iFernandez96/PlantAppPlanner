@@ -1,0 +1,103 @@
+{
+  "id": "dracaena-trifasciata",
+  "scientificName": "Dracaena trifasciata",
+  "commonNames": [
+    "Snake plant",
+    "Mother-in-law's tongue",
+    "Sansevieria",
+    "Good luck plant",
+    "Saint George's sword"
+  ],
+  "category": "other",
+  "growthHabit": "upright",
+  "requiresSupport": false,
+  "selfFruitful": null,
+  "pollinationPartnersRequired": 0,
+  "wateringProfile": {
+    "baseIntervalDays": 14,
+    "dryingTolerance": "high",
+    "overwaterRisk": "high",
+    "hotWeatherMultiplier": 0.8
+  },
+  "feedingProfile": {
+    "baseIntervalDays": 30,
+    "preferredNpk": "balanced liquid houseplant or cactus fertilizer (e.g. dilute 10-10-10) monthly during spring-summer growing season only; do not feed in winter; heavy fertilization burns leaf margins"
+  },
+  "containerProfile": {
+    "recommendedMinLiters": 2,
+    "idealMinLiters": 3,
+    "idealMaxLiters": 12,
+    "soilMixTags": [
+      "well-drained",
+      "cactus-succulent-mix",
+      "gritty",
+      "peat-free-ok",
+      "snug-pot-preferred"
+    ]
+  },
+  "lightProfile": {
+    "targetSunHours": 4,
+    "minSunHours": 1,
+    "maxSunHours": 6
+  },
+  "temperatureProfile": {
+    "coldHardyMinC": 10,
+    "heatStressC": 35,
+    "frostSensitive": true
+  },
+  "seasonality": {
+    "dormancyMonths": [11, 12, 1, 2]
+  },
+  "commonIssues": [
+    "Root rot from overwatering is by far the most common problem — let the potting mix dry out completely between waterings and never leave the pot standing in water",
+    "Reduce watering significantly from fall to late winter (roughly monthly) while the plant is not actively growing",
+    "Avoid pouring water directly into the center of the leaf rosette — it can rot the crown",
+    "Toxic if ingested (saponins): vomiting, nausea, diarrhea in pets and humans; sap may irritate skin",
+    "Pests: mealybugs, spider mites, scale, thrips, vine weevil",
+    "Tall narrow habit can make the plant top-heavy — use a wide, heavy (e.g. clay/terracotta) pot for stability",
+    "Tender tropical (USDA zones 10-12): keep above ~10 C, protect from frost and cold drafts; grow as an indoor/container plant outside those zones"
+  ],
+  "verticalSuitability": 0.2,
+  "source": [
+    {
+      "citation": "Missouri Botanical Garden Plant Finder — Dracaena trifasciata: zones 10-12; well-draining potting mix; water regularly in the growing season with significantly reduced watering from fall to late winter; avoid pouring water on the rosette center; prefers warm bright locations but tolerates some shade, protect from hot afternoon sun; overwatering causes root rot; mealybugs and spider mites; wide clay pots used so the tall narrow plant does not topple; height 2-4 ft",
+      "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b617",
+      "field": "wateringProfile"
+    },
+    {
+      "citation": "North Carolina State Extension Gardener Plant Toolbox — Dracaena trifasciata: partial shade (direct sun only part of the day, 2-6 hours) with tolerance for very low light; zones 10a-12b; tolerates cool temperatures around 50 F (10 C); erect clumping broadleaf evergreen; allow soil to dry between waterings spring-autumn, water only monthly in winter; toxic if ingested (saponins); mealybugs, spider mites, scale, thrips",
+      "url": "https://plants.ces.ncsu.edu/plants/dracaena-trifasciata/",
+      "field": "lightProfile"
+    },
+    {
+      "citation": "RHS — How to grow sansevierias (Growing Guide): water only after the compost has completely dried out, barely any water in winter; feed once a month April-September with liquid houseplant or cactus feed; ideal 15-24 C, keep warm in winter and avoid cold drafts; snug pots preferred, repot only when roots fill the container, into a pot only slightly larger; free-draining peat-free cactus compost or loam-based compost with one part grit; overwatering/root rot is the most damaging mistake; mealybugs, red spider mite, vine weevil",
+      "url": "https://www.rhs.org.uk/plants/sansevieria/growing-guide",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "Clemson University HGIC — Dracaena factsheet (covers snake plant within Dracaena): feed with liquid foliage plant fertilizer once a month during spring and summer; heavy fertilization burns leaf margins; allow soil to dry between waterings then water thoroughly; normal house temperatures 60-70 F; overwatering causes root rot; scale and mites",
+      "url": "https://hgic.clemson.edu/factsheet/dracaena/",
+      "field": "feedingProfile"
+    },
+    {
+      "citation": "RHS — How to grow sansevierias: snug container preference and repot-only-when-rootbound guidance back the small recommended container size",
+      "url": "https://www.rhs.org.uk/plants/sansevieria/growing-guide",
+      "field": "containerProfile"
+    },
+    {
+      "citation": "North Carolina State Extension + RHS — temperature bounds: NCSU 'tolerates cool temperatures around 50 F' sets coldHardyMinC=10; RHS ideal range 15-24 C; frost kills the plant outdoors below zone 10",
+      "url": "https://plants.ces.ncsu.edu/plants/dracaena-trifasciata/",
+      "field": "temperatureProfile"
+    },
+    {
+      "citation": "Confidence note: baseIntervalDays=14 is a planner-derived growing-season interval from 'water only after the compost has completely dried out' (RHS) and 'allow soil to dry between waterings' (NCSU/MoBot) — no source states an exact day count; winter watering should stretch to ~30 days (dormancyMonths). hotWeatherMultiplier=0.8 is a conservative planner estimate",
+      "field": "confidence"
+    },
+    {
+      "citation": "Confidence note: recommendedMinLiters=2 (~15 cm pot) and ideal 3-12 L are planner estimates from RHS snug-pot guidance and MoBot's wide-stable-pot note plus typical 2-4 ft mature size — no source states liters. heatStressC=35 is a conservative estimate; sources only give the 15-24 C ideal range. lightProfile hours map NCSU's 'partial shade, 2-6 hours direct sun' to target 4 / max 6; minSunHours=1 reflects documented tolerance of very low indoor light",
+      "field": "confidence"
+    }
+  ],
+  "version": 1,
+  "lastReviewedAt": "2026-06-02"
+}
