@@ -103,3 +103,9 @@ core-vision items)._
   accepted as one user story ("wizard talks like a person").
 - **Vision:** ALIGNED — plain-language error card = Beginner mode; phrase echoes the picked
   space (reinforces space-first model). Ship as-is.
+
+## 0055 — GoTrue refresh endpoint (:network), token-refresh part 1/3 (2026-06-10)
+- Found by the 0054 device check: expired access token = permanent 401 dead end (refresh token
+  received but never stored/used; no 401→sign-in path).
+- **Guardian:** PASS — HEAD a0cbc3d; endpoint shape sanity-checked vs GoTrue conventions.
+- **Vision:** ALIGNED — maintenance on shipped sign-in (0026-pattern decomposition). Ship as-is.
