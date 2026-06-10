@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-10 — **`0046` (dark-mode Scaffold contentColor) DONE+VERIFIED ✅: impl pushed `a5968a4` (3 files +3, 20/20 tests, fast-forward), planner re-verified vs real git AND on-device (dark body text now readable — `backdrop-14-darkfix-verify.png`). WAVE 2 OVERHAUL PLAN PROPOSED (`plans/wave2-overhaul-plan.md`): owner chose all 4 pillars (catalog-live · Today dashboard · spaces-first nav · AI assistant) + folded-in polish + full redesign pass; plan-first — awaiting owner approval; gates A–D defined. Catalog Phase 2: 54/75 valid; 21-profile resume RUNNING (`wf_a43f2284-06b`). Device re-paired (mDNS `adb-R5CX11MDTZK`). Local backend stack DOWN (fine; restart for next device e2e). FCM deferred.** |
+| **Snapshot** | 2026-06-10 (checkpoint) — **Wave 2 W1 running: 0047–0056 landed+verified (+device-checked); 0057 (sign-in fallback, token-fix 3/3) PUBLISHED awaiting impl. 3 real bugs found by per-slice device checks (wizard kinds, stale list, expired-session) — all fixed/in-flight. Catalog 75/75 ready. Next: 0057 close-out → W1 exit review → Gates B/C. PD-11 photo-ID in W5.** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `a5968a40b466d99a9e5597ce02e5cfa5e24b14ae` (`a5968a4`) — in sync, clean (untracked `android/.kotlin/` toolchain cache only) |
+| **Local HEAD / origin/master** | `738fb9c89d50f71a298cada94386a2672c5d5685` (`738fb9c`, 0056) — in sync, clean (untracked `android/.kotlin/` only); 0057 pending |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·

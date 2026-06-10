@@ -3,12 +3,33 @@
 **From:** "do all" backlog session · **Date:** 2026-06-02 · _(history below is older; see the
 "Do all" section near the bottom + `state/current-state.md` for the live picture)_
 
-## ▶ RESUME HERE — updated 2026-06-10 (Wave 2 W1 loop RUNNING)
+## ▶ RESUME HERE — updated 2026-06-10 evening (W1 loop CHECKPOINTED — owner said "stop when comfortable")
+**Landed+verified+device-checked since the last block:** 0054 wizard error card + natural confirm
+copy (a0cbc3d) · 0055 GoTrue refresh endpoint (1a60c3f) · 0056 refresh persistence + 401
+authenticator (738fb9c). **0057 PUBLISHED, NOT yet consumed** (sign-in fallback on
+SessionExpiredException — part 3/3 of the expired-session fix; pointer
+exchange/pointers/latest-ready-prompt = 0057). **NEXT SESSION:** (1) check
+exchange/implementation-inbox/0057/ — if the report is there, verify vs real git (expect ~7
+files: domain exception, data 401 mapping, SignedOut state, MainActivity nav), then the BIG
+device check: force-expire the token on-device (or wait >1h) → app must silently refresh OR
+land on sign-in; screenshot + SendUserFile. (2) Then W1 remainder: sign-in screen polish ·
+orphan-space cleanup decision · raw-401 on wizard/detail polish note · W1-EXIT full device
+review (all screens light+dark) → owner sign-off. (3) Then **Gates B (houseplant enum) +
+C (icon strategy) — ASK OWNER** to open W2 (catalog into app; 75/75 profiles ready in
+scratch/catalog/profiles/). PD-11: photo plant-ID (Pl@ntNet) ships in W5, Gate D′.
+**Env notes:** backend Supabase+Fastify were left UP (Fastify restarted via nohup by a device
+agent, log /tmp/fastify-restart.log; env /tmp/plantapp-fastify-env.sh — recreate from `npx
+supabase status -o json` if /tmp wiped). Device serial
+`adb-R5CX11MDTZK-qTD4xe._adb-tls-connect._tcp`, package `dev.plantapp.android`, test account
+reviewer@example.com (Mailpit :54324; access token expires hourly — 0056 refresh now handles it
+once 0057 lands). **Owner may want ufw re-closed when device work pauses (sudo, owner action).**
+
+## (older) RESUME — 2026-06-10 (Wave 2 W1 loop RUNNING)
 **Wave 2 approved (PD-08, "show me when gated"), Gate A = Garden Hearth (PD-09), per-slice device
 checks standing (PD-10).** W1 slices landed+verified+device-checked: 0047 tokens (05fba1c) ·
 0048 opaque cards (7b5ba83) · 0049 bottom tabs (130c391) · 0050 beginner detail (cbe520b) ·
 0051 HOTFIX wizard kinds (e726070) · 0052 list refresh (a222929) · 0053 Hearth list rows
-(1019e19). **0054 PUBLISHED (wizard error card + natural confirm copy) — awaiting impl report**
+(1019e19). **0054–0056 LANDED (see newer block above); 0057 published**
 (watcher pattern: poll exchange/implementation-inbox/0054/READY.json).
 **Loop per slice:** consume report → verify vs real git → rebuild LAN APK
 (`-Pplantapp.apiBaseUrl=http://10.0.0.179:3000/ -Pplantapp.authBaseUrl=http://10.0.0.179:54321/`)
