@@ -1,0 +1,45 @@
+# Commands executed for 0054 (in order)
+
+cd /home/israel/Documents/Development/PlantApp
+git rev-parse HEAD
+# -> 1019e19842bf49030a21b7149f2f60c00b736712 (matched expected baseline)
+git status --porcelain
+# -> only "?? android/.kotlin/" (expected; left alone)
+
+# 1) RED: added ONLY the error-card test to AddPlantWizardTest.kt
+cd android
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest
+# -> COMPILE-RED (expected per §6):
+#    e: AddPlantWizardTest.kt:122:17 No parameter with name 'error' found.
+#    e: AddPlantWizardTest.kt:125:53 Unresolved reference 'WIZARD_ERROR'.
+#    :feature-inventory:compileDebugUnitTestKotlin FAILED
+
+# 2) GREEN edits:
+#    WizardModel.kt       — LocationPreset + phrase; 4 presets get natural phrases
+#    AddPlantWizard.kt    — error param (default null) + Hearth error GlassCard (top of body,
+#                           all steps, WIZARD_ERROR tag); targetSpacePhrase; confirm line
+#                           "Add your $species $phrase?" (fallback "to its new spot")
+#    InventoryTestTags.kt — + WIZARD_ERROR = "wizard_error"
+#    MainActivity.kt      — ADD composable only: collect vm.error, pass error = error
+#    AddPlantWizardTest.kt      — + onNodeWithText import + confirm-copy test (Basil →
+#                                 Windowsill → 6-inch pot → "Add your Basil on the windowsill?")
+#    AddPlantWizardModelTest.kt — + preset-phrases test
+
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest
+# -> BUILD SUCCESSFUL; JUnit XML aggregate tests=33 failures+errors=0
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :app:assembleDebug
+# -> BUILD SUCCESSFUL
+
+cd /home/israel/Documents/Development/PlantApp
+grep -c "WIZARD_ERROR" .../addplant/AddPlantWizard.kt      # -> 1
+grep -c 'to the $place' .../addplant/AddPlantWizard.kt     # -> 0
+
+git add android/feature-inventory android/app/src/main/kotlin/dev/plantapp/android/MainActivity.kt
+git commit -m "feat(wizard): surface create/add errors in the wizard and use natural confirm copy"
+# -> [master a0cbc3d] 6 files changed, 83 insertions(+), 8 deletions(-)
+git push origin master
+# -> 1019e19..a0cbc3d  master -> master
+git rev-parse origin/master
+# -> a0cbc3d93a4db8d2ef47109ea5a4a8943712ee0a
+git status --porcelain
+# -> only "?? android/.kotlin/"

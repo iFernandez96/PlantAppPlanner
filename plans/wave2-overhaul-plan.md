@@ -61,7 +61,7 @@ Estimated total: **~45–60 implementation handoffs** across 6 stages.
   read-only where data exists (no new planner features yet).
 - **Stage exit:** browse garden by space on-device; move a plant; advisories still correct.
 
-## Stage W5 — AI garden assistant (~8–10 handoffs, GATED)
+## Stage W5 — AI features: assistant + photo plant-ID (~12–15 handoffs, GATED)
 - **Decision Gate D (hard gate):** owner provides OpenAI API key (server env only, never
   committed, never on Android — D-11/D-12) **and** explicitly consents that garden data is sent
   to OpenAI. Model + monthly budget choice included in the gate.
@@ -70,8 +70,12 @@ Estimated total: **~45–60 implementation handoffs** across 6 stages.
   never creates tasks**. Strict prompt-injection + citation discipline (cited profiles are the
   ground truth).
 - Android: Assistant tab chat UI (plain-language, beginner tone), privacy explainer on first use.
+- **Photo plant-ID (PD-11):** wizard entry "Identify from a photo" → camera/gallery → backend
+  `POST /identify` → **Pl@ntNet API** → candidates matched to our catalog profiles → confirm
+  screen ("Is this Basil?") → wizard pre-filled. Photo: opt-in save to Supabase storage after
+  confirm, else discarded. Needs camera permission + Pl@ntNet consent (Gate D′).
 - **Stage exit:** on-device chat answers "why does my tomato need water today?" citing the
-  user's actual task + profile data.
+  user's actual task + profile data; photo of a basil plant identifies + adds end-to-end.
 
 ## Decision gates summary (planner stops and asks)
 | Gate | What | When |
@@ -79,7 +83,7 @@ Estimated total: **~45–60 implementation handoffs** across 6 stages.
 | A | Pick 1 of 3 Codex redesign directions | end of W0 |
 | B | `houseplant` schema enum vs map-to-other | start of W2 |
 | C | Per-species vs category icons at 75 scale | start of W2 |
-| D | OpenAI key + data consent + budget | start of W5 |
+| D′ | OpenAI key+consent · Pl@ntNet consent · camera permission · photo-save consent (PD-11) | start of W5 |
 | (parked) | FCM server push | unchanged, owner-gated |
 
 ## Risks / mitigations

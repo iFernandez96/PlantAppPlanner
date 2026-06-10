@@ -166,3 +166,14 @@ Owner asked for frequent on-device checks. Standing practice for Wave 2: after E
 UI-affecting slice, rebuild the LAN debug APK, install on the owner's phone (wifi-adb), walk the
 affected screens light+dark via a device agent, save shots to reviews/device-evidence/, and send
 the key shots to the owner. Local stack (Supabase+Fastify) stays up during the wave.
+
+## PD-11 — Photo plant-ID feature approved for W5 (2026-06-10)
+Owner wants identify-by-photo → confirm → add-to-garden. Decisions:
+- **Provider: Pl@ntNet API** (backend-only call; no provider key on Android; candidates matched
+  against our own catalog profiles so we only suggest plants we have cited care data for).
+- **Ships in W5** alongside the AI assistant (one consent/AI stage).
+- **Photo handling: offer to save** — opt-in per photo after confirm, stored in our Supabase
+  storage; otherwise discarded after the ID call. Requires: camera/photo permission (amends the
+  no-camera posture — owner-approved here), Pl@ntNet data-sharing consent copy, storage+deletion
+  story. Gate D expands to D′: OpenAI key+consent (assistant) + Pl@ntNet consent + camera
+  permission + photo-storage consent copy — all surfaced together at W5 start.
