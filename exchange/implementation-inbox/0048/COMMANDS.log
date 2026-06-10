@@ -1,0 +1,37 @@
+# Commands executed for 0048 (in order)
+
+cd /home/israel/Documents/Development/PlantApp
+git rev-parse HEAD
+# -> 05fba1c048591defa2744fca0080f3958cb1610a (matched expected baseline)
+git status --porcelain
+# -> only "?? android/.kotlin/" (expected; left alone)
+
+# Edits (Edit tool) in android/design-system/.../GlassCard.kt:
+#   non-clickable: .copy(alpha = if (isDark) 0.64f else 0.74f) -> 0.90f else 0.94f
+#   clickable:     .copy(alpha = if (isDark) 0.68f else 0.78f) -> 0.90f else 0.94f
+#   KDoc added above first overload (Garden Hearth surface)
+
+git diff --stat
+# -> 1 file (GlassCard.kt), 3 insertions(+), 2 deletions(-)
+
+grep -c "0.90f else 0.94f" android/design-system/src/main/kotlin/dev/plantapp/designsystem/GlassCard.kt
+# -> 2
+grep -c "0.64f\|0.74f\|0.68f\|0.78f" android/design-system/src/main/kotlin/dev/plantapp/designsystem/GlassCard.kt
+# -> 0 (grep exit 1 = no matches, expected)
+
+cd android
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest
+# -> BUILD SUCCESSFUL in 10s; JUnit XML aggregate tests=20 failures+errors=0
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :app:assembleDebug
+# -> BUILD SUCCESSFUL in 1s
+
+cd /home/israel/Documents/Development/PlantApp
+git add android/design-system/src/main/kotlin/dev/plantapp/designsystem/GlassCard.kt
+git commit -m "feat(design): retune GlassCard to mostly-opaque Hearth surfaces (Wave 2 W1)"
+# -> [master 7b5ba83] 1 file changed, 3 insertions(+), 2 deletions(-)
+git push origin master
+# -> 05fba1c..7b5ba83  master -> master
+git rev-parse origin/master
+# -> 7b5ba83327b5d85c1b58d9f5b10393ca4bae5b80
+git status --porcelain
+# -> only "?? android/.kotlin/"

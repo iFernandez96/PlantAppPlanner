@@ -69,3 +69,8 @@ core-vision items)._
 ## 0048 — GlassCard → mostly-opaque Hearth surfaces (Wave 2 W1 slice 2) (2026-06-10)
 - **Guardian:** PASS — 10/10 sections; HEAD 05fba1c + both old alpha expressions verified live.
 - **Vision:** ALIGNED — exact Hearth spec values (0.94/0.90); W1 foundation slice; ship as-is.
+
+## 0049 — bottom-tab navigation shell (Wave 2 W1 slice 3) (2026-06-10)
+- **Guardian:** PASS — 10/10; HEAD 7b5ba83, catalog dep + icon imports + no :app tests all verified live.
+- **Vision:** ALIGNED — Spaces gets its first-class nav slot (core vision), Assistant correctly
+  deferred to W5, placeholder copy beginner-clean. Ship as-is.
