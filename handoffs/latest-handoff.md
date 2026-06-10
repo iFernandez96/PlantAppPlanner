@@ -3,7 +3,19 @@
 **From:** "do all" backlog session · **Date:** 2026-06-02 · _(history below is older; see the
 "Do all" section near the bottom + `state/current-state.md` for the live picture)_
 
-## ▶ RESUME HERE — updated 2026-06-10 evening (W1 loop CHECKPOINTED — owner said "stop when comfortable")
+## ▶ RESUME HERE — FINAL checkpoint 2026-06-10 (owner stop; token story CLOSED)
+**0057 LANDED + VERIFIED (`4b3910c`) + DEVICE-PROVEN:** silent refresh PASS (corrupted access
+token → list loads; new JWT + ROTATED refresh token persisted — objective proof the endpoint
+was hit) and sign-in fallback PASS ("Signing you back in…" → clean sign-in screen). Device left
+signed-in + working; zero crashes. Evidence: reviews/device-evidence/token-0{1,2}-*.png.
+**Migration note:** sessions created before 0056 have no stored refresh_token → those users land
+on sign-in once after upgrade (acceptable; sign-in re-establishes the pair).
+**NEXT SESSION starts at:** W1 remainder — sign-in screen polish · orphan-space cleanup decision
+· wizard/detail raw-401 polish note · **W1-EXIT full device review** (all screens, light+dark,
+owner sign-off) → then **Gates B (houseplant enum) + C (icon strategy) — ASK OWNER** to open W2.
+PlantApp HEAD = origin/master = `4b3910c`.
+
+## (older, superseded) checkpoint 2026-06-10 evening
 **Landed+verified+device-checked since the last block:** 0054 wizard error card + natural confirm
 copy (a0cbc3d) · 0055 GoTrue refresh endpoint (1a60c3f) · 0056 refresh persistence + 401
 authenticator (738fb9c). **0057 PUBLISHED, NOT yet consumed** (sign-in fallback on

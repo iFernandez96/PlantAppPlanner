@@ -1,0 +1,42 @@
+# Commands executed for 0057 (in order)
+
+cd /home/israel/Documents/Development/PlantApp
+git rev-parse HEAD
+# -> 738fb9c89d50f71a298cada94386a2672c5d5685 (matched expected baseline)
+git status --porcelain
+# -> only "?? android/.kotlin/" (expected; left alone)
+
+# 1) RED: added ONLY the new VM test case (sessionExpiryMapsToSignedOutNotError)
+cd android
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest
+# -> COMPILE-RED: Unresolved 'SessionExpiredException' (x2) + 'SignedOut'
+#    :feature-inventory:compileDebugUnitTestKotlin FAILED
+
+# 2) GREEN edits:
+#    domain/SessionExpiredException.kt — NEW (verbatim)
+#    data/InventoryRepositoryImpl.kt   — private authed{} 401→SessionExpiredException mapper;
+#                                        every public method wrapped (mechanical)
+#    feature-inventory/InventoryUiState.kt   — + data object SignedOut
+#    feature-inventory/InventoryViewModels.kt — refresh() catch: when(e) SignedOut/Error
+#    feature-inventory/PlantListScreen.kt    — SignedOut → "Signing you back in…" (tag list_signed_out)
+#    app/MainActivity.kt — LIST composable only: separate LaunchedEffect(state) → SIGN_IN
+#                          with popUpTo(0){inclusive=true}; +PlantListUiState import
+
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :domain:test :data:testDebugUnitTest :feature-inventory:testDebugUnitTest
+# -> BUILD SUCCESSFUL; aggregates: domain 9/0, data 18/0, feature-inventory 34/0
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :app:assembleDebug
+# -> BUILD SUCCESSFUL
+
+cd /home/israel/Documents/Development/PlantApp
+grep -c "SessionExpiredException" android/data/src/main/kotlin/dev/plantapp/data/repository/InventoryRepositoryImpl.kt  # -> 2
+grep -c "SignedOut" android/app/src/main/kotlin/dev/plantapp/android/MainActivity.kt                                    # -> 1
+
+git add android/domain android/data android/feature-inventory android/app/src/main/kotlin/dev/plantapp/android/MainActivity.kt
+git commit -m "feat(ui): route to sign-in when the session can't be refreshed (SessionExpiredException)"
+# -> [master 4b3910c] 7 files changed, 66 insertions(+), 12 deletions(-)
+git push origin master
+# -> 738fb9c..4b3910c  master -> master
+git rev-parse origin/master
+# -> 4b3910cabf30167b0e30d37eecf98a6ed14430cd
+git status --porcelain
+# -> only "?? android/.kotlin/"

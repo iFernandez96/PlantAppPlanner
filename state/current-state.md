@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-10 (checkpoint) — **Wave 2 W1 running: 0047–0056 landed+verified (+device-checked); 0057 (sign-in fallback, token-fix 3/3) PUBLISHED awaiting impl. 3 real bugs found by per-slice device checks (wizard kinds, stale list, expired-session) — all fixed/in-flight. Catalog 75/75 ready. Next: 0057 close-out → W1 exit review → Gates B/C. PD-11 photo-ID in W5.** |
+| **Snapshot** | 2026-06-10 (checkpoint) — **Wave 2 W1 running: 0047–0056 landed+verified (+device-checked); 0047–0057 ALL landed+verified; token story device-PROVEN (silent refresh + sign-in fallback). 3 real bugs found by per-slice device checks (wizard kinds, stale list, expired-session) — all fixed/in-flight. Catalog 75/75 ready. Next: W1 remainder (sign-in polish, orphan-space decision) → W1-EXIT device review → Gates B/C. PD-11 photo-ID in W5.** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `738fb9c89d50f71a298cada94386a2672c5d5685` (`738fb9c`, 0056) — in sync, clean (untracked `android/.kotlin/` only); 0057 pending |
+| **Local HEAD / origin/master** | `4b3910cabf30167b0e30d37eecf98a6ed14430cd` (`4b3910c`, 0057) — in sync, clean (untracked `android/.kotlin/` only) |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
