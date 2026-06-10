@@ -86,3 +86,9 @@ core-vision items)._
 - **Guardian:** PASS — bug + all 4 file/line refs + constraint list verified live.
 - **Vision:** ALIGNED — "Backyard"→other uses an existing sanctioned enum member; labels stay;
   no schema migration in a hotfix slice; follow-up error-surfacing slice queued. Ship as-is.
+
+## 0052 — My Garden refresh-on-visit + quiet refresh (Wave 2 W1 slice 5) (2026-06-10)
+- Found by the 0051 device check: new plant invisible until force-stop (restoreState keeps the VM).
+- **Guardian:** PASS — HEAD e726070; unconditional-Loading bug + insertion points verified live.
+- **Vision:** ALIGNED — bug fix; ReminderSync-on-every-visit consistent with its "on app open"
+  intent (fire-and-forget, no engine impact). Ship as-is.

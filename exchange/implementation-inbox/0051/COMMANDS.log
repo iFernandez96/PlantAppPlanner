@@ -1,0 +1,41 @@
+# Commands executed for 0051 (in order)
+
+cd /home/israel/Documents/Development/PlantApp
+git rev-parse HEAD
+# -> cbe520ba263c197e3609c3bf6f939f539f77cac2 (matched expected baseline)
+git status --porcelain
+# -> only "?? android/.kotlin/" (expected; left alone)
+
+# 1) RED: added ONLY the new constraint test to AddPlantWizardModelTest.kt
+cd android
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest
+# -> FAILED: "location preset kinds are accepted by the garden_spaces DB constraint"
+#    java.lang.IllegalStateException: preset 'Windowsill' sends invalid kind 'windowsill'
+#    26 tests completed, 1 failed (no other failure)
+
+# 2) GREEN edits:
+#    WizardModel.kt  — kinds: windowsill->window-ledge, yard->other, indoor->indoor-room
+#    WizardIcons.kt  — locationIcon keys remapped to the new kinds (same icons)
+#    AddPlantWizardTest.kt — tile tag "windowsill" -> "window-ledge" (lines 119, 126)
+#    AddPlantWizardModelTest.kt — expected label->kind pairs updated
+
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest
+# -> BUILD SUCCESSFUL; JUnit XML aggregate tests=26 failures+errors=0
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :app:assembleDebug
+# -> BUILD SUCCESSFUL
+
+cd /home/israel/Documents/Development/PlantApp
+grep -c "window-ledge\|indoor-room" .../addplant/WizardModel.kt
+# -> 2
+grep -c "\"yard\"\|\"windowsill\"\|\"indoor\"" .../addplant/WizardModel.kt .../addplant/WizardIcons.kt
+# -> 0 and 0
+
+git add android/feature-inventory
+git commit -m "fix(wizard): map location presets to DB-allowed garden-space kinds (silent Add-button brick)"
+# -> [master e726070] 4 files changed, 24 insertions(+), 11 deletions(-)
+git push origin master
+# -> cbe520b..e726070  master -> master
+git rev-parse origin/master
+# -> e72607095ad2d5636a744501a4c002bc18fc09b0
+git status --porcelain
+# -> only "?? android/.kotlin/"
