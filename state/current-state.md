@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-02 — **Backdrop `0045` (`ae60aea`) DEVICE-REVIEWED ✅ (13 shots, light+dark; 1 real bug: dark-mode empty-state text dark-on-dark + check confirm "Add" prominence → `reviews/backdrop-device-review-2026-06-02.md`). Catalog Phase 2: 54/75 cited profiles written & ALL schema-valid (6–12 citations each, seeded 5 enriched v2); 21 tail (ornamentals/houseplants/succulents) pending — session limit, resets 5:30pm; resume `wf_a43f2284-06b` (`scratch/catalog/phase2-status.md`). Backend UP. FCM deferred.** |
+| **Snapshot** | 2026-06-10 — **`0046` (dark-mode Scaffold contentColor) DONE+VERIFIED ✅: impl pushed `a5968a4` (3 files +3, 20/20 tests, fast-forward), planner re-verified vs real git AND on-device (dark body text now readable — `backdrop-14-darkfix-verify.png`). WAVE 2 OVERHAUL PLAN PROPOSED (`plans/wave2-overhaul-plan.md`): owner chose all 4 pillars (catalog-live · Today dashboard · spaces-first nav · AI assistant) + folded-in polish + full redesign pass; plan-first — awaiting owner approval; gates A–D defined. Catalog Phase 2: 54/75 valid; 21-profile resume RUNNING (`wf_a43f2284-06b`). Device re-paired (mDNS `adb-R5CX11MDTZK`). Local backend stack DOWN (fine; restart for next device e2e). FCM deferred.** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `369f2f06dcc6bc8019cf051b40228e01a0746b89` (`369f2f0`) — in sync, clean |
+| **Local HEAD / origin/master** | `a5968a40b466d99a9e5597ce02e5cfa5e24b14ae` (`a5968a4`) — in sync, clean (untracked `android/.kotlin/` toolchain cache only) |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·

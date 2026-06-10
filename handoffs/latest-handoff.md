@@ -3,7 +3,20 @@
 **From:** "do all" backlog session · **Date:** 2026-06-02 · _(history below is older; see the
 "Do all" section near the bottom + `state/current-state.md` for the live picture)_
 
-## ▶ RESUME HERE — updated 2026-06-02 ~14:40 (post-compaction actions RAN)
+## ▶ RESUME HERE — updated 2026-06-10
+**0046 ✅ DONE+VERIFIED** (impl `a5968a4`, 3 files +3, 20/20 tests, pushed; planner re-verified vs
+real git + on-device dark-mode visual proof `backdrop-14-darkfix-verify.png`).
+**WAVE 2 PLAN PROPOSED** — `plans/wave2-overhaul-plan.md` (all 4 pillars + folded polish + full
+redesign; stages W0–W5; decision gates A=redesign direction, B=houseplant enum, C=icons,
+D=OpenAI key+consent). **Owner approval required before any wave prompt ships.**
+**Catalog Phase 2 21-profile resume RUNNING** (`wf_a43f2284-06b` resumed; on completion run
+`python3 scratch/catalog/validate.py` → expect 75/75, then owner sample review).
+**Device:** re-paired via wifi-adb mDNS, serial `adb-R5CX11MDTZK-qTD4xe._adb-tls-connect._tcp`
+(package is `dev.plantapp.android`, NOT dev.plantapp). **Local backend stack DOWN** (Supabase
+containers stopped since ~Jun 03; restart via `npx supabase start` w/ npm_config_cache + Fastify
+env for the next device e2e). Polish-list addition: list error state leaks raw IP/exception text.
+
+## (older) RESUME — 2026-06-02 ~14:40 (post-compaction actions RAN)
 **ACTION 1 (backdrop device review) ✅ DONE** — 13 screenshots in `reviews/device-evidence/backdrop-*`,
 verdicts in `reviews/backdrop-device-review-2026-06-02.md`: backdrop/glass/tiles/serif all PASS;
 **1 real bug** (dark-mode empty-state text dark-on-dark) + confirm-"Add" prominence check → fold
