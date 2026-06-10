@@ -1,0 +1,41 @@
+# Commands executed for 0047 (in order)
+
+cd /home/israel/Documents/Development/PlantApp
+git rev-parse HEAD
+# -> a5968a40b466d99a9e5597ce02e5cfa5e24b14ae (matched expected baseline)
+git status --porcelain
+# -> only "?? android/.kotlin/" (expected untracked cache; left alone)
+
+# Edits (Edit tool), all in android/design-system/src/main/kotlin/dev/plantapp/designsystem/:
+#   Color.kt      — 14 palette val values + 4 light-scheme + 6 dark-scheme inline literals
+#   Type.kt       — titleMedium 17.sp/24; bodyLarge 17.sp/28; labelLarge 15.sp/22
+#   Shape.kt      — small 10.dp, medium 16.dp, large 22.dp; comment -> Garden Hearth
+#   Background.kt — glow alphas 0.11f/0.12f + 0.05f/0.06f (line 37, verbatim)
+
+git diff --stat
+# -> exactly the 4 design-system files, 29 insertions(+), 29 deletions(-)
+
+cd android
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest
+# -> BUILD SUCCESSFUL in 11s; JUnit XML aggregate tests=20 failures+errors=0
+
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :app:assembleDebug
+# -> BUILD SUCCESSFUL in 2s
+
+cd /home/israel/Documents/Development/PlantApp
+grep -c "0xFF2F6B45\|0xFF94D8AA\|0xFFF8F3E7\|0xFF111711" android/design-system/src/main/kotlin/dev/plantapp/designsystem/Color.kt
+# -> 4
+grep -n "17.sp" android/design-system/src/main/kotlin/dev/plantapp/designsystem/Type.kt
+# -> 2 matches (lines 54, 56)
+grep -n "0.11f" android/design-system/src/main/kotlin/dev/plantapp/designsystem/Background.kt
+# -> 1 match (line 37)
+
+git add android/design-system/src/main/kotlin/dev/plantapp/designsystem
+git commit -m "feat(design): retune design-system tokens to Garden Hearth (Wave 2 W1)"
+# -> [master 05fba1c] 4 files changed, 29 insertions(+), 29 deletions(-)
+git push origin master
+# -> a5968a4..05fba1c  master -> master
+git rev-parse origin/master
+# -> 05fba1c048591defa2744fca0080f3958cb1610a
+git status --porcelain
+# -> only "?? android/.kotlin/" (still untracked)

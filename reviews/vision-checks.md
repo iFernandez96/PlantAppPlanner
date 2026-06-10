@@ -65,3 +65,7 @@ core-vision items)._
   confirmed; gradle cmds = standard impl verification, no new deps.
 - **Vision:** ALIGNED — token-only entry slice authorized by PD-08/PD-09; type bump serves
   beginner readability; all values 1:1 with Garden Hearth spec. Ship as-is.
+
+## 0048 — GlassCard → mostly-opaque Hearth surfaces (Wave 2 W1 slice 2) (2026-06-10)
+- **Guardian:** PASS — 10/10 sections; HEAD 05fba1c + both old alpha expressions verified live.
+- **Vision:** ALIGNED — exact Hearth spec values (0.94/0.90); W1 foundation slice; ship as-is.
