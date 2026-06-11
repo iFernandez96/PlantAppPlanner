@@ -190,3 +190,14 @@ core-vision items)._
   references pothos, DB-independent); arithmetic 51→75, 48→52.
 - 0065 Vision: ALIGNED — houseplant cadences consumer-sane (monstera 7d conservative w/
   confidence note; pansy 3d source-backed); Gate B count=9 exact. Ship as-is.
+
+## 0065 verification + 0066-species-picker (2026-06-11)
+- 0065 verified (59288c6): **75-PLANT CATALOG COMPLETE** — byte-identical migration 0010,
+  52/52 int + 73 unit, per-category breakdown exact, 75/75 cited, houseplant=9 (Gate B proven).
+- 0066 Guardian: BLOCK→PASS — caught 2 compile gaps (DisplayText cross-package import; missing
+  performTextInput import would have made red a compile error) + fixture/import-list
+  inaccuracies; planner fixed all; focused re-check verified every import claim + the tomato/
+  basil fixture against real files. PASS.
+- 0066 Vision: ALIGNED — data-honest chips over Codex's aspirational Easy/Shade/Sunny judged
+  RIGHT (no difficulty data); "Climbers"→"Vines & climbers" suggestion adopted; Column-not-Lazy
+  accepted (D-04 YAGNI); ordering seed→picker→icons correct. Ship as-is.
