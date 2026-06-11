@@ -1,0 +1,45 @@
+# Commands executed for 0062 (in order)
+
+git -C /home/israel/Documents/Development/PlantApp rev-parse HEAD
+# -> 65dece9ca9e24d464bae724d6719b7ad9a61c2ff (matched)
+git status --short && git branch --show-current   # -> clean (?? android/.kotlin/) / master
+
+cd …/PlantAppPlanner/exchange/planner-outbox/0062-catalog-batch1 && sha256sum -c SHA256SUMS
+# -> PROMPT.md: OK / batch1_vegetables_roots.sql: OK / MANIFEST.json: OK
+
+# Attachment sanity skim (read-only): single 16-row upsert into public.plant_profiles;
+# "on conflict (id) do update"; no drop/truncate/delete/grant statements (greps matched only
+# prose inside data rows).
+
+# Step 1 — tests:
+#   backend/tests/integration/w2-catalog.integration.test.ts — NEW (verbatim §5b)
+#   backend/tests/integration/core-tables.integration.test.ts — seed test → subset (§5c)
+
+# Step 2 — RED:
+npx supabase db reset    # applies 0001–0006 only
+cd backend; set -a; eval "$(npx supabase status -o env)"; set +a
+npm run test:int
+# -> 4 failed | 38 passed (42): the 4 new catalog tests red (ids missing / no citations on
+#    slice-1 tomato / category fruit / count 5≠20); subset test green; no regressions
+
+# Step 3 — migration:
+cp …/0062-catalog-batch1/batch1_vegetables_roots.sql supabase/migrations/0007_w2_catalog_batch1_vegetables_roots.sql
+sha256sum both
+# -> identical: 99957dbb696b59251892429eee4b25b479e4c1fc35633e20bd70ee086a6d3157
+npx supabase db reset
+# -> "Applying migration 0007_w2_catalog_batch1_vegetables_roots.sql..." / Finished
+
+# Step 4 — GREEN:
+npm run test:int   # -> 42 passed (42)
+npm test           # -> 73 passed (73)
+# Spot-proof (pg client): daucus-carota citations=11 v1; solanum-lycopersicum citations=12 v2
+
+cd /home/israel/Documents/Development/PlantApp
+git add supabase/migrations/0007_w2_catalog_batch1_vegetables_roots.sql backend/tests/integration/w2-catalog.integration.test.ts backend/tests/integration/core-tables.integration.test.ts
+git commit -m "feat(catalog): seed W2 batch 1/4 — 16 cited vegetable and root profiles"
+# -> [master 5f5b8e5] 3 files changed, 101 insertions(+), 2 deletions(-)
+git push origin master
+# -> 65dece9..5f5b8e5  master -> master
+git rev-parse origin/master
+# -> 5f5b8e5f644d7f352ccfb8b39654b1e76f30935d
+git status --short   # -> only ?? android/.kotlin/

@@ -1,0 +1,9 @@
+{
+  "id": "0063-catalog-batch2",
+  "kind": "prompt",
+  "status": "ready",
+  "producer": "planner",
+  "createdUtc": "2026-06-11T16:15:19Z",
+  "sourceFile": "next-implementation-prompt.md",
+  "files": ["PROMPT.md", "batch2_herbs_berries.sql"]
+}

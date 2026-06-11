@@ -163,3 +163,11 @@ core-vision items)._
   citations present); tomato fruit→vegetable judged acceptable beginner-first framing; UI work
   correctly deferred; verticalSuitability preserved for W4/W5. Publish-attachment note resolved
   by publishing with the new exchange attachment flow (checksums verified).
+
+## 0063-catalog-batch2 (2026-06-11)
+- Guardian: PASS — 20 tuples match BATCH2_IDS exactly; categories herb/berry only; strawberry+
+  basil v2 with categories preserved; leach values in (0,1]; arithmetic 20→38 and 42→45 sound;
+  blueberry pollination_partners_required=1 valid (integer column, check >= 0).
+- Vision: ALIGNED — identical approved 0062 pattern + a net-new enrichment-guard test;
+  citations spot-verified (RHS/UW/Illinois/TAMU rosemary; UMN/RHS/Clemson/UMD blueberry).
+  Ship as-is.
