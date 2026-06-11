@@ -1,0 +1,42 @@
+# Commands executed for 0058 (in order)
+
+git -C /home/israel/Documents/Development/PlantApp rev-parse HEAD
+# -> 4b3910cabf30167b0e30d37eecf98a6ed14430cd (matched expected baseline)
+git -C /home/israel/Documents/Development/PlantApp status --short
+# -> only "?? android/.kotlin/" (OK per prompt; left alone)
+git -C /home/israel/Documents/Development/PlantApp branch --show-current
+# -> master
+
+# Step 1 — RED: added ONLY the §7 disabled-while-blank test (old signature) + 2 imports
+cd /home/israel/Documents/Development/PlantApp/android
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest --tests "dev.plantapp.feature.inventory.SignInScreenTest"
+# -> FAILED: "send button is disabled while the email is blank"
+#    java.lang.AssertionError at SignInScreenTest.kt:66 — 4 tests completed, 1 failed
+
+# Step 2 — implemented §5a–§5d:
+#   InventoryUiState.kt    — SignInUiState + busy (verbatim)
+#   InventoryViewModels.kt — SignInViewModel busy lifecycle + fixed friendly error copy
+#   SignInScreen.kt        — Hearth re-skin (GlassCard form, Welcome headline, helper copy,
+#                            keyboard types, enabled/busy button states, same 5 test tags)
+#   MainActivity.kt        — SIGN_IN composable passes busy = state.busy
+
+# Step 3 — added the §7 busy test (new param now exists)
+
+# Step 4 — GREEN:
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest :app:assembleDebug
+# -> BUILD SUCCESSFUL in 1m 8s; JUnit XML aggregate tests=36 failures+errors=0
+
+# Grep proof:
+sed -n '/class SignInViewModel/,/^}/p' feature-inventory/src/main/kotlin/dev/plantapp/feature/inventory/InventoryViewModels.kt | grep -c "e.message"
+# -> 0
+
+cd /home/israel/Documents/Development/PlantApp
+git add android/feature-inventory android/app/src/main/kotlin/dev/plantapp/android/MainActivity.kt
+git commit -m "feat(ui): Hearth sign-in screen — friendly copy, busy state, no raw errors"
+# -> [master 4517f44] 5 files changed, 101 insertions(+), 42 deletions(-)
+git push origin master
+# -> 4b3910c..4517f44  master -> master
+git rev-parse origin/master
+# -> 4517f4482bf169a21bba22964188ef69210f42bd
+git status --short
+# -> only "?? android/.kotlin/"

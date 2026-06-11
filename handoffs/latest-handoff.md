@@ -3,7 +3,20 @@
 **From:** "do all" backlog session · **Date:** 2026-06-02 · _(history below is older; see the
 "Do all" section near the bottom + `state/current-state.md` for the live picture)_
 
-## ▶ RESUME HERE — FINAL checkpoint 2026-06-10 (owner stop; token story CLOSED)
+## ▶ RESUME HERE — 2026-06-11 (W1 CODE-COMPLETE; blocked on phone for W1-EXIT review)
+**0058 sign-in Hearth polish LANDED + VERIFIED (`4517f44`)** — last W1 slice. feature-inventory
+36/36 (red-first proven), grep proof: zero raw `e.message` in sign-in. Guardian+vision PASS
+(vision confirmed otp_length=6). **W1 0047–0058 ALL landed+verified.**
+**PD-12:** orphan spaces — keep wizard create-on-the-spot; W4 space management resolves the UX.
+**PD-13:** wizard/detail/add raw-error polish = one early-W2 "friendly errors everywhere" slice.
+**BLOCKED (owner):** phone wireless debugging is OFF (on network at 10.0.0.166, no adb mDNS).
+Fresh LAN APK already built (08:19). When re-enabled: `adb install -r` → run
+`reviews/w1-exit-device-review-checklist.md` (full walk light+dark incl. 0058 sign-in check,
+pm clear first, Mailpit OTP) → SendUserFile shots → owner sign-off → **Gates B (houseplant
+enum) + C (icons) — ASK OWNER** → W2 opens. Backend UP (Fastify restarted 06-11, env recreated
+in /tmp). PlantApp HEAD = origin/master = `4517f44`.
+
+## (older) FINAL checkpoint 2026-06-10 (owner stop; token story CLOSED)
 **0057 LANDED + VERIFIED (`4b3910c`) + DEVICE-PROVEN:** silent refresh PASS (corrupted access
 token → list loads; new JWT + ROTATED refresh token persisted — objective proof the endpoint
 was hit) and sign-in fallback PASS ("Signing you back in…" → clean sign-in screen). Device left

@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-10 (checkpoint) — **Wave 2 W1 running: 0047–0056 landed+verified (+device-checked); 0047–0057 ALL landed+verified; token story device-PROVEN (silent refresh + sign-in fallback). 3 real bugs found by per-slice device checks (wizard kinds, stale list, expired-session) — all fixed/in-flight. Catalog 75/75 ready. Next: W1 remainder (sign-in polish, orphan-space decision) → W1-EXIT device review → Gates B/C. PD-11 photo-ID in W5.** |
+| **Snapshot** | 2026-06-11 — **Wave 2 W1 CODE-COMPLETE: 0047–0058 all landed+verified (0058 sign-in Hearth polish = last W1 slice; `4517f44`, feature-inventory 36/36). PD-12 orphan spaces decided (keep, manage in W4); PD-13 raw-error polish → early W2. Catalog 75/75 ready. BLOCKED on owner: phone wireless debugging off → W1-EXIT full device review (checklist ready, fresh LAN APK built 08:19) waits for re-enable. Then Gates B/C → W2. PD-11 photo-ID in W5.** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `4b3910cabf30167b0e30d37eecf98a6ed14430cd` (`4b3910c`, 0057) — in sync, clean (untracked `android/.kotlin/` only) |
+| **Local HEAD / origin/master** | `4517f4482bf169a21bba22964188ef69210f42bd` (`4517f44`, 0058) — in sync, clean (untracked `android/.kotlin/` only) |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
