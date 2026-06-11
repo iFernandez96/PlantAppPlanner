@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-11 — **W2 OPEN (owner: work without phone). Gates B+C RESOLVED (PD-14 houseplant enum, PD-15 hybrid icons). W1 0047–0058 code-complete; 0059 friendly-errors landed+verified (`1a5dede`, fi 39/39, zero e.message in VMs); 0060 houseplant enum (schema+migration 0005) PUBLISHED, watcher armed. Device checks (0058/0059 walks + W1-EXIT full review) QUEUED until owner re-enables wireless debugging — fresh LAN APK staged. After 0060: planner recategorizes 9 scratch profiles → seed-batch slices. PD-11 photo-ID in W5.** |
+| **Snapshot** | 2026-06-11 (eve) — **W2 catalog seeding: 0059–0063 ALL landed+verified (friendly errors `1a5dede` · houseplant enum `22067b6` · grants fix `65dece9` · batch1 `5f5b8e5` · batch2 `4b7b9ad` = 38 profiles live). 0064 batch3 PUBLISHED (watcher armed); 0065 batch4 drafted (closes 75). PD-16 strip-don't-invent (13 leach values). Exchange now supports checksummed attachments. NEXT after 0065: 0066 species picker (search + data-backed category chips in AddPlantWizardModel — grounded), then PD-15 icons. Device checks QUEUED until wireless debugging returns (APK staged; DB resets wiped test account — Mailpit re-sign-in needed).** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `1a5dede5fb9823ae2640b2932bf3691f46fc9db7` (`1a5dede`, 0059) — in sync, clean (untracked `android/.kotlin/` only) |
+| **Local HEAD / origin/master** | `4b7b9ad944e84bb10f43cee8d2317b2a17f4ebf5` (`4b7b9ad`, 0063) — in sync, clean (untracked `android/.kotlin/` only) |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
