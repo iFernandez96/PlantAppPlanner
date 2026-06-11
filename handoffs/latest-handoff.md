@@ -3,7 +3,25 @@
 **From:** "do all" backlog session · **Date:** 2026-06-02 · _(history below is older; see the
 "Do all" section near the bottom + `state/current-state.md` for the live picture)_
 
-## ▶ RESUME HERE — 2026-06-11 later (W2 RUNNING phone-less; 0060 in flight)
+## ▶ RESUME HERE — 2026-06-11 PAUSED by owner (W2 mid-stream, clean checkpoint)
+**Owner said "Pause."** State: **0059–0067 ALL landed+verified** (friendly errors `1a5dede` ·
+houseplant enum `22067b6` · grants fix `65dece9` · batches 1–4 `5f5b8e5`/`4b7b9ad`/`d4956bb`/
+`59288c6` — **75/75 catalog LIVE, all cited, houseplant=9** · species picker `3243ae7` ·
+care-basics domain `3a2f4c3`). PlantApp HEAD = origin/master = **`3a2f4c3`**.
+**NEXT ACTION on resume:** publish 0068 ("Care basics" detail card) — it is FULLY gate-checked
+(guardian PASS, vision ALIGNED; Advisory A task-card-first ADOPTED; Advisory B citation-paren
+strip deferred to polish). Draft = `scratch/wave2/0068-care-basics-card-draft.md` (baseline
+`3a2f4c3` already filled in; = prompts/next-implementation-prompt.md). Just run:
+`./scripts/exchange-create-planner-prompt.sh 0068-care-basics-card prompts/next-implementation-prompt.md`
+→ arm watcher → verify → then PD-15 icon sourcing (scratch/catalog/icons/) → W2-exit.
+**Still queued:** device-check batch (0058–0068 walks + W1-EXIT full review) when owner
+re-enables wireless debugging (phone offline; LAN APK staged but now stale — rebuild first;
+DB resets wiped reviewer@example.com — fresh Mailpit sign-in needed). Backend Supabase+GoTrue
+up; Fastify status unknown after this long — re-check `curl 10.0.0.179:3000/plants` (expect
+401) and restart via /tmp/plantapp-fastify-env.sh + `node dist/src/server.js` if down.
+**Exchange:** latest-ready-prompt pointer = 0067 (consumed). No watchers running.
+
+## (older) RESUME — 2026-06-11 (W2 RUNNING phone-less; 0060 in flight)
 **Owner: "work without the phone for now"** → W1-EXIT device review + per-slice walks for
 0058/0059/0060 are QUEUED (run as a batch when wireless debugging returns; fresh LAN APK staged;
 checklist reviews/w1-exit-device-review-checklist.md — note 0060's db reset wipes the test

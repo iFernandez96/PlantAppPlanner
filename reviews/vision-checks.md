@@ -211,3 +211,13 @@ core-vision items)._
 - 0067 Vision: ALIGNED — Double? intervals honest (basil 1.5d); part-1/2 split per layered
   precedent; field set matches the wave2 "plain language" list exactly; adopted the suggested
   D-09 DISPLAY-ONLY KDoc line pre-publish. Ship as-is.
+
+## 0067 verification + 0068 gate results (2026-06-11, session paused pre-publish)
+- 0067 verified (3a2f4c3): care basics in PlantProfile — 3 files, domain 9 / data 19 (new
+  mapping test) / fi 48 unchanged; DISPLAY-ONLY KDoc + runCatching doubleOrNull extractions
+  confirmed in tree. Zero deviations.
+- 0068 Guardian: PASS (all spot-checks incl. cadence branch traces, named-arg safety,
+  assertion imports). Vision: ALIGNED with 2 advisories — A (task card stays visually
+  primary) ADOPTED into the draft pre-publish; B (strip "(Penn State)"-style parens from
+  issue previews) deferred to a polish slice. **0068 is gate-checked and ready but
+  UNPUBLISHED — owner paused.**

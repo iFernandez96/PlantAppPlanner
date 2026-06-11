@@ -1,0 +1,34 @@
+# Commands executed for 0067 (in order)
+
+git rev-parse HEAD            # -> 3243ae7fd756985a6a9ac45e9e5c2de4b5c22aac (matched)
+git status --short            # -> only ?? android/.kotlin/
+git branch --show-current     # -> master
+
+# Step 1 — RED: added ONLY the §5c mapping test to InventoryRepositoryImplTest.kt
+#   (file's existing style: repo(FakePlantAppApi()), kotlin.test asserts)
+cd android
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :data:testDebugUnitTest --tests "dev.plantapp.data.InventoryRepositoryImplTest"
+# -> COMPILE-RED (expected per §6 — additive fields have no compiling-red):
+#    e: Unresolved reference 'wateringIntervalDays' / 'feedingIntervalDays' /
+#       'sunHoursTarget' / 'frostSensitive' / 'commonIssues'
+#    :data:compileDebugUnitTestKotlin FAILED
+
+# Step 2 — implementation:
+#   domain/InventoryModels.kt — PlantProfile + 5 optional fields (verbatim §5a, defaults)
+#   data/DtoMappers.kt        — 4 scalar extractions, each in the prescribed
+#                               ?.let { runCatching { it.jsonPrimitive.…OrNull }.getOrNull() }
+#                               shape; commonIssues ?: emptyList();
+#                               + jsonPrimitive/doubleOrNull/booleanOrNull imports
+
+# Step 3 — GREEN (single invocation):
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :domain:test :data:testDebugUnitTest :feature-inventory:testDebugUnitTest :app:assembleDebug
+# -> BUILD SUCCESSFUL in 18s
+#    domain 9/0; data 19/0 (+1 new); feature-inventory 48/0 (unchanged); app assembles
+
+cd /home/israel/Documents/Development/PlantApp
+git add android/domain android/data
+git commit -m "feat(domain): carry catalog care basics into PlantProfile (watering, feeding, sun, frost, issues)"
+# -> [master 3a2f4c3] 3 files changed, 32 insertions(+)
+git push origin master        # -> 3243ae7..3a2f4c3
+git rev-parse origin/master   # -> 3a2f4c36b1483ebc6c21ed3b770fc7bf19f6e868
+git status --short            # -> only ?? android/.kotlin/
