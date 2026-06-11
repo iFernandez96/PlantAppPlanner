@@ -199,3 +199,21 @@ slice ("friendly errors everywhere") converts the remaining `e.message` surfaces
 ×4, PlantListUiState.Error, PlantDetailUiState.Error) to plain-language copy + routes
 SessionExpiredException to sign-in from any screen. Tracked so W1-exit review doesn't flag it as
 unknown.
+
+## PD-14 — Gate B RESOLVED: extend category enum with "houseplant" (owner, 2026-06-11)
+The 9 catalog profiles currently in "other" (pothos, monstera, snake plant, peace lily, ZZ,
+spider plant, rubber plant, Chinese evergreen, heartleaf philodendron) are all houseplants.
+Owner approved adding `"houseplant"` to `plant-profile.schema.json`'s category enum and
+recategorizing those 9. Ripple (one W2 slice): schema + backend Ajv/schema tests + the 9
+scratch profiles (planner-side update before the seed migration) + species-picker chip.
+
+## PD-15 — Gate C RESOLVED: hybrid icons (owner, 2026-06-11)
+Per-species CC0 vectors where quality assets exist; category fallback icons (~10, incl. the
+new houseplant category) otherwise. Matches the existing `WizardIcons.speciesIconRes()`
+mapping+fallback pattern. Planner stages icon sourcing in scratch/catalog/icons/ (cited
+sources/licenses); impl wires drawables in W2.
+
+## Note — W1-EXIT device review DEFERRED (owner: "work without the phone for now", 2026-06-11)
+W1 is code-complete (0047–0058). The full light+dark device walk + owner sign-off runs as soon
+as wireless debugging is re-enabled; W2 proceeds in parallel by owner direction. Per-slice
+device checks (PD-10) queue up while the phone is offline and run as a batch on reconnect.
