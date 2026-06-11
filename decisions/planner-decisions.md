@@ -177,3 +177,25 @@ Owner wants identify-by-photo → confirm → add-to-garden. Decisions:
   no-camera posture — owner-approved here), Pl@ntNet data-sharing consent copy, storage+deletion
   story. Gate D expands to D′: OpenAI key+consent (assistant) + Pl@ntNet consent + camera
   permission + photo-storage consent copy — all surfaced together at W5 start.
+
+## PD-12 — Orphan garden-space rows: keep create-on-the-spot; manage in W4 (2026-06-11)
+**Context:** device testing found that abandoning the add-plant wizard after creating a garden
+space (or container) leaves the row in the DB — it reappears in the wizard's pickers later.
+**Decision (planner-decided, not a gate):** keep the wizard's immediate create-on-the-spot
+behavior. Rationale: the product vision is container/space-FIRST — a space the user named and
+typed in is a legitimate first-class entity even with zero plants (you set up your balcony
+before adding plants to it). Deferring creation to final submit would need a multi-step
+transactional flow for marginal benefit and risks the working wizard. The UX concern
+(unexpected reappearing spaces) is resolved by **W4 space management** (rename / add /
+delete-with-guard — already in the wave2 plan), which makes these rows visible and deletable.
+No cleanup job (a daemon deleting "unused" spaces would fight the vision and the owner's
+no-daemon stance). NO implementation slice needed now.
+
+## PD-13 — (note) Raw-401/raw-error polish on wizard + detail deferred to early W2 (2026-06-11)
+After 0057, `authed{}` maps 401 → `SessionExpiredException` everywhere, but only the LIST screen
+routes it to sign-in; the wizard/detail/add VMs still surface raw `e.message` (exception text,
+LAN IPs) in their error states. 0058 fixes sign-in's copy. **Deferred decision:** one early-W2
+slice ("friendly errors everywhere") converts the remaining `e.message` surfaces (AddPlantViewModel
+×4, PlantListUiState.Error, PlantDetailUiState.Error) to plain-language copy + routes
+SessionExpiredException to sign-in from any screen. Tracked so W1-exit review doesn't flag it as
+unknown.

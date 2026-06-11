@@ -57,6 +57,8 @@ Estimated total: **~45–60 implementation handoffs** across 6 stages.
 ## Stage W4 — Spaces-first navigation (~6–8 handoffs)
 - Spaces tab: spaces as cards (indoor/outdoor, plant count) → space detail (plants grouped,
   conditions) → move-plant-between-spaces flow → space management (rename, add, delete-with-guard).
+  Space management also resolves the orphan-space device finding (PD-12: wizard keeps
+  create-on-the-spot; empty spaces are legitimate and become deletable here).
 - Vision alignment: this is the container/space-first model; vertical-planning fields surface
   read-only where data exists (no new planner features yet).
 - **Stage exit:** browse garden by space on-device; move a plant; advisories still correct.
