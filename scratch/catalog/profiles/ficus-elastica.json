@@ -7,7 +7,7 @@
     "India rubber fig",
     "India rubber tree"
   ],
-  "category": "other",
+  "category": "houseplant",
   "growthHabit": "tree",
   "requiresSupport": false,
   "selfFruitful": null,
@@ -46,8 +46,21 @@
     "frostSensitive": true
   },
   "seasonality": {
-    "productiveMonths": [3, 4, 5, 6, 7, 8, 9],
-    "dormancyMonths": [11, 12, 1, 2]
+    "productiveMonths": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "dormancyMonths": [
+      11,
+      12,
+      1,
+      2
+    ]
   },
   "commonIssues": [
     "Root rot and leaf yellowing from overwatering or poor drainage — let soil dry slightly between waterings and never leave the pot standing in water",

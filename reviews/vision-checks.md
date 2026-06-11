@@ -145,3 +145,12 @@ core-vision items)._
 - Vision: ALIGNED — exact Gate B ripple, vocabulary-before-seed ordering confirmed correct;
   pothos fixture = test artifact (rolled back), no hallucinated-horticulture violation;
   catalog seeding + picker chips correctly deferred. Ship as-is.
+
+## 0061-baseline-grants (2026-06-11)
+- Guardian: PASS — §5a grants word-identical to the 0060 report's manual fix; RLS verified
+  enabled on all 5 tables, anon policy-less; deliberate broken-state red judged safe
+  (local-only, transient, STOP-if-green guard); counts consistent (36→38).
+- Vision: ALIGNED — pure harness repair enabling W2 seed batches; red-first-by-reset is
+  objective + reproducible; hosted-parity claim verified against Supabase defaults.
+- Privacy (extra gate): PASS — GRANT-only; zero anon-readable rows; no new
+  permissions/SDKs/secrets. 0060 deviation accepted as environment repair.

@@ -7,7 +7,7 @@
     "Aroid palm",
     "Eternity plant"
   ],
-  "category": "other",
+  "category": "houseplant",
   "growthHabit": "upright",
   "requiresSupport": false,
   "selfFruitful": null,
@@ -45,7 +45,12 @@
     "frostSensitive": true
   },
   "seasonality": {
-    "dormancyMonths": [11, 12, 1, 2]
+    "dormancyMonths": [
+      11,
+      12,
+      1,
+      2
+    ]
   },
   "commonIssues": [
     "Overwatering is the main killer — rhizomes and roots rot quickly in wet soil; always let the potting mix dry completely before watering",

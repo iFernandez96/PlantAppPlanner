@@ -7,7 +7,7 @@
     "Devil's Ivy",
     "Hunter's Robe"
   ],
-  "category": "other",
+  "category": "houseplant",
   "growthHabit": "vine",
   "requiresSupport": false,
   "selfFruitful": null,
@@ -46,7 +46,12 @@
     "frostSensitive": true
   },
   "seasonality": {
-    "dormancyMonths": [11, 12, 1, 2]
+    "dormancyMonths": [
+      11,
+      12,
+      1,
+      2
+    ]
   },
   "commonIssues": [
     "Root rot from overwatering — better kept too dry than too wet (Penn State); brown or nonexistent roots indicate excess moisture",

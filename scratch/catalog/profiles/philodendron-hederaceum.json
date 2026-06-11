@@ -7,7 +7,7 @@
     "Sweetheart plant",
     "Parlor ivy"
   ],
-  "category": "other",
+  "category": "houseplant",
   "growthHabit": "vine",
   "requiresSupport": false,
   "selfFruitful": null,
@@ -45,8 +45,21 @@
     "frostSensitive": true
   },
   "seasonality": {
-    "productiveMonths": [3, 4, 5, 6, 7, 8, 9],
-    "dormancyMonths": [11, 12, 1, 2]
+    "productiveMonths": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "dormancyMonths": [
+      11,
+      12,
+      1,
+      2
+    ]
   },
   "commonIssues": [
     "Root rot in overly moist or poorly drained soil — do not let the pot sit in water",

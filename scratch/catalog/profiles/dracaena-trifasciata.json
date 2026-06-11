@@ -8,7 +8,7 @@
     "Good luck plant",
     "Saint George's sword"
   ],
-  "category": "other",
+  "category": "houseplant",
   "growthHabit": "upright",
   "requiresSupport": false,
   "selfFruitful": null,
@@ -46,7 +46,12 @@
     "frostSensitive": true
   },
   "seasonality": {
-    "dormancyMonths": [11, 12, 1, 2]
+    "dormancyMonths": [
+      11,
+      12,
+      1,
+      2
+    ]
   },
   "commonIssues": [
     "Root rot from overwatering is by far the most common problem — let the potting mix dry out completely between waterings and never leave the pot standing in water",

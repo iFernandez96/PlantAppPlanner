@@ -1,0 +1,46 @@
+# Commands executed for 0060 (in order)
+
+git -C /home/israel/Documents/Development/PlantApp rev-parse HEAD
+# -> 1a5dede5fb9823ae2640b2932bf3691f46fc9db7 (matched)
+git status --short  # -> only ?? android/.kotlin/
+git branch --show-current  # -> master
+npx supabase status  # -> running (imgproxy/edge_runtime/pooler stopped — pre-existing, optional)
+
+# Step 1 — RED (tests only):
+#   backend/tests/schema/plant-profile.test.ts — pothos fixture appended (verbatim §5c)
+#   backend/tests/integration/houseplant-category.integration.test.ts — NEW (verbatim §5d)
+cd backend && npm test
+# -> pothos fixture FAILED: Ajv "must be equal to one of the allowed values" (1 failed | 72 passed)
+set -a; eval "$(npx supabase status -o env)"; set +a; npm run test:int
+# -> houseplant test FAILED: violates check constraint "plant_profiles_category_check"
+#    (1 failed | 35 passed) — only the new test red
+
+# Step 2 — implement:
+#   shared-schemas/plant-profile.schema.json — + "houseplant" in category enum (inline style)
+#   supabase/migrations/0005_w2_houseplant_category.sql — NEW (verbatim §5b)
+npx supabase db reset
+# -> applied 0001..0005; "Finished supabase db reset on branch master."
+
+# Step 3 — GREEN:
+npm test                  # -> 73 passed (73)
+npm run test:int          # -> FIRST RUN: 19 failed — investigated:
+#   probe showed 42501 permission denied for table garden_spaces (authenticated role)
+#   docker restart supabase_kong_PlantApp + retry — no change (Kong was healthy)
+#   ROOT CAUSE: db reset rebuilt the DB without the standard Supabase public-schema grants
+#   (no migration has GRANTs; defaults came from the platform image; current unpinned CLI
+#   no longer applies them)
+docker exec supabase_db_PlantApp psql -U postgres -d postgres -c "grant usage on schema public to anon, authenticated, service_role; grant all on all tables in schema public to anon, authenticated, service_role; grant all on all sequences in schema public to anon, authenticated, service_role; grant all on all functions in schema public to anon, authenticated, service_role; alter default privileges in schema public grant all on tables to anon, authenticated, service_role; alter default privileges in schema public grant all on sequences to anon, authenticated, service_role; alter default privileges in schema public grant all on functions to anon, authenticated, service_role;"
+# -> grants restored (environment repair; no repo change)
+npm run test:int          # -> 36 passed (36) incl. the new houseplant test
+npm run validate-schemas  # -> all 3 schemas valid
+
+cd /home/israel/Documents/Development/PlantApp
+git add shared-schemas/plant-profile.schema.json supabase/migrations/0005_w2_houseplant_category.sql backend/tests/schema/plant-profile.test.ts backend/tests/integration/houseplant-category.integration.test.ts
+git commit -m "feat(schema): add houseplant category to plant-profile vocabulary (schema + DB)"
+# -> [master 22067b6] 4 files changed, 58 insertions(+), 1 deletion(-)
+git push origin master
+# -> 1a5dede..22067b6  master -> master
+git rev-parse origin/master
+# -> 22067b6a619f8b955db2ee24df0212be40c231d2
+git status --short
+# -> only ?? android/.kotlin/
