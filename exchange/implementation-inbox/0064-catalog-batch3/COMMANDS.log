@@ -1,0 +1,43 @@
+# Commands executed for 0064 (in order)
+
+git rev-parse HEAD                 # -> 4b7b9ad944e84bb10f43cee8d2317b2a17f4ebf5 (matched)
+git status --short                 # -> only ?? android/.kotlin/
+git branch --show-current          # -> master
+sha256sum -c SHA256SUMS (planner-outbox/0064-catalog-batch3)
+# -> PROMPT.md: OK / batch3_fruit_vines_succulents.sql: OK / MANIFEST.json: OK
+# Sanity skim: 15 rows, single upsert, no DDL/grant/delete.
+
+# Step 1 — test edits (w2-catalog.integration.test.ts):
+#   EXPECTED_PROFILE_COUNT 38 -> 51; + BATCH3_IDS; + batch-3 describe block (verbatim §5b)
+
+# Step 2 — RED:
+npx supabase db reset              # 0001–0008 only
+cd backend; set -a; eval "$(npx supabase status -o env)"; set +a
+npm run test:int
+# -> 4 failed | 44 passed (48): count 38≠51 + 3 batch-3 tests; nothing else red
+
+# Step 3 — migration:
+cp …/0064-catalog-batch3/batch3_fruit_vines_succulents.sql supabase/migrations/0009_w2_catalog_batch3_fruit_vines_succulents.sql
+sha256sum both -> identical (a6ccab483f10eb422f87395bdbb7f23756a9ec3e393fe52b5d207d5cd8e8fdf3)
+npx supabase db reset
+# -> "Applying migration 0009_w2_catalog_batch3_fruit_vines_succulents.sql..." / Finished
+
+# Step 4 — GREEN attempt 1:
+npm run test:int
+# -> 1 failed | 47 passed: PRE-EXISTING advisories test hard-codes idealMax '190';
+#    batch-3 enrichment (approved attachment) sets passiflora-edulis idealMaxLiters=150.
+# DEVIATION (flagged): advisories-api.integration.test.ts literal '190' -> '150'
+#    (+ title + provenance comment). Attachment NOT edited.
+
+# GREEN final:
+npm run test:int                   # -> 48 passed (48)
+npm test                           # -> 73 passed (73)
+# Spot-proof: physalis-philadelphica citations=5 v2 partners=2 support=true;
+#             prunus-avium citations=13 v1; total 51
+
+git add supabase/migrations/0009_… backend/tests/integration/w2-catalog.integration.test.ts backend/tests/integration/advisories-api.integration.test.ts
+git commit -m "feat(catalog): seed W2 batch 3/4 — 15 cited fruit, vine and succulent profiles"
+# -> [master d4956bb] 3 files changed, 79 insertions(+), 3 deletions(-)
+git push origin master             # -> 4b7b9ad..d4956bb
+git rev-parse origin/master        # -> d4956bb376ae0493d8172c5b76b76dcb87ef38ca
+git status --short                 # -> only ?? android/.kotlin/

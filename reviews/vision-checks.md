@@ -179,3 +179,14 @@ core-vision items)._
 - Vision: ALIGNED — tomatillo pollination round-trip verified (SQL + JSON + test assert);
   citations spot-verified (citrus: RHS/Clemson/UF-IFAS et al; aloe: multi-institution).
   Ship as-is.
+
+## 0064 verification + 0065-catalog-batch4 (2026-06-11)
+- 0064 DEVIATION ACCEPTED (0050 precedent): pre-existing advisories-api test pinned passion
+  fruit idealMaxLiters 190; the cited enrichment (RHS/UF-IFAS) sets 95–150; impl updated the
+  stale literal + provenance comment, attachment untouched, flagged clearly. Planner verified
+  150 IS the cited value. Lesson folded into 0065 gates: value-pin sweep for enriched rows.
+- 0065 Guardian: PASS — 24 tuples; 9 houseplant + 15 ornamental; category math across all 4
+  batches = the §7 breakdown exactly (75); value-pin sweep clean (only schema-shape fixture
+  references pothos, DB-independent); arithmetic 51→75, 48→52.
+- 0065 Vision: ALIGNED — houseplant cadences consumer-sane (monstera 7d conservative w/
+  confidence note; pansy 3d source-backed); Gate B count=9 exact. Ship as-is.

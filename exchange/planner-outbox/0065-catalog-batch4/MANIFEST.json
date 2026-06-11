@@ -1,0 +1,9 @@
+{
+  "id": "0065-catalog-batch4",
+  "kind": "prompt",
+  "status": "ready",
+  "producer": "planner",
+  "createdUtc": "2026-06-11T16:36:56Z",
+  "sourceFile": "next-implementation-prompt.md",
+  "files": ["PROMPT.md", "batch4_ornamentals_houseplants.sql"]
+}
