@@ -1,0 +1,43 @@
+# Commands executed for 0059 (in order)
+
+git -C /home/israel/Documents/Development/PlantApp rev-parse HEAD
+# -> 4517f4482bf169a21bba22964188ef69210f42bd (matched expected baseline)
+git -C /home/israel/Documents/Development/PlantApp status --short
+# -> only "?? android/.kotlin/" (OK; left alone)
+git -C /home/israel/Documents/Development/PlantApp branch --show-current
+# -> master
+grep -n "e.message" android/feature-inventory/src/main/kotlin/dev/plantapp/feature/inventory/InventoryViewModels.kt
+# -> 6 sites at lines 56/87/98/109/128/205 (matched §5b)
+
+# Step 1 — RED: added ONLY loadErrorShowsFriendlyCopyNotRawExceptionText
+cd /home/israel/Documents/Development/PlantApp/android
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest --tests "dev.plantapp.feature.inventory.PlantListViewModelTest"
+# -> FAILED: loadErrorShowsFriendlyCopyNotRawExceptionText
+#    java.lang.AssertionError: raw exception text must not reach the UI
+#    5 tests completed, 1 failed
+
+# Step 2 — implemented §5a–§5d:
+#   DisplayText.kt — friendlyError(e, fallback) (verbatim) + SessionExpiredException import
+#   InventoryViewModels.kt — 6 exact replacements (SignedOut branch kept first; accept() catch
+#                            and "Plant not found" untouched)
+#   PlantListScreen.kt / PlantDetailScreen.kt — "Couldn't load …: " prefixes dropped
+
+# Step 3 — added the 2 DisplayText tests (+ SessionExpiredException import)
+
+# Step 4 — GREEN:
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest :app:assembleDebug
+# -> BUILD SUCCESSFUL in 14s; JUnit XML aggregate tests=39 failures+errors=0
+
+grep -c "e.message" feature-inventory/src/main/kotlin/dev/plantapp/feature/inventory/InventoryViewModels.kt
+# -> 0 (exit 1 = no matches = pass)
+
+cd /home/israel/Documents/Development/PlantApp
+git add android/feature-inventory
+git commit -m "feat(ui): friendly plain-language errors everywhere — no raw exception text"
+# -> [master 1a5dede] 6 files changed, 42 insertions(+), 8 deletions(-)
+git push origin master
+# -> 4517f44..1a5dede  master -> master
+git rev-parse origin/master
+# -> 1a5dede5fb9823ae2640b2932bf3691f46fc9db7
+git status --short
+# -> only "?? android/.kotlin/"

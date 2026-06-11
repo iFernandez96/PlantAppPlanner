@@ -1,0 +1,9 @@
+{
+  "id": "0060-houseplant-category",
+  "kind": "prompt",
+  "status": "ready",
+  "producer": "planner",
+  "createdUtc": "2026-06-11T15:46:44Z",
+  "sourceFile": "next-implementation-prompt.md",
+  "files": ["PROMPT.md"]
+}

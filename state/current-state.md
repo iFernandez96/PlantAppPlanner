@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-11 — **Wave 2 W1 CODE-COMPLETE: 0047–0058 all landed+verified (0058 sign-in Hearth polish = last W1 slice; `4517f44`, feature-inventory 36/36). PD-12 orphan spaces decided (keep, manage in W4); PD-13 raw-error polish → early W2. Catalog 75/75 ready. BLOCKED on owner: phone wireless debugging off → W1-EXIT full device review (checklist ready, fresh LAN APK built 08:19) waits for re-enable. Then Gates B/C → W2. PD-11 photo-ID in W5.** |
+| **Snapshot** | 2026-06-11 — **W2 OPEN (owner: work without phone). Gates B+C RESOLVED (PD-14 houseplant enum, PD-15 hybrid icons). W1 0047–0058 code-complete; 0059 friendly-errors landed+verified (`1a5dede`, fi 39/39, zero e.message in VMs); 0060 houseplant enum (schema+migration 0005) PUBLISHED, watcher armed. Device checks (0058/0059 walks + W1-EXIT full review) QUEUED until owner re-enables wireless debugging — fresh LAN APK staged. After 0060: planner recategorizes 9 scratch profiles → seed-batch slices. PD-11 photo-ID in W5.** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `4517f4482bf169a21bba22964188ef69210f42bd` (`4517f44`, 0058) — in sync, clean (untracked `android/.kotlin/` only) |
+| **Local HEAD / origin/master** | `1a5dede5fb9823ae2640b2932bf3691f46fc9db7` (`1a5dede`, 0059) — in sync, clean (untracked `android/.kotlin/` only) |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·

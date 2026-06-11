@@ -3,7 +3,21 @@
 **From:** "do all" backlog session · **Date:** 2026-06-02 · _(history below is older; see the
 "Do all" section near the bottom + `state/current-state.md` for the live picture)_
 
-## ▶ RESUME HERE — 2026-06-11 (W1 CODE-COMPLETE; blocked on phone for W1-EXIT review)
+## ▶ RESUME HERE — 2026-06-11 later (W2 RUNNING phone-less; 0060 in flight)
+**Owner: "work without the phone for now"** → W1-EXIT device review + per-slice walks for
+0058/0059/0060 are QUEUED (run as a batch when wireless debugging returns; fresh LAN APK staged;
+checklist reviews/w1-exit-device-review-checklist.md — note 0060's db reset wipes the test
+account; re-sign-in via Mailpit first).
+**Gates B+C RESOLVED by owner:** PD-14 houseplant enum · PD-15 hybrid icons. **W2 OPEN.**
+**0059 friendly-errors LANDED+VERIFIED (`1a5dede`)** — fi 39/39, zero `e.message` in VMs, screens
+render messages bare. **0060 houseplant enum PUBLISHED** (schema enum + migration 0005 + red-first
+both layers; guardian+vision PASS; watcher armed). **AFTER 0060 lands:** (1) planner-side:
+recategorize the 9 houseplant scratch profiles ("other"→"houseplant") + re-run
+`python3 scratch/catalog/validate.py` (75/75); (2) then W2 seed-batch slices (75 profiles into a
+migration, batched), species picker w/ category chips, PD-15 icon wiring, richer detail.
+PlantApp HEAD = origin/master = `1a5dede` (becomes 0060's SHA after it lands).
+
+## (older) RESUME — 2026-06-11 (W1 CODE-COMPLETE; blocked on phone for W1-EXIT review)
 **0058 sign-in Hearth polish LANDED + VERIFIED (`4517f44`)** — last W1 slice. feature-inventory
 36/36 (red-first proven), grep proof: zero raw `e.message` in sign-in. Guardian+vision PASS
 (vision confirmed otp_length=6). **W1 0047–0058 ALL landed+verified.**

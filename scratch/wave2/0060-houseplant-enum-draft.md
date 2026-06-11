@@ -37,7 +37,7 @@ houseplants) seeds in later slices; this slice ONLY widens the vocabulary.
 ## 4. Baseline precondition — STOP if it doesn't hold
 
 ```bash
-git -C /home/israel/Documents/Development/PlantApp rev-parse HEAD   # must be 1a5dede5fb9823ae2640b2932bf3691f46fc9db7
+git -C /home/israel/Documents/Development/PlantApp rev-parse HEAD   # must be <SHA-AFTER-0059> — FILL BEFORE PUBLISHING
 git -C /home/israel/Documents/Development/PlantApp status --short   # clean (untracked android/.kotlin/ OK)
 git -C /home/israel/Documents/Development/PlantApp branch --show-current  # master
 ```

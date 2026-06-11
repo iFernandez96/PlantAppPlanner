@@ -136,3 +136,12 @@ core-vision items)._
 - Vision: ALIGNED — exact PD-13 scope; all 7 new strings beginner-clean ("pot"/"space" match
   existing app vocabulary); privacy improved (LAN-IP leak removed everywhere); deferred
   wizard/detail routing judged better-than-status-quo, no escalation. Ship as-is.
+
+## 0060-houseplant-category (2026-06-11)
+- Guardian: PASS — PD-14 approval verified for the migration; fixture validated against every
+  schema required-list (only the enum fails = clean red); constraint name + fallback adequate;
+  no test pins the enum list; db reset = local-only, accepted (device data re-established at
+  next sign-in).
+- Vision: ALIGNED — exact Gate B ripple, vocabulary-before-seed ordering confirmed correct;
+  pothos fixture = test artifact (rolled back), no hallucinated-horticulture violation;
+  catalog seeding + picker chips correctly deferred. Ship as-is.
