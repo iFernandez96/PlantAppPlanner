@@ -154,3 +154,12 @@ core-vision items)._
   objective + reproducible; hosted-parity claim verified against Supabase defaults.
 - Privacy (extra gate): PASS — GRANT-only; zero anon-readable rows; no new
   permissions/SDKs/secrets. 0060 deviation accepted as environment repair.
+
+## 0062-catalog-batch1 (2026-06-11)
+- Guardian: BLOCK→PASS — first pass caught a REAL data defect (kale leach -7); planner stripped
+  13 incoherent optional values across the 75 (PD-16), regenerated SQL; focused re-check PASS
+  (16 tuples, ids match, tomato v2 vegetable, no DDL/GRANT, escaping sane, batches 2/4 clean).
+- Vision: ALIGNED — cited-data rule verified on 3 spot-checked profiles (UMN/Clemson/RHS/UC ANR
+  citations present); tomato fruit→vegetable judged acceptable beginner-first framing; UI work
+  correctly deferred; verticalSuitability preserved for W4/W5. Publish-attachment note resolved
+  by publishing with the new exchange attachment flow (checksums verified).

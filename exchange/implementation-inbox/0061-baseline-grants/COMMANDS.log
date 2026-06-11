@@ -1,0 +1,41 @@
+# Commands executed for 0061 (in order)
+
+git -C /home/israel/Documents/Development/PlantApp rev-parse HEAD
+# -> 22067b6a619f8b955db2ee24df0212be40c231d2 (matched)
+git status --short   # -> only ?? android/.kotlin/
+git branch --show-current  # -> master
+
+# Step 1 — added ONLY backend/tests/integration/grants.integration.test.ts (verbatim §5b)
+
+# Step 2 — RED:
+npx supabase db reset            # applies 0001–0005 only; grants vanish
+cd backend
+set -a; eval "$(npx supabase status -o env)"; set +a
+npm run test:int
+# -> grants table-grant test FAILED ("expected 0 to be greater than 0");
+#    20 failed | 18 passed (38) — authed-API tests broken (400s wrapping 42501)
+# DB probe: authenticated has only {REFERENCES,TRIGGER,TRUNCATE} on all 5 tables;
+#           schema usage survived (so the schema-usage test passed — see report deviation)
+# No manual repair (per §6).
+
+# Step 3 — created supabase/migrations/0006_w2_baseline_grants.sql (verbatim §5a)
+cd /home/israel/Documents/Development/PlantApp
+npx supabase db reset
+# -> "Applying migration 0006_w2_baseline_grants.sql..." / "Finished supabase db reset"
+
+# Step 4 — GREEN:
+cd backend
+set -a; eval "$(npx supabase status -o env)"; set +a
+npm run test:int   # -> 38 passed (38), incl. both grants tests
+npm test           # -> 73 passed (73)
+
+cd /home/israel/Documents/Development/PlantApp
+git add supabase/migrations/0006_w2_baseline_grants.sql backend/tests/integration/grants.integration.test.ts
+git commit -m "fix(db): baseline role grants as migration — db reset yields a working database"
+# -> [master 65dece9] 2 files changed, 40 insertions(+)
+git push origin master
+# -> 22067b6..65dece9  master -> master
+git rev-parse origin/master
+# -> 65dece9ca9e24d464bae724d6719b7ad9a61c2ff
+git status --short
+# -> only ?? android/.kotlin/

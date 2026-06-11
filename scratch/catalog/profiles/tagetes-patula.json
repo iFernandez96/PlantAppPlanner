@@ -19,7 +19,6 @@
   },
   "feedingProfile": {
     "baseIntervalDays": 45,
-    "containerLeachAdjustment": -15,
     "preferredNpk": "10-10-10"
   },
   "containerProfile": {

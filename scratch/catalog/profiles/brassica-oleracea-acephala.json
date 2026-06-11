@@ -20,7 +20,6 @@
   },
   "feedingProfile": {
     "baseIntervalDays": 21,
-    "containerLeachAdjustment": -7,
     "preferredNpk": "10-3-1"
   },
   "containerProfile": {
@@ -45,8 +44,19 @@
     "frostSensitive": false
   },
   "seasonality": {
-    "productiveMonths": [3, 4, 5, 9, 10, 11, 12],
-    "dormancyMonths": [7, 8]
+    "productiveMonths": [
+      3,
+      4,
+      5,
+      9,
+      10,
+      11,
+      12
+    ],
+    "dormancyMonths": [
+      7,
+      8
+    ]
   },
   "commonIssues": [
     "Container minimum (~19 L) reflects RHS guidance of a pot at least 30 cm (12 in) wide and deep for one plant; choose a compact cultivar (e.g. 'Dwarf Green Curled') for container culture.",

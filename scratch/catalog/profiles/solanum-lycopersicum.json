@@ -21,7 +21,6 @@
     "baseIntervalDays": 7,
     "fruitingIntervalDays": 5,
     "postHarvestIntervalDays": 14,
-    "containerLeachAdjustment": -1,
     "preferredNpk": "low-N / high-K once fruiting (e.g. 8-32-16 to start, high-potassium tomato feed when fruits swell)"
   },
   "containerProfile": {

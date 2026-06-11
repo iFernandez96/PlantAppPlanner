@@ -217,3 +217,14 @@ sources/licenses); impl wires drawables in W2.
 W1 is code-complete (0047–0058). The full light+dark device walk + owner sign-off runs as soon
 as wireless debugging is re-enabled; W2 proceeds in parallel by owner direction. Per-slice
 device checks (PD-10) queue up while the phone is offline and run as a batch on reconnect.
+
+## PD-16 — Catalog data-quality rule: strip incoherent optional values, never invent (2026-06-11)
+The 0062 guardian gate caught `containerLeachAdjustment: -7` on kale. Root cause: the schema
+gives the field no description (just `type: number, default 0.7`), so the 75 fan-out research
+agents interpreted the unit differently (multiplier vs ±days vs interval). The care engine never
+reads the field. **Rule:** for optional engine-dormant fields with incoherent researched values,
+STRIP the value (schema/engine defaults apply) rather than guess a correction — shipped data is
+either cited+coherent or absent. Applied: 13 profiles stripped (values -15, -7×4, -3×4, -1, 0,
+14×2); 75/75 re-validated; all 4 batch SQLs regenerated + guardian re-checked (all remaining
+values in (0,1]). Follow-up for a later slice: add a `description` (+ range) for
+`containerLeachAdjustment` to plant-profile.schema.json so future data can't diverge.

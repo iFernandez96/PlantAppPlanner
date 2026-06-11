@@ -21,7 +21,6 @@
   "feedingProfile": {
     "baseIntervalDays": 14,
     "fruitingIntervalDays": 14,
-    "containerLeachAdjustment": -3,
     "preferredNpk": "high-potassium liquid (e.g. 5-10-10 or kelp); balanced 8-8-8 / 10-10-10 in ground"
   },
   "containerProfile": {

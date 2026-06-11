@@ -1,0 +1,8 @@
+{
+  "id": "0062-catalog-batch1",
+  "kind": "prompt",
+  "status": "ready",
+  "producer": "planner",
+  "createdUtc": "2026-06-11T16:08:03Z",
+  "checksums": "SHA256SUMS"
+}

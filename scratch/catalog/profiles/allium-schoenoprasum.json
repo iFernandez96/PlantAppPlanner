@@ -21,7 +21,6 @@
   "feedingProfile": {
     "baseIntervalDays": 35,
     "postHarvestIntervalDays": 35,
-    "containerLeachAdjustment": -7,
     "preferredNpk": "5-10-5"
   },
   "containerProfile": {

@@ -23,7 +23,6 @@
     "baseIntervalDays": 14,
     "fruitingIntervalDays": 14,
     "postHarvestIntervalDays": 30,
-    "containerLeachAdjustment": -3,
     "preferredNpk": "high-potassium liquid feed (e.g. 5-5-10) every fortnight for containers; in-ground trees rarely need feeding if mulched (apply nitrogen in early spring only when annual shoot growth is under ~20 cm / 8 in)"
   },
   "containerProfile": {

@@ -20,7 +20,6 @@
   },
   "feedingProfile": {
     "baseIntervalDays": 14,
-    "containerLeachAdjustment": -3,
     "preferredNpk": "balanced organic-based liquid feed (e.g. 5-10-5 or balanced all-purpose) at half strength for indoor containers; AVOID potassium-rich/tomato feed, which encourages flowering and reduces leaf flavour"
   },
   "containerProfile": {

@@ -22,7 +22,6 @@
     "baseIntervalDays": 14,
     "fruitingIntervalDays": 14,
     "postHarvestIntervalDays": 30,
-    "containerLeachAdjustment": -3,
     "preferredNpk": "high-potassium (e.g. 5-5-10) for containers; general-purpose granular in early spring for in-ground"
   },
   "containerProfile": {

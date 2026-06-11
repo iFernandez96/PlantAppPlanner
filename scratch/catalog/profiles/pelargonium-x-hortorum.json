@@ -21,7 +21,6 @@
   },
   "feedingProfile": {
     "baseIntervalDays": 28,
-    "containerLeachAdjustment": -7,
     "preferredNpk": "10-20-10"
   },
   "containerProfile": {
@@ -46,8 +45,19 @@
     "frostSensitive": true
   },
   "seasonality": {
-    "productiveMonths": [5, 6, 7, 8, 9, 10],
-    "dormancyMonths": [12, 1, 2]
+    "productiveMonths": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "dormancyMonths": [
+      12,
+      1,
+      2
+    ]
   },
   "commonIssues": [
     "Frost-tender (USDA zones 10-11); plant outdoors only after all frost danger passes and soil reaches about 16C (60F).",

@@ -1,7 +1,11 @@
 {
   "id": "pyrus-communis",
   "scientificName": "Pyrus communis",
-  "commonNames": ["Pear", "European pear", "Common pear"],
+  "commonNames": [
+    "Pear",
+    "European pear",
+    "Common pear"
+  ],
   "category": "fruit",
   "growthHabit": "tree",
   "requiresSupport": false,
@@ -17,14 +21,18 @@
   "feedingProfile": {
     "baseIntervalDays": 180,
     "fruitingIntervalDays": 180,
-    "containerLeachAdjustment": 14,
     "preferredNpk": "10-10-10"
   },
   "containerProfile": {
     "recommendedMinLiters": 90,
     "idealMinLiters": 90,
     "idealMaxLiters": 125,
-    "soilMixTags": ["loam-based", "well-drained", "peat-free", "John Innes No.3"]
+    "soilMixTags": [
+      "loam-based",
+      "well-drained",
+      "peat-free",
+      "John Innes No.3"
+    ]
   },
   "lightProfile": {
     "targetSunHours": 8,
@@ -37,14 +45,48 @@
   },
   "seasonality": {
     "plantingWindowsByZone": {
-      "4": [{ "startMonth": 4, "endMonth": 5 }],
-      "5": [{ "startMonth": 4, "endMonth": 5 }],
-      "6": [{ "startMonth": 3, "endMonth": 4 }],
-      "7": [{ "startMonth": 2, "endMonth": 4 }],
-      "8": [{ "startMonth": 2, "endMonth": 3 }]
+      "4": [
+        {
+          "startMonth": 4,
+          "endMonth": 5
+        }
+      ],
+      "5": [
+        {
+          "startMonth": 4,
+          "endMonth": 5
+        }
+      ],
+      "6": [
+        {
+          "startMonth": 3,
+          "endMonth": 4
+        }
+      ],
+      "7": [
+        {
+          "startMonth": 2,
+          "endMonth": 4
+        }
+      ],
+      "8": [
+        {
+          "startMonth": 2,
+          "endMonth": 3
+        }
+      ]
     },
-    "productiveMonths": [8, 9, 10, 11],
-    "dormancyMonths": [12, 1, 2]
+    "productiveMonths": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "dormancyMonths": [
+      12,
+      1,
+      2
+    ]
   },
   "commonIssues": [
     "Fire blight is the primary disease threat; avoid excess nitrogen, which increases susceptibility. Prune out diseased limbs at least 15 cm (6 in) below visible infection and disinfect pruners between cuts.",
