@@ -1,0 +1,9 @@
+{
+  "id": "0067-care-basics-domain",
+  "kind": "prompt",
+  "status": "ready",
+  "producer": "planner",
+  "createdUtc": "2026-06-11T16:59:05Z",
+  "sourceFile": "next-implementation-prompt.md",
+  "files": ["PROMPT.md"]
+}

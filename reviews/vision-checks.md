@@ -201,3 +201,13 @@ core-vision items)._
 - 0066 Vision: ALIGNED — data-honest chips over Codex's aspirational Easy/Shade/Sunny judged
   RIGHT (no difficulty data); "Climbers"→"Vines & climbers" suggestion adopted; Column-not-Lazy
   accepted (D-04 YAGNI); ordering seed→picker→icons correct. Ship as-is.
+
+## 0066 verification + 0067-care-basics-domain (2026-06-11)
+- 0066 verified (3243ae7): species picker landed — 7 files, fi 48/48, zero deviations; search
+  tag/filterProfiles/"Vines & climbers" all confirmed in the real tree.
+- 0067 Guardian: PASS — old blocks verbatim; 12 positional call sites safe w/ defaults; :data
+  has direct kotlinx-serialization dep; fake fixture values confirmed; compile-red accepted
+  per 0021/0022 precedent (no runtime-red exists for additive fields).
+- 0067 Vision: ALIGNED — Double? intervals honest (basil 1.5d); part-1/2 split per layered
+  precedent; field set matches the wave2 "plain language" list exactly; adopted the suggested
+  D-09 DISPLAY-ONLY KDoc line pre-publish. Ship as-is.

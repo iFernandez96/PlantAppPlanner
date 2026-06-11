@@ -1,0 +1,37 @@
+# Commands executed for 0066 (in order)
+
+git rev-parse HEAD            # -> 59288c6a51a6569d7d6a7fec361b25897c4f1b58 (matched)
+git status --short            # -> only ?? android/.kotlin/
+git branch --show-current     # -> master
+
+# Step 1 — RED: added ONLY the search UI test (raw "wizard_species_search" tag string)
+#   + androidx.compose.ui.test.performTextInput import to AddPlantWizardTest.kt
+cd android
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest --tests "dev.plantapp.feature.inventory.AddPlantWizardTest"
+# -> FAILED: "species step filters tiles by search text"
+#    could not find any node (TestTag = 'wizard_species_search') — 5 tests, 1 failed
+
+# Step 2 — implementation:
+#   WizardModel.kt       — CATEGORY_ORDER + filterProfiles (verbatim §5a)
+#   DisplayText.kt       — categoryLabel (verbatim §5b)
+#   InventoryTestTags.kt — + WIZARD_SPECIES_SEARCH, WIZARD_CATEGORY_CHIP_PREFIX
+#   AddPlantWizard.kt    — step-1 picker (§5d): 60dp search w/ Search icon + placeholder,
+#                          conditional 40dp/12dp FilterChip row (primaryContainer selected),
+#                          tiles from filterProfiles; + prescribed imports incl. DisplayText
+
+# Step 3 — remaining tests:
+#   AddPlantWizardTest.kt      — + category-chip UI test (2 local fake profiles)
+#   AddPlantWizardModelTest.kt — + 5 filterProfiles tests (+ PlantProfile import)
+#   DisplayTextTest.kt         — + 2 categoryLabel tests
+
+# Step 4 — GREEN:
+GRADLE_USER_HOME=/tmp/plantapp-gradle-home ./gradlew :feature-inventory:testDebugUnitTest :app:assembleDebug
+# -> BUILD SUCCESSFUL; JUnit XML aggregate tests=48 failures+errors=0
+
+cd /home/israel/Documents/Development/PlantApp
+git add android/feature-inventory
+git commit -m "feat(wizard): searchable species picker with category chips for the 75-plant catalog"
+# -> [master 3243ae7] 7 files changed, 202 insertions(+), 14 deletions(-)
+git push origin master        # -> 59288c6..3243ae7
+git rev-parse origin/master   # -> 3243ae7fd756985a6a9ac45e9e5c2de4b5c22aac
+git status --short            # -> only ?? android/.kotlin/

@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| **Snapshot** | 2026-06-11 (eve) — **W2 catalog seeding: 0059–0063 ALL landed+verified (friendly errors `1a5dede` · houseplant enum `22067b6` · grants fix `65dece9` · batch1 `5f5b8e5` · batch2 `4b7b9ad` = 38 profiles live). batch3 `d4956bb` + batch4 `59288c6` landed — **75/75 CATALOG LIVE, all cited, houseplant=9**; 0066 species picker PUBLISHED (watcher armed). PD-16 strip-don't-invent (13 leach values). Exchange now supports checksummed attachments. NEXT after 0065: 0066 species picker (search + data-backed category chips in AddPlantWizardModel — grounded), then PD-15 icons. Device checks QUEUED until wireless debugging returns (APK staged; DB resets wiped test account — Mailpit re-sign-in needed).** |
+| **Snapshot** | 2026-06-11 (eve) — **W2 catalog seeding: 0059–0063 ALL landed+verified (friendly errors `1a5dede` · houseplant enum `22067b6` · grants fix `65dece9` · batch1 `5f5b8e5` · batch2 `4b7b9ad` = 38 profiles live). batch3 `d4956bb` + batch4 `59288c6` landed — **75/75 CATALOG LIVE, all cited, houseplant=9**; 0066 picker `3243ae7` landed; 0067 care-basics domain PUBLISHED (watcher armed; 0068 detail UI card next). PD-16 strip-don't-invent (13 leach values). Exchange now supports checksummed attachments. NEXT after 0065: 0066 species picker (search + data-backed category chips in AddPlantWizardModel — grounded), then PD-15 icons. Device checks QUEUED until wireless debugging returns (APK staged; DB resets wiped test account — Mailpit re-sign-in needed).** |
 | **PlantApp path** | `/home/israel/Documents/Development/PlantApp` |
 | **Branch / default** | `master` |
-| **Local HEAD / origin/master** | `59288c6a51a6569d7d6a7fec361b25897c4f1b58` (`59288c6`, 0065) — in sync, clean (untracked `android/.kotlin/` only) |
+| **Local HEAD / origin/master** | `3243ae7fd756985a6a9ac45e9e5c2de4b5c22aac` (`3243ae7`, 0066) — in sync, clean (untracked `android/.kotlin/` only) |
 
 ## 🎉 Slice 1 complete (engineering) — #1–#24 green
 - **Backend:** schema tests (#1–#6) · deterministic care-engine (#7–#14) · seed catalog ·
