@@ -128,3 +128,11 @@ core-vision items)._
   clean; privacy IMPROVED (raw e.message/LAN-IP leak removed from sign-in UI);
   "6-digit code" grounded in supabase/config.toml otp_length=6; Fraunces via type
   scale only; GlassCard consumed as-is. Ship as-is.
+
+## 0059-friendly-errors (2026-06-11)
+- Guardian: PASS — all 6 e.message sites + 2 screen prefixes verified verbatim vs 4517f44;
+  red test compiles on baseline (MutablePlantsRepo/reminderSync confirmed); no test pins any
+  removed string; wizard error-card test passes "boom" directly (unaffected); SignIn untouched.
+- Vision: ALIGNED — exact PD-13 scope; all 7 new strings beginner-clean ("pot"/"space" match
+  existing app vocabulary); privacy improved (LAN-IP leak removed everywhere); deferred
+  wizard/detail routing judged better-than-status-quo, no escalation. Ship as-is.
