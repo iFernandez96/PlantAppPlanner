@@ -171,3 +171,11 @@ core-vision items)._
 - Vision: ALIGNED — identical approved 0062 pattern + a net-new enrichment-guard test;
   citations spot-verified (RHS/UW/Illinois/TAMU rosemary; UMN/RHS/Clemson/UMD blueberry).
   Ship as-is.
+
+## 0064-catalog-batch3 (2026-06-11)
+- Guardian: PASS — 15 tuples match BATCH3_IDS; passion fruit + tomatillo v2 'fruit';
+  tomatillo requires_support=true + pollination_partners_required=2 preserved through the
+  upsert SET list; leach values in (0,1]; arithmetic 38→51, 45→48 sound.
+- Vision: ALIGNED — tomatillo pollination round-trip verified (SQL + JSON + test assert);
+  citations spot-verified (citrus: RHS/Clemson/UF-IFAS et al; aloe: multi-institution).
+  Ship as-is.

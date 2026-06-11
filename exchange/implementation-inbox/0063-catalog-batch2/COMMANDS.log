@@ -1,0 +1,35 @@
+# Commands executed for 0063 (in order)
+
+git rev-parse HEAD                 # -> 5f5b8e5f644d7f352ccfb8b39654b1e76f30935d (matched)
+git status --short                 # -> only ?? android/.kotlin/
+git branch --show-current          # -> master
+sha256sum -c SHA256SUMS (in planner-outbox/0063-catalog-batch2)
+# -> PROMPT.md: OK / batch2_herbs_berries.sql: OK / MANIFEST.json: OK
+# Sanity skim: 20 data rows, single upsert, no DDL/grant/delete.
+
+# Step 1 — test edits (w2-catalog.integration.test.ts):
+#   EXPECTED_PROFILE_COUNT 20 -> 38; + BATCH2_IDS; + batch-2 describe block (verbatim §5b)
+
+# Step 2 — RED:
+npx supabase db reset              # applies 0001–0007 only
+cd backend; set -a; eval "$(npx supabase status -o env)"; set +a
+npm run test:int
+# -> 4 failed | 41 passed (45): count 20≠38 + the 3 new batch-2 tests; no regressions
+
+# Step 3 — migration:
+cp …/0063-catalog-batch2/batch2_herbs_berries.sql supabase/migrations/0008_w2_catalog_batch2_herbs_berries.sql
+sha256sum both -> identical (a3250d3729c9b08b7bfb7c208724a1fa012c4a46371d9f1f1d9b5dba86496401)
+npx supabase db reset
+# -> "Applying migration 0008_w2_catalog_batch2_herbs_berries.sql..." / Finished
+
+# Step 4 — GREEN:
+npm run test:int                   # -> 45 passed (45)
+npm test                           # -> 73 passed (73)
+# Spot-proof: fragaria-x-ananassa citations=5 v2; salvia-rosmarinus citations=10 v1; total 38
+
+git add supabase/migrations/0008_w2_catalog_batch2_herbs_berries.sql backend/tests/integration/w2-catalog.integration.test.ts
+git commit -m "feat(catalog): seed W2 batch 2/4 — 20 cited herb and berry profiles"
+# -> [master 4b7b9ad] 2 files changed, 83 insertions(+), 1 deletion(-)
+git push origin master             # -> 5f5b8e5..4b7b9ad
+git rev-parse origin/master        # -> 4b7b9ad944e84bb10f43cee8d2317b2a17f4ebf5
+git status --short                 # -> only ?? android/.kotlin/
