@@ -15,9 +15,11 @@ LOCKS="$EXCHANGE/locks"
 
 die() { echo "ERROR: $*" >&2; exit 1; }
 
-[ "$#" -eq 2 ] || die "usage: $(basename "$0") <handoff-id> <prompt-file.md>"
+[ "$#" -ge 2 ] || die "usage: $(basename "$0") <handoff-id> <prompt-file.md> [attachment ...]"
 ID="$1"
 SRC="$2"
+shift 2
+ATTACHMENTS=("$@")
 
 echo "$ID" | grep -Eq '^[A-Za-z0-9._-]+$' || die "invalid handoff-id '$ID' (allowed: A-Za-z0-9._-)"
 [ -f "$SRC" ] || die "prompt file not found: $SRC"
@@ -28,6 +30,14 @@ SRC_ABS="$(cd "$(dirname "$SRC")" && pwd)/$(basename "$SRC")"
 case "$SRC_ABS" in
   */PlantApp/*) die "refusing to read from the PlantApp app repo: $SRC_ABS" ;;
 esac
+for A in "${ATTACHMENTS[@]+"${ATTACHMENTS[@]}"}"; do
+  [ -f "$A" ] || die "attachment not found: $A"
+  A_ABS="$(cd "$(dirname "$A")" && pwd)/$(basename "$A")"
+  case "$A_ABS" in
+    */PlantApp/*) die "refusing to read from the PlantApp app repo: $A_ABS" ;;
+  esac
+  [ "$(basename "$A")" != "PROMPT.md" ] || die "attachment may not be named PROMPT.md"
+done
 
 DEST="$OUTBOX/$ID"
 STAGE="$WRITING/$ID"
@@ -43,6 +53,16 @@ NOW="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 mkdir -p "$STAGE"
 cp "$SRC" "$STAGE/PROMPT.md"
 
+CONTENT_FILES=("PROMPT.md")
+FILES_JSON='"PROMPT.md"'
+for A in "${ATTACHMENTS[@]+"${ATTACHMENTS[@]}"}"; do
+  BN="$(basename "$A")"
+  [ ! -e "$STAGE/$BN" ] || die "duplicate attachment name: $BN"
+  cp "$A" "$STAGE/$BN"
+  CONTENT_FILES+=("$BN")
+  FILES_JSON="$FILES_JSON, \"$BN\""
+done
+
 cat > "$STAGE/MANIFEST.json" <<EOF
 {
   "id": "$ID",
@@ -51,12 +71,12 @@ cat > "$STAGE/MANIFEST.json" <<EOF
   "producer": "planner",
   "createdUtc": "$NOW",
   "sourceFile": "$(basename "$SRC")",
-  "files": ["PROMPT.md"]
+  "files": [$FILES_JSON]
 }
 EOF
 
 # Checksums over content files. READY.json is the completion marker, not content.
-( cd "$STAGE" && sha256sum PROMPT.md MANIFEST.json > SHA256SUMS )
+( cd "$STAGE" && sha256sum "${CONTENT_FILES[@]}" MANIFEST.json > SHA256SUMS )
 
 # READY.json LAST, inside .writing; presence (after the atomic mv) == readable.
 cat > "$STAGE/READY.json" <<EOF
