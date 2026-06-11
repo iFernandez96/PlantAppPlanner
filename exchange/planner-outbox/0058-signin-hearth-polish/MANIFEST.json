@@ -1,0 +1,9 @@
+{
+  "id": "0058-signin-hearth-polish",
+  "kind": "prompt",
+  "status": "ready",
+  "producer": "planner",
+  "createdUtc": "2026-06-11T15:12:30Z",
+  "sourceFile": "next-implementation-prompt.md",
+  "files": ["PROMPT.md"]
+}

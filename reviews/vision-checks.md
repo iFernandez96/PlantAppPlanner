@@ -119,3 +119,12 @@ core-vision items)._
 ## 0057 — sign-in fallback on SessionExpiredException, part 3/3 (2026-06-10)
 - **Guardian:** PASS — every claim verified live at 738fb9c (incl. :domain:test JVM task note).
 - **Vision:** ALIGNED — auth hygiene prerequisite for real-world use; no feature pull-forward.
+
+## 0058-signin-hearth-polish (2026-06-11)
+- Guardian: PASS (all 10 sections; live spot-checks vs 4b3910c all match; named-args
+  safety for the inserted `busy` param confirmed across MainActivity + both test files;
+  no other test asserts the changed strings).
+- Vision: ALIGNED — W1-remainder sign-in polish per wave2 plan; beginner-first copy
+  clean; privacy IMPROVED (raw e.message/LAN-IP leak removed from sign-in UI);
+  "6-digit code" grounded in supabase/config.toml otp_length=6; Fraunces via type
+  scale only; GlassCard consumed as-is. Ship as-is.
